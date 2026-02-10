@@ -1,0 +1,13 @@
+# FreeBSD Release Notes – auto collected candidates
+# Branch: stable/14
+# Range: 14.3-RELEASE .. stable/14
+# Generated: 2026-02-10T12:40:00Z
+
+[commit 3965be101c43]
+Date: 2026-01-28
+Score: 5
+Subject: Relnotes: convert PF_DEFAULT_TO_DROP into vnet tunable
+Body:
+  This change allows administrators to change the default
+  packet filter behavior without recompiling the kernel.
+

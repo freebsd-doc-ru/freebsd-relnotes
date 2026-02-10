@@ -1,0 +1,28 @@
+Section,Anchor,Title
+Security.advisories,security,Security Advisories
+Security.errata,errata,Errata Notices
+
+Userland.config,userland-config,Userland Configuration Changes
+Userland.programs,userland-programs,Userland Application Changes
+Userland.contrib,userland-contrib,Contributed Software
+Userland.deprecated,userland-deprecated-programs,Deprecated Applications
+Userland.libraries,userland-libraries,Runtime Libraries and API
+
+Kernel.general,kernel-general,General Kernel Changes
+
+Drivers.device,drivers-device,Device Drivers
+Drivers.deprecated,drivers-removals,Deprecated and Removed Drivers
+
+Storage.general,storage-general,General Storage
+
+Bootloader.general,boot-loader,Boot Loader Changes
+
+Network.general,network-general,General Network
+Network.wireless,wireless-networking,Wireless Networking
+
+Hardware.virtualization,hardware-virtualization,Virtualization Support
+
+Docs.manpages,man-pages,Man Pages
+
+Ports.general,ports,Ports Collection and Package Infrastructure
+Ports.packaging,ports-packages,Packaging Changes
