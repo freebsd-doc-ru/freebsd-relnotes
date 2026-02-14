@@ -170,6 +170,9 @@ This section describes changes that affect networking in FreeBSD.
 [[network-general]]
 === General Network
 
+[[wireless-networking]]
+=== Wireless Networking
+
 [[hardware]]
 == Hardware Support
 
