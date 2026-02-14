@@ -10,6 +10,8 @@ use strict;
 use warnings;
 
 use Exporter 'import';
+use Relnotes::Util   qw(extract_sponsor_from_subject);
+
 our @EXPORT_OK = qw(read_commit);
 
 sub read_commit {
@@ -18,7 +20,7 @@ sub read_commit {
     my $src  = $args{src}  or die "read_commit: src is required";
     my $hash = $args{hash} or die "read_commit: hash is required";
 
-    my $cmd = qq(git -C $src show -s  --date=short --format=%H%x00%ad%x00%B  $hash);
+    my $cmd = qq(git -C $src show -s --stat --date=short --format=%H%x00%ad%x00%B  $hash);
 
     open my $fh, '-|', $cmd
         or die "Cannot run git show for $hash\n";
@@ -38,11 +40,14 @@ sub read_commit {
 
     my ($subject, @body) = split /\n/, $msg;
     my $body = join "\n", @body;
+    my ($sponsor, $clean_subject)
+        = extract_sponsor_from_subject($body);
 
     return {
         commit  => $h,
         Date    => $date,
         Subject => $subject,
+        Sponsor => $sponsor,
         Body    => $body,
     };
 }

@@ -26,6 +26,7 @@ my $dry_run = 0;
 my $write   = 0;
 my $help    = 0;
 
+my %to_mark_added;
 
 GetOptions(
     'release-dir=s' => \$release_dir,
@@ -76,9 +77,13 @@ my @records = Relnotes::Store::read_file($stage2_file);
     my $h = $_->{Commit};
     for my $seen (keys %$already_included) {
         if (hash_matches($h, $seen)) {
-            print "Skipping already documented commit $h (matches $seen)\n";
+            print "Commit $h already in relnotes.adoc → mark as added\n";
+            $to_mark_added{$h} = 1;
             $retvalue = 0;
             last;
+            #print "Skipping already documented commit $h (matches $seen)\n";
+            #$retvalue = 0;
+            #last;
         }
     }
 
@@ -240,6 +245,31 @@ if ($write) {
     close $out;
 
     print "relnotes.adoc updated successfully\n";
+}
+
+if ($write && %to_mark_added) {
+
+    print "Updating status to 'added' in relnotes_stage2.txt\n";
+
+    my @all = Relnotes::Store::read_file($stage2_file);
+
+    for my $r (@all) {
+        next unless ($r->{Status} // '') eq 'accepted';
+
+        for my $h (keys %to_mark_added) {
+            if (hash_matches($r->{Commit}, $h)) {
+                $r->{Status} = 'added';
+                last;
+            }
+        }
+    }
+
+    Relnotes::Store::write_file(
+        $stage2_file,
+        \@all
+    );
+
+    print "relnotes_stage2.txt updated successfully\n";
 }
 
 exit 0;

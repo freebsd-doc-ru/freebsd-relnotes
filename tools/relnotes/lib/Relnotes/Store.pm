@@ -49,23 +49,35 @@ sub read_file {
             next;
         }
 
-        if ($line =~ /^Subject:\s*(.+)$/) {
+        if ($line =~ /^Subject:\s*(.*)$/) {
             $current->{Subject} = $1;
             next;
         }
 
-        if ($line =~ /^Status:\s*(.+)$/) {
+        if ($line =~ /^Status:\s*(.*)$/) {
             $current->{Status} = $1;
             next;
         }
 
-        if ($line =~ /^Sponsor:\s*(.+)$/) {
-            $current->{Sponsor} = $1;
+        if ($line =~ /^Sponsor:\s*(.*)$/) {
+            my $s = $1;
+
+            if (exists $current->{Sponsor} && defined $current->{Sponsor} && $current->{Sponsor} ne '') {
+                $current->{Sponsor} .= " | $s";
+            } else {
+                $current->{Sponsor} = $s;
+            }
+
             next;
         }
 
-        if ($line =~ /^Section:\s*(.+)$/) {
+        if ($line =~ /^Section:\s*(.*)$/) {
             $current->{Section} = $1;
+            next;
+        }
+
+        if ($line =~ /^Review:\s*(.*)$/) {
+            $current->{Review} = $1;
             next;
         }
 
@@ -111,9 +123,8 @@ sub append_file {
         print $fh "Status: $h->{Status}\n" if defined $h->{Status};
         print $fh "Sponsor: $h->{Sponsor}\n" if defined $h->{Sponsor};
         print $fh "Section: $h->{Section}\n" if defined $h->{Section};
-
-        print $fh "Subject: $h->{Subject}\n"
-            if defined $h->{Subject};
+        print $fh "Subject: $h->{Subject}\n" if defined $h->{Subject};
+        print $fh "Review: $h->{Review}\n" if defined $h->{Review};
 
         print $fh "Body:\n";
         if (defined $h->{Body}) {
@@ -126,6 +137,48 @@ sub append_file {
     }
 
     close $fh;
+}
+
+sub write_file {
+    my ($path, $records) = @_;
+
+    die "write_file(): records must be ARRAY ref"
+        unless ref $records eq 'ARRAY';
+
+    open my $fh, '>', $path
+        or die "Cannot write $path: $!";
+
+    for my $r (@$records) {
+
+        print $fh "[commit $r->{Commit}]\n";
+
+        # фиксированный порядок полей — ВАЖНО
+        for my $field (qw(
+            Date
+            Score
+            Status
+            Sponsor
+            Section
+            Subject
+            Review
+        )) {
+            next unless exists $r->{$field};
+            next unless defined $r->{$field};
+
+            print $fh "$field: $r->{$field}\n";
+        }
+
+        if (defined $r->{Body} && $r->{Body} ne '') {
+            for my $line (split /\n/, $r->{Body}) {
+                print $fh "$line\n";
+            }
+        }
+
+        print $fh "\n";
+    }
+
+    close $fh;
+    return 1;
 }
 
 1;

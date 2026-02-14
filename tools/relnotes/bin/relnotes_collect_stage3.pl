@@ -40,7 +40,7 @@ die "--src, --from, --to, --release-dir are required\n"
 # Paths
 # ------------------------------------------------------------
 
-my $stage1 = "$release_dir/relnotes_stage1.txt";
+my $stage1 = "$release_dir/relnotes_stage3.txt";
 
 # ------------------------------------------------------------
 # Load existing entries (if any)
@@ -59,7 +59,7 @@ if (-f $stage1) {
 my $range = "$from..$to";
 
 my $cmd = qq(
-    git -C $src log --grep Relnotes: --format=%H $range
+    git -C $src log --grep '[Dd]eprec' --format=%H $range
 );
 
 #print $cmd;

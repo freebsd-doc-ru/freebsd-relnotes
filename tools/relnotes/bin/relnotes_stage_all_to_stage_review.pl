@@ -30,11 +30,11 @@ die usage() unless $release_dir;
 # Resolve paths
 
 my $stage1_file = File::Spec->catfile(
-    $release_dir, 'relnotes_stage1.txt'
+    $release_dir, 'relnotes_stage_all.txt'
 );
 
 my $stage2_file = File::Spec->catfile(
-    $release_dir, 'relnotes_stage2.txt'
+    $release_dir, 'relnotes_stage_review.txt'
 );
 
 die "Stage1 file not found: $stage1_file\n"
@@ -68,7 +68,7 @@ for my $e (@stage1) {
         $e->{Subject},
         ($e->{Body} // '');
 
-    my $review = Relnotes::Review::manual_check_stub($full_text, 1);
+    my $review = Relnotes::Review::manual_check_stub($full_text, 0);
 
     my %out = %$e;
 

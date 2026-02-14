@@ -31,13 +31,17 @@ sub extract_sponsor_from_subject {
 
     return ('', $subject) unless defined $subject;
 
-    if ($subject =~ s/\s*[\[(]?SSponsored by:\s+([^\]\)]+)[\])]?//i) {
-        my $sponsor = $1;
-        $sponsor =~ s/\s+$//;
-        return ($sponsor, $subject);
+    my @sponsors;
+
+    while ($subject =~ /\bSponsored by:\s+([^\n]+)\s*/ig) {
+        my $s = $1;
+        $s =~ s/\s+$//;
+        push @sponsors, $s if length $s;
     }
 
-    return ('', $subject);
+    my $joined = join(' | ', @sponsors);
+
+    return ($joined, $subject);
 }
 
 1;
