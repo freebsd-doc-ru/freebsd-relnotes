@@ -1,0 +1,703 @@
+[commit 5c6949e12ee6143505a200b37f2d0bbaf2611656]
+Date: 2026-02-02
+Score: 5
+Status: accepted(include=yes,score=85)
+Sponsor:
+Section: Kernel.general
+Subject: kern: disallow user scheduling/debugging/signalling of jailed procs
+Review: The jail(8) system now restricts unprivileged users in a parent jail from scheduling, debugging, or signaling processes in subordinate jails by default. New privileges PRIV_SCHED_DIFFJAIL, PRIV_DEBUG_DIFFJAIL, and PRIV_SIGNAL_DIFFJAIL are required for such cross-jail operations. A new jail parameter allow.unprivileged_parent_tampering is introduced for backward compatibility in FreeBSD 14.x, but will be disabled by default in FreeBSD 15.x, affecting development setups that rely on cross-jail process management.
+Body:
+
+  Currently, jails are generally ignored when determining whether the
+  current process/thread can take action upon another, except to determine
+  if the target's jail is somewhere in the source's hierarchy. Notably,
+  uid 1001 in a jail (including prison0) can take action upon a process
+  run by uid 1001 inside of a subordinate jail by default.
+
+  While this could be considered a feature at times, it is a scenario
+  that really should be deliberately crafted; there is no guarantee that
+  uid 1001 in the parent jail is at all related to uid 1001 in a
+  subordinate.
+
+  This changes introduces three new privileges that grant a process
+  this kind of insight into other jails:
+
+  - PRIV_DEBUG_DIFFJAIL
+  - PRIV_SCHED_DIFFJAIl
+  - PRIV_SIGNAL_DIFFJAIL
+
+  These can be granted independently or in conjunction with the
+  accompanying *_DIFFCRED privileges, i.e.:
+
+  - PRIV_DEBUG_DIFFCRED alone will let uid 1001 debug uid 1002, but
+    PRIV_DEBUG_DIFFJAIL is additionally needed to let it debug uid 1002
+    in a jail.
+
+  - PRIV_DEBUG_DIFFJAIL alone will let uid 1001 debug uid 1001 in a jail,
+    but will not allow it to debug uid 1002 in a jail.
+
+  Note that security.bsd.see_jail_proc can be used for similar effects,
+  but does not prevent a user from learning the pid of a jailed process
+  with matching creds and signalling it or rescheduling it (e.g., cpuset).
+  Debugging is restricted by visibility in all cases, so that one is less
+  of a concern.
+
+  This change adds a new jail(8) parameter for the parent to indicate on
+  a per-jail basis if its users are open to being tampered with by the
+  parent's unprivileged users: allow.unprivileged_parent_tampering.  This
+  is enabled by default in 14.x, but may be disabled to honor the new
+  priv(9) checks for earlier testing of the new behavior in FreeBSD 15.x.
+
+  Development setups that involve regularly debugging jailed processes
+  from outside the jail, will want to consider adding a default
+  `allow.unprivileged_parent_tampering;` to your /etc/jail.conf before
+  transitioning to 15.x.
+
+  Reviewed by:	jamie
+  Relnotes:	yes (added, off by default)
+
+  (cherry picked from commit 8a5ceebece0311bc41180b3ca0ce7237def1e253)
+  (cherry picked from commit bd21c672a868f039edb109b73757ad560252ca0f)
+
+
+   sys/kern/kern_jail.c | 13 +++++++++++-
+   sys/kern/kern_prot.c | 56 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+   sys/sys/jail.h       |  7 +++++--
+   sys/sys/priv.h       |  3 +++
+   usr.sbin/jail/jail.8 |  8 +++++++-
+   5 files changed, 83 insertions(+), 4 deletions(-)
+
+[commit 04911babef1b22cb4ff9cff08a34ec1e6bf80d45]
+Date: 2025-08-29
+Score: 5
+Status: accepted(include=yes,score=75)
+Sponsor:
+Section: Userland.programs
+Subject: netgraph: teach ngctl to attach and run itself in a jail
+Review: The man:ngctl[8] utility gains a -j flag to attach and run inside a jail, allowing manipulation of netgraph nodes from within a jail environment. This enables administrators to manage netgraph configurations in jails where ngctl may not be directly available.
+Body:
+
+  Add -j <jail> flag to ngctl to allow ngctl to attach and run inside
+  a jail. This allow parent to manipulate netgraph nodes in the jail
+  even if ngctl is not available.
+
+  Submitted by:	David Marker <dave_freedave.net>
+  Reviewed by:	kevans, zlei, jamie
+  Relnotes:	yes
+  Differential Revision:	https://reviews.freebsd.org/D50241
+
+  (cherry picked from commit 72d01e62b082de39ecf1ff3ced67dcf7259e5084)
+
+  ngctl: Fix build without JAIL
+
+  Reported by:	Michael Dexter
+  Fixes:		72d01e62b082 netgraph: teach ngctl to attach and run itself in a jail
+  MFC after:	1 day
+
+  (cherry picked from commit 685e60e860d61f6e1bcf981f5c30647e0c025702)
+  (cherry picked from commit ab7858d90eba6d8b5829ad974da91ee30dcf92f4)
+
+
+   usr.sbin/ngctl/Makefile |  5 +++++
+   usr.sbin/ngctl/main.c   | 45 +++++++++++++++++++++++++++++++++++++++------
+   usr.sbin/ngctl/ngctl.8  | 25 +++++++++++++++++++++++--
+   3 files changed, 67 insertions(+), 8 deletions(-)
+
+[commit 666599639cf6bd1c4ae1ff4adad8150a44d7a8d4]
+Date: 2026-01-03
+Score: 5
+Status: accepted(include=yes,score=75)
+Sponsor:
+Section: Kernel.general
+Subject: powerpc: put the isync inside the TD_LOCK() checking loop
+Review: The change fixes a race condition in the powerpc context switch code that could cause the system to hang after starting all APs, particularly in qemu-system-ppc64 power9 pseries guests.
+Body:
+
+  Fix a narrow window where the lock is unlocked but the checking CPU
+  hasn't flushed things appropriately.
+
+  Inside this window the CPU inside cpu_switch() will loop forever thinking
+  the destination thread is still blocked/locked even though it is not.
+
+  This manifests as the system hanging after starting all APs.
+
+  I've seen this reliably trigger in qemu-system-ppc64 running power9 pseries
+  guests; the more CPUs the more likely it triggers at boot.
+
+  PR: kern/292167
+  Differential Revision:	https://reviews.freebsd.org/D54478
+  Reviewed by:	jhibbits
+  MFC after:	1 week
+  Relnotes:	yes
+
+  (cherry picked from commit 8df2e542146801fd01675e56724eaa567d04c209)
+
+
+   sys/powerpc/powerpc/swtch32.S | 2 +-
+   sys/powerpc/powerpc/swtch64.S | 2 +-
+   2 files changed, 2 insertions(+), 2 deletions(-)
+
+[commit 57865e505aef2dafb548039619de5d5322dd7157]
+Date: 2025-10-24
+Score: 5
+Status: accepted(include=yes,score=45)
+Sponsor: The FreeBSD Foundation
+Section: Network.general
+Subject: ipfw: Retire obsolete compat code
+Review: Removes obsolete compatibility code for IPFW versions prior to FreeBSD 8, simplifying the codebase. This may affect users or third-party modules that still rely on the old compatibility interfaces.
+Body:
+
+  The current IPFW version 3 dates to 2010 (commit cc4d3c30ea28, "Bring in
+  the most recent version of ipfw and dummynet, developed").
+
+  The compat code for FreeBSD 8 and earlier has a number of issues and is
+  no longer needed, so remove it.
+
+  Reported by:	Ilja Van Sprundel <ivansprundel@ioactive.com>
+  Reviewed by:	ae, glebius
+  Relnotes:	Yes
+  Sponsored by:	The FreeBSD Foundation
+  Differential Revision: https://reviews.freebsd.org/D53343
+
+  (cherry picked from commit c59aab9a5b3970b3ccec744f759e6cb87e938dbe)
+  (cherry picked from commit 9657c50cdd7741404d99881fdd9243175086ede1)
+
+
+   sys/conf/files                   |   1 -
+   sys/modules/dummynet/Makefile    |   3 +-
+   sys/netinet/raw_ip.c             |   4 -
+   sys/netpfil/ipfw/ip_dn_glue.c    | 849 ---------------------------------------
+   sys/netpfil/ipfw/ip_dn_private.h |  10 +-
+   sys/netpfil/ipfw/ip_dummynet.c   |  96 ++---
+   6 files changed, 29 insertions(+), 934 deletions(-)
+
+[commit 23cda744e4dae48ee3857f33158e30d241868d2a]
+Date: 2025-10-23
+Score: 5
+Status: accepted(include=yes,score=65)
+Sponsor:
+Section: Userland.programs
+Subject: sockstat: add support for UDP-Lite endpoints
+Review: The man:sockstat[1] utility now displays UDP-Lite endpoints by default, providing visibility into these sockets alongside other network connections.
+Body:
+
+  With this patch UDP-Lite endpoints are also show per default.
+
+  Reviewed by:		Peter Lei, Nick Banks
+  Relnotes:		yes
+  Differential Revision:	https://reviews.freebsd.org/D53230
+
+  (cherry picked from commit f48c6390dd5a01ab2b33f26ee50f4e8cbe8ae737)
+
+
+   usr.bin/sockstat/sockstat.c | 12 +++++++++---
+   1 file changed, 9 insertions(+), 3 deletions(-)
+
+[commit af51f41346ad885e1ffe0d14b325c88cc65ac0cc]
+Date: 2025-09-04
+Score: 5
+Status: accepted(include=yes,score=85)
+Sponsor: Intel Corporation
+Section: Drivers.device
+Subject: qat: enable qat driver for 402xx device
+Review: The qat(4) driver now supports the 402xx device (IDs 0x4944/0x4945) under the existing qat_4xxx driver, and adds required firmware files.
+Body:
+
+  Enabled qat driver support for 402xx device with
+  ID 0x4944/0x4945. This is an additional device supported
+  under the existing qat_4xxx driver. Firmwares specific to
+  the 402xx device are added.
+
+  Signed-off-by: Hareshx Sankar Raj <hareshx.sankar.raj@intel.com>
+
+  Relnotes:	yes
+  Sponsored by:	Intel Corporation
+  MFC after:	1 month
+  Differential Revision:	https://reviews.freebsd.org/D52488
+
+  (cherry picked from commit 7fbd362c091b2b384d14c3ed5af9234bb2eff9c2)
+
+
+   sys/contrib/dev/qat/qat_402xx.bin              | Bin 0 -> 665360 bytes
+   sys/contrib/dev/qat/qat_402xx_mmp.bin          | Bin 0 -> 150084 bytes
+   sys/dev/qat/include/common/adf_accel_devices.h |   4 ++
+   sys/dev/qat/qat_api/include/icp_sal_versions.h |   2 +-
+   sys/dev/qat/qat_common/qat_uclo.c              |   1 +
+   sys/dev/qat/qat_hw/qat_4xxx/adf_4xxx_hw_data.c |  58 +++++++++++++++++++------
+   sys/dev/qat/qat_hw/qat_4xxx/adf_4xxx_hw_data.h |   6 +++
+   sys/dev/qat/qat_hw/qat_4xxx/adf_drv.c          |  15 ++++---
+   sys/dev/qat/qat_hw/qat_4xxxvf/adf_drv.c        |  15 ++++---
+   sys/modules/qatfw/qat_4xxx/Makefile            |   5 ++-
+   10 files changed, 78 insertions(+), 28 deletions(-)
+
+[commit 58f55afb301ba781f87991b0298a6a6545771376]
+Date: 2025-09-25
+Score: 5
+Status: accepted(include=yes,score=85)
+Sponsor: The FreeBSD Foundation | Google LLC (GSoC 2025)
+Section: Userland.programs
+Subject: mdo(1): Add support and shortcuts for fully specifying users and groups
+Review: man:mdo(1) adds new options to control user and group IDs in launched processes, including -k to keep current users, -g and -G to set primary and supplementary groups, -s to amend supplementary groups, and --euid/--ruid/--svuid/--egid/--rgid/--svgid to override specific IDs. This provides finer-grained control over process credentials while maintaining compatibility with existing behavior.
+Body:
+
+  While preserving compatibility ('root' implied if no user is specified,
+  option '-i' not setting groups), introduce options to control finely
+  which user and group IDs are set in the launched process.
+
+  To minimize the risks of user error, mdo(1) by default enforces that all
+  user and group IDs are specified, either with explicit values from the
+  command-line or, if a known user name is passed with '-u', from the
+  corresponding content of the password and group databases.  The other
+  main type of use cases is to start from the current process'
+  credentials, only amending part of them.  It is now also possible to
+  blend both approaches, where some parts must be specified and the others
+  can just be amended or left as is.
+
+  Options:
+
+  * As before:
+  -u: Specifies a user name or ID to change all user IDs to.  If a known
+      name is passed, also automatically sets all groups as per the
+      password and group databases.
+  -i: Starts from the current groups, instead of having to specify them
+      by using '-u' with a known user name or explicitly.
+
+  * New:
+  -k: Starts from the current users (incompatible with '-u').  Implies '-i'.
+  -g: Sets/overrides the primary group IDs with the passed group name or ID.
+  -G: Sets/overrides the supplementary groups set with the passed list of
+      comma-separated names or IDs.
+  -s: Amend the supplementary groups set according to the list of
+      comma-separated directives from the following:
+      - @: Empties the set.  Must be the first directive.  Incompatible with '-G'.
+      - +<group>: Add a group to the set.
+      - -<group>: Remove a group from the set.  Takes precedence over +<group>.
+  --euid: Overrides the effective user ID.
+  --ruid: Overrides the real user ID.
+  --svuid: Overrides the saved user ID.
+  --egid: Overrides the effective group ID.
+  --rgid: Overrides the real group ID.
+  --svgid: Overrides the saved group ID.
+
+  Option '-k' was introduced as a requirement to be explicit when one
+  wants to keep the current user(s) instead of specifying new ones.  This
+  is both for the purpose of avoiding foot-shooting and preserving the
+  possibility to omit '-u' to switch to 'root'.  In order to avoid
+  confusion, if any user or group overrides are specified, mdo(1) however
+  enforces that either '-u' or '-k' has been specified (so, in practice,
+  '-u root' is implied only in the absence of any other options except
+  '-i').
+
+  Some base supplementary groups set is needed when '-s' is used without
+  directive '@'.  It can be an explicit one specified with '-G',
+  effectively meaning that '-G' is processed before '-s'.  Else, it is
+  determined from the password/group database (see initgroups(3)) if '-u'
+  with a user name was passed, or is simply the current set if '-i' (or
+  '-k') was specified.  Other cases require specifying the full set (using
+  '-G' or '-s' with '@'), and will fail otherwise.
+
+  As the release process for 15.0 is progressing, this is committed in
+  advance of the still-in-progress tests and manual page updates.
+
+  Note for MFC to stable/14: As initgroups() has its old behavior,
+  consistently with it, remove the effective GID from being passed also as
+  a supplementary group.
+
+  Reviewed by:    bapt
+  MFC after:      3 days
+  Relnotes:       yes
+  Event:          EuroBSDCon 2025
+  Sponsored by:   The FreeBSD Foundation
+  Sponsored by:   Google LLC (GSoC 2025)
+  Co-authored-by: Kushagra Srivastava <kushagra1403@gmail.com>
+  Differential Revision:  https://reviews.freebsd.org/D52613
+
+  (cherry picked from commit 3ca1e69028acdee30739c0e0856692395a36fd21)
+
+
+   usr.bin/mdo/mdo.c | 857 +++++++++++++++++++++++++++++++++++++++++++++++++++---
+   1 file changed, 816 insertions(+), 41 deletions(-)
+
+[commit 220584471931fef807a6f59ce0397cfd6ac0f6fe]
+Date: 2025-06-24
+Score: 5
+Status: accepted(include=yes,score=75)
+Sponsor: The FreeBSD Foundation
+Section: Userland.programs
+Subject: bsdinstall: Remove support for ZFS + MBR disk layouts
+Review: The man:bsdinstall[8] installer no longer supports ZFS installations using MBR disk layouts. This removes a previously broken option that could cause installation failures.
+Body:
+
+  It hasn't worked for some time -- as reported in review D40816
+  "Installing FreeBSD with Auto ZFS + MBR has been broken ever since the
+  move to OpenZFS with FreeBSD 13."  It relied on the partition table and
+  ZFS data overlapping in a very fragile way and is not a good idea.
+
+  Reviewed by:	jhb
+  Relnotes:	Yes
+  Sponsored by:	The FreeBSD Foundation
+  Differential Revision: https://reviews.freebsd.org/D51028
+
+  (cherry picked from commit ee110941e35c4354baa2e5b6fd64d3025cff4b7e)
+
+
+   usr.sbin/bsdinstall/scripts/zfsboot | 141 ++----------------------------------
+   1 file changed, 8 insertions(+), 133 deletions(-)
+
+[commit 02f70f6633fd4a96a0dad69f97a855867caea491]
+Date: 2025-07-03
+Score: 5
+Status: accepted(include=yes,score=75)
+Sponsor:
+Section: Drivers.device
+Subject: 590493c1:
+Review: The man:epair[4] driver now supports stable MAC addresses via the net.link.epair.ether_gen_addr sysctl. This helps maintain consistent DHCP and dynamic DNS assignments when epair interfaces are recreated, such as after jail restarts. The default behavior remains random MAC generation, but setting the sysctl to 1 enables stable addresses.
+Body:
+  if_epair(4): use ether_gen_addr(9) for stable MAC address
+
+  Before this change epair interfaces get a random MAC. This does
+  not help dhcp/dyndns when an epair gets destroyed/recreated
+  after restart of a jail.
+
+  With this change:
+  $ sysctl net.link.epair.ether_gen_addr=0
+  $ ifconfig epair8 create > /dev/null; ifconfig epair8a | grep ether; ifconfig epair8b | grep ether; ifconfig epair8a destroy
+  	ether 02:cb:78:56:e4:0a
+  	ether 02:cb:78:56:e4:0b
+  $ ifconfig epair8 create > /dev/null; ifconfig epair8a | grep ether; ifconfig epair8b | grep ether; ifconfig epair8a destroy
+  	ether 02:8b:9b:6a:8f:0a
+  	ether 02:8b:9b:6a:8f:0b
+
+  $ sysctl net.link.epair.ether_gen_addr=1
+  $ ifconfig epair8 create > /dev/null; ifconfig epair8a | grep ether; ifconfig epair8b | grep ether; ifconfig epair8a destroy
+  	ether 58:9c:fc:10:2b:b4
+  	ether 58:9c:fc:00:39:10
+  $ ifconfig epair8 create > /dev/null; ifconfig epair8a | grep ether; ifconfig epair8b | grep ether; ifconfig epair8a destroy
+  	ether 58:9c:fc:10:2b:b4
+  	ether 58:9c:fc:00:39:10
+
+  A follow up commit will change the default to 1 in main.
+
+  Approved by:	bz,ivy,kp
+  Relnotes:	yes
+  Differential Revision: https://reviews.freebsd.org/D51157
+
+  78537728:
+  Document tunable net.link.epair.ether_gen_addr
+
+  Approved by:	hrs
+  Fixes:	590493c1419092e98f7ad1dcadb886973502341e ("if_epair(4): use ether_gen_addr(9) for stable MAC address")
+  Differential Revision: https://reviews.freebsd.org/D51861
+
+  (cherry picked from commit 590493c1419092e98f7ad1dcadb886973502341e)
+  (cherry picked from commit 78537728efc5387558c97ba2730ce746d6259013)
+
+
+   share/man/man4/epair.4 | 22 +++++++++++++++++-----
+   sys/net/if_epair.c     | 35 +++++++++++++++++++++++++++++++----
+   2 files changed, 48 insertions(+), 9 deletions(-)
+
+[commit 8d2d6647d65a6a104551ca7a9ddd9a9563eccf21]
+Date: 2025-08-29
+Score: 5
+Status: accepted(include=yes,score=85)
+Sponsor:
+Section: Userland.contrib
+Subject: Supercharge the most beautiful console font ever with +4300 glyphs.
+Review: The gallant console font now includes over 4300 glyphs, adding support for Greek, Cyrillic, IPA extensions, extended Latin, Zapf Dingbats, arrows, mathematical symbols, box drawing, currency symbols, and Powerline glyphs. This expands the character set available in the console for multilingual text and symbols.
+Body:
+
+  I have increased the glyphs from 502 to 4885. Major additions:
+
+   * Greek
+   * Cyrillic
+   * International Phonetic Association Extensions
+   * Extended Latin characters
+   * Zapf Dingbats
+   * Tons of arrows
+   * Tons of mathematical symbols
+   * Letterlike symbols and enclosed alphanumerics
+   * Pixel-perfect box drawing
+   * Currency symbols
+   * More punctuation
+   * Just enough Katakana to say コンニチハ
+   * Powerline glyphs in the Private Use Area at U+e0a0
+
+  I have tried hard to keep the look of the font for Greek and Cyrillic
+  glyphs, but not for symbols like arrows and mathematical operators where
+  it makes no sense. Please let me know where I messed up (I can only
+  barely read and write Greek, and hardly any Cyrillic and no Japanese at
+  all). I used the documents of The Unicode Standard, Version 16.0 as
+  guidance.
+
+  But since Unicode is huuuuge, even just the BMP, there's more to
+  come in the future, I hope.
+
+  Relnotes:	yes
+  (cherry picked from commit 9e8c1ab0976c9a645a92ae45ad531ada3e4e6701)
+
+
+   share/vt/fonts/gallant.hex | 4121 +++++++++++++++++++++++++++++++++++++++++++-
+   1 file changed, 4102 insertions(+), 19 deletions(-)
+
+[commit 527027da391d9ab75530927076f336330834dc11]
+Date: 2025-03-31
+Score: 5
+Status: accepted(include=yes,score=85)
+Sponsor: SkunkWerks GmbH
+Section: Userland.programs
+Subject: jail: Add meta and env parameters
+Review: Adds meta and env parameters to jails, allowing arbitrary string metadata and environment information to be associated with each jail. The parameters can be set during jail creation or modified later using `jail -cm`, and can be viewed with man:jls[8]. The `security.jail.meta_maxbufsize` sysctl controls the maximum size of these parameters.
+Body:
+
+  Each one is an arbitrary string associated with a jail. It can be set
+  upon jail creation or added/modified later:
+
+      > jail -cm ... meta="tag1=value1 tag2=value2" env="configuration"
+
+  The values are not inherited from the parent jail.
+
+  A parent jail can read both metadata parameters, while a child jail can
+  read only env via security.jail.env sysctl.
+
+  The maximum size of meta or env per jail is controlled by the
+  global security.jail.meta_maxbufsize sysctl. Decreasing it does not
+  alter the existing meta information.
+
+  Each metadata buffer can be handled as a set of key=value\n strings:
+
+      > jail -cm ... meta="$(echo k1=v1; echo k2=v2)" env.1=one
+      > jls meta.k2 env.1 meta.k1
+
+  While meta.k1= resets the value to an empty string, the meta.k1 without
+  the equal sign removes the given key.
+
+  Relnotes:	yes
+  Reviewed by:	jamie
+  Tested by:	dch
+  Sponsored by:   SkunkWerks GmbH
+  Differential Revision:	https://reviews.freebsd.org/D47668
+
+  (cherry picked from commit 30e6e008bc06385a66756bebb41676f4f9017eca)
+
+
+   lib/libjail/jail.c              |  84 +++++-
+   lib/libjail/jail.h              |   1 +
+   libexec/flua/libjail/lua_jail.c |  16 +-
+   sys/conf/files                  |   1 +
+   sys/kern/kern_jail.c            |  11 +-
+   sys/kern/kern_jailmeta.c        | 621 ++++++++++++++++++++++++++++++++++++++++
+   sys/sys/jail.h                  |   4 +
+   tests/sys/kern/Makefile         |   1 +
+   tests/sys/kern/jailmeta.sh      | 588 +++++++++++++++++++++++++++++++++++++
+   usr.sbin/jail/jail.8            |  36 +++
+   usr.sbin/jls/jls.c              |   8 +
+   11 files changed, 1351 insertions(+), 20 deletions(-)
+
+[commit 62947e5081616bff1e9623a0e4292e92b49c3910]
+Date: 2025-04-23
+Score: 5
+Status: accepted(include=yes,score=70)
+Sponsor: The FreeBSD Foundation | The FreeBSD Foundation
+Section: Userland.programs
+Subject: pkg: clarify argument parsing
+Review: The man:pkg[7] utility now parses command-line arguments in the same way as man:pkg[8], requiring options to be placed in the same positions. This changes the behavior of some previously accepted command sequences, such as `pkg -f bootstrap` no longer working; users must use `pkg bootstrap -f` instead.
+Body:
+
+  Currently pkg parses all arguments and subcommands in a single
+  getopt_long() loop. This results in quite a bit of accidental
+  complexity, especially around the -r option for the bootstrap and add
+  subcommands.
+
+  This also results in the undocumented behavior of all options understood
+  by pkg(7) being accepted anywhere in the argument list regardless of
+  their position. This contradicts the behavior of pkg(8) and I find it
+  quite unexpected.
+
+  This patch splits the argument parsing done by pkg(7) into two phases
+  for global options and subcommand options. This gives behavior that
+  matches pkg(8), accepting the subset of pkg(8) options supported by
+  pkg(7) in the exact same positions that pkg(8) accepts them.
+
+  This is however a somewhat breaking change, as options are no longer
+  accepted by pkg(7) in places they are rejected by pkg(8). For example,
+  `pkg -f bootstrap` no longer works, only `pkg bootstrap -f`.
+
+  The original motivation for writing this patch was investigating support
+  for --rootdir in pkg(7). Since pkg(8) uses -r as the short form for
+  both --rootdir and --repository depending on the position, I decided
+  that pkg(7) needed to be brought inline with pkg(8)'s argument parsing
+  behavior to avoid confusion.
+
+  This patch also gets rid of args_add_message (unused since 40b9f924b1)
+
+  Relnotes:	yes
+  Reviewed by:	bapt
+  Sponsored by:	The FreeBSD Foundation
+  Differential Revision: https://reviews.freebsd.org/D49977
+
+  (cherry picked from commit be61deae0aa2923bb9908fc5b37b35712603e622)
+
+  pkg: suppress error on unknown options
+
+  pkg(7) does not understand all the options that pkg(8) understands and
+  should never log errors about unknown options that it will pass on to
+  pkg(8) without touching.
+
+  PR:		286510
+  Reviewed by:	bapt
+  Fixes:		be61deae0aa2 ("pkg: clarify argument parsing")
+  Sponsored by:	The FreeBSD Foundation
+  Differential Revision: https://reviews.freebsd.org/D50163
+
+  (cherry picked from commit 73ba568b1c35aabc1682540b5b4d5d77220c5468)
+
+
+   usr.sbin/pkg/pkg.7 |   5 +-
+   usr.sbin/pkg/pkg.c | 174 ++++++++++++++++++++++++++---------------------------
+   2 files changed, 87 insertions(+), 92 deletions(-)
+
+[commit d149be3a0cbe27599921b0952bd8de18413fceaf]
+Date: 2025-08-22
+Score: 5
+Status: accepted(include=yes,score=40)
+Sponsor:
+Section: Docs.manpages
+Subject: UPDATING: Document a pkgbase change
+Review: Updates the UPDATING file to document that example files are now installed in [.filename]#/usr/share/examples# as intended, due to a prior fix in the build system.
+Body:
+
+  The MFC of 2ade134cc271 ("bsd.files.mk: Fix FILESPACKAGE") means files
+  which were supposed to be installed in /usr/share/examples are now
+  actually installed there.
+
+  This is a direct commit to stable/14.
+
+  Relnotes:	yes
+
+
+   UPDATING | 8 ++++++++
+   1 file changed, 8 insertions(+)
+
+[commit 0c91fa982437417e09218ad8c2428aff29d9c5bd]
+Date: 2025-06-14
+Score: 5
+Status: accepted(include=yes,score=30)
+Sponsor:
+Section: Docs.manpages
+Subject: dtrace_fbt.4: Document the DTrace fbt provider
+Review: The man:dtrace_fbt[4] man page is added, documenting the DTrace fbt provider.
+Body:
+
+  Reported by:	markj
+  Reviewed by:	christos, markj (earlier version), ziaee
+  Obtained from:	Mark Johnston, DTrace, FreeBSD Journal, May 2014
+  Obtained from:	https://wiki.freebsd.org/DTrace/One-Liners
+  MFC after:	2 weeks
+  Relnotes:	yes
+
+  (cherry picked from commit 9388c2887817d7162ebb356b39aa9b4ab67a8c00)
+
+
+   cddl/contrib/opensolaris/cmd/dtrace/dtrace.1 |   5 +
+   share/man/man4/Makefile                      |   1 +
+   share/man/man4/dtrace_fbt.4                  | 332 +++++++++++++++++++++++++++
+   share/man/man4/dtrace_kinst.4                |  12 +-
+   4 files changed, 346 insertions(+), 4 deletions(-)
+
+[commit d350c18f98fd41e773a4856bff268f4f8060b21e]
+Date: 2025-07-07
+Score: 5
+Status: accepted(include=yes,score=85)
+Sponsor:
+Section: Userland.deprecated
+Subject: deprecate RIP
+Review: The RIP routing protocol is deprecated and will be removed in a future release. The man pages for man:routed[8], man:rtquery[8], man:route6d[8], and man:rip6query[8] are updated to note the deprecation. Users needing RIP should use alternatives like 'bird' or 'quagga' from the ports collection.
+Body:
+
+  Per https://wiki.freebsd.org/DeprecationPlan, deprecate RIP in 15.0R,
+  with the intention of removing it in 16.0R.
+
+  Add a note to the manpages of routed(8), rdisc(8), rtquery(8),
+  route6d(8) and rip6query(8) noting that they will be removed
+  in a future release.
+
+  RIP has been obsolete for over 20 years and no one is running it on
+  modern networks.  If someone really needs RIP, there are alternatives
+  such as 'bird' or 'quagga' available from ports; there is no need to
+  ship it in base.
+
+  Relnotes:	yes
+  Reviewed by:	des
+  Approved by:	des (mentor)
+  Differential Revision:	https://reviews.freebsd.org/D50292
+
+  (cherry picked from commit 4b7cdb5a420f518fbe1968a6916b6d017f54025d)
+
+
+   sbin/routed/routed.8           | 9 ++++++++-
+   sbin/routed/rtquery/rtquery.8  | 7 ++++++-
+   usr.sbin/rip6query/rip6query.8 | 8 +++++++-
+   usr.sbin/route6d/route6d.8     | 7 ++++++-
+   4 files changed, 27 insertions(+), 4 deletions(-)
+
+[commit 9d80d681ee9ddfb7a403924c877eac26d12e9077]
+Date: 2025-02-06
+Score: 5
+Status: accepted(include=yes,score=75)
+Sponsor:
+Section: Userland.programs
+Subject: swapon: parse md.eli device for encrypted swapfile from fstab
+Review: The man:swapon[8] utility now supports encrypted swap files using man:md[4] devices with an [.filename]#.eli# suffix in man:fstab[5]. This allows encrypted swap to be configured in fstab as previously documented.
+Body:
+
+  Summary:
+  Although fstab(5) suggests usage of md(4) and an .eli suffix in the same
+  paragraph, the combination did not work.
+  This patch adds a bit of parsing, creates the md device and then passes
+  that device to the *_geli function.
+
+  Add unit tests.
+
+  PR:	186252
+  Approved by:	delphij
+  MFC after:	2 weeks
+  Relnotes:	yes
+  Differential Revision:	https://reviews.freebsd.org/D48874
+
+  (cherry picked from commit 1ee33e3a578c35ff0e8ef5db87a8005f1f99546a)
+
+
+   etc/mtree/BSD.tests.dist         |   2 +
+   sbin/swapon/Makefile             |   5 ++
+   sbin/swapon/swapon.c             |  50 ++++++++---
+   sbin/swapon/tests/Makefile       |   5 ++
+   sbin/swapon/tests/swapon_test.sh | 181 +++++++++++++++++++++++++++++++++++++++
+   5 files changed, 233 insertions(+), 10 deletions(-)
+
+[commit 65808459e21b92c38daee8160c736dd305ff82b7]
+Date: 2025-05-31
+Score: 5
+Status: accepted(include=yes,score=65)
+Sponsor:
+Section: Userland.libraries
+Subject: libpam: Additional module directory.
+Review: The PAM library now searches for modules in [.filename]#${LOCALBASE}/lib/security#, in addition to [.filename]#${LOCALBASE}/lib#. This allows PAM modules installed by ports that follow the Linux directory convention to be found and used.
+Body:
+
+  Many if not most ports that install PAM modules install them into
+  ${LOCALBASE}/lib/security instead of just ${LOCALBASE}/lib, because
+  all the world is Linux.  Rather than try to fix the ports, add that
+  directory to the search path.
+
+  MFC after:	1 week
+  Relnotes:	yes
+  Reviewed by:	delphij
+  Differential Revision:	https://reviews.freebsd.org/D50626
+
+  (cherry picked from commit bb625fc2ac801d0a06ef0edab37a9bdaf209f008)
+
+
+   contrib/openpam/lib/libpam/openpam_constants.c | 2 ++
+   1 file changed, 2 insertions(+)
+
