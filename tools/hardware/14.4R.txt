@@ -1,0 +1,267 @@
+Driver	DRIVER_MODULE	probe/attach	ID_table	man4	bus_types
+aac                 	yes	   	   	yes	
+aacraid             	yes	   	   	yes	
+acpi_support        	yes	   	   	   	acpi
+acpica              	yes	   	   	   	acpi,isa,pci
+adb                 	yes	   	   	   	ofw
+adlink              	yes	   	   	   	
+ae                  	yes	   	   	yes	
+age                 	yes	   	   	yes	spi
+agp                 	yes	   	   	yes	
+ahci                	yes	   	   	yes	acpi,ofw
+aic7xxx             	yes	   	   	   	isa
+al_eth              	yes	   	yes	   	pci
+alc                 	yes	   	   	yes	
+ale                 	yes	   	   	yes	spi
+alpm                	yes	   	   	yes	
+altera              	yes	   	   	   	ofw
+amdgpio             	yes	   	   	   	acpi
+amdpm               	yes	   	   	yes	
+amdsbwd             	yes	   	   	yes	isa
+amdsmb              	yes	   	   	yes	
+amdsmn              	yes	   	   	yes	
+amdtemp             	yes	   	   	yes	
+arcmsr              	yes	   	   	yes	
+asmc                	yes	   	   	yes	acpi
+ata                 	yes	   	   	yes	isa,ofw
+ath                 	yes	yes	   	yes	
+atkbdc              	yes	   	   	yes	isa
+atopcase            	yes	   	   	yes	acpi,spi
+axgbe               	yes	   	   	   	acpi,mmc,ofw
+bce                 	yes	   	   	yes	acpi
+beri                	yes	   	   	   	ofw
+bfe                 	yes	   	   	yes	
+bge                 	yes	   	   	yes	acpi
+bhnd                	yes	yes	   	yes	spi
+bnxt                	yes	yes	   	yes	
+bwi                 	yes	   	   	yes	
+bwn                 	yes	yes	   	yes	
+bxe                 	yes	   	   	yes	acpi,spi
+cadence             	yes	   	   	   	ofw
+cardbus             	yes	   	   	yes	pci
+cas                 	yes	   	   	yes	ofw
+cesa                	yes	   	   	   	ofw
+cfe                 	yes	   	   	   	
+cfi                 	yes	   	   	yes	ofw
+chromebook_platform 	yes	   	   	yes	
+ciss                	yes	   	   	yes	
+coretemp            	yes	   	   	yes	
+cpuctl              	   	   	   	yes	
+cpufreq             	yes	   	   	yes	acpi,ofw
+cxgb                	yes	   	   	yes	
+cxgbe               	yes	yes	   	yes	
+cyapa               	yes	   	   	yes	iic
+dc                  	yes	   	   	yes	
+dcons               	yes	   	   	yes	
+dialog              	yes	   	   	   	iic,ofw
+dpaa                	yes	   	   	   	ofw
+dpaa2               	yes	   	   	   	acpi,ofw
+dpms                	yes	   	   	yes	
+drm2                	   	yes	   	   	iic
+dwc                 	yes	   	   	   	mmc,ofw
+dwwdt               	yes	   	   	   	ofw
+e1000               	yes	   	   	   	spi
+efidev              	yes	   	   	yes	acpi
+ena                 	yes	   	yes	yes	pci
+enetc               	yes	   	   	   	ofw
+enic                	yes	   	   	yes	
+eqos                	yes	   	   	   	ofw
+et                  	yes	   	   	yes	
+etherswitch         	yes	   	   	yes	iic,ofw,spi
+evdev               	   	yes	   	   	
+exca                	   	   	   	yes	
+extres              	yes	   	   	   	ofw
+fb                  	yes	   	   	   	isa
+fdc                 	yes	   	   	yes	acpi,isa,ofw
+fdt                 	   	   	   	yes	ofw
+ffec                	yes	   	   	   	ofw
+filemon             	   	   	   	yes	
+firewire            	yes	   	   	yes	
+firmware            	yes	   	   	   	ofw
+flash               	yes	   	   	   	ofw,spi
+ftgpio              	yes	   	   	yes	
+ftwd                	yes	   	   	yes	
+fxp                 	yes	   	   	yes	
+gem                 	yes	   	   	yes	ofw
+glxiic              	yes	   	   	   	iic
+glxsb               	yes	   	   	   	
+goldfish            	yes	   	   	   	ofw
+gpio                	yes	   	   	yes	acpi,iic,ofw,spi
+gve                 	yes	   	   	yes	
+hdmi                	yes	   	   	   	iic,ofw
+hid                 	yes	yes	yes	   	iic,usb
+hifn                	yes	   	   	yes	
+hpt27xx             	yes	   	   	yes	
+hptiop              	yes	yes	   	yes	
+hptmv               	yes	   	   	yes	
+hptnr               	yes	   	   	yes	
+hptrr               	yes	   	   	yes	
+hwpmc               	yes	   	   	yes	acpi
+hyperv              	yes	   	   	   	acpi
+iavf                	yes	   	yes	yes	acpi,pci
+ice                 	yes	yes	   	yes	acpi
+ichiic              	yes	   	   	   	acpi,iic
+ichsmb              	yes	   	   	yes	
+ichwd               	yes	   	   	yes	acpi,isa
+ida                 	yes	   	   	yes	spi
+igc                 	yes	   	   	yes	spi
+iicbus              	yes	   	   	yes	acpi,iic,ofw
+imcsmb              	yes	yes	   	yes	
+intel               	yes	   	   	   	acpi,spi
+intpm               	yes	   	   	yes	
+io                  	   	   	   	yes	
+ioat                	yes	   	   	yes	
+ipmi                	yes	   	   	yes	acpi,isa,ofw
+ips                 	yes	   	   	yes	
+ipw                 	yes	   	   	yes	
+irdma               	   	   	   	yes	
+isci                	yes	   	   	yes	
+iscsi               	   	   	   	yes	isa
+iser                	   	   	   	yes	
+isl                 	yes	   	   	yes	iic,isa
+ismt                	yes	   	   	yes	
+isp                 	yes	   	   	yes	
+ispfw               	   	   	   	yes	
+itwd                	yes	   	   	yes	
+iwi                 	yes	   	   	yes	
+iwm                 	yes	   	   	yes	
+iwn                 	yes	   	   	yes	
+ixgbe               	yes	   	   	   	acpi,spi
+ixl                 	yes	yes	   	yes	acpi
+jedec_dimm          	yes	   	   	yes	
+jme                 	yes	   	   	yes	spi
+kbdmux              	   	   	   	yes	
+ksyms               	   	   	   	yes	
+kvm_clock           	yes	   	   	   	
+le                  	yes	   	   	yes	isa
+led                 	   	   	   	yes	
+lge                 	yes	   	   	yes	
+liquidio            	yes	   	   	yes	
+malo                	yes	   	   	yes	
+mana                	yes	   	yes	   	pci
+md                  	   	   	   	yes	
+mdio                	   	   	   	yes	
+mem                 	   	   	   	yes	
+mfi                 	yes	   	   	yes	
+mgb                 	yes	   	   	yes	
+mge                 	yes	   	   	   	ofw
+mii                 	yes	   	   	   	ofw
+mlx                 	yes	   	   	yes	
+mlx4                	   	   	yes	   	pci
+mlx5                	   	   	yes	   	pci
+mmc                 	yes	   	   	yes	mmc,ofw
+mmcnull             	yes	   	   	   	mmc
+mpi3mr              	yes	   	   	yes	
+mpr                 	yes	   	   	yes	
+mps                 	yes	   	   	yes	
+mpt                 	yes	yes	   	yes	
+mrsas               	yes	   	   	yes	
+msk                 	yes	   	   	yes	
+mthca               	   	   	yes	   	pci
+mvs                 	yes	   	   	yes	ofw
+mwl                 	yes	   	   	yes	
+mxge                	yes	   	   	yes	
+my                  	yes	   	   	yes	
+nctgpio             	yes	   	   	yes	
+ncthwm              	yes	   	   	yes	
+neta                	yes	   	   	   	ofw
+netmap              	   	yes	   	yes	
+nfe                 	yes	   	   	yes	
+nfsmb               	yes	   	   	yes	
+nge                 	yes	   	   	yes	
+nmdm                	   	   	   	yes	
+ntb                 	yes	   	   	yes	
+null                	   	   	   	yes	
+nvd                 	   	   	   	yes	
+nvdimm              	yes	   	   	yes	acpi
+nvme                	yes	   	   	yes	
+nvram               	   	   	   	yes	
+oce                 	yes	   	yes	yes	acpi,pci
+ocs_fc              	yes	   	yes	yes	ofw,pci
+ofw                 	yes	   	   	   	ofw,pci
+otus                	yes	   	yes	yes	usb
+ow                  	yes	   	   	yes	ofw
+p2sb                	yes	   	   	   	
+pbio                	yes	   	   	   	isa
+pccbb               	yes	   	   	yes	
+pcf                 	yes	   	   	yes	iic,isa
+pci                 	yes	   	   	yes	acpi,isa,ofw,pci
+pms                 	yes	   	   	yes	
+powermac_nvram      	yes	   	   	   	ofw
+ppbus               	yes	   	   	yes	iic
+ppc                 	yes	   	   	yes	acpi,isa
+proto               	yes	   	   	yes	isa
+pst                 	yes	   	   	yes	
+pty                 	   	   	   	yes	
+puc                 	yes	   	   	yes	
+pwm                 	yes	   	   	   	ofw
+qat                 	   	   	yes	yes	mmc,pci
+qat_c2xxx           	yes	   	   	yes	
+qcom_dwc3           	yes	   	   	   	ofw
+qcom_qup            	yes	   	   	   	ofw,spi
+qcom_rnd            	yes	   	   	   	ofw
+qlnx                	yes	   	   	   	acpi,spi
+qlxgb               	yes	   	   	yes	
+qlxgbe              	yes	   	   	yes	ofw
+qlxge               	yes	   	   	yes	
+quicc               	yes	   	   	   	ofw
+ral                 	yes	   	   	yes	
+random              	   	   	   	yes	
+rccgpio             	yes	   	   	yes	isa
+re                  	yes	   	   	yes	
+rl                  	yes	   	   	yes	
+rndtest             	   	   	   	yes	
+rtsx                	yes	   	   	yes	mmc
+rtwn                	yes	   	yes	yes	usb
+safe                	yes	   	   	yes	
+safexcel            	yes	   	   	yes	ofw
+sbni                	yes	   	   	   	isa
+scc                 	yes	   	   	yes	ofw
+sdhci               	yes	yes	   	yes	acpi,mmc,ofw
+sec                 	yes	   	   	   	ofw
+sfxge               	yes	   	yes	yes	pci,spi
+sge                 	yes	   	   	yes	
+siis                	yes	   	   	yes	
+sis                 	yes	   	   	yes	
+sk                  	yes	   	   	yes	
+smartpqi            	yes	   	   	yes	spi
+smbios              	yes	   	   	yes	
+smbus               	yes	   	   	yes	
+smc                 	yes	   	   	   	acpi,ofw
+snp                 	   	   	   	yes	
+sound               	yes	   	yes	   	acpi,iic,ofw,spi,usb
+spibus              	yes	   	   	   	acpi,ofw,spi
+ste                 	yes	   	   	yes	
+stge                	yes	   	   	yes	
+sume                	yes	   	   	yes	
+superio             	yes	   	   	yes	isa
+sym                 	yes	   	   	yes	spi
+syscons             	   	   	   	yes	
+tdfx                	yes	   	   	yes	
+ti                  	yes	   	   	yes	
+tpm                 	yes	   	   	yes	acpi,isa
+tsec                	yes	   	   	   	ofw
+tws                 	yes	   	   	yes	
+uart                	yes	yes	   	yes	acpi,isa,ofw
+usb                 	yes	yes	yes	yes	acpi,iic,ofw,usb
+vge                 	yes	   	   	yes	
+viapm               	yes	   	   	yes	iic,isa
+viawd               	yes	   	   	yes	
+virtio              	yes	   	   	yes	acpi,ofw
+vkbd                	   	   	   	yes	
+vmd                 	yes	   	   	yes	
+vmgenc              	yes	   	   	   	acpi
+vmware              	yes	   	   	   	
+vnic                	yes	   	   	   	ofw
+vr                  	yes	   	   	yes	
+vt                  	yes	   	   	yes	acpi,ofw
+vte                 	yes	   	   	yes	
+watchdog            	   	   	   	yes	
+wbwd                	yes	   	   	yes	
+wdatwd              	yes	   	   	yes	acpi
+wg                  	   	   	   	yes	
+wpi                 	yes	   	   	yes	
+xdma                	yes	   	   	yes	ofw
+xen                 	yes	   	   	yes	acpi
+xilinx              	yes	   	   	   	ofw,spi
+xl                  	yes	   	   	yes	

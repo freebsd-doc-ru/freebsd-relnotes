@@ -62,6 +62,7 @@ my $cmd = qq(
     git -C $src log --grep '[Dd]eprec' --format=%H $range
 );
 
+my $collected_at = strftime("%Y-%m-%dT%H:%M:%S UTC", gmtime);
 #print $cmd;
 
 open my $lst, '-|', $cmd
@@ -80,6 +81,7 @@ for my $hash (@hashes) {
     );
 
     $c->{Score} = 5;   # default
+    $c->{CollectedAt} = $collected_at;
     push @new, $c;
 }
 

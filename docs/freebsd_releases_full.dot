@@ -1,0 +1,222 @@
+# dot -Tpng freebsd_releases_full.dot -o freebsd_releases_full.png
+# dot -Tsvg freebsd_releases_full.dot -o freebsd_releases_full.svg
+#
+# Copyright (c) 2026 Vladlen Popolitov
+#
+# SPDX-License-Identifier: BSD-2-Clause
+#
+# How I did it
+# 1. main, stable/15, stable/14. stable/13, releng/15.0, releng/14.4 commits from 12.0 till branch HEAD
+# git log --oneline -E -G 'REVISION|BRANCH' b958317950db^..main -- sys/conf/newvers.sh
+# git log --oneline -E -G 'REVISION|BRANCH' b958317950db^..stable/15 -- sys/conf/newvers.sh
+# ...
+# 2. split point for main<->stable/15, main<->stable/14 etc
+# git merge-base main stable/15
+# ...
+# git merge-base stable/14 releng/14.3
+#
+# 3. make lists of commits, Copy-Past into this dot-file.
+
+digraph FreeBSD_Releases {
+
+  rankdir=TB;
+  splines=true;
+  node [shape=box, style="rounded,filled", fontname="Helvetica"];
+  edge [fontname="Helvetica"];
+
+subgraph cluster_legend {
+  label="Branches in FreeBSD src repository";
+  fontsize=14;
+  style=rounded;
+  color=white;
+  rank=sink;
+  node [shape=none];
+
+  legend [label=<
+    <table border="0" cellborder="1" cellspacing="0" bgcolor="white">
+    <tr><td bgcolor="white">Color</td><td align="center">Branch</td></tr>
+      <tr><td bgcolor="lightgray"> </td><td align="left">main</td></tr>
+      <tr><td bgcolor="lightblue"> </td><td align="left">stable/13</td></tr>
+      <tr><td bgcolor="lightgreen"> </td><td align="left">stable/14</td></tr>
+      <tr><td bgcolor="khaki"> </td><td align="left">stable/15</td></tr>
+      <tr><td bgcolor="mistyrose"> </td><td align="left">releng/15.0</td></tr>
+      <tr><td bgcolor="mediumseagreen"> </td><td align="left">releng/14.4 </td></tr>
+    </table>
+  >];
+}
+
+  /* =========================================================
+     main
+     ========================================================= */
+
+  node [fillcolor=lightgray];
+
+  m_alpha1_13  [label="7ae27c2d\n13.0-ALPHA1",URL="https://cgit.freebsd.org/src/commit/?id=7ae27c2d6c4f",target="_blank"];
+  m_parent_13  [label="3522f57b\nparent to 13.0",URL="https://cgit.freebsd.org/src/commit/?id=3522f57b6ada25bb58a88307971544ce49f39c66",target="_blank"];
+  m_bump_14    [label="a53ce3fc\n14.0-CURRENT",URL="https://cgit.freebsd.org/src/commit/?id=a53ce3fc4938",target="_blank"];
+  m_alpha1_14  [label="136fc495\n14.0-ALPHA1",URL="https://cgit.freebsd.org/src/commit/?id=136fc495615f",target="_blank"];
+  m_alpha2_14  [label="77013f29\n14.0-ALPHA2",URL="https://cgit.freebsd.org/src/commit/?id=77013f29d048",target="_blank"];
+  m_parent_14  [label="712806fc\nparent to 14.0",URL="https://cgit.freebsd.org/src/commit/?id=712806fc4b5470eb7d9ce537e3cdf3b386455d86",target="_blank"];
+  m_update_15  [label="aee253d8\n15.0-CURRENT",URL="https://cgit.freebsd.org/src/commit/?id=aee253d8a7ae",target="_blank"];
+  m_pre_15     [label="e4c0ecba\n15.0-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=e4c0ecba44b2",target="_blank"];
+  m_parent_15  [label="3aa0a0aa\nparent to 15.0",URL="https://cgit.freebsd.org/src/commit/?id=3aa0a0aaa23b95dbf0ef58b16b313637f515b460",target="_blank"];
+  m_update_16  [label="8b4e4c27\n16.0-CURRENT",URL="https://cgit.freebsd.org/src/commit/?id=8b4e4c273730",target="_blank"];
+
+  m_alpha1_13 -> m_parent_13 -> m_bump_14 -> m_alpha1_14 ->
+  m_alpha2_14 -> m_parent_14 -> m_update_15 ->
+  m_pre_15 -> m_parent_15 ->  m_update_16;
+
+  main_end [shape=plaintext, label="main",URL="https://cgit.freebsd.org/src/log/?h=main",target="_blank"];
+  m_update_16 -> main_end;
+
+  /* =========================================================
+     stable/13
+     ========================================================= */
+
+  node [fillcolor=lightblue];
+
+  s13_create   [label="bfd15705\nCreate stable/13\n13.0-ALPHA2",URL="https://cgit.freebsd.org/src/commit/?id=bfd15705156b",target="_blank"];
+  s13_alpha3   [label="40cb0344\n13.0-ALPHA3",URL="https://cgit.freebsd.org/src/commit/?id=40cb0344eb27",target="_blank"];
+  s13_rename0  [label="3d544e6b\n13.0-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=3d544e6b0bc4",target="_blank"];
+  s13_pre_131  [label="9134a398\n13.1-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=9134a3985069",target="_blank"];
+  s13_rename1  [label="08523c8c\n13.1-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=08523c8c63bb",target="_blank"];
+  s13_pre_132  [label="3ec68505\n13.2-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=3ec68505d6b9",target="_blank"];
+  s13_post132  [label="c243de11\n13.2-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=c243de11cf7c",target="_blank"];
+  s13_pre_133  [label="3e51c9e3\n13.3-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=3e51c9e331aa",target="_blank"];
+  s13_post133  [label="9b0319f7\n13.3-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=9b0319f78a9c",target="_blank"];
+  s13_pre_134  [label="d15b7f50\n13.4-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=d15b7f50c73e",target="_blank"];
+  s13_post134  [label="77064cdd\n13.4-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=77064cddb948",target="_blank"];
+  s13_pre_135  [label="13639d5f\n13.5-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=13639d5f710b",target="_blank"];
+  s13_post135  [label="645ddc80\n13.5-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=645ddc804835",target="_blank"];
+
+  m_parent_13 -> s13_create;
+  s13_create -> s13_alpha3 -> s13_rename0 ->
+  s13_pre_131 -> s13_rename1 ->
+  s13_pre_132 -> s13_post132 ->
+  s13_pre_133 -> s13_post133 ->
+  s13_pre_134 -> s13_post134 ->
+  s13_pre_135 -> s13_post135;
+
+  s13_end [shape=plaintext, label="stable/13",URL="https://cgit.freebsd.org/src/log/?h=stable%2F13",target="_blank"];
+  s13_post135 -> s13_end;
+
+  /* =========================================================
+     stable/14
+     ========================================================= */
+
+  node [fillcolor=lightgreen];
+
+  s14_alpha3  [label="2af9390e\nCreate stable/14\n14.0-ALPHA3",URL="https://cgit.freebsd.org/src/commit/?id=2af9390e54ed",target="_blank"];
+  s14_alpha4  [label="4c3f1444\n14.0-ALPHA4",URL="https://cgit.freebsd.org/src/commit/?id=4c3f144478d4",target="_blank"];
+  s14_post0   [label="edbd9c3c\n14.0-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=edbd9c3c32c0",target="_blank"];
+  s14_pre141  [label="7a2c2599\n14.1-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=7a2c2599a760",target="_blank"];
+  s14_post141 [label="7b082bdf\n14.1-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=7b082bdf72e6",target="_blank"];
+  s14_pre142  [label="e38b4c03\n14.2-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=e38b4c031cf8",target="_blank"];
+  s14_post142 [label="4e8444d5\n14.2-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=4e8444d5750a",target="_blank"];
+  s14_pre143  [label="ee7a8745\n14.3-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=ee7a874557f4",target="_blank"];
+  s14_post143 [label="61bcd818\n14.3-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=61bcd8183104",target="_blank"];
+  s14_pre144  [label="f5ea3d46\n14.4-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=f5ea3d46d600",target="_blank"];
+  s15_parentR14_4 [label="2f5bea92\nparent to releng/14.4",URL="https://cgit.freebsd.org/src/commit/?id=2f5bea924d08a6528dc6c25b2932105f7f235a3a",target="_blank"];
+  s14_post144 [label="567cb65a\n14.4-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=567cb65a378f",target="_blank"];
+
+  m_parent_14 -> s14_alpha3;
+  s14_alpha3 -> s14_alpha4 -> s14_post0 ->
+  s14_pre141 -> s14_post141 ->
+  s14_pre142 -> s14_post142 ->
+  s14_pre143 -> s14_post143 ->
+  s14_pre144 -> s15_parentR14_4 -> s14_post144;
+
+  s14_end [shape=plaintext, label="stable/14",URL="https://cgit.freebsd.org/src/log/?h=stable%2F14",target="_blank"];
+  s14_post144 -> s14_end;
+
+  /* =========================================================
+     stable/15
+     ========================================================= */
+
+  node [fillcolor=khaki];
+
+  s15_alpha1  [label="0b3d8257\nCreate stable/15\n15.0-ALPHA1",URL="https://cgit.freebsd.org/src/commit/?id=0b3d82579a01",target="_blank"];
+  s15_alpha2  [label="99cc5409\n15.0-ALPHA2",URL="https://cgit.freebsd.org/src/commit/?id=99cc54090e1c",target="_blank"];
+  s15_alpha3  [label="26988773\n15.0-ALPHA3",URL="https://cgit.freebsd.org/src/commit/?id=26988773d1da",target="_blank"];
+  s15_alpha4  [label="54dd9fd8\n15.0-ALPHA4",URL="https://cgit.freebsd.org/src/commit/?id=54dd9fd8a525",target="_blank"];
+  s15_alpha5  [label="1c0898ed\n15.0-ALPHA5",URL="https://cgit.freebsd.org/src/commit/?id=1c0898edf28f",target="_blank"];
+  s15_parentR [label="2a6c1754\nparent to releng/15.0",URL="https://cgit.freebsd.org/src/commit/?id=2a6c17544e00b2f1a081bab501c079e5d70aa74c",target="_blank"];
+  s15_post    [label="b15f726d\n15.0-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=b15f726dfe60",target="_blank"];
+
+  m_parent_15 -> s15_alpha1;
+  s15_alpha1 -> s15_alpha2 -> s15_alpha3 ->
+  s15_alpha4 -> s15_alpha5 ->
+  s15_parentR -> s15_post;
+
+  s15_end [shape=plaintext, label="stable/15",URL="https://cgit.freebsd.org/src/log/?h=stable%2F15",target="_blank"];
+  s15_post -> s15_end;
+
+/* =========================================================
+     releng/14.4
+     ========================================================= */
+
+  node [fillcolor=mediumseagreen];
+
+  r14_4_create  [label="9bbe9bfc\nCreate releng/14.4\n14.4-BETA1",URL="https://cgit.freebsd.org/src/commit/?id=9bbe9bfc6633",target="_blank"];
+  r14_4_beta2   [label="f2dc20d2\n14.4-BETA2",URL="https://cgit.freebsd.org/src/commit/?id=f2dc20d2d2bd",target="_blank"];
+  r14_4_beta3   [label="0c49d9fa\n14.4-BETA3",URL="https://cgit.freebsd.org/src/commit/?id=0c49d9fafc33",target="_blank"];
+  r14_4_rc1   [label="0c49d9fa\n14.4-RC1",URL="https://cgit.freebsd.org/src/commit/?id=041aa28386d3",target="_blank"];
+  r14_4_release   [label="0c49d9fa\n14.4-RELEASE",URL="https://cgit.freebsd.org/src/commit/?id=a456f852d145",target="_blank"];
+
+  s15_parentR14_4 -> r14_4_create;
+  r14_4_create -> r14_4_beta2 -> r14_4_beta3 ->
+  r14_4_rc1 -> r14_4_release;
+
+  r14_4_end [shape=plaintext, label="releng/14.4",URL="https://cgit.freebsd.org/src/log/?h=releng%2F14.4",target="_blank"];
+  r14_4_release -> r14_4_end;
+
+
+  /* =========================================================
+     releng/15.0
+     ========================================================= */
+
+  node [fillcolor=mistyrose];
+
+  r15_create  [label="a2829ff9\nCreate releng/15.0\n15.0-BETA1",URL="https://cgit.freebsd.org/src/commit/?id=a2829ff9d10f",target="_blank"];
+  r15_beta2   [label="3edefa72\n15.0-BETA2",URL="https://cgit.freebsd.org/src/commit/?id=3edefa72bc4e",target="_blank"];
+  r15_beta3   [label="0fc5b401\n15.0-BETA3",URL="https://cgit.freebsd.org/src/commit/?id=0fc5b401bdc7",target="_blank"];
+  r15_beta4   [label="f0b1ca54\n15.0-BETA4",URL="https://cgit.freebsd.org/src/commit/?id=f0b1ca546eb4",target="_blank"];
+  r15_beta5   [label="db99e6ce\n15.0-BETA5",URL="https://cgit.freebsd.org/src/commit/?id=db99e6ce3ecd",target="_blank"];
+  r15_rc1     [label="da0c9136\n15.0-RC1",URL="https://cgit.freebsd.org/src/commit/?id=da0c91363858",target="_blank"];
+  r15_rc2     [label="7bd80d8e\n15.0-RC2",URL="https://cgit.freebsd.org/src/commit/?id=7bd80d8ee020",target="_blank"];
+  r15_rc3     [label="4579378a\n15.0-RC3",URL="https://cgit.freebsd.org/src/commit/?id=4579378a950f",target="_blank"];
+  r15_rc4     [label="91e2d7b9\n15.0-RC4",URL="https://cgit.freebsd.org/src/commit/?id=91e2d7b9b273",target="_blank"];
+  r15_rc4_p1     [label="c7ccd5b3\n15.0-RC4-p1",URL="https://cgit.freebsd.org/src/commit/?id=c7ccd5b3f879",target="_blank"];
+  r15_release [label="7aedc8de\n15.0-RELEASE",URL="https://cgit.freebsd.org/src/commit/?id=7aedc8de6446",target="_blank"];
+  r15_p1      [label="63a5b645\n15.0-RELEASE-p1",URL="https://cgit.freebsd.org/src/commit/?id=63a5b645b23e",target="_blank"];
+  r15_p2      [label="5fb0f8e9\n15.0-RELEASE-p2",URL="https://cgit.freebsd.org/src/commit/?id=5fb0f8e9e61d",target="_blank"];
+  r15_p3      [label="5cf72327\n15.0-RELEASE-p3",URL="https://cgit.freebsd.org/src/commit/?id=5cf7232732d5",target="_blank"];
+
+  s15_parentR -> r15_create;
+  r15_create -> r15_beta2 -> r15_beta3 ->
+  r15_beta4 -> r15_beta5 ->
+  r15_rc1 -> r15_rc2 -> r15_rc3 -> r15_rc4 -> r15_rc4_p1 ->
+  r15_release -> r15_p1 -> r15_p2 -> r15_p3;
+
+  r15_end [shape=plaintext, label="releng/15.0",URL="https://cgit.freebsd.org/src/log/?h=releng%2F15.0",target="_blank"];
+  r15_p3 -> r15_end;
+
+   /* =======================
+     tags
+     ======================= */
+
+  node [shape=note, fillcolor=white];
+  tag_15_0_0_release [label=" refs/tags/release/15.0.0"];
+  tag_15_0_0_release_p1 [label=" refs/tags/release/15.0.0-p1"];
+  tag_15_0_0_release_p2 [label=" refs/tags/release/15.0.0-p2"];
+  tag_15_0_0_release_p3 [label=" refs/tags/release/15.0.0-p3"];
+
+  tag_15_0_0_release -> r15_release [style=dashed];
+  tag_15_0_0_release_p1 -> r15_p1 [style=dashed];
+  tag_15_0_0_release_p2 -> r15_p2 [style=dashed];
+  tag_15_0_0_release_p3 -> r15_p3 [style=dashed];
+
+  tag_14_4_0_release [label=" refs/tags/release/14.4.0"];
+  tag_14_4_0_release -> r14_4_release [style=dashed];
+
+}

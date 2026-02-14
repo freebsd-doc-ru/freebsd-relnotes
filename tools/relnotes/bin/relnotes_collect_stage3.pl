@@ -16,6 +16,7 @@ use POSIX qw(strftime);
 # Locate our own library regardless of cwd
 # ------------------------------------------------------------
 use lib "$FindBin::Bin/../lib";
+use Relnotes::Store;
 use Relnotes::Workflow;
 use Relnotes::Git qw(read_commit);
 
@@ -62,6 +63,7 @@ my $cmd = qq(
     git -C $src log --grep '[Dd]eprec' --format=%H $range
 );
 
+my $collected_at = strftime("%Y-%m-%dT%H:%M:%S UTC", gmtime);
 #print $cmd;
 
 open my $lst, '-|', $cmd
@@ -80,6 +82,7 @@ for my $hash (@hashes) {
     );
 
     $c->{Score} = 5;   # default
+    $c->{CollectedAt} = $collected_at;
     push @new, $c;
 }
 
@@ -97,26 +100,7 @@ if (!-d $release_dir) {
 # Append to stage1 file
 # ------------------------------------------------------------
 
-open my $fh, '>>', $stage1
-    or die "Cannot open $stage1 for append: $!";
-
-for my $e (@new) {
-    print $fh "\n[commit $e->{commit}]\n";
-    print $fh "Commit: $e->{commit}\n";
-    print $fh "Date: $e->{Date}\n";
-    print $fh "Score: $e->{Score}\n";
-    print $fh "Sponsor: $e->{Sponsor}\n";
-    print $fh "Subject: $e->{Subject}\n";
-
-    if ($e->{Body}) {
-        print $fh "Body:\n";
-        for my $l (split /\n/, $e->{Body}) {
-            print $fh "  $l\n";
-        }
-    }
-}
-
-close $fh;
+Relnotes::Store::append_file($stage1, \@new);
 
 print scalar(@new) . " new relnotes candidates added\n";
 

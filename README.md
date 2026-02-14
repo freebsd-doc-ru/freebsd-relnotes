@@ -262,6 +262,25 @@ perl relnotes_stage2_to_adoc.pl --release-dir /path/to/release --dry-run
 perl relnotes_stage2_to_adoc.pl --release-dir /path/to/release --write
 ```
 
+### Select, order and output into new file, append or show on screen
+
+```
+perl tools/relnotes/bin/relnotes_stage_copy.pl --select "Commit, StatusScore, Subject"  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/14.4R
+
+perl tools/relnotes/bin/relnotes_stage_copy.pl --insert--into relnotes_docs.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/14.4R
+
+perl tools/relnotes/bin/relnotes_stage_copy.pl --into relnotes_docs.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/14.4R
+
+
+```
+
+### generate the list of Sthe Security Advisories and Errata Notices
+
+```
+freebsd-relnotes % perl tools/relnotes/bin/relnotes_advisories.pl --repo ~/freebsd-src --branch releng/14.4 --advisories-dir advisories  --release-dir releases/14.4R --format-relnotes
+
+```
+
 ### Running Tests
 
 All tests are written using Perl TAP and are executed with `prove`.
