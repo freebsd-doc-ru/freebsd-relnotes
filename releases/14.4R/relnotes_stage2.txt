@@ -1,8 +1,8 @@
 [commit 5c6949e12ee6143505a200b37f2d0bbaf2611656]
 Date: 2026-02-02
 Score: 5
-Status: accepted(include=yes,score=85)
-Sponsor:
+Status: added(include=yes,score=85)
+Sponsor: 
 Section: Kernel.general
 Subject: kern: disallow user scheduling/debugging/signalling of jailed procs
 Review: The jail(8) system now restricts unprivileged users in a parent jail from scheduling, debugging, or signaling processes in subordinate jails by default. New privileges PRIV_SCHED_DIFFJAIL, PRIV_DEBUG_DIFFJAIL, and PRIV_SIGNAL_DIFFJAIL are required for such cross-jail operations. A new jail parameter allow.unprivileged_parent_tampering is introduced for backward compatibility in FreeBSD 14.x, but will be disabled by default in FreeBSD 15.x, affecting development setups that rely on cross-jail process management.
@@ -70,8 +70,8 @@ Body:
 [commit 04911babef1b22cb4ff9cff08a34ec1e6bf80d45]
 Date: 2025-08-29
 Score: 5
-Status: accepted(include=yes,score=75)
-Sponsor:
+Status: added(include=yes,score=75)
+Sponsor: 
 Section: Userland.programs
 Subject: netgraph: teach ngctl to attach and run itself in a jail
 Review: The man:ngctl[8] utility gains a -j flag to attach and run inside a jail, allowing manipulation of netgraph nodes from within a jail environment. This enables administrators to manage netgraph configurations in jails where ngctl may not be directly available.
@@ -106,8 +106,8 @@ Body:
 [commit 666599639cf6bd1c4ae1ff4adad8150a44d7a8d4]
 Date: 2026-01-03
 Score: 5
-Status: accepted(include=yes,score=75)
-Sponsor:
+Status: added(include=yes,score=75)
+Sponsor: 
 Section: Kernel.general
 Subject: powerpc: put the isync inside the TD_LOCK() checking loop
 Review: The change fixes a race condition in the powerpc context switch code that could cause the system to hang after starting all APs, particularly in qemu-system-ppc64 power9 pseries guests.
@@ -140,7 +140,7 @@ Body:
 [commit 57865e505aef2dafb548039619de5d5322dd7157]
 Date: 2025-10-24
 Score: 5
-Status: accepted(include=yes,score=45)
+Status: added(include=yes,score=45)
 Sponsor: The FreeBSD Foundation
 Section: Network.general
 Subject: ipfw: Retire obsolete compat code
@@ -174,8 +174,8 @@ Body:
 [commit 23cda744e4dae48ee3857f33158e30d241868d2a]
 Date: 2025-10-23
 Score: 5
-Status: accepted(include=yes,score=65)
-Sponsor:
+Status: added(include=yes,score=65)
+Sponsor: 
 Section: Userland.programs
 Subject: sockstat: add support for UDP-Lite endpoints
 Review: The man:sockstat[1] utility now displays UDP-Lite endpoints by default, providing visibility into these sockets alongside other network connections.
@@ -196,7 +196,7 @@ Body:
 [commit af51f41346ad885e1ffe0d14b325c88cc65ac0cc]
 Date: 2025-09-04
 Score: 5
-Status: accepted(include=yes,score=85)
+Status: added(include=yes,score=85)
 Sponsor: Intel Corporation
 Section: Drivers.device
 Subject: qat: enable qat driver for 402xx device
@@ -233,7 +233,7 @@ Body:
 [commit 58f55afb301ba781f87991b0298a6a6545771376]
 Date: 2025-09-25
 Score: 5
-Status: accepted(include=yes,score=85)
+Status: added(include=yes,score=85)
 Sponsor: The FreeBSD Foundation | Google LLC (GSoC 2025)
 Section: Userland.programs
 Subject: mdo(1): Add support and shortcuts for fully specifying users and groups
@@ -321,7 +321,7 @@ Body:
 [commit 220584471931fef807a6f59ce0397cfd6ac0f6fe]
 Date: 2025-06-24
 Score: 5
-Status: accepted(include=yes,score=75)
+Status: added(include=yes,score=75)
 Sponsor: The FreeBSD Foundation
 Section: Userland.programs
 Subject: bsdinstall: Remove support for ZFS + MBR disk layouts
@@ -347,8 +347,8 @@ Body:
 [commit 02f70f6633fd4a96a0dad69f97a855867caea491]
 Date: 2025-07-03
 Score: 5
-Status: accepted(include=yes,score=75)
-Sponsor:
+Status: added(include=yes,score=75)
+Sponsor: 
 Section: Drivers.device
 Subject: 590493c1:
 Review: The man:epair[4] driver now supports stable MAC addresses via the net.link.epair.ether_gen_addr sysctl. This helps maintain consistent DHCP and dynamic DNS assignments when epair interfaces are recreated, such as after jail restarts. The default behavior remains random MAC generation, but setting the sysctl to 1 enables stable addresses.
@@ -400,8 +400,8 @@ Body:
 [commit 8d2d6647d65a6a104551ca7a9ddd9a9563eccf21]
 Date: 2025-08-29
 Score: 5
-Status: accepted(include=yes,score=85)
-Sponsor:
+Status: added(include=yes,score=85)
+Sponsor: 
 Section: Userland.contrib
 Subject: Supercharge the most beautiful console font ever with +4300 glyphs.
 Review: The gallant console font now includes over 4300 glyphs, adding support for Greek, Cyrillic, IPA extensions, extended Latin, Zapf Dingbats, arrows, mathematical symbols, box drawing, currency symbols, and Powerline glyphs. This expands the character set available in the console for multilingual text and symbols.
@@ -443,7 +443,7 @@ Body:
 [commit 527027da391d9ab75530927076f336330834dc11]
 Date: 2025-03-31
 Score: 5
-Status: accepted(include=yes,score=85)
+Status: added(include=yes,score=85)
 Sponsor: SkunkWerks GmbH
 Section: Userland.programs
 Subject: jail: Add meta and env parameters
@@ -497,7 +497,7 @@ Body:
 [commit 62947e5081616bff1e9623a0e4292e92b49c3910]
 Date: 2025-04-23
 Score: 5
-Status: accepted(include=yes,score=70)
+Status: added(include=yes,score=70)
 Sponsor: The FreeBSD Foundation | The FreeBSD Foundation
 Section: Userland.programs
 Subject: pkg: clarify argument parsing
@@ -560,8 +560,8 @@ Body:
 [commit d149be3a0cbe27599921b0952bd8de18413fceaf]
 Date: 2025-08-22
 Score: 5
-Status: accepted(include=yes,score=40)
-Sponsor:
+Status: added(include=yes,score=40)
+Sponsor: 
 Section: Docs.manpages
 Subject: UPDATING: Document a pkgbase change
 Review: Updates the UPDATING file to document that example files are now installed in [.filename]#/usr/share/examples# as intended, due to a prior fix in the build system.
@@ -582,8 +582,8 @@ Body:
 [commit 0c91fa982437417e09218ad8c2428aff29d9c5bd]
 Date: 2025-06-14
 Score: 5
-Status: accepted(include=yes,score=30)
-Sponsor:
+Status: added(include=yes,score=30)
+Sponsor: 
 Section: Docs.manpages
 Subject: dtrace_fbt.4: Document the DTrace fbt provider
 Review: The man:dtrace_fbt[4] man page is added, documenting the DTrace fbt provider.
@@ -608,8 +608,8 @@ Body:
 [commit d350c18f98fd41e773a4856bff268f4f8060b21e]
 Date: 2025-07-07
 Score: 5
-Status: accepted(include=yes,score=85)
-Sponsor:
+Status: added(include=yes,score=85)
+Sponsor: 
 Section: Userland.deprecated
 Subject: deprecate RIP
 Review: The RIP routing protocol is deprecated and will be removed in a future release. The man pages for man:routed[8], man:rtquery[8], man:route6d[8], and man:rip6query[8] are updated to note the deprecation. Users needing RIP should use alternatives like 'bird' or 'quagga' from the ports collection.
@@ -644,8 +644,8 @@ Body:
 [commit 9d80d681ee9ddfb7a403924c877eac26d12e9077]
 Date: 2025-02-06
 Score: 5
-Status: accepted(include=yes,score=75)
-Sponsor:
+Status: added(include=yes,score=75)
+Sponsor: 
 Section: Userland.programs
 Subject: swapon: parse md.eli device for encrypted swapfile from fstab
 Review: The man:swapon[8] utility now supports encrypted swap files using man:md[4] devices with an [.filename]#.eli# suffix in man:fstab[5]. This allows encrypted swap to be configured in fstab as previously documented.
@@ -678,8 +678,8 @@ Body:
 [commit 65808459e21b92c38daee8160c736dd305ff82b7]
 Date: 2025-05-31
 Score: 5
-Status: accepted(include=yes,score=65)
-Sponsor:
+Status: added(include=yes,score=65)
+Sponsor: 
 Section: Userland.libraries
 Subject: libpam: Additional module directory.
 Review: The PAM library now searches for modules in [.filename]#${LOCALBASE}/lib/security#, in addition to [.filename]#${LOCALBASE}/lib#. This allows PAM modules installed by ports that follow the Linux directory convention to be found and used.

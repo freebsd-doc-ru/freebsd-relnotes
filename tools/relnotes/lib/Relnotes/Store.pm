@@ -169,6 +169,7 @@ sub write_file {
         }
 
         if (defined $r->{Body} && $r->{Body} ne '') {
+            print $fh "Body:\n";
             for my $line (split /\n/, $r->{Body}) {
                 print $fh "$line\n";
             }

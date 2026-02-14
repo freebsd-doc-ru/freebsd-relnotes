@@ -2,7 +2,7 @@
 Date: 2026-01-08
 Score: 5
 Status: proposed(include=no,score=30)
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: zfs: emit .note.GNU-stack section for all ELF targets
 Review: The commit fixes a linker warning when building the ZFS kernel module with binutils ld 2.44 by ensuring .note.GNU-stack sections are emitted for all ELF targets, preventing a deprecated warning about an executable stack.
@@ -41,8 +41,8 @@ Body:
 [commit 6741fb1bd4f473f3bc46e46841d2e53a9629907c]
 Date: 2026-01-04
 Score: 5
-Status: accepted(include=yes,score=65)
-Sponsor:
+Status: added(include=yes,score=65)
+Sponsor: 
 Section: Bootloader.general
 Subject: loader.efi: only use firmware provided Blt on GOP
 Review: The EFI boot loader now uses firmware-provided Blt functions only when using the Graphics Output Protocol (GOP), avoiding issues on older UGA-based systems like MacBooks.
@@ -70,7 +70,7 @@ Body:
 Date: 2025-12-13
 Score: 5
 Status: proposed(include=no,score=1)
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: oce(4): Fix a typo in a device debug message
 Review: Fixes a typo in a debug message for the oce(4) driver.
@@ -88,7 +88,7 @@ Body:
 Date: 2025-12-13
 Score: 5
 Status: proposed(include=no,score=1)
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: ng_hci(4): Fix a typo in a source code comment
 Review: Typo fix in a comment does not affect user-visible behavior.
@@ -106,7 +106,7 @@ Body:
 Date: 2025-09-15
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor:
+Sponsor: 
 Section: Userland.contrib
 Subject: libc++: Fix deprecation warnings with latest clang
 Review: libc++ updated to incorporate upstream changes to suppress deprecation warnings with recent clang versions.
@@ -139,7 +139,7 @@ Body:
 Date: 2025-09-15
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor:
+Sponsor: 
 Section: Userland.contrib
 Subject: libc++: avoid use of deprecated __reference_binds_to_temporary
 Review: libc++ is updated to avoid a deprecated internal macro, enabling builds with the latest clang development version.
@@ -166,7 +166,7 @@ Body:
 Date: 2025-09-15
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor:
+Sponsor: 
 Section: Userland.libraries
 Subject: libc++: avoid use of deprecated builtin
 Review: The libc++ library now uses is_trivially_copyable instead of the deprecated __is_trivially_relocatable builtin, fixing build issues with recent clang versions.
@@ -208,7 +208,7 @@ Body:
 Date: 2024-12-06
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor:
+Sponsor: 
 Section: Userland.libraries
 Subject: cdefs: Add __deprecated1 which accepts a message as an argument
 Review: The __deprecated1 macro now accepts a custom message argument, which will be included in compiler warnings for deprecated functions.
@@ -261,7 +261,7 @@ Body:
 Date: 2025-11-14
 Score: 5
 Status: proposed(include=yes,score=70)
-Sponsor:
+Sponsor: 
 Section: Ports.packaging
 Subject: GCE: Add TARGET and FS to image family
 Review: The GCE image family now includes TARGET and FS in its name, ensuring that image families are unique per architecture and filesystem. This prevents the GCE instances create API from selecting mismatched images when using image families.
@@ -286,7 +286,7 @@ Body:
 Date: 2025-12-01
 Score: 5
 Status: proposed(include=no,score=20)
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: ctfmerge: fix segfault when building on macOS
 Review: Fixes a segmentation fault when building CTF data on macOS by replacing deprecated semaphores with condition variables, resolving a race condition.
@@ -312,8 +312,8 @@ Body:
 [commit a93e1b731ae440ac3471792c52db8fb07b93d265]
 Date: 2025-10-05
 Score: 5
-Status: accepted(include=yes,score=75)
-Sponsor:
+Status: added(include=yes,score=75)
+Sponsor: 
 Section: Userland.contrib
 Subject: heimdal-kadmin: Add support for the -f dump option
 Review: The man:kadmin[8] utility gains a new -f option for dumping Heimdal KDC databases in MIT-compatible format, enabling migration to MIT KDC without recreating the database from scratch.
@@ -438,7 +438,7 @@ Body:
 Date: 2025-09-16
 Score: 5
 Status: proposed(include=yes,score=65)
-Sponsor:
+Sponsor: 
 Section: Network.general
 Subject: IPv6: fix off-by-one in pltime and vltime expiration checks
 Review: IPv6 address lifetimes are now correctly enforced. Addresses become deprecated or invalid immediately when their preferred or valid lifetimes expire, preventing them from being used as source addresses after expiration.
@@ -469,7 +469,7 @@ Body:
 Date: 2025-09-16
 Score: 5
 Status: proposed(include=yes,score=35)
-Sponsor:
+Sponsor: 
 Section: Drivers.device
 Subject: vtnet: deprecate loader tunable fixup_needs_csum
 Review: The vtnet driver deprecates the loader tunable fixup_needs_csum, which previously allowed checksum computation for packets with VIRTIO_NET_HDR_F_NEEDS_CSUM set. This tunable is no longer functional due to changes in the driver's checksum handling.
@@ -495,7 +495,7 @@ Body:
 Date: 2025-07-07
 Score: 5
 Status: step2(include=yes,score=85)
-Sponsor:
+Sponsor: 
 Section: Userland.deprecated
 Subject: deprecate RIP
 Review: The RIP routing protocol is deprecated and will be removed in a future release. The man:routed[8], man:rdisc[8], man:rtquery[8], man:route6d[8], and man:rip6query[8] utilities now include deprecation notices. Users needing RIP functionality should use alternatives like 'bird' or 'quagga' from ports.
@@ -530,8 +530,8 @@ Body:
 [commit d0b23791c6677c3cc03d9e315beb66e8b4de717a]
 Date: 2025-06-25
 Score: 5
-Status: accepted(include=yes,score=85)
-Sponsor:
+Status: added(include=yes,score=85)
+Sponsor: 
 Section: Userland.contrib
 Subject: mandoc: Vendor import of upstream at 2025-06-13
 Review: mandoc updated to upstream version from 2025-06-13. The LIBRARY section is deprecated, and the Ft macro now accepts multiple arguments without quoting. A segmentation fault on malformed Tg markup is fixed.
@@ -555,7 +555,7 @@ Body:
 Date: 2025-05-05
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor:
+Sponsor: 
 Section: Userland.libraries
 Subject: manuals: Align our tree with upstream C23 macro
 Review: The -isoC-2024 macro is deprecated and replaced by -isoC-2023 for C23 alignment, maintaining backward compatibility.
@@ -576,7 +576,7 @@ Body:
 [commit ccdd6285df5dfa81c22e36685bab9be184a4e733]
 Date: 2025-04-11
 Score: 5
-Status: accepted(include=yes,score=85)
+Status: added(include=yes,score=85)
 Sponsor: The FreeBSD Foundation
 Section: Network.wireless
 Subject: net80211: fix VHT160 and VHT80P80 selection and enable in LinuxKPI 802.11
@@ -616,7 +616,7 @@ Body:
 [commit ab9c9443eec582265c288dc46d2c2144f0f81188]
 Date: 2025-05-30
 Score: 5
-Status: accepted(include=yes,score=65)
+Status: added(include=yes,score=65)
 Sponsor: The FreeBSD Foundation
 Section: Drivers.device
 Subject: sound: Deprecate the MIDI sequencer
@@ -642,7 +642,7 @@ Body:
 Date: 2025-05-04
 Score: 5
 Status: proposed(include=yes,score=65)
-Sponsor:
+Sponsor: 
 Section: Network.general
 Subject: sctp: fix mapping of interface address flags
 Review: The SCTP address mapping logic is corrected to preserve the SCTP_ADDR_IFA_UNUSEABLE flag for deprecated addresses and to avoid marking tentative addresses as unusable. This improves SCTP connectivity in scenarios involving deprecated or tentative addresses.
@@ -664,7 +664,7 @@ Body:
 [commit 6c912470030ba958f2e41a00b44f6430919b1389]
 Date: 2025-04-25
 Score: 5
-Status: accepted(include=yes,score=65)
+Status: added(include=yes,score=65)
 Sponsor: OVHCloud
 Section: Userland.programs
 Subject: nuageinit: implement chpasswd

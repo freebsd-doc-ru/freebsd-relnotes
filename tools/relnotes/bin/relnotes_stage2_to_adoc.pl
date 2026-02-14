@@ -41,16 +41,45 @@ usage("Specify --dry-run or --write") unless $dry_run || $write;
 usage("Choose only one: --dry-run or --write") if $dry_run && $write;
 
 # ------------------------------------------------------------
-# Paths
+# Paths and load data
 # ------------------------------------------------------------
 
-my $stage2_file = File::Spec->catfile(
-    $release_dir,
-    'relnotes_stage2.txt'
+opendir my $dh, $release_dir
+    or die "Cannot open $release_dir: $!";
+
+#my @stage2_files = map {
+#    File::Spec->catfile($release_dir, $_)
+#} grep {
+#    /^relnotes_.*\.txt$/ && -f File::Spec->catfile($release_dir, $_)
+#} readdir $dh;
+
+my %allowed = map { $_ => 1 } qw(
+    relnotes_stage2.txt
+    relnotes_stage4.txt
+    relnotes_stage6.txt
+    relnotes_stage_review.txt
 );
 
-die "Stage2 file not found: $stage2_file\n"
-    unless -f $stage2_file;
+my @stage2_files = map {
+    File::Spec->catfile($release_dir, $_)
+} grep {
+    $allowed{$_} && -f File::Spec->catfile($release_dir, $_)
+} readdir $dh;
+
+closedir $dh;
+
+die "No relnotes_*.txt files found in $release_dir\n"
+    unless @stage2_files;
+
+my @records;
+
+for my $file (@stage2_files) {
+    my @r = Relnotes::Store::read_file($file);
+    push @records, map {
+        $_->{_source_file} = $file;  # запоминаем источник
+        $_;
+    } @r;
+}
 
 my $adoc_file = File::Spec->catfile(
     $release_dir,
@@ -63,11 +92,9 @@ my $already_included = extract_gitrefs_from_adoc($adoc_file);
 # Load data
 # ------------------------------------------------------------
 
-my @records = Relnotes::Store::read_file($stage2_file);
-
 # Only accepted, with meaningful Section
 @records = grep {
-       ($_->{Status}  // '') eq 'accepted'
+       ($_->{Status}  // '') =~ /^accepted\b/
     && ($_->{Section} // '') ne ''
     && ($_->{Section} // '') ne 'undecided'
 } @records;
@@ -88,6 +115,11 @@ my @records = Relnotes::Store::read_file($stage2_file);
     }
 
     $retvalue;
+} @records;
+
+@records = sort {
+       ($a->{Section} // '') cmp ($b->{Section} // '')
+    || ($b->{Date}    // '') cmp ($a->{Date}    // '')
 } @records;
 
 # ------------------------------------------------------------
@@ -137,6 +169,7 @@ for my $sec (keys %by_section) {
 
 if(0)
 {
+    my $stage2_file;
 print "=== DRY RUN: relnotes_stage2_to_adoc ===\n";
 print "Release dir: $release_dir\n";
 print "Stage2 file: $stage2_file\n";
@@ -247,6 +280,8 @@ if ($write) {
     print "relnotes.adoc updated successfully\n";
 }
 
+if (0) {
+     my $stage2_file;
 if ($write && %to_mark_added) {
 
     print "Updating status to 'added' in relnotes_stage2.txt\n";
@@ -271,6 +306,43 @@ if ($write && %to_mark_added) {
 
     print "relnotes_stage2.txt updated successfully\n";
 }
+}
+
+if ($write) {
+
+    print "Updating status to 'added' in stage2 files\n";
+
+    #my %files;
+    #print "2\@records\n";
+    #print @records_to_update;
+    #print "End \@records\n";
+
+    # Сгруппировать по файлам
+    print @stage2_files;
+    for my $file (@stage2_files) {
+
+        my @all = Relnotes::Store::read_file($file);
+
+        for my $r (@all) {
+
+            my $status = $r->{Status} // '';
+            next unless $status =~ /^accepted\b/;
+
+            if ($status =~ /^accepted(\(.*\))$/) {
+                $r->{Status} = "added$1";
+            } else {
+                $r->{Status} = "added";
+            }
+
+        }
+
+        Relnotes::Store::write_file($file, \@all);
+
+        print "Updated $file\n";
+    }
+}
+
+
 
 exit 0;
 
@@ -288,7 +360,7 @@ Usage:
   relnotes_stage2_to_adoc.pl --release-dir <dir> --dry-run
 
 Options:
-  --release-dir   Path to release directory
+  --release-dir   Path to release directory (directory containing relnotes_stage*.txt files)
   --dry-run       Do not write files, only show planned output
   --write         Write changes to relnotes.adoc
   --help          Show this help
@@ -378,20 +450,24 @@ sub render_records_as_adoc {
     my @out;
 
     for my $r (@records) {
-        push @out, "* $r->{Subject}";
+        #push @out, "* $r->{Subject}";
 
-        if ($r->{Body}) {
-            push @out,
-                map { "  $_" } split /\n/, $r->{Body};
-        }
+        #if ($r->{Body}) {
+        #    push @out,
+        #        map { "  $_" } split /\n/, $r->{Body};
+        #}
 
-        push @out,
-            "  gitref:$r->{Commit}\[repository=src\]";
+        #push @out,
+        #    "  gitref:$r->{Commit}\[repository=src\]";
 
+        #if ($r->{Sponsor}) {
+        #    push @out, "  (Sponsored by $r->{Sponsor})";
+        #}
+        push @out, "$r->{Review}";
+        push @out, "gitref:".substr($r->{Commit},0,12)."\[repository=src\].";
         if ($r->{Sponsor}) {
-            push @out, "  (Sponsored by $r->{Sponsor})";
+            push @out, "\{\{< sponsored \"$r->{Sponsor}\" >\}\}";
         }
-
         push @out, "";
     }
 
