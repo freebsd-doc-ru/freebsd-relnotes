@@ -1,0 +1,690 @@
+[commit 0e80562f15e3a634a2039cd88784957cb0f682c3]
+Date: 2026-01-08
+Score: 5
+Status: proposed(include=no,score=30)
+Sponsor:
+Section: undecided
+Subject: zfs: emit .note.GNU-stack section for all ELF targets
+Review: The commit fixes a linker warning when building the ZFS kernel module with binutils ld 2.44 by ensuring .note.GNU-stack sections are emitted for all ELF targets, preventing a deprecated warning about an executable stack.
+Body:
+
+  On FreeBSD, linking the zfs kernel module with binutils ld 2.44 shows
+  the following warning:
+
+      ld: warning: aesni-gcm-avx2-vaes.o: missing .note.GNU-stack section implies executable stack
+      ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+
+  Some of the `.S` files under `module/icp/asm-x86_64/modes` check whether
+  to emit the `.note.GNU-stack` section using:
+
+      #if defined(__linux__) && defined(__ELF__)
+
+  We could add `&& defined(__FreeBSD__)` to the test, but since all other
+  `.S` files in the OpenZFS tree use:
+
+      #ifdef __ELF__
+
+  it would seem more logical to use that instead. Any recent ELF platform
+  should support these note sections by now.
+
+  Reviewed by:	emaste, kib, imp
+  MFC after:	3 days
+  Differential Revision: https://reviews.freebsd.org/D54578
+
+  (cherry picked from commit eb1b6ec7a79aff05f5f10e1d6b1c63a0d8dc5f2f)
+
+
+   sys/contrib/openzfs/module/icp/asm-x86_64/modes/aesni-gcm-x86_64.S | 2 +-
+   sys/contrib/openzfs/module/icp/asm-x86_64/modes/ghash-x86_64.S     | 2 +-
+   2 files changed, 2 insertions(+), 2 deletions(-)
+
+[commit 6741fb1bd4f473f3bc46e46841d2e53a9629907c]
+Date: 2026-01-04
+Score: 5
+Status: accepted(include=yes,score=65)
+Sponsor:
+Section: Bootloader.general
+Subject: loader.efi: only use firmware provided Blt on GOP
+Review: The EFI boot loader now uses firmware-provided Blt functions only when using the Graphics Output Protocol (GOP), avoiding issues on older UGA-based systems like MacBooks.
+Body:
+
+  gfx_state.tg_private points to a EFI_GRAPHICS_OUTPUT_PROTOCOL only when
+  using GOP.
+
+  The firmware provided Blt functions on UGA platforms have been observed
+  to not work on old MacBooks, and are likley hit or miss anyways as UGA
+  has been deprecated since 2006.
+
+  Reviewed by:	tsoome
+  PR:		291935
+  MFC after:	1 week
+  Differential Revision:	https://reviews.freebsd.org/D54432
+
+  (cherry picked from commit 9595055ae7494997bb07b4aaed544f88ac4c5e7f)
+
+
+   stand/common/gfx_fb.c | 7 +++++--
+   1 file changed, 5 insertions(+), 2 deletions(-)
+
+[commit 4c0dc30b761a428c81006fbc454c990363736923]
+Date: 2025-12-13
+Score: 5
+Status: proposed(include=no,score=1)
+Sponsor:
+Section: undecided
+Subject: oce(4): Fix a typo in a device debug message
+Review: Fixes a typo in a debug message for the oce(4) driver.
+Body:
+
+  - s/depricated/deprecated/
+
+  (cherry picked from commit a3950d70a499e120c67da884865486e8599229bd)
+
+
+   sys/dev/oce/oce_mbox.c | 2 +-
+   1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 001a73c78b386735d36521d9c414cc6718e114a1]
+Date: 2025-12-13
+Score: 5
+Status: proposed(include=no,score=1)
+Sponsor:
+Section: undecided
+Subject: ng_hci(4): Fix a typo in a source code comment
+Review: Typo fix in a comment does not affect user-visible behavior.
+Body:
+
+  - s/depricated/deprecated/
+
+  (cherry picked from commit 756712d745db207085f1fe87dc8258434ec2147d)
+
+
+   sys/netgraph/bluetooth/include/ng_hci.h | 2 +-
+   1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 018c097a4fa7b97132746e07e4e0c21eac180c02]
+Date: 2025-09-15
+Score: 5
+Status: proposed(include=yes,score=20)
+Sponsor:
+Section: Userland.contrib
+Subject: libc++: Fix deprecation warnings with latest clang
+Review: libc++ updated to incorporate upstream changes to suppress deprecation warnings with recent clang versions.
+Body:
+
+  Latest clang has become more strict in diagnosing deprecated decls, so
+  pull in LLVM commit 9feac2cbd0d80927ce9a8b4c3e810d2b81802d55.
+
+  Original commit message:
+  [libc++] Improve deprecated diagnostic guards.
+
+  Recent Clang-21 builds improved the deprecated diagnotics. This
+  uncovered missing guards in libc++ internally.
+
+  Reviewed by:	dim
+  MFC after:	1 week
+  Differential Revision: https://reviews.freebsd.org/D52531
+
+  (cherry picked from commit 086ce467adec42d58414fdb4d54c2b6819cf0c07)
+  (cherry picked from commit 703c98dc6eeb2b36ec94e138269a221704e55f4c)
+
+
+   contrib/llvm-project/libcxx/include/__functional/binary_function.h  | 5 ++---
+   contrib/llvm-project/libcxx/include/__functional/unary_function.h   | 5 ++---
+   contrib/llvm-project/libcxx/include/__functional/weak_result_type.h | 2 ++
+   contrib/llvm-project/libcxx/include/__memory/allocator_traits.h     | 2 ++
+   4 files changed, 8 insertions(+), 6 deletions(-)
+
+[commit 21f206bb330f769afb82d7b6e8f3762478ee74b3]
+Date: 2025-09-15
+Score: 5
+Status: proposed(include=yes,score=30)
+Sponsor:
+Section: Userland.contrib
+Subject: libc++: avoid use of deprecated __reference_binds_to_temporary
+Review: libc++ is updated to avoid a deprecated internal macro, enabling builds with the latest clang development version.
+Body:
+
+  This was removed in upstream libc++ in commit
+  437ad06f762ab07d89badecdd20627db200b98d3, but as this does not apply
+  cleanly to the current repository, I am applying the equivalent change
+  in a minimally invasive way. This is needed to build with latest clang
+  HEAD as of today.
+
+  Reviewed by:	dim
+  MFC after:	1 week
+  Differential Revision: https://reviews.freebsd.org/D52530
+
+  (cherry picked from commit dee76cf2f3dace6290ccab07c2db17355994e70f)
+  (cherry picked from commit e487653fe43434768b533b1d7f360ec448c05b4c)
+
+
+   contrib/llvm-project/libcxx/include/tuple | 4 +++-
+   1 file changed, 3 insertions(+), 1 deletion(-)
+
+[commit e9e97eda0b1b8ab23db532e90b43301b51ab1f4f]
+Date: 2025-09-15
+Score: 5
+Status: proposed(include=yes,score=30)
+Sponsor:
+Section: Userland.libraries
+Subject: libc++: avoid use of deprecated builtin
+Review: The libc++ library now uses is_trivially_copyable instead of the deprecated __is_trivially_relocatable builtin, fixing build issues with recent clang versions.
+Body:
+
+  This pulls in LLVM commit accfbd4cb327411ad66c0109ba1841482b871967 to
+  avoid the use of __libcpp_is_trivially_relocatable.
+  This fixes building FreeBSD libc++ with clang HEAD as of today.
+
+  Original commit message:
+  [libc++] Replace __is_trivially_relocatable by is_trivially_copyable (#124970)
+
+  The __is_trivially_relocatable builtin has semantics that do not
+  correspond to any current or future notion of trivial relocation.
+  Furthermore, it currently leads to incorrect optimizations for some
+  types on supported compilers:
+  - Clang on Windows where types with non-trivial destructors get
+    incorrectly optimized
+  - AppleClang where types with non-trivial move constructors get
+    incorrectly optimized
+
+  Until there is an agreed upon and bugfree implementation of what it
+  means to be trivially relocatable, it is safer to simply use trivially
+  copyable instead. This doesn't leave a lot of types behind and is
+  definitely correct.
+
+  Reviewed by:	dim
+  MFC after:	1 week
+  Differential Revision: https://reviews.freebsd.org/D52529
+
+  (cherry picked from commit d61c75f634cf52fdef9590601d881f85275eee9a)
+  (cherry picked from commit 29e3479f2d3068a2f3e2dbb578d3fabf6389e5a6)
+
+
+   .../libcxx/include/__type_traits/is_trivially_relocatable.h       | 8 +++++---
+   1 file changed, 5 insertions(+), 3 deletions(-)
+
+[commit 85e0cdeeb75a8fffc7910032d409417124dfee26]
+Date: 2024-12-06
+Score: 5
+Status: proposed(include=yes,score=30)
+Sponsor:
+Section: Userland.libraries
+Subject: cdefs: Add __deprecated1 which accepts a message as an argument
+Review: The __deprecated1 macro now accepts a custom message argument, which will be included in compiler warnings for deprecated functions.
+Body:
+
+  This message will be included in any warning issued by the compiler
+  for use of the deprecated function.
+
+  Reviewed by:	imp
+  Differential Revision:	https://reviews.freebsd.org/D47701
+
+  (cherry picked from commit 6da04bcff9efedeae7d4046553002b9e3b2bc24f)
+
+
+   sys/sys/cdefs.h | 1 +
+   1 file changed, 1 insertion(+)
+
+[commit 4ff445d3723a58ef8a5d34e4e33c4f40d217e1ab]
+Date: 2024-10-15
+Score: 5
+Status: proposed(include=no,score=10)
+Sponsor: Netflix
+Section: undecided
+Subject: cdefs: Add __deprecated
+Review: Adds a __deprecated macro to sys/cdefs.h for marking deprecated interfaces, which may affect compiler warnings for code using deprecated functions.
+Body:
+
+  Add __deprecated decorator. This is for a deprecated interface. copystr
+  is tagged with this today in copy(9), but don't actually provide it or
+  use it. copystr is a #define so adding it will have to wait.
+
+  LinuxKPI was defining this away completely in compiler.h. Since this is
+  shared between Linux KPI consumers and OpenZFS, if it's already defined,
+  use the FreeBSD sys/cdefs.h version, otherwise define it away. For
+  OpenZFS this will retain it, while for Linux KPI it will tend to drop it
+  (I think always, but I didn't look at everything).
+
+  Sponsored by:		Netflix
+  Reviewed by:		jhb, emaste
+  Differential Revision:	https://reviews.freebsd.org/D46137
+
+  (cherry picked from commit 16672453f12586703f1c51d909bd1900691bf884)
+
+
+   sys/compat/linuxkpi/common/include/linux/compiler.h | 2 ++
+   sys/sys/cdefs.h                                     | 1 +
+   2 files changed, 3 insertions(+)
+
+[commit d1f275606d9fa2560606c4b6e515bc35d82699fc]
+Date: 2025-11-14
+Score: 5
+Status: proposed(include=yes,score=70)
+Sponsor:
+Section: Ports.packaging
+Subject: GCE: Add TARGET and FS to image family
+Review: The GCE image family now includes TARGET and FS in its name, ensuring that image families are unique per architecture and filesystem. This prevents the GCE instances create API from selecting mismatched images when using image families.
+Body:
+
+  GCE image family is meant to be unique per set of image characteristics
+  so that a user can create instances using the image family instead of the
+  image name to reliably get a similar image with updated software, but no
+  other changes.
+
+  Without this change, the instances create API would select the most recent
+  non-deprecated image matching the name, regardless of architecture or
+  filesystem.
+
+  (cherry picked from commit fc83e6c5e1f20087314dc52b63e485db87a98b86)
+
+
+   release/Makefile.gce | 4 ++--
+   1 file changed, 2 insertions(+), 2 deletions(-)
+
+[commit 2bf082df4931fa0a2c557c428e7e7a333fd95ae5]
+Date: 2025-12-01
+Score: 5
+Status: proposed(include=no,score=20)
+Sponsor:
+Section: undecided
+Subject: ctfmerge: fix segfault when building on macOS
+Review: Fixes a segmentation fault when building CTF data on macOS by replacing deprecated semaphores with condition variables, resolving a race condition.
+Body:
+
+  The barrier code was using semaphores which have been deprecated in
+  macOS and not working at all, causing a race condition. Since macOS
+  does not have pthread_barrier_*(), this change uses a condition
+  variable instead.
+
+  PR:		290958
+  Reported by:	wosch
+  Reviewed by:	imp, markj
+  Differential Revision:	https://reviews.freebsd.org/D54018
+
+  (cherry picked from commit 732b4aa05d78ca6831d02e67a43f34ad104f4f01)
+
+
+   cddl/contrib/opensolaris/tools/ctf/cvt/barrier.c | 26 +++---------------------
+   cddl/contrib/opensolaris/tools/ctf/cvt/barrier.h |  9 ++------
+   2 files changed, 5 insertions(+), 30 deletions(-)
+
+[commit a93e1b731ae440ac3471792c52db8fb07b93d265]
+Date: 2025-10-05
+Score: 5
+Status: accepted(include=yes,score=75)
+Sponsor:
+Section: Userland.contrib
+Subject: heimdal-kadmin: Add support for the -f dump option
+Review: The man:kadmin[8] utility gains a new -f option for dumping Heimdal KDC databases in MIT-compatible format, enabling migration to MIT KDC without recreating the database from scratch.
+Body:
+
+  The "-f" dump option allows a dump of the Heimdal
+  KDC in a format that the MIT kdb5_util command can
+  load into a MIT KDC's database.
+  This makes transitioning from the Heimdal KDC to
+  the current MIT one feasible without having to
+  re-create the KDC database from scratch.
+
+  glebius@ did the initial work, cherry picking these
+  commits from the Heimdal sources on github and then doing
+  extensive merge conflict resolution and other fixes so
+  that it would build.
+  Heimdal commit fca5399 authored by Nico Williams:
+  Initial commit for second approach for multiple kvno.  NOT TESTED!
+
+  Heimdal commit 57f1545 authored by Nico Williams:
+  Add support for writing to KDB and dumping HDB to MIT KDB dump format
+      Before this change Heimdal could read KDBs.  Now it can write to
+      them too.
+
+      Heimdal can now also dump HDBs (including KDBs) in MIT format,
+      which can then be imported with kdb5_util load.
+
+      This is intended to help in migrations from MIT to Heimdal by
+      allowing migrations from Heimdal to MIT so that it is possible
+      to rollback from Heimdal to MIT should there be any issues.  The
+      idea is to allow a) running Heimdal kdc/kadmind with a KDB, or
+      b) running Heimdal with an HDB converted from a KDB and then
+      rollback by dumping the HDB and loading a KDB.
+
+      Note that not all TL data types are supported, only two: last
+      password change and modify-by.  This is the minimum necessary.
+      PKINIT users may need to add support for KRB5_TL_USER_CERTIFICATE,
+      and for databases with K/M history we may need to add KRB5_TL_MKVNO
+      support.
+
+  This resulted in a Heimdal kadmin that would dump
+  the KDC database in MIT format.  However, there
+  were issues when this dump was loaded into the
+  current MIT KDC in FreeBSD current/15.0.
+
+  The changes I did to make the dump more useful are listed below:
+  When "-f MIT" is used for "kadmin -l dump" it writes
+  the dump out in MIT format.  This dump format is understood
+  by the MIT kdb5_util command.  The patch modifies the above
+  so that the MIT KDC's master key keytab file can be provided
+  as the argument to "-f" so that the principals are re-encrypted in
+  it. This allows any principal with at least one strong encryption
+  type key to work without needing a change_password.
+  The strong encryption types supported by the Heimdal KDC are:
+  aes256-cts-hmac-sha1-96
+  aes128-cts-hmac-sha1-96
+
+  The issues my changes address are:
+  - If there are weak encryption keys in a principal's entry,
+    MIT's kadmin.local will report that the principcal's entry
+    is incomplete or corrupted.
+  - The keys are encrypted in Heimdal's master key.  The
+    "-d" option can be used on the "kadmin -l dump" to
+    de-encrypt them, but the passwords will not work on the
+    current MIT KDC.
+
+  To try and deal with the above issues, this patch modied the above to:
+  - Does not dump the weak keys.
+  - Re-encrypts the strong keys in MIT's master key if the argument
+    to "-f" is actually a filename which holds the MIT KDC's
+    master key keytab and not "MIT".
+  - For principals that only have weak keys, it generates
+    a fake strong key. This key will not work on the MIT
+    KDC, but the principal entry will work once a
+    change_password is done to it.
+  - It always generates a "modified_by" entry, faking one if
+    not already present in the Heimdal KDC database.
+    This was necessary, since the MIT kadmin will
+    report that the principal entry is "incomplete or
+    corrupted" without one.
+
+  It also fixed a problem where "get principal" no longer
+  worked after the initial patch was applied.
+
+  A man page update will be done as a separate commit.
+
+  I believe this commit is acceptable since the Heimdal
+  sources are now essentially deprecated in favor of the
+  MIT sources and that this new "-f" patch simplifies
+  the transition to the MIT KDC.
+
+  Discussed with:	glebius, cy
+  MFC after:	3 days
+
+  (cherry picked from commit 5000d023a446b81f6d45ed59aa379607ec814f01)
+
+
+   crypto/heimdal/kadmin/dump.c              |  29 +-
+   crypto/heimdal/kadmin/kadmin-commands.in  |   6 +
+   crypto/heimdal/kdc/hpropd.c               |  68 +++--
+   crypto/heimdal/kdc/mit_dump.c             | 383 ++++++------------------
+   crypto/heimdal/lib/hdb/Makefile.am        |   1 +
+   crypto/heimdal/lib/hdb/common.c           |  68 +++--
+   crypto/heimdal/lib/hdb/ext.c              |  31 ++
+   crypto/heimdal/lib/hdb/hdb-mitdb.c        | 477 +++++++++++++++++++++++++++---
+   crypto/heimdal/lib/hdb/hdb-protos.h       |  25 ++
+   crypto/heimdal/lib/hdb/hdb.asn1           |  14 +-
+   crypto/heimdal/lib/hdb/hdb.c              |   7 +-
+   crypto/heimdal/lib/hdb/hdb.h              |  15 +-
+   crypto/heimdal/lib/hdb/hdb_locl.h         |   7 +
+   crypto/heimdal/lib/hdb/keys.c             |  69 ++++-
+   crypto/heimdal/lib/hdb/mkey.c             | 211 +++++++++++--
+   crypto/heimdal/lib/hdb/print.c            | 407 ++++++++++++++++++++++---
+   crypto/heimdal/lib/hdb/version-script.map |   6 +
+   crypto/heimdal/lib/kadm5/chpass_s.c       |   7 +
+   crypto/heimdal/lib/kadm5/randkey_s.c      |   4 +
+   kerberos5/lib/libhdb/Makefile             |   4 +-
+   share/mk/src.libnames.mk                  |   2 +-
+   21 files changed, 1372 insertions(+), 469 deletions(-)
+
+[commit 586183128f2f04b84a9a564f83289963671f0ff2]
+Date: 2025-09-16
+Score: 5
+Status: proposed(include=yes,score=65)
+Sponsor:
+Section: Network.general
+Subject: IPv6: fix off-by-one in pltime and vltime expiration checks
+Review: IPv6 address lifetimes are now correctly enforced. Addresses become deprecated or invalid immediately when their preferred or valid lifetimes expire, preventing them from being used as source addresses after expiration.
+Body:
+
+  Previously, the macros used '>' instead of '>=' when comparing elapsed
+  time against the preferred and valid lifetimes. This caused any deprecated
+  address to become usable again for one extra second after receiving each
+  Router Advertisement. In that short window, the address could be
+  selected as a source for outgoing connections.
+
+  Update the checks to use '>=' so that addresses are deprecated or
+  invalid when their lifetime expires.
+
+  PR: 		289177
+  Reported by:	Dmitry Nexus <fbsd.4f6a at nexus tel>
+  Reviewed by:	zlei
+  Submitted by:	Marek Zarychta
+  Differential Revision:	https://reviews.freebsd.org/D52323
+
+  (cherry picked from commit 588a5fad3e8b98955b60707e3e92b8b43566e3f7)
+
+
+   sys/netinet6/in6.h | 4 ++--
+   1 file changed, 2 insertions(+), 2 deletions(-)
+
+[commit a16c7286b5c4c63867626fa9fcfba82d8edec4ba]
+Date: 2025-09-16
+Score: 5
+Status: proposed(include=yes,score=35)
+Sponsor:
+Section: Drivers.device
+Subject: vtnet: deprecate loader tunable fixup_needs_csum
+Review: The vtnet driver deprecates the loader tunable fixup_needs_csum, which previously allowed checksum computation for packets with VIRTIO_NET_HDR_F_NEEDS_CSUM set. This tunable is no longer functional due to changes in the driver's checksum handling.
+Body:
+
+  If this tunable is enabled and vtnet receives a packet with
+  VIRTIO_NET_HDR_F_NEEDS_CSUM set, vtnet computes the TCP/UDP checksum
+  and writes it in the checksum field.
+  This was somewhat useful when vtnet pretended that such a packet has
+  a correct checksum and set the mbuf flag CSUM_DATA_VALID.
+  But this is not the case anymore.
+
+  Reviewed by:		tuexen
+  Differential Revision:	https://reviews.freebsd.org/D52546
+
+  (cherry picked from commit 5da388d93917f5fa74022960cc65452592f71539)
+
+
+   share/man/man4/vtnet.4 | 4 +++-
+   1 file changed, 3 insertions(+), 1 deletion(-)
+
+[commit d350c18f98fd41e773a4856bff268f4f8060b21e]
+Date: 2025-07-07
+Score: 5
+Status: step2(include=yes,score=85)
+Sponsor:
+Section: Userland.deprecated
+Subject: deprecate RIP
+Review: The RIP routing protocol is deprecated and will be removed in a future release. The man:routed[8], man:rdisc[8], man:rtquery[8], man:route6d[8], and man:rip6query[8] utilities now include deprecation notices. Users needing RIP functionality should use alternatives like 'bird' or 'quagga' from ports.
+Body:
+
+  Per https://wiki.freebsd.org/DeprecationPlan, deprecate RIP in 15.0R,
+  with the intention of removing it in 16.0R.
+
+  Add a note to the manpages of routed(8), rdisc(8), rtquery(8),
+  route6d(8) and rip6query(8) noting that they will be removed
+  in a future release.
+
+  RIP has been obsolete for over 20 years and no one is running it on
+  modern networks.  If someone really needs RIP, there are alternatives
+  such as 'bird' or 'quagga' available from ports; there is no need to
+  ship it in base.
+
+  Relnotes:	yes
+  Reviewed by:	des
+  Approved by:	des (mentor)
+  Differential Revision:	https://reviews.freebsd.org/D50292
+
+  (cherry picked from commit 4b7cdb5a420f518fbe1968a6916b6d017f54025d)
+
+
+   sbin/routed/routed.8           | 9 ++++++++-
+   sbin/routed/rtquery/rtquery.8  | 7 ++++++-
+   usr.sbin/rip6query/rip6query.8 | 8 +++++++-
+   usr.sbin/route6d/route6d.8     | 7 ++++++-
+   4 files changed, 27 insertions(+), 4 deletions(-)
+
+[commit d0b23791c6677c3cc03d9e315beb66e8b4de717a]
+Date: 2025-06-25
+Score: 5
+Status: accepted(include=yes,score=85)
+Sponsor:
+Section: Userland.contrib
+Subject: mandoc: Vendor import of upstream at 2025-06-13
+Review: mandoc updated to upstream version from 2025-06-13. The LIBRARY section is deprecated, and the Ft macro now accepts multiple arguments without quoting. A segmentation fault on malformed Tg markup is fixed.
+Body:
+
+  Interesting changes:
+  + Lb is now part of SNYOPSIS, the LIBRARY section is deprecated
+  + Ft now takes multiple args, and no longer should be quoted
+  + Fix a segfaut on malformed Tg markup
+
+  (cherry picked from commit 4c07abdbacf49e4ba749b8720916d8cd340a50b8)
+
+
+   contrib/mandoc/mandocdb.c      |  27 ++++++++--
+   contrib/mandoc/mdoc.7          | 109 +++++++++++++++++++++++------------------
+   contrib/mandoc/mdoc_macro.c    |   7 ++-
+   contrib/mandoc/mdoc_validate.c |  37 +++++++++++---
+   4 files changed, 117 insertions(+), 63 deletions(-)
+
+[commit 9819cc22df7c49e2a9631c1afdec8bbe988e00b0]
+Date: 2025-05-05
+Score: 5
+Status: proposed(include=yes,score=30)
+Sponsor:
+Section: Userland.libraries
+Subject: manuals: Align our tree with upstream C23 macro
+Review: The -isoC-2024 macro is deprecated and replaced by -isoC-2023 for C23 alignment, maintaining backward compatibility.
+Body:
+
+  Switch all instances of the -isoC-2024 macro to -isoC-2023 selected by
+  upstream. Keep -isoC-2024 defined, but deprecated, for backwards compat.
+
+  MFC after:      3 days (resolved merge conflicts w/ cdefs and memccpy.3)
+
+  (cherry picked from commit 1b6936e125382523509901a4fc5b2932ed0e742d)
+
+
+   contrib/mandoc/st.c       | 2 ++
+   lib/libc/string/memccpy.3 | 2 +-
+   2 files changed, 3 insertions(+), 1 deletion(-)
+
+[commit ccdd6285df5dfa81c22e36685bab9be184a4e733]
+Date: 2025-04-11
+Score: 5
+Status: accepted(include=yes,score=85)
+Sponsor: The FreeBSD Foundation
+Section: Network.wireless
+Subject: net80211: fix VHT160 and VHT80P80 selection and enable in LinuxKPI 802.11
+Review: The net80211 subsystem has been updated to properly support VHT160 and VHT80P80 channel widths with modern access points, aligning with changes from 802.11ac-2013 to 802.11-2020. This enables VHT160 and VHT80P80 in the LinuxKPI 802.11 driver compatibility code, affecting wireless performance and compatibility.
+Body:
+
+  Between 802.11ac-2013 and 802.11-2020 some fields were deprecated and the
+  way VHT160 and VHT80P80 are selected has changed.
+  In order to get onto VHT160 with modern APs adopt and support both the
+  deprecated as well as the new logic.
+
+  For simplicity of blocks we pull out the non-HT40 handling early on,
+  followed by the "use HT", followed by the deprectaed options and then
+  the 80Mhz channel width.
+
+  In all cases keep checking (a) what is locally supported, (b) what the
+  user has locally allowed (FVHT flags, [-]vht160 [-]vht80p80 [-]vht80
+  [-]vht40), as well as (c) what is announced.  Provide possible fallbacks
+  to lower channel widths in all cases (but VHT20, which means VHT is
+  disabled).
+
+  With this enable VHT160 and VHT80P80 in the LinuxKPI 802.11 driver
+  compat code as well.
+
+  Sponsored by:	The FreeBSD Foundation
+  Reviewed by:	thj
+  Differential Revision: https://reviews.freebsd.org/D49773
+
+  (cherry picked from commit 4bf049bfeefd988fed93149138c422b05d38251b)
+
+
+   sys/compat/linuxkpi/common/src/linux_80211.c |   9 +-
+   sys/net80211/ieee80211.h                     |   9 +-
+   sys/net80211/ieee80211_ht.c                  | 178 ++++++++++++++++++---------
+   3 files changed, 129 insertions(+), 67 deletions(-)
+
+[commit ab9c9443eec582265c288dc46d2c2144f0f81188]
+Date: 2025-05-30
+Score: 5
+Status: accepted(include=yes,score=65)
+Sponsor: The FreeBSD Foundation
+Section: Drivers.device
+Subject: sound: Deprecate the MIDI sequencer
+Review: The in-kernel MIDI sequencer is deprecated. This change adds a deprecation notice to the kernel and may affect applications that rely on this legacy interface.
+Body:
+
+  The in-kernel MIDI sequencer is not used anymore, since this is done by
+  userland applications nowadays. It also contains bugs, and we are not
+  exactly sure how it works, or if it worked properly in the first place.
+
+  Sponsored by:	The FreeBSD Foundation
+  MFC after:	1 day
+  Reviewed by:	emaste
+  Differential Revision:	https://reviews.freebsd.org/D50606
+
+  (cherry picked from commit 799105f53a9647f86dbf08456260d5850851b6f9)
+
+
+   sys/dev/sound/midi/sequencer.c | 4 ++++
+   1 file changed, 4 insertions(+)
+
+[commit d300875d011c056f10dd7ef6915d041c7b559fff]
+Date: 2025-05-04
+Score: 5
+Status: proposed(include=yes,score=65)
+Sponsor:
+Section: Network.general
+Subject: sctp: fix mapping of interface address flags
+Review: The SCTP address mapping logic is corrected to preserve the SCTP_ADDR_IFA_UNUSEABLE flag for deprecated addresses and to avoid marking tentative addresses as unusable. This improves SCTP connectivity in scenarios involving deprecated or tentative addresses.
+Body:
+
+  Do not clear the SCTP_ADDR_IFA_UNUSEABLE flag, if it was set due
+  to the address being deprecated. Also don't declare tentative
+  addresses as unusable.
+  While there, cleanup the code.
+
+  PR:		230242
+
+  (cherry picked from commit 9639de2a6f7eec8b2158782fbfab3419d507fdc5)
+
+
+   sys/netinet/sctp_bsd_addr.c | 20 +++++++++-----------
+   1 file changed, 9 insertions(+), 11 deletions(-)
+
+[commit 6c912470030ba958f2e41a00b44f6430919b1389]
+Date: 2025-04-25
+Score: 5
+Status: accepted(include=yes,score=65)
+Sponsor: OVHCloud
+Section: Userland.programs
+Subject: nuageinit: implement chpasswd
+Review: The nuageinit tool now supports the chpasswd command, allowing password changes via a list or multiline string, including deprecated syntax for compatibility with some providers.
+Body:
+
+  Add support for chpasswd, with all possible syntaxes, including
+  deprecated one: chpasswd.list as a list or as a multiline string
+  as some providers are still only providing this deprecated form
+
+  Sponsored by:	OVHCloud
+  MFC After:	1 week
+  Reviewed by:	kevans, jlduran
+  Differential Revision: 	https://reviews.freebsd.org/D50021
+
+  (cherry picked from commit c201a1198ad70e7d096ee32c364d539eed2dfec4)
+
+
+   libexec/nuageinit/nuage.lua          | 105 ++++++++++++++++++++-
+   libexec/nuageinit/nuageinit          |   6 +-
+   libexec/nuageinit/tests/nuageinit.sh | 175 +++++++++++++++++++++++++++++++++++
+   3 files changed, 283 insertions(+), 3 deletions(-)
+
