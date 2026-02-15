@@ -266,7 +266,7 @@ This section covers changes to kernel configurations, system tuning, and system 
 [[kernel-general]]
 === General Kernel Changes
 
-The jail(8) system now restricts unprivileged users in a parent jail from scheduling, debugging, or signaling processes in subordinate jails by default. New privileges PRIV_SCHED_DIFFJAIL, PRIV_DEBUG_DIFFJAIL, and PRIV_SIGNAL_DIFFJAIL are required for such cross-jail operations. A new jail parameter allow.unprivileged_parent_tampering is introduced for backward compatibility in FreeBSD 14.x, but will be disabled by default in FreeBSD 15.x, affecting development setups that rely on cross-jail process management.
+The man:jail[8] system now restricts unprivileged users in a parent jail from scheduling, debugging, or signaling processes in subordinate jails by default. New privileges PRIV_SCHED_DIFFJAIL, PRIV_DEBUG_DIFFJAIL, and PRIV_SIGNAL_DIFFJAIL are required for such cross-jail operations. A new jail parameter allow.unprivileged_parent_tampering is introduced for backward compatibility in FreeBSD 14.x, but will be disabled by default in FreeBSD 15.x, affecting development setups that rely on cross-jail process management.
 gitref:5c6949e12ee6[repository=src].
 
 The change fixes a race condition in the powerpc context switch code that could cause the system to hang after starting all APs, particularly in qemu-system-ppc64 power9 pseries guests.
@@ -367,7 +367,7 @@ This section describes changes that affect networking in FreeBSD.
 [[network-general]]
 === General Network
 
-Removes obsolete compatibility code for IPFW versions prior to FreeBSD 8, simplifying the codebase. This may affect users or third-party modules that still rely on the old compatibility interfaces.
+Compatibility code for IPFW versions prior to FreeBSD 8 has been removed to simplify the codebase. Users or third-party modules that still rely on the old compatibility interfaces must migrate before upgrading.
 gitref:57865e505aef[repository=src].
 {{< sponsored "The FreeBSD Foundation" >}}
 
