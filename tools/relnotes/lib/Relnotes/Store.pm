@@ -27,6 +27,13 @@ sub read_file {
             $current = {
                 Commit => $1,
                 Body   => '',
+                Date   => '1970-01-01',
+                Score  => '5',
+                Subject => '',
+                Status => 'proposed',
+                Sponsor => '',
+                Section => '',
+                Review => ''
             };
             $in_body = 0;
             next;
