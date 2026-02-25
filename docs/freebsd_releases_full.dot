@@ -1,5 +1,22 @@
 # dot -Tpng freebsd_releases_full.dot -o freebsd_releases_full.png
 # dot -Tsvg freebsd_releases_full.dot -o freebsd_releases_full.svg
+#
+# Copyright (c) 2026 Vladlen Popolitov
+#
+# SPDX-License-Identifier: BSD-2-Clause
+#
+# How I did it
+# 1. main, stable/15, stable/14. stable/13, releng/15.0, releng/14.4 commits from 12.0 till branch HEAD
+# git log --oneline -E -G 'REVISION|BRANCH' b958317950db^..main -- sys/conf/newvers.sh
+# git log --oneline -E -G 'REVISION|BRANCH' b958317950db^..stable/15 -- sys/conf/newvers.sh
+# ...
+# 2. split point for main<->stable/15, main<->stable/14 etc
+# git merge-base main stable/15
+# ...
+# git merge-base stable/14 releng/14.3
+#
+# 3. make lists of commits, Copy-Past into this dot-file.
+
 digraph FreeBSD_Releases {
 
   rankdir=TB;
@@ -91,16 +108,16 @@ subgraph cluster_legend {
 
   s14_alpha3  [label="2af9390e\nCreate stable/14\n14.0-ALPHA3",URL="https://cgit.freebsd.org/src/commit/?id=2af9390e54ed",target="_blank"];
   s14_alpha4  [label="4c3f1444\n14.0-ALPHA4",URL="https://cgit.freebsd.org/src/commit/?id=4c3f144478d4",target="_blank"];
-  s14_post0   [label="edbd9c3c\n14.0-CURRENT",URL="https://cgit.freebsd.org/src/commit/?id=edbd9c3c32c0",target="_blank"];
+  s14_post0   [label="edbd9c3c\n14.0-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=edbd9c3c32c0",target="_blank"];
   s14_pre141  [label="7a2c2599\n14.1-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=7a2c2599a760",target="_blank"];
-  s14_post141 [label="7b082bdf\n14.1-CURRENT",URL="https://cgit.freebsd.org/src/commit/?id=7b082bdf72e6",target="_blank"];
+  s14_post141 [label="7b082bdf\n14.1-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=7b082bdf72e6",target="_blank"];
   s14_pre142  [label="e38b4c03\n14.2-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=e38b4c031cf8",target="_blank"];
-  s14_post142 [label="4e8444d5\n14.2-CURRENT",URL="https://cgit.freebsd.org/src/commit/?id=4e8444d5750a",target="_blank"];
+  s14_post142 [label="4e8444d5\n14.2-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=4e8444d5750a",target="_blank"];
   s14_pre143  [label="ee7a8745\n14.3-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=ee7a874557f4",target="_blank"];
-  s14_post143 [label="61bcd818\n14.3-CURRENT",URL="https://cgit.freebsd.org/src/commit/?id=61bcd8183104",target="_blank"];
+  s14_post143 [label="61bcd818\n14.3-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=61bcd8183104",target="_blank"];
   s14_pre144  [label="f5ea3d46\n14.4-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=f5ea3d46d600",target="_blank"];
   s15_parentR14_4 [label="2f5bea92\nparent to releng/14.4",URL="https://cgit.freebsd.org/src/commit/?id=2f5bea924d08a6528dc6c25b2932105f7f235a3a",target="_blank"];
-  s14_post144 [label="567cb65a\n14.4-CURRENT",URL="https://cgit.freebsd.org/src/commit/?id=567cb65a378f",target="_blank"];
+  s14_post144 [label="567cb65a\n14.4-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=567cb65a378f",target="_blank"];
 
   m_parent_14 -> s14_alpha3;
   s14_alpha3 -> s14_alpha4 -> s14_post0 ->
@@ -113,7 +130,7 @@ subgraph cluster_legend {
   s14_post144 -> s14_end;
 
   /* =========================================================
-     STABLE/15
+     stable/15
      ========================================================= */
 
   node [fillcolor=khaki];
@@ -124,7 +141,7 @@ subgraph cluster_legend {
   s15_alpha4  [label="54dd9fd8\n15.0-ALPHA4",URL="https://cgit.freebsd.org/src/commit/?id=54dd9fd8a525",target="_blank"];
   s15_alpha5  [label="1c0898ed\n15.0-ALPHA5",URL="https://cgit.freebsd.org/src/commit/?id=1c0898edf28f",target="_blank"];
   s15_parentR [label="2a6c1754\nparent to releng/15.0",URL="https://cgit.freebsd.org/src/commit/?id=2a6c17544e00b2f1a081bab501c079e5d70aa74c",target="_blank"];
-  s15_post    [label="b15f726d\n15.0-CURRENT",URL="https://cgit.freebsd.org/src/commit/?id=b15f726dfe60",target="_blank"];
+  s15_post    [label="b15f726d\n15.0-STABLE",URL="https://cgit.freebsd.org/src/commit/?id=b15f726dfe60",target="_blank"];
 
   m_parent_15 -> s15_alpha1;
   s15_alpha1 -> s15_alpha2 -> s15_alpha3 ->
@@ -135,7 +152,7 @@ subgraph cluster_legend {
   s15_post -> s15_end;
 
 /* =========================================================
-     RELENG/14.4
+     releng/14.4
      ========================================================= */
 
   node [fillcolor=mediumseagreen];
@@ -152,7 +169,7 @@ subgraph cluster_legend {
 
 
   /* =========================================================
-     RELENG/15.0
+     releng/15.0
      ========================================================= */
 
   node [fillcolor=mistyrose];
@@ -182,7 +199,7 @@ subgraph cluster_legend {
   r15_p3 -> r15_end;
 
    /* =======================
-     TAGS
+     tags
      ======================= */
 
   node [shape=note, fillcolor=white];
