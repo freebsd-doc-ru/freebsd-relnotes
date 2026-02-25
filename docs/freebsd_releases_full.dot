@@ -60,7 +60,7 @@ subgraph cluster_legend {
   m_update_15  [label="aee253d8\n15.0-CURRENT",URL="https://cgit.freebsd.org/src/commit/?id=aee253d8a7ae",target="_blank"];
   m_pre_15     [label="e4c0ecba\n15.0-PRERELEASE",URL="https://cgit.freebsd.org/src/commit/?id=e4c0ecba44b2",target="_blank"];
   m_parent_15  [label="3aa0a0aa\nparent to 15.0",URL="https://cgit.freebsd.org/src/commit/?id=3aa0a0aaa23b95dbf0ef58b16b313637f515b460",target="_blank"];
-  m_update_16  [label="8b4e4c27\n16-CURRENT",URL="https://cgit.freebsd.org/src/commit/?id=8b4e4c273730",target="_blank"];
+  m_update_16  [label="8b4e4c27\n16.0-CURRENT",URL="https://cgit.freebsd.org/src/commit/?id=8b4e4c273730",target="_blank"];
 
   m_alpha1_13 -> m_parent_13 -> m_bump_14 -> m_alpha1_14 ->
   m_alpha2_14 -> m_parent_14 -> m_update_15 ->
