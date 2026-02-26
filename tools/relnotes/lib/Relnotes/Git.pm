@@ -45,6 +45,7 @@ sub read_commit {
 
     return {
         commit  => $h,
+        Commit  => $h,
         Date    => $date,
         Subject => $subject,
         Sponsor => $sponsor,

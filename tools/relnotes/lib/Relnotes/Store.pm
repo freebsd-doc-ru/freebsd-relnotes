@@ -33,7 +33,8 @@ sub read_file {
                 Status => 'proposed',
                 Sponsor => '',
                 Section => '',
-                Review => ''
+                Review => '',
+                Collected_At => '',
             };
             $in_body = 0;
             next;
@@ -63,6 +64,11 @@ sub read_file {
 
         if ($line =~ /^Status:\s*(.*)$/) {
             $current->{Status} = $1;
+            next;
+        }
+
+        if ($line =~ /^CollectedAt:\s*(.+)$/) {
+            $current->{CollectedAt} = $1;
             next;
         }
 
@@ -128,6 +134,7 @@ sub append_file {
         print $fh "Date: $h->{Date}\n"     if defined $h->{Date};
         print $fh "Score: $h->{Score}\n"   if defined $h->{Score};
         print $fh "Status: $h->{Status}\n" if defined $h->{Status};
+        print $fh "CollectedAt: $h->{CollectedAt}\n" if defined $h->{CollectedAt};
         print $fh "Sponsor: $h->{Sponsor}\n" if defined $h->{Sponsor};
         print $fh "Section: $h->{Section}\n" if defined $h->{Section};
         print $fh "Subject: $h->{Subject}\n" if defined $h->{Subject};
@@ -164,6 +171,7 @@ sub write_file {
             Date
             Score
             Status
+            CollectedAt
             Sponsor
             Section
             Subject
