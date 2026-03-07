@@ -16,7 +16,7 @@ use Cwd 'abs_path';
 # CLI
 # ------------------------------------------------------------
 
-my ($repo, $branch, $advisories_dir, $release_dir, $dry_run, $help, $format_list, $format_relnotes);
+my ($repo, $branch, $advisories_dir, $release_dir, $dry_run, $help, $format_list, $format_relnotes, $released, $release_tag);
 
 GetOptions(
     'repo=s'           => \$repo,
@@ -27,12 +27,15 @@ GetOptions(
     'help|h'          => \$help,
     'format-list'      => \$format_list,
     'format-relnotes'  => \$format_relnotes,
+    'released'  => \$released,
+
 ) or die "Invalid parameters\n";
 
 if ($help) {
     print <<"USAGE";
 Usage: $0 --repo <path> --branch releng/X.Y \\
-          --advisories-dir <path> --release-dir <path> [--dry-run]
+          --advisories-dir <path> --release-dir <path> [--dry-run] \\
+          [--format-relnotes] [--format-list] [--released]
 
 Options:
   --repo             Path to FreeBSD git repository
@@ -40,6 +43,9 @@ Options:
   --advisories-dir   Directory with SA/EN .asc files
   --release-dir      Output directory
   --dry-run          Do not write file, print to stdout
+  --format-relnotes  Output information in relnotes.adoc format
+  --format-list      Output information as list of fileds
+  --released         If release was released, the program reports SA and EN for errata.adoc
   -h, --help         Show this help
 
 Stage1 logic:
@@ -48,14 +54,19 @@ Stage1 logic:
     AND
     commit ∉ previous release tag
 
+Example:
+    perl tools/relnotes/bin/relnotes_advisories.pl --repo ~/freebsd-src \\
+    --branch releng/14.4 --advisories-dir ~/freebsd-doc/website/static/security/advisories/ \\
+    --release-dir releases/14.4R  --format-relnotes --released
+
 USAGE
     exit 0;
 }
 $format_list = 1 unless $format_relnotes;   # default is format_list
-die "--repo required\n"           unless $repo;
-die "--branch required\n"         unless $branch;
-die "--advisories-dir required\n" unless $advisories_dir;
-die "--release-dir required\n"    unless $release_dir;
+die "--repo required (or use -h for help)\n"           unless $repo;
+die "--branch required (or use -h for help)\n"         unless $branch;
+die "--advisories-dir required (or use -h for help)\n" unless $advisories_dir;
+die "--release-dir required (or use -h for help)\n"    unless $release_dir;
 
 $repo           = abs_path($repo);
 $advisories_dir = abs_path($advisories_dir);
@@ -73,6 +84,11 @@ my ($major, $minor) = ($1, $2);
 my $target_branch = $branch;
 my $stable_branch = "stable/$major";
 
+# For dot zero versions (like 15.0) SA and EN texts do not contain
+# information about fixes, this branches existed as 'main' branch
+# and were not officially supported. They have SA and EN form moment,
+# when stable/NN branch was branched from 'main' (1-2 SA and EN as result)
+
 my ($prev_tag);
 if ($minor > 0) {
     $prev_tag = sprintf("refs/tags/release/%d.%d.0", $major, $minor - 1); # exactly tag
@@ -82,6 +98,16 @@ else
     $prev_tag = sprintf("refs/tags/release/%d.0.0", $major - 1); # exactly tag
 }
 
+if ($released)
+{
+    $release_tag = sprintf("refs/tags/release/%d.%d.0", $major, $minor); # exactly tag
+}
+else
+{
+    $release_tag = $branch;
+}
+
+print "from $prev_tag to $target_branch with RELEASE tag $release_tag (stable $stable_branch)\n";
 # verify branches exist
 run_git_die("rev-parse $target_branch");
 
@@ -116,6 +142,7 @@ for my $file (sort @files) {
     my $path = File::Spec->catfile($advisories_dir, $file);
 
     my ($type, $id) = parse_filename($file);
+    my ($file) = 'relnotes.adoc';
 
     my $info = parse_correction_details($path);
 
@@ -145,9 +172,18 @@ for my $file (sort @files) {
         }
     }
 
+    if ($applicable == 1)
+    {
+        if ($released)
+        {
+            my $in_release = is_ancestor($hash, $release_tag);
+            $file = $in_release ? 'relnotes.adoc' : 'errata.adoc';
+        }
+    }
    push @results, {
         id            => $id,
         type          => $type,
+        file          => $file,
         source_branch => $chosen_branch // '',
         hash          => $hash // '',
         applicable    => $applicable ? 'true' : 'false',
@@ -171,6 +207,13 @@ else {
     open $out_fh, '>', $out or die "Cannot write $out: $!\n";
 }
 
+@results = sort {
+       $a->{file}     cmp $b->{file}
+    || $b->{type}     cmp $a->{type}
+    || $a->{id} cmp $b->{id}
+} @results;
+
+my ($curfile,$curtype) = ('','');
 for my $r (@results) {
         my $announced = $r->{announced} // '';
         my $topic     = $r->{topic} // '';
@@ -187,6 +230,18 @@ for my $r (@results) {
         my $noext    = $r->{id};
         # convert command(1) to man:command(1) format
         $topic =~ s/\b([A-Za-z][A-Za-z-_]*)\(([1-9])\)/man:$1\[$2\]/g;
+
+        if ($curfile ne $r->{file})
+        {
+            $curfile = $r->{file};
+            $curtype='';
+            print $out_fh  "\n$curfile\n";
+        }
+        if ($curtype ne $r->{type})
+        {
+            $curtype = $r->{type};
+            print $out_fh "\n$curfile $curtype\n";
+        }
 
         print $out_fh "\n";
         print $out_fh '| link:https://www.FreeBSD.org/security/advisories/'.$filename.'['.$noext."]\n";
@@ -232,9 +287,9 @@ if (!$dry_run) {
 
 sub parse_filename {
     my ($file) = @_;
-    $file =~ /^FreeBSD-(SA|EN)-(\d+:\d+)\./
+    $file =~ /^FreeBSD-(SA|EN)-(\d+:\d+)\.(.*)\.asc$/
         or die "Bad filename format: $file\n";
-    return ($1, "FreeBSD-$1-$2");
+    return ($1, "FreeBSD-$1-$2.$3");
 }
 
 sub parse_correction_details {
