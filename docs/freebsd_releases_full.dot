@@ -25,7 +25,7 @@ digraph FreeBSD_Releases {
   edge [fontname="Helvetica"];
 
 subgraph cluster_legend {
-  label="Branches in src repository";
+  label="Branches in FreeBSD src repository";
   fontsize=14;
   style=rounded;
   color=white;
@@ -40,7 +40,7 @@ subgraph cluster_legend {
       <tr><td bgcolor="lightgreen"> </td><td align="left">stable/14</td></tr>
       <tr><td bgcolor="khaki"> </td><td align="left">stable/15</td></tr>
       <tr><td bgcolor="mistyrose"> </td><td align="left">releng/15.0</td></tr>
-      <tr><td bgcolor="mediumseagreen"> </td><td align="left">releng/14.4 (in progress) </td></tr>
+      <tr><td bgcolor="mediumseagreen"> </td><td align="left">releng/14.4 </td></tr>
     </table>
   >];
 }
@@ -160,12 +160,15 @@ subgraph cluster_legend {
   r14_4_create  [label="9bbe9bfc\nCreate releng/14.4\n14.4-BETA1",URL="https://cgit.freebsd.org/src/commit/?id=9bbe9bfc6633",target="_blank"];
   r14_4_beta2   [label="f2dc20d2\n14.4-BETA2",URL="https://cgit.freebsd.org/src/commit/?id=f2dc20d2d2bd",target="_blank"];
   r14_4_beta3   [label="0c49d9fa\n14.4-BETA3",URL="https://cgit.freebsd.org/src/commit/?id=0c49d9fafc33",target="_blank"];
+  r14_4_rc1   [label="0c49d9fa\n14.4-RC1",URL="https://cgit.freebsd.org/src/commit/?id=041aa28386d3",target="_blank"];
+  r14_4_release   [label="0c49d9fa\n14.4-RELEASE",URL="https://cgit.freebsd.org/src/commit/?id=a456f852d145",target="_blank"];
 
   s15_parentR14_4 -> r14_4_create;
-  r14_4_create -> r14_4_beta2 -> r14_4_beta3 ;
+  r14_4_create -> r14_4_beta2 -> r14_4_beta3 ->
+  r14_4_rc1 -> r14_4_release;
 
   r14_4_end [shape=plaintext, label="releng/14.4",URL="https://cgit.freebsd.org/src/log/?h=releng%2F14.4",target="_blank"];
-  r14_4_beta3 -> r14_4_end;
+  r14_4_release -> r14_4_end;
 
 
   /* =========================================================
@@ -213,5 +216,7 @@ subgraph cluster_legend {
   tag_15_0_0_release_p2 -> r15_p2 [style=dashed];
   tag_15_0_0_release_p3 -> r15_p3 [style=dashed];
 
+  tag_14_4_0_release [label=" refs/tags/release/14.4.0"];
+  tag_14_4_0_release -> r14_4_release [style=dashed];
 
 }
