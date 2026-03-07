@@ -6,8 +6,8 @@ sidenav: download
 :localRel: 14.4
 :releaseCurrent: 14.4-RELEASE
 :releaseBranch: 14-STABLE
-:releasePrev: X.Y-RELEASE
-:releaseNext: X.Y-RELEASE
+:releasePrev: 14.3-RELEASE
+:releaseNext: 14.5-RELEASE
 :releaseType: "release"
 
 include::shared/en/urls.adoc[]
@@ -15,7 +15,7 @@ include::shared/en/urls.adoc[]
 = FreeBSD {releaseCurrent} Release Notes
 :doctype: article
 :toc: macro
-:toclevels: 1
+:toclevels: 2
 :icons: font
 
 == Abstract
@@ -24,6 +24,8 @@ include::shared/en/urls.adoc[]
 The release notes for FreeBSD {releaseCurrent} contain a summary of the changes made to the FreeBSD base system on the {releaseBranch} development line.
 This document lists applicable security advisories that were issued since the last release, as well as significant changes to the FreeBSD kernel and userland.
 Some brief remarks on upgrading are also presented.
+
+toc::[]
 
 [[intro]]
 == Introduction
@@ -372,7 +374,9 @@ This section covers changes to kernel configurations, system tuning, and system 
 [[kernel-general]]
 === General Kernel Changes
 
-The man:jail[8] system now restricts unprivileged users in a parent jail from scheduling, debugging, or signaling processes in subordinate jails by default. New privileges PRIV_SCHED_DIFFJAIL, PRIV_DEBUG_DIFFJAIL, and PRIV_SIGNAL_DIFFJAIL are required for such cross-jail operations. A new jail parameter allow.unprivileged_parent_tampering is introduced for backward compatibility in FreeBSD 14.x, but will be disabled by default in FreeBSD 15.x, affecting development setups that rely on cross-jail process management.
+The man:jail[8] system will restrict unprivileged users in a parent jail from scheduling, debugging, or signaling processes in subordinate jails by default in FreeBSD 15.0 and later.
+New privileges PRIV_SCHED_DIFFJAIL, PRIV_DEBUG_DIFFJAIL, and PRIV_SIGNAL_DIFFJAIL are required for such cross-jail operations.
+A new jail parameter allow.nounprivileged_parent_tampering is introduced in FreeBSD 14.x to enable early adoption of the new behavior, but this will become enabled by default in FreeBSD 15.x, affecting development setups that rely on cross-jail process management.
 gitref:5c6949e12ee6[repository=src].
 
 The change fixes a race condition in the powerpc context switch code that could cause the system to hang after starting all APs, particularly in qemu-system-ppc64 power9 pseries guests.
@@ -508,11 +512,40 @@ This section covers changes to manual (man:man[1]) pages and other documentation
 Updates the UPDATING file to document that example files are now installed in [.filename]#/usr/share/examples# as intended, due to a prior fix in the build system.
 gitref:d149be3a0cbe[repository=src].
 
+The man:ps[1] man page now documents that `-a` and `-A` show all processes regardless of other selection options, and clarifies the behavior of `-J`.
+gitref:f18a49a747f7[repository=src].
+{{< sponsored "The FreeBSD Foundation" >}}
+
+The man:write[2] manual page now includes a new section describing the atomicity guarantees of write operations.
+gitref:c19f161f5f65[repository=src].
+
 The man:dtrace_fbt[4] man page is added, documenting the DTrace fbt provider.
 gitref:0c91fa982437[repository=src].
 
+man:linuxkpi[4] and man:linuxkpi_wlan[4] manual pages have been added providing brief documentation on the LinuxKPI and its 802.11 compatibility features.
+gitref:669062384f55[repository=src].
+{{< sponsored "The FreeBSD Foundation" >}}
+
+The man:vt[4] manual page now includes a section explaining console fonts, covering conversion, support, and usage.
+gitref:c330c43e58d7[repository=src].
+
+The man:cdboot[8] manual page has been added, documenting the previously undocumented cdboot utility.
+gitref:d659366cc62a[repository=src].
+
+The man:crash[8] manual page has been updated to reflect current system behavior, removing references to obsolete panic messages and updating guidance on recovery media.
+gitref:4f2140aa9677[repository=src].
+
+The man:ipfw[8] manual page now documents how to delete a NAT configuration instance.
+gitref:186ac4724746[repository=src].
+
 The man:mtree[8] utility's man page is updated to clarify that the `type` keyword remains mandatory and is not removed by `-R all`. This ensures consistent behavior and prevents potential misinterpretation of the command.
 gitref:f957857c4835[repository=src].
+
+The man:pf.conf[5] man page now documents that network address ranges used as items in list macros must be quoted with additional single quotes.
+gitref:0077daf9cdc4[repository=src].
+
+The man:pw[8] manual page now clarifies the acceptable formats for member lists with the `-M`, `-m`, and `-d` flags of the `groupadd` and `groupmod` options.
+gitref:78343cd2a0f1[repository=src].
 
 [[ports]]
 == Ports Collection and Package Infrastructure

@@ -1,0 +1,983 @@
+---
+title: "FreeBSD 14.0-RELEASE Release Notes"
+sidenav: download
+---
+
+:releaseCurrent: 14.0-RELEASE
+:releaseBranch: 14-STABLE
+:releasePrev: 13.2-RELEASE
+:releaseNext: 14.1-RELEASE
+:releaseType: release
+
+include::shared/en/urls.adoc[]
+
+= FreeBSD {releaseCurrent} Release Notes
+:doctype: article
+:toc: macro
+:toclevels: 1
+:icons: font
+
+== Abstract
+
+[.abstract-title]
+The release notes for FreeBSD {releaseCurrent} contain a summary of the changes made to the FreeBSD base system on the {releaseBranch} development line.
+This document lists applicable security advisories that were issued since the last release, as well as significant changes to the FreeBSD kernel and userland.
+Some brief remarks on upgrading are also presented.
+
+[[intro]]
+== Introduction
+
+This document contains the release notes for FreeBSD {releaseCurrent}.
+It describes recently added, changed, or deleted features of FreeBSD.
+It also provides some notes on upgrading from previous versions of FreeBSD.
+
+The {releaseType} distribution to which these release notes apply represents the latest point along the {releaseBranch} development branch since {releaseBranch} was created.
+Information regarding pre-built, binary {releaseType} distributions along this branch can be found at https://www.FreeBSD.org/releases/[].
+
+The {releaseType} distribution to which these release notes apply represents a point along the {releaseBranch} development branch between {releasePrev} and the future {releaseNext}.
+Information regarding pre-built, binary {releaseType} distributions along this branch can be found at https://www.FreeBSD.org/releases/[].
+
+This distribution of FreeBSD {releaseCurrent} is a {releaseType} distribution.
+It can be found at https://www.FreeBSD.org/releases/[] or any of its mirrors.
+More information on obtaining this (or other) {releaseType} distributions of FreeBSD can be found in the link:{handbook}mirrors[Obtaining FreeBSD appendix] to the link:{handbook}[FreeBSD Handbook].
+
+All users are encouraged to consult the release errata before installing FreeBSD.
+The errata document is updated with "late-breaking" information discovered late in the release cycle or after the release.
+Typically, it contains information on known bugs, security advisories, and corrections to documentation.
+An up-to-date copy of the errata for FreeBSD {releaseCurrent} can be found on the FreeBSD Web site.
+
+This document describes the most user-visible new or changed features in FreeBSD since {releasePrev}.
+In general, changes described here are unique to the {releaseBranch} branch unless specifically marked as MERGED features.
+
+Typical release note items document recent security advisories issued after {releasePrev}, new drivers or hardware support, new commands or options, major bug fixes, or contributed software upgrades.
+They may also list changes to major ports/packages or release engineering practices.
+Clearly the release notes cannot list every single change made to FreeBSD between releases; this document focuses primarily on security advisories, user-visible changes, and major architectural improvements.
+
+[[upgrade]]
+== Upgrading from Previous Releases of FreeBSD
+
+Binary upgrades between RELEASE versions (and snapshots of the various security branches) are supported using the man:freebsd-update[8] utility.
+The binary upgrade procedure will update unmodified userland utilities, as well as unmodified GENERIC kernels distributed as a part of an official FreeBSD release.
+The man:freebsd-update[8] utility requires that the host being upgraded have Internet connectivity.
+Note that freebsd-update cannot be used to roll back to the previous release after updating to a new major version.
+
+Source-based upgrades (those based on recompiling the FreeBSD base system from source code) from previous versions are supported, according to the instructions in [.filename]#/usr/src/UPDATING#.
+
+There have been a number of improvements in the boot loaders, and upgrading the boot loader on the boot partition is recommended in most cases, in particular if the system boots via EFI.
+If the root is on a ZFS file system, updating the boot loader is mandatory if the pool is to be upgraded, and the boot loader update must be done first.
+Note that ZFS pool upgrades are not recommended for root file systems in most cases, but updating the boot loader can avoid making the system unbootable if the pool is upgraded in the future.
+The bootstrap update procedure depends on the boot method (EFI or BIOS), and also on the disk partitioning scheme.
+The next several sections address each in turn.
+
+Notes for systems that boot via EFI, using either binary or source upgrades:
+There are one or more copies of the boot loader on the MS-DOS EFI System Partition (ESP), used by the firmware to boot the kernel.
+The location of the boot loader in use can be determined using the command `efibootmgr -v`.
+The value displayed for `BootCurrent` should be the number of the current boot configuration used to boot the system.
+The corresponding entry of the output should begin with a `+` sign, such as
+
+ +Boot0000* FreeBSD HD(1,GPT,f859c46d-19ee-4e40-8975-3ad1ab00ac09,0x800,0x82000)/File(\EFI\freebsd\loader.efi)
+                       nda0p1:/EFI/freebsd/loader.efi (null)
+
+The ESP may already be mounted on [.filename]#/boot/efi#.
+Otherwise, the partition may be mounted manually, using the partition listed in the `efibootmgr` output (`nda0p1` in this case): `mount_msdosfs /dev/nda0p1 /boot/efi`.
+See man:loader.efi[8] for another example.
+
+The value in the `File` field in the `efibootmgr -v` output, `\EFI\freebsd\loader.efi` in this case, is the MS-DOS name for the boot loader in use on the ESP.
+If the mount point is [.filename]#/boot/efi#, this file will translate to `/boot/efi/efi/freebsd/loader.efi`.
+(Case does not matter on MS-DOSFS file sytems; FreeBSD uses lower case.)
+Another common value for `File` would be `\EFI\boot\bootXXX.efi`, where `XXX` is `x64` for amd64, `aa64` for aarch64, or `riscv64` for riscv64; this is the default bootstrap if none is configured.
+Both the configured and default boot loaders should be updated by copying from [.filename]#/boot/loader.efi# to the correct path in [.filename]#/boot/efi#.
+
+For systems that boot via BIOS and use the GPT partition scheme, bootstrap upgrades are optional unless a ZFS root pool will be upgraded (which is discouraged).
+Upgrades are only possible if the `freebsd-boot` partition is at least 180K.
+(512K is now standard.)
+The device name and the partition index can be identified using the command `gpart show`, such as:
+
+ =>       34  246162605  ada0  GPT  (224G)
+          34       1024     1  freebsd-boot  (512K)
+
+When using ZFS, the bootcode can be updated by running the command `gpart bootcode -b /boot/pmbr -p /boot/gptzfsboot -i 1 ada0`.
+If updating with a UFS root, the bootcode can be updated by running the command `gpart bootcode -b /boot/pmbr -p /boot/gptboot -i 1 ada0`, although this should not be necessary.
+Note that the `freebsd-boot` partition size is running up against a hard limit, and this scheme may not be supportable in the future.
+Users of such systems should consider an upgrade to EFI, possibly by carving space from an existing swap partition.
+
+If the system boots via BIOS and uses the MBR partition scheme, or has a GPT `freebsd-boot` partition smaller than 180K, then it is not possible to update the bootcode, and therefore to upgrade the root ZFS storage pool.
+
+[IMPORTANT]
+====
+Upgrading FreeBSD should only be attempted after backing up _all_ data and configuration files.
+====
+
+[[security-errata]]
+== Security and Errata
+
+This section lists the various Security Advisories and Errata Notices since {releasePrev}.
+
+[[security]]
+=== Security Advisories
+
+[.informaltable]
+[cols="1,1,1", frame="none", options="header"]
+|===
+| Advisory
+| Date
+| Topic
+
+|No advisories.
+|
+|
+
+|===
+
+[[errata]]
+=== Errata Notices
+
+[.informaltable]
+[cols="1,1,1", frame="none", options="header"]
+|===
+| Errata
+| Date
+| Topic
+
+|No notices.
+|
+|
+
+|===
+
+[[mfc-highlights]]
+== Significant changes merged into FreeBSD 13.1 and FreeBSD 13.2
+
+FreeBSD 14.0 includes over two and a half years of development since the release of FreeBSD 13.0.
+Some of this work was cherry-picked into older development branches, and was included in FreeBSD 13 minor releases.
+
+For 64-bit architectures, the base system is built with Position Independent Executable (PIE) support enabled by default.
+It may be disabled using the `WITHOUT_PIE` knob.
+gitref:9a227a2fd642[repository=src] (Sponsored by Stormshield)
+
+There is a new `zfskeys` man:rc[8] service script, which allows for automatic decryption of ZFS datasets encrypted with ZFS native encryption during boot.
+The `zfskeys` startup script supports autoloading of keys stored on ZFS.
+See the man:rc.conf[5] manual page for more information.
+gitref:33ff39796ffe[repository=src], gitref:8719e8a951b7[repository=src], gitref:97aeda224356[repository=src]
+(Sponsored by Modirum and Klara Inc.)
+
+The `chroot` facility supports unprivileged operation, and the man:chroot[8] program has a `-n` option to enable its use.
+gitref:a40cf4175c90[repository=src]
+(Sponsored by EPSRC)
+
+man:md5sum[1] and similar message-digest programs compatible with those on Linux were added by having the corresponding BSD programs run with the `-r` option if the program name ends in `sum`.
+gitref:086feed850c3[repository=src]
+(Sponsored by Netflix)
+
+The use of FIDO/U2F hardware authenticators has been enabled in `ssh`, using the new public key types `ecdsa-sk` and `ed25519-sk`, along with corresponding certificate types.
+FIDO/U2F support is described in https://www.openssh.com/txt/release-8.2[https://www.openssh.com/txt/release-8.2].
+gitref:e9a994639b2a[repository=src]
+(Sponsored by The FreeBSD Foundation)
+
+The man:igc[4] driver for the Intel I225 Ethernet controller has been added, supporting 2.5 Gbps operation.
+gitref:517904de5cca[repository=src] (Sponsored by Rubicon Communications, LLC ("Netgate"))
+
+The man:mgb[4] network interface driver has been added, with support for Microchip devices LAN7430 PCIe Gigabit Ethernet controller with PHY and LAN7431 PCIe Gigabit Ethernet controller with RGMII interface.
+The driver has a number of caveats and limitations, but is functional.
+gitref:e0262ffbc6ae[repository=src]
+(Sponsored by The FreeBSD Foundation)
+
+Two new daemons, man:rpc.tlsclntd[8] and man:rpc.tlsservd[8], are now built by default on amd64 and arm64.
+They provide support for NFS-over-TLS as described in the Internet Draft entitled "Towards Remote Procedure Call Encryption By Default".
+These daemons are built when WITH_OPENSSL_KTLS is specified.
+They use KTLS to encrypt/decrypt all NFS RPC message traffic, and provide optional verification of machine identity via X.509 certificates.
+gitref:2b9cbc85d727[repository=src] gitref:59f6f5e23c1a[repository=src]
+
+UEFI firmware boot compatibility is improved for amd64.
+See the man:loader.efi[8] `amd64 Nocopy` section for more detailed information.
+gitref:f75caed644a5[repository=src](Sponsored by https://www.freebsdfoundation.org[The FreeBSD Foundation])
+
+Boot time performance improvements have been made to many kernel subsystems.
+(Sponsored by https://www.patreon.com/cperciva[https://www.patreon.com/cperciva])
+
+man:nvme[4] error handling has been significantly improved.
+
+The handling of the lowest address on an IPv4 (sub)net (host 0) has been changed so that packets are not sent as a broadcast unless this address has been set as the broadcast address.
+This makes the lowest address usable for a host.
+The old behavior can be restored with the `net.inet.ip.broadcast_lowest` sysctl.
+See https://datatracker.ietf.org/doc/draft-schoen-intarea-unicast-lowest-address/[https://datatracker.ietf.org/doc/draft-schoen-intarea-unicast-lowest-address/] for background information.
+gitref:fd0765933c3c[repository=src]
+
+The man:growfs[7] startup script will now add a swap partition while expanding the root file system if possible, and if one did not previously exist.
+This is primarily useful when installing on an SD card using a raw image.
+A new man:rc.conf[5] variable has been added, `growfs_swap_size`, which can control the addition if necessary.
+See man:growfs[7] for details.
+
+A new RC script, `zpoolreguid` has been added, which will assign a new GUID to one or more zpools, useful for virtualization environments when sharing datasets.
+
+The `hostid` startup script will now generate a random (version 4) UUID if there is no [.filename]#/etc/hostid# file and no valid UUID from hardware.
+Also, if there is no [.filename]#/etc/machine-id# file, the `hostid_save` script will store a compact version of the hostid (one without hyphens) in [.filename]#/etc/machine-id#.
+This file is used by libraries such as GLib.
+gitref:62a149bf6219[repository=src] gitref:862aab6281a5[repository=src] gitref:baf1e9713969[repository=src] gitref:ecad3f5c4d92[repository=src] gitref:d6852eed98ed[repository=src]
+
+It is now possible to add default routes for FIBs other than the primary by using the `defaultrouter_fibN` and `ipv6_defaultrouter_fibN` man:rc.conf[5] variables.
+gitref:30659d1dcbcc[repository=src]
+(Sponsored by ScaleEngine Inc.)
+
+The man:bhyve[8] utility has gained virtio-input device emulation support.
+This can be used to inject keyboard/mouse input events into a guest.
+The command line syntax is: `-s <slot>,virtio-input,/dev/input/eventX`.
+gitref:054accac71e0[repository=src]
+
+The man:kdump[1] utility has gained support for decoding Linux system calls.
+
+An man:nproc[1] utility has been added, compatible with the Linux program of the same name.
+
+The man:uuidgen[1] utility has a new option `-r` to generate a random UUID, version 4.
+gitref:f176fe8e7f63[repository=src]
+
+The man:bhyve[8] hypervisor and kernel module man:vmm[4] now support more than 16 vCPUs in a guest.
+By default bhyve permits each guest to create the same number of vCPUs as the count of physical CPUs on the host.
+This limit can be adjusted via the loader tunable `hw.vmm.maxcpu`.
+gitref:ee98f99d7a68[repository=src]
+
+Address Space Layout Randomization (ASLR) is enabled for 64-bit executables by default.
+It can be disabled as needed if applications fail unexpectedly, for example with segmentation faults.
+To disable for a single invocation, use the man:proccontrol[1] command: `proccontrol -m aslr -s disable command`.
+To disable ASLR for all invocations of a binary, use the man:elfctl[1] command: `elfctl -e +noaslr file`.
+Problems should be reported via the problem reporting system, https://bugs.freebsd.org[], or posting to the `freebsd-stable@FreeBSD.org` mailing list.
+gitref:b014e0f15bc7[repository=src]
+(Sponsored by Stormshield)
+
+LLVM's AddressSanitizer can be used in amd64 kernels.
+See the man:kasan[9] manual page for more information.
+gitref:38da497a4dfc[repository=src] (Sponsored by The FreeBSD Foundation)
+
+A workaround has been implemented for a hardware page invalidation problem on Intel Alder Lake (twelfth generation) and Raptor Lake (thirteenth generation) hybrid CPUs.
+The bug can lead to file system corruption with UFS and MSDOSFS, and probably other memory corruption.
+The slower cores (E-cores) automatically use a slower method of page invalidation with the workaround.
+gitref:cde70e312c3f[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The state of the arm64 man:linux[4] ABI was brought to parity with the amd64 man:linux[4] ABI.
+gitref:ccc510b46340[repository=src], gitref:9931033bbfbe[repository=src]
+
+In order to facilitate ABI compatibility of `stable` branches, the CPU affinity system calls are now more tolerant of CPU sets that are smaller than used by the kernel.
+This will facilitate increases to the size of the kernel set, `MAXCPU`.
+gitref:47a57144af25[repository=src] gitref:f35093f8d6d8[repository=src]
+(Sponsored by Juniper Networks, Inc.)
+
+It is now possible to take snapshots on UFS filesystems when running with journaled soft updates.
+Thus it is now possible to do background dumps on live filesystems running with journaled soft updates.
+Background dumps are requested by using the `-L` flag to man:dump[8].
+(In previous releases UFS snapshots were incompatible with journaled soft updates.)
+gitref:78f412987605[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The kernel man:wg[4] WireGuard driver has been reintegrated; it provides Virtual Private Network (VPN) interfaces using the WireGuard protocol.
+gitref:744bfb213144[repository=src] (Sponsored by Rubicon Communications, LLC ("Netgate") and The FreeBSD Foundation)
+
+KTLS (the kernel TLS implementation) has added receive offload support for TLS 1.3.
+Receive offload is now supported for TLS 1.1 through 1.3; send offload is supported for TLS 1.0 through 1.3.
+gitref:05a1d0f5d7ac[repository=src] (Sponsored by Netflix)
+
+Radix tables and lookups are now supported for MAC addresses in man:ipfw[4].
+This allows MAC address tables to be constructed and used for filtering.
+gitref:81cac3906eb9[repository=src]
+
+////
+// Sample release notes entry.
+The man:fsck_msdosfs[8] utility includes a variety of enhancements, including reducing the memory footprint, a new flag, `-M`, which disables the use of man:mmap[2], and others.
+gitref:9708ba9f29[repository=src]
+////
+
+[[releaseCurrent-highlights]]
+== Changes new to {releaseCurrent}
+
+[[userland]]
+== Userland
+
+This section covers changes and additions to userland applications, contributed software, and system utilities.
+
+[[userland-config]]
+=== Userland Configuration Changes
+
+The default shell for the root user is now man:sh[1], which has many new features for interactive use.
+gitref:d410b585b6f0[repository=src]
+
+The default mail transport agent (MTA) is now the Dragonfly Mail Agent (man:dma[8]) rather than man:sendmail[8].
+Configuration of the MTA is done via man:mailer.conf[5].
+man:sendmail[8] and its configuration remain available.
+gitref:a67b925ff3e5[repository=src]
+
+The `mta_start_script` configuration variable has been retired from man:rc.conf[5], along with the `othermta` startup script.
+gitref:616f32ea6da7[repository=src]
+
+man:jail[8] now supports `.include` directives in man:jail.conf[5] files, with support for filename globbing.
+gitref:e82a62943529[repository=src]
+
+The one-time password facility OPIE, man:opie[4], has been removed from the base system.
+If you still wish to use it, install the package:security/opie[] port.
+Otherwise, make sure to remove or comment out any mention of `pam_opie` and `pam_opieaccess` from your PAM policies.
+man:etcupdate[8] will normally take care of this for the stock policies.
+gitref:0aa2700123e2[repository=src]
+
+The `SHARED_TOOLCHAIN` build configuration option has been removed.
+Building a statically-linked toolchain is still possible using the general `NO_SHARED` option.
+gitref:77f6be448408[repository=src] (Sponsored by The FreeBSD Foundation)
+
+Locale handing has been upgraded to CLDR 41.0 and Unicode 14.0.
+gitref:e87ec409fa9b[repository=src]
+
+The layout configuration has been added for the new French bépo keyboard (version 1.1rc2) normalized by French national organization for standardization as "NF Z71‐300".
+gitref:abdcd967dc0c[repository=src]
+
+An `rc.d` script (see man:rc[8]) is now allowed to have a `status` method even if it does not define `procname` or have a PID file.
+gitref:2651609fcbd7[repository=src]
+
+[[userland-programs]]
+=== Userland Application Changes
+
+The man:base64[1] utility has been added.
+gitref:540a99289bb1[repository=src]
+
+The man:bhyve[8] hypervisor now has optional TPM (Trusted Platform Module) passthrough support.
+This is not direct access, but commands from the guest are forwarded to the physical TPM.
+gitref:67c26eb2a57c[repository=src]
+
+GPU passthrough has been improved in man:bhyve[8] for AMD and Intel GPUs.
+This is a work in progress; passthrough does not work in all cases, and the configuration is not yet documented.
+
+The man:cpuset[1] utility has been moved from [.filename]#/usr/bin# to [.filename]#/bin# so that it is always available during startup processing.
+[.filename]#/usr/bin/cpuset# is now a symbolic link.
+gitref:f05948d4e98d[repository=src]
+
+The man:date[1] utility now has a `-z` option for timezone conversion.
+gitref:31edf56b1571[repository=src]
+
+The man:diff[1] utility now supports a `--color` option for colorized output.
+gitref:f38702e5a52e[repository=src]
+
+The deprecated man:fmtree[8] utility has been removed.
+gitref:e4d63c5d5ff8[repository=src]
+
+man:freebsd-update[8] now documents that files under [.filename]#/var/db/freebsd-update# may be deleted if an upgrade is not in progress and rollback will not be required.
+gitref:80b003e81684[repository=src] (Sponsored by The FreeBSD Foundation)
+
+A new man:fwget[8] utility inspects the system for peripherals that need firmware, and installs the appropriate packages for them.
+For now, only the PCI subsystem is supported, and only video firmware for Intel and AMD GPUs is known.
+gitref:d198b8774d2c[repository=src] gitref:d198b8774d2c[repository=src] (Sponsored by Beckhoff Automation GmbH & Co. KG)
+
+The usability of man:head[1] and man:tail[1] has been improved by consistently supporting the `-q` and `-v` options, allowing numbers with SI suffixes, and removing the 2^31 limit on lines for man:head[1].
+gitref:643ac419fafb[repository=src]
+
+man:makefs[8] now has experimental ZFS support.
+It can create a ZFS pool, backed by a single disk vdev, containing one or more datasets populated from the staging directory.
+gitref:240afd8c1fcc[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The man:minigzip[1] utility has been removed.
+gitref:278d080bad9F[REPOSITory=src]
+
+The man:mandoc[1] utility has a workaround for lack of macro processing in list `-width` handling, resulting in more accurate widths for list columns.
+gitref:bbb2d2ce4220[repository=src] (Sponsored by Dell EMC Isilon)
+
+The man:mixer[8] utility no longer tries to guess whether a volume is absolute or a percent.
+It now accepts a percentage with `%` appended, otherwise a volume is absolute.
+gitref:4014365e4219[repository=src]
+
+The `netcat` utility man:nc[1] can now be an `if_tun` (man:tun[4]) broker.
+gitref:cef7ab70ff44[repository=src] (Sponsored by Zenarmor) (Sponsored by OPNsense) (Sponsored by Klara, Inc.)
+
+The man:netstat[1] utility now computes correct column widths with the `-i` option, making the `-w` option unnecessary.
+gitref:372e3d561d82[repository=src]
+
+The man:portsnap[8] utility has been removed.
+Users are encouraged to fetch the ports tree by using `pkg install git` and then `git clone \https://git.FreeBSD.org/ports.git /usr/ports`.
+gitref:df53ae0fdd98[repository=src]
+
+The man:pw[8] and man:bsdinstall[8] programs now create home directories for users in [.filename]#/home# by default rather than [.filename]#/usr/home#.
+The default symbolic link for [.filename]#/home#, referencing [.filename]#/usr/home#, is no longer created.
+gitref:bbb2d2ce4220[repository=src]
+
+The man:sleep[1] utility now accepts units other than seconds, and accepts multiple delay values that are summed (for example, `1h 30m`).
+gitref:34978f7edd15[repository=src] gitref:be038c3afcae[repository=src]
+
+The man:sockstat[1] utility is now run in a sandbox with capsicum.
+gitref:94dc57159532[repository=src] gitref:c5a2d8c5f517[repository=src]
+
+The man:systat[1] utility has a new command, `iolat`, which reports I/O latencies computed by the CAM I/O scheduler.
+gitref:22054f88914b[repository=src] (Sponsored by Netflix)
+
+A new utility, man:tcpsso[8], is able to apply a socket option to an existing TCP endpoint, for example changing the congestion control module or the TCP stack.
+gitref:881631a2a371[repository=src] (Sponsored by Netflix)
+
+The Telnet daemon, man:telnetd[8], has been removed.
+A port is available if necessary, package:net/freebsd-telnetd[].
+The client is not affected.
+gitref:0eea46fb1f83[repository=src]
+
+The `PROFILE` option is disabled by default, thus profiled versions of system libraries are not provided.
+Hardware-based profiling (e.g. man:hwpmc[4]) is preferred.
+gitref:fe52b7f60ef4[repository=src] (Sponsored by The FreeBSD Foundation)
+
+Compressed debug sections in binaries are enabled by default on little-endian targets.
+gitref:47363e99d3d3[repository=src] (Sponsored by The FreeBSD Foundation)
+
+//XXX This belongs in a "build" section, maybe with the preceding 3 items.
+Configuration has been added to produce armv7 distribution sets, which can be useful in building jails on arm64.
+gitref:ac099daf6742[repository=src]
+
+[[userland-contrib]]
+=== Contributed Software
+
+One True Awk (man:awk[1]) has been updated to 20210727, which is 1st edition.
+(2nd edition will be included in {releaseNext}.)
+All the FreeBSD patches but one have now been either up-streamed or discarded.
+Notable changes include: locale is no longer used for ranges; better compatibility with `gawk` and `mawk`.
+Note that hex strings are interpreted as numbers as in earlier FreeBSD versions.
+This will change in FreeBSD 15 to agree with upstream and current POSIX standards.
+gitref:f39dd6a97844[repository=src] gitref:23f24377b1a9[repository=src] gitref:628bd30ab5a4[repository=src]
+
+The man:bc[1] and man:dc[1] commands have been updated to version 6.6.0, which fixes a problem with line editing and complex scripts with multiple read() commands, and adds some functions to bc's (non-standard) extended math library.
+
+`libbsdxml` (`expat`, man:libbsdxml[3]) has been upgraded to version 2.4.7.
+gitref:7ed8e142a00d[repository=src]
+
+`libfido2` has been upgraded to version 1.13.0.
+gitref:f540a43052c1[repository=src] gitref:3e696dfb7009[repository=src] gitref:95321fff46ec[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The man:llvm-objdump[1] utility is now always installed as man:objdump[1].
+gitref:86edb11e7491[repository=src] (Sponsored by The FreeBSD Foundation)
+
+OpenSSH has been upgraded to version 9.5p1.
+Full release notes are at https://www.openssh.com/txt/release-9.5[].
+gitref:676824f5cdf9[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The man:scp[1] utility now defaults to the SFTP protocol, rather than the legacy scp/rcp protocol.
+This removes the need for double-quoting wildcard expansion characters.
+gitref:fb5aabcb990b[repository=src] (Sponsored by The FreeBSD Foundation)
+
+RSA/SHA-1 signatures are now disabled by default in man:ssh[1].
+It is possible to enable them on a per-host basis in a user's [.filename]#~/.ssh/config# file.
+gitref:8c22023ca5e1[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The `VerifyHostKeyDNS` option for man:ssh[1] now defaults to `no`, following the OpenSSH distribution.
+The `X11Forwarding` option also defaults to `no`.
+gitref:41ff5ea22cb9[repository=src] gitref:77934b7a1301[repository=src] (Sponsored by The FreeBSD Foundation)
+
+HPN option handling has been removed from OpenSSH.
+HPN support was deprecated long ago, but the configuration options were still accepted (and ignored) for backwards compatibility.
+gitref:348bea10b6f2[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The `VersionAddendum` option has been removed from the man:ssh[1] client.
+gitref:bffe60ead024[repository=src] (Sponsored by The FreeBSD Foundation)
+
+OpenSSL has been upgraded to version 3.0.12.
+This is a major upgrade from version 1.1.1, which has reached its end of life.
+Many components of the base system use a backward-compatible API, but will be migrated later.
+gitref:aa7957345732[repository=src] gitref:930cec16d9ee[repository=src] gitref:b077aed33b7b[repository=src] (Sponsored by The FreeBSD Foundation)
+
+`tcpdump` has been upgraded to version 4.99.4.
+gitref:ee67461e5682[repository=src] gitref:171a7bbfc048[repository=src] gitref:1ad8d2ee1f7d[repository=src] (Sponsored by The FreeBSD Foundation)
+
+`libpcap` has been upgraded to version 1.10.4.
+gitref:6f9cba8f8b5e[repository=src] gitref:dd744a896be3[repository=src] (Sponsored by The FreeBSD Foundation)
+
+`xz` has been upgraded to version 5.4.3.
+
+`zlib` has been upgraded to version 1.3.
+
+`zstd` has been upgraded to version 1.5.2.
+(Sponsored by Klara, Inc)
+
+[[userland-deprecated-programs]]
+=== Deprecated Applications
+
+man:mergemaster[8] has been deprecated.
+Its replacement is man:etcupdate[8].
+gitref:398b12691b4f[repository=src] (Sponsored by The FreeBSD Foundation)
+
+[[userland-libraries]]
+=== Runtime Libraries and API
+
+The `libncursesw` library (see man:ncurses[3X]) has been split into `libtinfow` and `libncursesw`.
+Linker scripts should make this transparent for consumers.
+man:pkg-config[8] files are now installed, to ease ports detecting the `ncurses` setup from base.
+gitref:396851c20aeb[repository=src]
+
+The man:ncurses[3X] library is now able to use man:terminfo[5] as well as man:termcap[5], and uses terminfo preferentially.
+gitref:61f66a1f4403[repository=src]
+
+The default search path for terminfo databases in man:ncurses[3X] now includes [.filename]#/usr/local/share/terminfo#, facilitating the use of a database from ports or packages.
+gitref:b75fb12b6827[repository=src]
+
+The prototype of man:qsort_r[3] has been modified to match POSIX, which adopted the glibc-based interface.
+gitref:af3c78886fd8[repository=src]
+
+The `COMPAT_LIB32` build option has been implemented for aarch64 (arm64) and is enabled by default.
+This provides armv7 32-bit-compatible libraries and header files for arm64 systems for building and running most armv7 32-bit binaries.
+gitref:f1d5183124d3[repository=src] gitref:d5d97bed4ab6[repository=src] gitref:a1b675731301[repository=src]
+
+[[cloud]]
+== Cloud Support
+
+This section covers changes in support for cloud environments.
+
+FreeBSD now provides experimental ZFS-root EC2 AMIs on AWS.
+(Sponsored by https://www.patreon.com/cperciva[])
+
+FreeBSD now provides experimental cloud-init EC2 AMIs on AWS.
+See the package:net/cloud-init[] port for information.
+(Sponsored by https://www.patreon.com/cperciva[])
+
+FreeBSD now provides arm64 as well as amd64 images for Azure.
+Both UFS and experimental ZFS images are available.
+Gen2 VMs are now supported.
+(Sponsored by The FreeBSD Foundation) (Sponsored by Microsoft)
+
+The Microsoft Azure Network Adapter (MANA) VF (virtual function) is now supported.
+gitref:ce110ea12fce[repository=src] (Sponsored by Microsoft)
+
+The Google Virtual NIC (man:gve[4]) is now supported.
+gitref:54dfc97b0bd9[repository=src] (Sponsored by Google)
+
+[[kernel]]
+== Kernel
+
+This section covers changes to kernel configurations, system tuning, and system control parameters that are not otherwise categorized.
+
+[[kernel-general]]
+=== General Kernel Changes
+
+The SMP system now supports up to 1024 cores on amd64 and arm64.
+Many kernel CPU sets are now dynamically allocated to avoid consuming excessive memory.
+The kernel cpuset ABI has been updated to support the higher limit.
+gitref:76887e84be97[repository=src] gitref:d1639e43c589[repository=src] gitref:9051987e40c5[repository=src] gitref:e0c6e8910898[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The ACPI system now supports the `_CR3` critical standby (`S3`) threshold.
+gitref:b8a0dfb17e3b[repository=src]
+
+The `acpi_timer_test` is disabled by default, forcing the use of ACPI-fast rather than ACPI-safe, and speeding the boot process.
+The broken-ACPI-timers workaround can be re-enabled by setting the `hw.acpi.timer_test_enabled=1` tunable.
+If timekeeping issues are observed, please test with `hw.acpi.timer_test_enabled=1` in man:loader.conf[8] and report if that fixes the problem.
+gitref:a8b89dff6ac0[repository=src]
+
+man:boottrace[4] is a new kernel-userspace interface for capturing trace events during system boot and shutdown.
+Event annotations are present in the boot and shutdown paths in the kernel; system utilities (man:init[8], man:shutdown[8], man:reboot[8]); and man:rc[8] scripts (via man:boottrace[8]).
+man:boottrace[4] focuses on ease of use and is aimed primarily at system administrators.
+It is available in the default `GENERIC` kernel and can be enabled by toggling a man:sysctl[8] variable.
+gitref:da5b7e90e740[repository=src] gitref:5a8fceb3bd9f[repository=src] gitref:7b0a665d72c0[repository=src] gitref:13ec1e3155c7[repository=src] gitref:318d0db5fe8a[repository=src] gitref:1ae2c59bcf21[repository=src] (Sponsored by NetApp, Inc.) (Sponsored by Klara, Inc)
+
+Support has been added to the kernel crypto for the XChaCha20-Poly1035 AEAD cipher.
+gitref:8f35841f1f35[repository=src] (Sponsored by The FreeBSD Foundation)
+
+An API has been added to the kernel crypto for curve25519.
+gitref:0c6274a819ff[repository=src] (Sponsored by The FreeBSD Foundation)
+
+FreeBSD can now run inside the Firecracker VMM via the amd64 `FIRECRACKER` kernel configuration.
+gitref:469ad8603127[repository=src] (Sponsored by https://www.patreon.com/cperciva[])
+
+FreeBSD now reboots faster.
+The `kern.reboot_wait_time` sysctl has been added to control the delay before rebooting after printing all kernel messages on the console.
+It defaults to 0.
+Setting it to 1 restores the previous behavior (1 second delay).
+gitref:84ec7df0d796[repository=src] (Sponsored by https://www.patreon.com/cperciva[])
+
+A new DTrace provider, `kinst`, has been added; see man:dtrace_kinst[4].
+The provider allows kernel instructions to be traced, similar to the FBT (function boundary tracing) provider except that all instructions may be probed instead of just logical entry and return instructions.
+gitref:f0bc4ed144fc[repository=src] (Sponsored by Google, Inc. via GSoC 2022)
+
+`kinst` was ported to arm64 and riscv.
+gitref:07864a8a2466[repository=src] gitref:2d7bb03adb43[repository=src] (Sponsored by The FreeBSD Foundation)
+
+LLVM's MemorySanitizer can now be used in amd64 kernels.
+See the man:kmsan[9] manual page for more information.
+gitref:a422084abbda[repository=src] (Sponsored by The FreeBSD Foundation)
+
+LLVM's AddressSanitizer can now be used in arm64 kernels as well as amd64.
+See the man:kasan[9] manual page for more information.
+gitref:89c52f9d59fa[repository=src] (Sponsored by Juniper Networks, Inc.) (Sponsored by Klara, Inc.)
+
+Support for asymmetric cryptographic operations has been removed from the kernel open cryptographic framework (OCF), as they are not used by modern OpenSSL versions.
+gitref:76681661be28[repository=src]
+
+A native man:timerfd[2] facility has been added to facilitate porting Linux programs that use timerfd.
+Previously, timerfd was only available under Linux emulation.
+For programs written only for FreeBSD, the man:kqueue[2] EVFILT_TIMER filter is preferred for establishing arbitrary timers.
+gitref:af93fea71038[repository=src]
+
+The process visibility policy controlled by the `security.bsd.see_jail_proc` man:sysctl[8] knob was hardened by preventing unauthorized users from attempting to kill, change priority of or debug processes with same (real) UID in a sub-jail at random, which, provided the PID of such a process is guessed correctly, would succeed even if these processes are not visible to them.
+It was also made overridable by MAC policies, as are the other process visibility policies.
+gitref:7e21c691f295[repository=src] gitref:63c01c18a8d3[repository=src] (Sponsored by Kumacom, SAS) (Sponsored by The FreeBSD Foundation)
+
+The process visibility policy controlled by the `security.bsd.see_other_gids` man:sysctl[8] knob was fixed to consider the real group of a process instead of its effective group when determining whether the user trying to access the process is a member of one of the process' groups.
+The rationale is that some user should continue to see processes it has launched even when they acquire further privileges by virtue of the setgid bit, whereas they should not see processes launched by a privileged user that temporarily enters the user's primary group.
+This new behavior is consistent with what `security.bsd.see_other_uids` has always been doing for user IDs (i.e., considering some process' real user ID and not the effective ID).
+gitref:26ff4836c888[repository=src] (Sponsored by Kumacom, SAS) (Sponsored by The FreeBSD Foundation)
+
+The Zenbleed bug affecting AMD Zen2 processors is now automatically mitigated (via chicken bit), preventing misbehavior and data leaks on affected machines.
+If needed, applying the mitigation can be manually controlled via the `machdep.mitigations.zenbleed.enable` man:sysctl[8] knob.
+Please consult the new man:mitigations[7] manual page for more information.
+gitref:aea76bab1416[repository=src] (Sponsored by The FreeBSD Foundation)
+
+[[drivers]]
+== Devices and Drivers
+
+This section covers changes and additions to devices and device drivers since {releasePrev}.
+
+[[drivers-device]]
+=== Device Drivers
+
+The default speed for serial communication in boot loaders, kernel, and userland is now 115200 bps.
+Note that the early x86 BIOS bootloader (i.e., `boot0sio`) does not support rates above 9600 bps and is not changed.
+`boot0sio` users may set BOOT_COMCONSOLE_SPEED=9600 to use 9600 for all of the boot components, or use the standard `boot0` and have the `boot2` stage start with the serial port at 115200.
+gitref:4722ceb7d53e[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The default bell tone is now 800Hz.
+It can be set with man:kbdcontrol[1] again.
+There is integration with man:devd[8] for people wishing to use their sound cards for the beep.
+gitref:ba48d52ca6c8[repository=src] gitref:4ac3d08a9693[repository=src] gitref:2533eca1c2b9[repository=src] (Sponsored by Netflix)
+
+When using the default man:vt[4] console, the audible bell is no longer enabled by default.
+It can be enabled with these commands: `sysctl kern.vt.enable_bell=1` and `kbdcontrol -b normal`.
+gitref:225639e7db68[repository=src]
+
+Improvements have been made in DPAA2 (second generation Data Path Acceleration Architecture -- a hardware-level networking architecture found in some NXP SoCs).
+It runs NXP-supplied firmware which provides DPAA2 objects as an abstraction layer, and provides a `dpni` network interface.
+Separation between DPAA2 channels has been improved significantly in order to isolate access to the DMA resources and cleanup operations, and avoid kernel panics under heavy network load (1 Gbit/s links).
+Other improvements include FDT/ACPI MDIO support, netboot over DPAA2 and separate command portals (DPMCP) support.
+
+Support for the Arm Corelink DMC-620 Memory Controller, and the CMN-600 Coherent Mesh Network Controller, have been added to man:hwpmc[4] and `libpmc`.
+See man:pmc.dmc-620[3] and man:pmc.cmn-600[3].
+gitref:1459a22787ea[repository=src] gitref:59191f3573f6[repository=src] (Sponsored by ARM) (Sponsored by Ampere Computing)
+
+A fix has been implemented for frame buffer addressing that affects frame buffers mapped above 4 GB physical on i386 and Book-E powerpc.
+gitref:a78bb831a17f[repository=src]
+
+The man:iwlwifi[4] driver for Intel wireless interfaces has been updated to the latest version, supporting chipsets up to WiFi 6E AX411/AX211/AX210, and with preparations for upcoming BX and SC chipsets.
+(Sponsored by The FreeBSD Foundation)
+
+The man:rtw88[4] driver for Realtek wireless PCI interfaces has been updated.
+
+A kvm_clock driver has been added for the KVM paravirtualized clock.
+gitref:6c69c6bb4c7f[repository=src] (Sponsored by Juniper Networks, Inc.) (Sponsored by Klara, Inc.)
+
+There have been stability fixes and enhancements to the KPI to support Linux device drivers, along with the net80211 layer for wireless drivers.
+(Sponsored by The FreeBSD Foundation)
+
+NVMe disks are now `nda` devices by default, for example `nda0`; see man:nda[4].
+Symbolic links for the previous man:nvd[4] device names are created in [.filename]#/dev#.
+However, configuration such as man:fstab[5] should be updated to refer to the new device names.
+Options to control the use of `nda` devices and symbolic links are described in man:nda[4].
+gitref:bdc81eeda05d[repository=src] (Sponsored by Netflix)
+
+The previous man:qat[4] driver has been replaced with Intel's QAT driver.
+The new version provides additional interfaces to the chipset's cryptographic and compression offload functionality.
+This will have no visible change for most users; however, the new driver does not support Atom C2000 chipsets.
+To preserve support for those chipsets, the old driver has been renamed to `qat_c2xxx`.
+Users of man:qat[4] on C2000 hardware will thus need to ensure that man:qat_c2xxx[4] is loaded instead of man:qat[4].
+gitref:78ee8d1c4cda[repository=src] gitref:f4f56ff43dbd[repository=src] (Sponsored by Intel Corporation)
+
+[[drivers-removals]]
+=== Deprecated and Removed Drivers
+
+The man:pms[4] driver, `pmspcv`, has been removed from the `GENERIC` kernel configurations for x86, as it was large and uncommonly used.
+It can be loaded as a module by placing `pmspcv_load="YES"` in man:loader.conf[5].
+gitref:95e4f5ef7cce[repository=src] (Sponsored by Rubicon Communications, LLC ("Netgate"))
+
+The VESA option has been removed from the x86 `GENERIC` and `MINIMAL` kernel configurations.
+It is still available as a kernel module.
+VESA is not used by the default console, man:vt[4].
+gitref:777526ed8382[repository=src] gitref:b8cf1c5c30a5[repository=src] (Sponsored by The FreeBSD Foundation)
+
+Drivers for ISA sound cards have been removed.
+gitref:92e6b4712b53[repository=src] gitref:df51e63eb5d7[repository=src] gitref:aa83e9b189d6[repository=src] gitref:754decef384a[repository=src] gitref:5126e5eeeb5e[repository=src] gitref:716924cb4832[repository=src] gitref:9054e296819f[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The AHB bus front end has been removed from man:ath[4], as it was used only by MIPS.
+gitref:37c8ee8847fa[repository=src]
+
+The deprecated man:amr[4] driver has been removed.
+gitref:60de2867c9fc[repository=src] (Sponsored by Netflix)
+
+The obsolete man:iscsi_initiator[4] has been removed.
+Its replacement, man:iscsi[4], was introduced several major releases ago.
+gitref:48cb3fee2586[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The deprecated man:iir[4] driver has been removed.
+gitref:399188a2c60c[repository=src] (Sponsored by Netflix)
+
+The deprecated man:mn[4] sync serial driver has been removed.
+gitref:0cff00ae682a[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The deprecated man:mly[4] driver has been removed.
+gitref:a9620045a5b9[repository=src] (Sponsored by Netflix)
+
+The deprecated man:nlmrsa[4] driver has been removed.
+gitref:6a06b00a0d1f[repository=src] (Sponsored by Chelsio Communications)
+
+The deprecated man:twa[4] driver has been removed.
+gitref:8722e05ae149[repository=src] (Sponsored by Netflix)
+
+[[storage]]
+== Storage
+
+This section covers changes and additions to file systems and other storage subsystems, both local and networked.
+
+[[storage-general]]
+=== General Storage
+
+man:gconcat[8] and its kernel support now have the ability to append devices to the concatenated device that were not present when the gconcat device was created.
+gitref:d575e81fbcfa[repository=src]
+
+A new man:gunion[8] utility tracks changes to a read-only disk on a writable disk.
+This can be useful for making tentative changes to the disk, such as file system repairs or software upgrades, and then either committing or reverting them.
+gitref:c7996ddf8000[repository=src] (Sponsored by Netflix)
+
+In the course of debugging and resolving a problem with vnode recycling in the generic file system code, sysctls for vnode-related statistics have been grouped under `vfs.vnode` for greater visibility.
+gitref:d3e647891243[repository=src]
+
+[[storage-nfs]]
+=== NFS Changes
+
+NFS now supports running an NFS server in a VNET jail, including man:nfsd[8], man:nfsuserd[8], man:mountd[8], man:gssd[8], and man:rpc.tlsservd[8].
+The VNET jail must be on its own file system, have the `allow.nfsd` jail parameter set, and `enforce_statfs` cannot be set to `0`.
+Use of UDP and pNFS server configurations is not permitted.
+gitref:7344856e3a6d[repository=src] and many others
+
+For NFSv4 mounts, the NFS client now uses the highest minor version of NFSv4 supported by the NFS server by default instead of minor version 0.
+The `minorversion` mount option may be used to override this default.
+gitref:a145cf3f73c7[repository=src]
+
+The FreeBSD NFS client can now be set to use a 1 Mbyte I/O size
+via the `vfs.maxbcachebuf` tunable; the Linux NFS client
+can also do 1 Mbyte I/O.
+The value of `kern.ipc.maxsockbuf` will need to be increased to do this.
+A console message will suggest a setting for it.
+Note that the maximum I/O size for the FreeBSD NFS server can be increased to any power of 2 up to 1 Mbyte using the sysctl `vfs.nfsd.srvmaxio` while man:nfsd[8] is not running.
+gitref:ee29e6f31111[repository=src]
+
+The NFSv4.1/4.2 client and server will now generate console messages if sessions are broken, suggesting that users check to ensure that the values in [.filename]#/etc/hostid# strings are unique for all NFSv4.1/4.2 clients.
+gitref:b875d4f5ddcb[repository=src] gitref:0685c73cfe88[repository=src]
+
+NFSv4.1/4.2 mounts with the `intr` mount option are now fairly usable, although not 100% correct, so long as the `nolockd` mount option is used as well.
+See the man:mount_nfs[8] manual page for more information.
+gitref:981ef32230b2[repository=src] gitref:33721eb991d8[repository=src]
+
+A new `syskrb5` mount option is availble for Kerberized NFSv4.1/4.2 mounts.
+A feature of NFSv4.1/4.2 is used to provide `AUTH_SYS` authentication, and thus no Kerberos credential is required at mount time.
+See man:mount_nfs[8].
+gitref:896516e54a8c[repository=src]
+
+Support for `SP4_MACH_CRED` has been added in NFS mount protocol in the NFS server.
+That facility is used by the Linux NFSv4.1/4.2 client for Kerberized mounts.
+It was handled by a fallback in the past, but is now supported directly.
+gitref:330aa8acdec7[repository=src] gitref:ff2f1f691cdb[repository=src]
+
+[[storage-ufs]]
+=== UFS Changes
+
+It is now possible to perform background file system checks using a snapshot on UFS file systems running with journaled soft updates.
+(Sponsored by The FreeBSD Foundation)
+
+Superblocks, cylinder group maps, and inodes have had check hashes added to detect corruption.
+Far more extensive checks are made of the superblock (120) and cylinder groups (20) than just the magic number check done previously.
+(Sponsored by The FreeBSD Foundation)
+
+The man:libufs[3] library has been updated to include these checks so that they are now done by all the filesystem utilities.
+The checks are implemented in one kernel file that is also included by libufs.
+Another change to libufs is that the code to find alternate superblocks has been moved from man:fsck_ffs[8] into the shared file so it is now available in the kernel loader as well as all the filesystem utilities.
+(Sponsored by The FreeBSD Foundation)
+
+[[storage-zfs]]
+=== ZFS Changes
+
+OpenZFS has been upgraded to version 2.2.
+New features include:
+
+* block cloning, which allows shallow copies of blocks in file copies.
+This is optional, and disabled by default; it can be enabled with `sysctl vfs.zfs.bclone_enabled=1`.
+* scrub error log (`zpool scrub -e`)
+* BLAKE3 checksums, which are fast, and are now the recommended secure checksums
+* corrective `zfs receive` can heal corrupted data
+* vdev and zpool user properties, similar to dataset user properties.
+
+Performance improvements include:
+
+* fully adaptive ARC, a unified ARC that minimizes the need for manual tuning
+* zstd early abort, improving efficiency with uncompressible data
+* I/O prefetch improvements
+* general optimization.
+
+ZFS has been enabled on 32-bit powerpc/powerpcspe.
+gitref:63715498ac6b[repository=src]
+
+[[storage-other]]
+=== Other Storage Changes
+
+The man:msdosfs[5] file system now records available directory entries in the root directory of FAT12 and FAT16 file systems (e.g. EFI boot partitions) and reports them as inodes.
+gitref:c33db74b5323[repository=src]
+
+The man:msdosfs[5] file system now correctly calculates the available and used blocks of FAT12 and FAT16 file systems, and no longer rejects mounting file systems created using valid but uncommon parameters.
+gitref:0728695c63e[repository=src]
+
+The synthetic file systems (man:devfs[5], man:procfs[5], etc.) now report 0 blocks used so that they are not reported as 100% full.
+gitref:88a795e80c03f[repository=src]
+
+The man:tarfs[5] file system has been added, which is backed by POSIX tar archives optionally compressed with man:zstd[1].
+gitref:69d94f4c7608[repository=src] (Sponsored by Juniper Networks, Inc.) (Sponsored by Klara, Inc.)
+
+[[boot]]
+== Boot Changes
+
+This section covers the boot loader, boot menu, and other boot-related changes.
+
+[[boot-loader]]
+=== Boot Loader Changes
+
+The lua-flavored man:loader[8] will now interpret [.filename]#.lua# files that appear in `loader_conf_files` as lua, and execute them in a sandbox.
+Existing loader environment variables are available as globals in the sandbox, and any global variable set, if not a table value, will be reflected in the loader environment upon successful execution of the configuration file.
+Environment variables with names that aren't valid lua names may be accessed as indices of `_ENV`; e.g., `_ENV['net.fibs']`.
+gitref:3cb2f5f369ec[repository=src]
+
+EC2 instances now boot using UEFI where available, substantially speeding the boot process.
+gitref:b43d7aa09b3c[repository=src] gitref:bcf9147144f3[repository=src] (Sponsored by https://www.patreon.com/cperciva[])
+
+[[network]]
+== Networking
+
+This section describes changes that affect networking in FreeBSD.
+
+[[network-general]]
+=== General Network
+
+man:carp[4] now supports configuration of the address to which carp messages are sent, allowing the use of unicast addresses.
+This is useful in certain virtual configurations.
+See man:carp[4] and man:ifconfig[8].
+gitref:137818006de5[repository=src]
+
+Layer 3 filtering on man:if_bridge[4] will do surprising things which aren't fail-safe, so `net.link.bridge.pfil_member` and `net.link.bridge.pfil_bridge` now default to zero.
+gitref:22893e584032[repository=src]
+
+man:netlink[4] is a user/kernel communication protocol defined in RFC 3549 and used primarily for network configuration.
+It has been expanded, improved, and enabled by default.
+A number of network configuration utilities have been converted to use netlink.
+gitref:3091d980f581[repository=src]
+
+The deprecated `NgATM` (netgraph ATM support) and remaining ATM support have been removed.
+
+The man:pf[4] packet filter now supports scrubbing with OpenBSD syntax and behavior.
+If there are no FreeBSD scrub rules, a global flag `set reassemble yes | no [no-df]` determines whether packet reassembly is done.
+Scrubbing, like setting tos, ttl, etc, can be done in match and pass rules, which also makes it stateful.
+Match rules are now fully supported, as on OpenBSD, not only for man:dummynet[4] queues.
+gitref:39282ef356db[repository=src] (Sponsored by InnoGames GmbH)
+
+man:pfsync[4] can now use IPv6 transport.
+gitref:6fc7fc2dbb2b[repository=src] (Sponsored by InnoGames GmbH) (Sponsored by The FreeBSD Foundation)
+
+The man:pfsync[4] packet format has been extended to improve support for queuing, scrubbing and route-to rules.
+This format is incompatible with older releases.
+The old format can be selected using `ifconfig pfsync0 version 1301`.
+This is especially important if members of a pfsync cluster are not upgraded simultaneously.
+
+WiFi 6 support has been added to wpa (man:wpa_supplicant[8] and man:hostapd[8]).
+gitref:c1d255d3ffdb[repository=src] gitref:3968b47cd974[repository=src] gitref:bd452dcbede6[repository=src]
+
+[[network-inet]]
+=== Internet Networking
+
+The `6to4` interface for IPv6 over IPv4, man:if_stf[4], now supports IPv6 Rapid Deployment (6rd) (RFC5969).
+gitref:19dc64451179[repository=src] (Sponsored by Rubicon Communications, LLC ("Netgate"))
+
+The man:rtsol[8] and man:rtsold[8] programs now have a `-i` option to disable the random delay of up to a second that is used by default.
+The default options for these programs in man:rc.conf[5] include `-i`.
+gitref:231bac4ccc43[repository=src] gitref:e29711da2352[repository=src] (Sponsored by https://www.patreon.com/cperciva[])
+
+The handling of IPv6 `nodeinfo` (RFC 4620) has been disabled by default.
+gitref:b73183d1a243[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The man:sysctl[8] option `net.inet.tcp.nolocaltimewait` is now enabled by default.
+This prevents creation of timewait entries for TCP connections that were terminated locally.
+gitref:92b3e07229ba[repository=src]
+
+The default congestion control mechanism for TCP is now CUBIC.
+For long duration data transfers, CUBIC allocates a slightly higher fraction of the available bandwidth, when competing against NewReno.
+gitref:bb1d472d79f7[repository=src] (Sponsored by NetApp, Inc.)
+
+IPv4 was changed not to broadcast the lowest address on a subnet (host 0) unless it is configured as the broadcast address.
+This allows the lowest address on a subnet to be used for a host.
+gitref:fd0765933c3c[repository=src]
+
+[[hardware]]
+== Hardware Support
+
+This section covers general hardware support for physical machines, hypervisors, and virtualization environments, as well as hardware changes and updates that do not fit in other sections of this document.
+
+Please see link:https://www.freebsd.org/releases/14.0R/hardware[the list of hardware] supported by {releaseCurrent}, as well as link:https://www.freebsd.org/platforms/[the platforms page] for the complete list of supported CPU architectures.
+
+[[hardware-arch]]
+=== Hardware Architecture Support
+
+The project no longer provides armv6 artifacts with {releaseCurrent}.
+
+Support for the MIPS architecture, and related hardware, has been removed.
+MIPS will remain supported on the 13-STABLE branch for the duration of its lifetime.
+
+Support for the software floating point variant of the RISC-V architecture, riscv64sf, has been retired.
+All available hardware is supported by the regular riscv64 architecture.
+
+[[hardware-virtualization]]
+=== Virtualization Support
+
+[[documentation]]
+== Documentation
+
+This section covers changes to manual (man:man[1]) pages and other documentation shipped with the base system.
+
+[[man-pages]]
+=== Man Pages
+
+Many tweaks and clean-ups have been made to improve the accuracy of the man:hier[7] page.
+
+Many of the pages in section 9, kernel documentation, have been reviewed and updated for accuracy.
+
+The introduction to the kernel documentation manual pages, man:intro[9], has been completely rewritten.
+gitref:84f9f2c5cf78[repository=src] (Sponsored by The FreeBSD Foundation)
+
+The man:mi_switch[9] page has been rewritten and improved.
+gitref:175db7b58270[repository=src] (Sponsored by The FreeBSD Foundation)
+
+A new man:kern_yield[9] page has been added.
+gitref:30cd6fd75d463[repository=src] (Sponsored by The FreeBSD Foundation)
+
+Some obsolete section 9 pages have been removed.
+gitref:d1c7405ef68a[repository=src] gitref:52f9a2823c64[repository=src] gitref:b54391a1f831[repository=src] (Sponsored by The FreeBSD Foundation)
+
+[[ports]]
+== Ports Collection and Package Infrastructure
+
+This section covers changes to the FreeBSD Ports Collection, package infrastructure, and package maintenance and installation tools.
+
+[[ports-packages]]
+=== Packaging Changes
+
+[[future-releases]]
+== General Notes Regarding Future FreeBSD Releases
+
+FreeBSD 15.0 is not expected to include support for 32-bit platforms other than armv7.
+The armv6, i386, and powerpc platforms are deprecated and will be removed.
+64-bit systems will still be able to run older 32-bit binaries.
+
+We expect to support armv7 as a Tier 2 architecture in FreeBSD 15.0 and stable/15.
+However, we also anticipate that armv7 may be removed in FreeBSD 16.0.
+We will provide an update on the status of armv7 for both 15.x and 16.x at the time of 15.0 release.
+
+Support for executing 32-bit binaries on 64-bit platforms via the `COMPAT_FREEBSD32` option will continue for at least the stable/15 and stable/16 branches.
+Support for compiling individual 32-bit applications via `cc -m32` will also continue for at least the stable/15 branch, which includes suitable headers in [.filename]#/usr/include# and libraries in [.filename]#/usr/lib32#.
+
+Ports will not include support for deprecated 32-bit platforms for FreeBSD 15.0 and later releases.
+These future releases will not include binary packages or support for building packages from ports for deprecated 32-bit platforms.
+
+The FreeBSD stable/14 and earlier branches will retain existing 32-bit kernel and world support.
+Ports will retain existing support for building ports and packages for 32-bit systems on stable/14 and earlier branches as long as those branches are supported by the ports system.
+However, all 32-bit platforms are Tier-2 or Tier-3, and support for individual ports should be expected to degrade as upstreams deprecate 32-bit platforms.
+
+With the current support schedule, stable/14 will reach end of life (EOL) 5 years after the release of FreeBSD {releaseCurrent}.
+The EOL of stable/14 will mark the end of support for deprecated 32-bit platforms, including source releases, pre-built packages, and support for building applications from ports.
+With the release of {releaseCurrent} in November 2023, support for deprecated 32-bit platforms will end in November 2028.
+
+The project may choose to alter this approach when FreeBSD 15.0 is released by extending some level of support for one or more of the deprecated platforms in 15.0 or later.
+Any alterations will be driven by community feedback and committed efforts to support these platforms.
+Use FreeBSD {releaseCurrent} and following releases, or the stable/14 branch, to migrate off 32-bit platforms.

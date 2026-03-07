@@ -1,84 +1,7480 @@
+[advisory FreeBSD-EN-04:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-06-28
+Topic: twe(4) driver may hang on heavily loaded systems
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-25:10.asc[FreeBSD-EN-25:10]
-| 2 July 2025
-| Corruption in ZFS replication streams from encrypted datasets
+[advisory FreeBSD-EN-05:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-01-05
+Topic: NFS Server may panic under certain load patterns
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-25:12.asc[FreeBSD-EN-25:12]
-| 8 August 2025
-| man:bsdinstall[8] not copying the correct loader on systems with
+[advisory FreeBSD-EN-05:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-01-06
+Topic: sk(4) driver instability on SMP systems
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-25:13.asc[FreeBSD-EN-25:13]
-| 8 August 2025
-| net80211 TKIP crypto support fails for some drivers
+[advisory FreeBSD-EN-05:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-01-16
+Topic: FreeBSD/i386 may panic under heavy load on SMP machines
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-25:14.asc[FreeBSD-EN-25:14]
-| 8 August 2025
-| man:route[8] monitor buffers too much when redirected to a file
+[advisory FreeBSD-EN-05:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-12-19
+Topic: NFS Client may panic when encounted errors
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-25:15.asc[FreeBSD-EN-25:15]
-| 16 September 2025
-| arm64 man:syscall[2] allows unprivileged user to panic kernel
+[advisory FreeBSD-EN-06:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-07-07
+Topic: Jail startup scripts may override some global jail_*
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-25:16.asc[FreeBSD-EN-25:16]
-| 16 September 2025
-| man:copy_file_range[2] fails to set output parameters
+[advisory FreeBSD-EN-06:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-08-28
+Topic: Networking Issues
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-25:17.asc[FreeBSD-EN-25:17]
-| 16 September 2025
-| man:bnxt[4] fails to set media type in some cases
+[advisory FreeBSD-EN-07:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-02-14
+Topic: NFS server reliability issues
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-25:18.asc[FreeBSD-EN-25:18]
-| 30 September 2025
-| man:freebsd-update[8] installs libraries in incorrect order
+[advisory FreeBSD-EN-07:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-02-28
+Topic: IPv6 over Point-to-Point gif(4) tunnels
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:02.asc[FreeBSD-EN-26:02]
-| 27 January 2026
-| arm64 SVE signal context misalignment
+[advisory FreeBSD-EN-07:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-02-28
+Topic: rc.d jail script interface IP alias removal
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:03.asc[FreeBSD-EN-26:03]
-| 27 January 2026
-| The page fault handler fails to zero memory
+[advisory FreeBSD-EN-07:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-02-28
+Topic: Zoneinfo file update
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-25:06.asc[FreeBSD-SA-25:06]
-| 2 July 2025
-| Use-after-free in multi-threaded xz decoder
+[advisory FreeBSD-EN-07:05]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-03-15
+Topic: FreeBSD Update problems updating SMP kernels
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-25:07.asc[FreeBSD-SA-25:07]
-| 8 August 2025
-| Integer overflow in libarchive leading to double free
+[advisory FreeBSD-EN-08:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-04-17
+Topic: Problems with fork(2) within threaded programs
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-25:08.asc[FreeBSD-SA-25:08]
-| 30 September 2025
-| Multiple vulnerabilities in OpenSSL
+[advisory FreeBSD-EN-08:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-06-19
+Topic: TCP options padding
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-25:09.asc[FreeBSD-SA-25:09]
-| 22 October 2025
-| SO_REUSEPORT_LB breaks man:connect[2] for UDP sockets
+[advisory FreeBSD-EN-09:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-03-23
+Topic: Kernel panic when dumping environment
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-25:10.asc[FreeBSD-SA-25:10]
-| 26 November 2025
-| Cache poison in local-unbound service
+[advisory FreeBSD-EN-09:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-06-24
+Topic: bce(4) does not work with lagg(4) LACP mode
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-25:11.asc[FreeBSD-SA-25:11]
-| 16 December 2025
-| ipfw denial of service
+[advisory FreeBSD-EN-09:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-06-24
+Topic: Poor TCP performance of fxp(4)
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-25:12.asc[FreeBSD-SA-25:12]
-| 16 December 2025
-| Remote code execution via ND6 Router Advertisements
+[advisory FreeBSD-EN-09:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-06-24
+Topic: Deadlock in a multi-threaded program during fork(2)
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:01.asc[FreeBSD-SA-26:01]
-| 27 January 2026
-| Multiple vulnerabilities in OpenSSL
+[advisory FreeBSD-EN-09:05]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-10-02
+Topic: No zero mapping feature
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:02.asc[FreeBSD-SA-26:02]
-| 27 January 2026
-| Jail escape by a privileged user via nullfs
+[advisory FreeBSD-EN-10:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2010-01-06
+Topic: Various FreeBSD 8.0-RELEASE improvements
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:04.asc[FreeBSD-SA-26:04]
-| 24 February 2026
-| Jail chroot escape via fd exchange with a different jail
+[advisory FreeBSD-EN-10:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2010-02-27
+Topic: Deadlock in ULE scheduler
 
-| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:05.asc[FreeBSD-SA-26:05]
-| 24 February 2026
-| Local DoS and possible privilege escalation via routing sockets
+[advisory FreeBSD-EN-12:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2012-01-04
+Topic: freebsd-update support for FreeBSD 9.0-RELEASE
+
+[advisory FreeBSD-EN-12:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2012-06-12
+Topic: Reference count errors in IPv6 code
+
+[advisory FreeBSD-EN-13:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-06-28
+Topic: dhclient(8) utility issue on fxp(4) network interface
+
+[advisory FreeBSD-EN-13:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-06-28
+Topic: vtnet(4) network interface issue on QEMU 1.4.0 and later
+
+[advisory FreeBSD-EN-13:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-08-22
+Topic: data corruption with mfi(4) JBOD disks > 2TB
+
+[advisory FreeBSD-EN-13:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-10-24
+Topic: Multiple freebsd-update bugs break upgrading to FreeBSD 10.0
+
+[advisory FreeBSD-EN-13:05]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-11-28
+Topic: Error in patch for FreeBSD-EN-13:04.freebsd-update
+
+[advisory FreeBSD-EN-14:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-01-14
+Topic: /dev/random should not make direct usage of hardware RNG
+
+[advisory FreeBSD-EN-14:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-01-14
+Topic: mmap should not coalesce stack entry
+
+[advisory FreeBSD-EN-14:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-05-13
+Topic: pkg bootstrapping, configuration and public keys
+
+[advisory FreeBSD-EN-14:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-05-13
+Topic: Build repeatability for kldxref(8)
+
+[advisory FreeBSD-EN-14:05]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-05-13
+Topic: data corruption with ciss(4)
+
+[advisory FreeBSD-EN-14:06]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-06-03
+Topic: triple-fault when executing from a threaded process
+
+[advisory FreeBSD-EN-14:07]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-06-24
+Topic: Bug with PCID implementation
+
+[advisory FreeBSD-EN-14:08]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-06-24
+Topic: gss_pseudo_random interoperability issue
+
+[advisory FreeBSD-EN-14:09]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-07-08
+Topic: Jail fails to start if WITHOUT_INET/WITHOUT_INET6 is used
+
+[advisory FreeBSD-EN-14:10]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-10-22
+Topic: Time zone data file update
+
+[advisory FreeBSD-EN-14:11]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-10-22
+Topic: crypt(3) default hashing algorithm
+
+[advisory FreeBSD-EN-14:12]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-11-04
+Topic: NFSv4 and ZFS cache consistency issue
+
+[advisory FreeBSD-EN-14:13]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-12-23
+Topic: freebsd-update attempts to remove the root directory
+
+[advisory FreeBSD-EN-15:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-02-25
+Topic: vt(4) crash with improper ioctl parameters
+
+[advisory FreeBSD-EN-15:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-02-25
+Topic: OpenSSL update
+
+[advisory FreeBSD-EN-15:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-02-25
+Topic: freebsd-update updates libraries in suboptimal order
+
+[advisory FreeBSD-EN-15:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-05-13
+Topic: freebsd-update(8) does not ensure the previous upgrade was
+
+[advisory FreeBSD-EN-15:05]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-05-13
+Topic: Deadlock on reboot with UFS tuned with SU+J
+
+[advisory FreeBSD-EN-15:06]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-06-09
+Topic: Version and security update of file(1) and libmagic(3)
+
+[advisory FreeBSD-EN-15:07]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-06-09
+Topic: ZFS Reliability Improvements
+
+[advisory FreeBSD-EN-15:08]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-06-18
+Topic: sendmail TLS/DH Interoperability Improvement
+
+[advisory FreeBSD-EN-15:09]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-06-30
+Topic: Inconsistency between locale and rune locale states
+
+[advisory FreeBSD-EN-15:10]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-06-30
+Topic: Improved iconv(3) UTF-7 support
+
+[advisory FreeBSD-EN-15:11]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-08-18
+Topic: make(1) syntax errors when upgrading from 9.x and earlier
+
+[advisory FreeBSD-EN-15:12]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-08-18
+Topic: Incorrect netstat(1) data handling on 32-bit systems
+
+[advisory FreeBSD-EN-15:13]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-08-18
+Topic: Allow size argument to vidcontrol(1) for syscons(4)
+
+[advisory FreeBSD-EN-15:14]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-08-25
+Topic: Disable ixgbe(4) flow-director support
+
+[advisory FreeBSD-EN-15:15]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-08-25
+Topic: Insufficient check of unsupported pkg(7) signature methods
+
+[advisory FreeBSD-EN-15:16]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-09-16
+Topic: Regression in pw(8) when creating numeric users or groups
+
+[advisory FreeBSD-EN-15:17]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-09-16
+Topic: libc incorrectly handles signals for multi-threaded processes
+
+[advisory FreeBSD-EN-15:18]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-09-16
+Topic: Implement pubkey support for pkg(7) bootstrap
+
+[advisory FreeBSD-EN-15:19]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-11-04
+Topic: kqueue write events for files greater 2GB would never fire
+
+[advisory FreeBSD-EN-15:20]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-11-04
+Topic: Applications exiting due to segmentation violation
+
+[advisory FreeBSD-EN-16:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-14
+Topic: filemon and bmake meta-mode stability issues
+
+[advisory FreeBSD-EN-16:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-14
+Topic: Invalid TCP checksums with pf(4)
+
+[advisory FreeBSD-EN-16:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-14
+Topic: YP/NIS client library critical bug
+
+[advisory FreeBSD-EN-16:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-03-16
+Topic: Hyper-V KVP (Key-Value Pair) daemon indefinite sleep
+
+[advisory FreeBSD-EN-16:05]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-03-16
+Topic: hv_netvsc(4) incorrect TCP/IP checksums
+
+[advisory FreeBSD-EN-16:06]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-05-04
+Topic: Performance regression in libc hash(3)
+
+[advisory FreeBSD-EN-16:07]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-05-04
+Topic: Excessive latency in x86 IPI delivery
+
+[advisory FreeBSD-EN-16:08]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-05-04
+Topic: Memory leak in ZFS
+
+[advisory FreeBSD-EN-16:09]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-07-25
+Topic: freebsd-update(8) support of FreeBSD 11.0 release distribution
+
+[advisory FreeBSD-EN-16:10]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-08-12
+Topic: Better handle unknown options received from a DHCP server
+
+[advisory FreeBSD-EN-16:11]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-08-12
+Topic: Avoid using spin locks for channel message locks
+
+[advisory FreeBSD-EN-16:12]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-08-12
+Topic: Enable INQUIRY result check only on Windows 10 host systems
+
+[advisory FreeBSD-EN-16:13]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-08-12
+Topic: Register time counter early enough for TSC freq calibration
+
+[advisory FreeBSD-EN-16:14]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-08-12
+Topic: Disable incorrect callout in hv_storvsc(4)
+
+[advisory FreeBSD-EN-16:15]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-08-12
+Topic: Better handle the GPADL setup failure in Hyper-V
+
+[advisory FreeBSD-EN-16:16]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-08-12
+Topic: Fix SCSI INQUIRY checks and error handling
+
+[advisory FreeBSD-EN-16:17]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-10-25
+Topic: Virtual Memory issues
+
+[advisory FreeBSD-EN-16:18]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-10-25
+Topic: Loader may hang during boot
+
+[advisory FreeBSD-EN-16:19]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-12-06
+Topic: Avoid warnings about valid time zone abbreviations
+
+[advisory FreeBSD-EN-16:20]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-12-06
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-16:21]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-12-06
+Topic: Incorrectly defined unicode character(s)
+
+[advisory FreeBSD-EN-17:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-02-23
+Topic: System hang when booting when PCI-express HotPlug is enabled
+
+[advisory FreeBSD-EN-17:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-02-23
+Topic: NIS master updates are not pushed to NIS slave
+
+[advisory FreeBSD-EN-17:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-02-23
+Topic: Compatibility with Hyper-V/storage after KB3172614 or
+
+[advisory FreeBSD-EN-17:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-02-23
+Topic: makewhatis output is not reproducible
+
+[advisory FreeBSD-EN-17:05]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-04-12
+Topic: Xen migration enhancements
+
+[advisory FreeBSD-EN-17:06]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-07-12
+Topic: Boot compatibility improvements with Azure VMs
+
+[advisory FreeBSD-EN-17:07]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-08-10
+Topic: VNET kernel panic with asynchronous I/O
+
+[advisory FreeBSD-EN-17:08]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-08-10
+Topic: pf(4) housekeeping thread causes kernel panic
+
+[advisory FreeBSD-EN-17:09]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-11-02
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-18:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-03-07
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-18:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-03-07
+Topic: Version and security update of file(1) and libmagic(3)
+
+[advisory FreeBSD-EN-18:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-04-04
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-18:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-04-04
+Topic: Multiple small kernel memory disclosures
+
+[advisory FreeBSD-EN-18:05]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-05-08
+Topic: Multiple small kernel memory disclosures
+
+[advisory FreeBSD-EN-18:06]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-05-08
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-18:07]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-06-21
+Topic: Incorrect TLB shootdown for Xen based guests
+
+[advisory FreeBSD-EN-18:08]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-09-12
+Topic: LazyFPU remediation causes potential data corruption
+
+[advisory FreeBSD-EN-18:09]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-09-27
+Topic: IP fragment remediation causes IPv6 fragment
+
+[advisory FreeBSD-EN-18:10]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-09-27
+Topic: NULL pointer dereference in freebsd4_getfsstat system call
+
+[advisory FreeBSD-EN-18:11]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-09-27
+Topic: Denial of service in listen syscall over IPv6 socket
+
+[advisory FreeBSD-EN-18:12]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-09-27
+Topic: Small kernel memory disclosures in two system calls          
+
+[advisory FreeBSD-EN-18:13]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-11-27
+Topic: ICMP buffer underwrite
+
+[advisory FreeBSD-EN-18:14]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-11-27
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-18:15]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-11-27
+Topic: Deferred kernel loading breaks loader password
+
+[advisory FreeBSD-EN-18:16]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-12-19
+Topic: kernel panic upon ptrace attach to stopped process
+
+[advisory FreeBSD-EN-18:17]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-12-19
+Topic: Kernel panic under load on Intel "Skylake" CPUs
+
+[advisory FreeBSD-EN-18:18]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-12-19
+Topic: ZFS vnode reclaim deadlock
+
+[advisory FreeBSD-EN-19:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-01-09
+Topic: Connection stalls with CUBIC congestion control
+
+[advisory FreeBSD-EN-19:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-01-09
+Topic: TCP connections may stall and eventually fail in case of
+
+[advisory FreeBSD-EN-19:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-01-09
+Topic: sqlite update
+
+[advisory FreeBSD-EN-19:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-01-09
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-19:05]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-01-09
+Topic: kqueue race condition and kernel panic
+
+[advisory FreeBSD-EN-19:06]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-02-05
+Topic: DTrace incompatibility with SMAP-enabled systems
+
+[advisory FreeBSD-EN-19:07]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-02-05
+Topic: LLE table lookup code race condition
+
+[advisory FreeBSD-EN-19:08]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-05-14
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-19:09]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-05-14
+Topic: install(1) broken with partially matching relative paths
+
+[advisory FreeBSD-EN-19:10]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-05-14
+Topic: Insufficient filename validation in scp(1) client
+
+[advisory FreeBSD-EN-19:11]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-06-19
+Topic: Incorrect locking in networking stack
+
+[advisory FreeBSD-EN-19:12]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-07-02
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-19:13]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-07-24
+Topic: Kernel panic from Intel CPU vulnerability mitigation
+
+[advisory FreeBSD-EN-19:14]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-08-06
+Topic: Incorrect locking in epoch(9)
+
+[advisory FreeBSD-EN-19:15]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-08-06
+Topic: Incorrect exception handling
+
+[advisory FreeBSD-EN-19:16]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-08-20
+Topic: Bhyve instruction emulation improvements (opcode 03H and F7H)
+
+[advisory FreeBSD-EN-19:17]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-08-20
+Topic: ipfw(8) jail keyword broken prior to jail startup
+
+[advisory FreeBSD-EN-19:18]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-10-23
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-19:19]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-11-12
+Topic: UEFI Loader Memory Fragmentation
+
+[advisory FreeBSD-EN-20:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-01-28
+Topic: Imprecise ordering of SSP canary initialization
+
+[advisory FreeBSD-EN-20:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-01-28
+Topic: nmount invalid pointer dereference
+
+[advisory FreeBSD-EN-20:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-03-19
+Topic: Misleading log messages upon successful sshd login
+
+[advisory FreeBSD-EN-20:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-03-19
+Topic: Missing pfctl(8) tunable
+
+[advisory FreeBSD-EN-20:05]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-03-19
+Topic: Fix packet forwarding performance in mlx5en(4) driver
+
+[advisory FreeBSD-EN-20:06]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-03-19
+Topic: Incorrect checksum calculations with IPv6 extension headers
+
+[advisory FreeBSD-EN-20:07]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-04-21
+Topic: Regression in rpc.rquotad with certain NFS servers
+
+[advisory FreeBSD-EN-20:08]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-05-12
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-20:09]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-05-12
+Topic: igb interfaces fail to switch to inactive state
+
+[advisory FreeBSD-EN-20:10]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-05-12
+Topic: Incorrect build host Clang version detection
+
+[advisory FreeBSD-EN-20:11]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-06-09
+Topic: Stability issues in ena(4) driver
+
+[advisory FreeBSD-EN-20:12]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-06-09
+Topic: iflib watchdog timeout resetting idle queues
+
+[advisory FreeBSD-EN-20:13]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-07-08
+Topic: Host crash in bhyve with PCI device passthrough
+
+[advisory FreeBSD-EN-20:14]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-07-08
+Topic: Kernel panic in LinuxKPI subsystem
+
+[advisory FreeBSD-EN-20:15]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-07-08
+Topic: Kernel panic in mps(4) driver
+
+[advisory FreeBSD-EN-20:16]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-08-05
+Topic: vmx driver packet loss and degraded performance
+
+[advisory FreeBSD-EN-20:17]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-09-02
+Topic: FreeBSD Linux ABI kernel panic
+
+[advisory FreeBSD-EN-20:18]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-09-02
+Topic: getfsstat compatibility system call panic
+
+[advisory FreeBSD-EN-20:19]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-12-01
+Topic: execve/fexecve system call auditing
+
+[advisory FreeBSD-EN-20:20]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-12-01
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-20:21]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-12-01
+Topic: Uninitialized variable in ipfw
+
+[advisory FreeBSD-EN-20:22]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-12-01
+Topic: Race condition in callout CPU migration
+
+[advisory FreeBSD-EN-21:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-01-29
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-21:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-01-29
+Topic: UFS extattr corruption
+
+[advisory FreeBSD-EN-21:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-01-29
+Topic: Panic when destroying VNET and epair simultaneously
+
+[advisory FreeBSD-EN-21:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-01-29
+Topic: zfs recv fails to propagate snapshot deletion
+
+[advisory FreeBSD-EN-21:05]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-01-29
+Topic: Addition of atomic and bswap functions to libcompiler_rt
+
+[advisory FreeBSD-EN-21:06]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-02-24
+Topic: Boot-time microcode loading causes a boot hang
+
+[advisory FreeBSD-EN-21:07]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-02-24
+Topic: Root certificate bundle update
+
+[advisory FreeBSD-EN-21:08]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-02-24
+Topic: freebsd-update passwd regeneration
+
+[advisory FreeBSD-EN-21:09]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-04-06
+Topic: net.pf.request_maxcount not settable from loader.conf(5)
+
+[advisory FreeBSD-EN-21:10]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-04-06
+Topic: lldb abort on print command
+
+[advisory FreeBSD-EN-21:11]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-05-26
+Topic: Race condition in aesni(4) encrypt-then-auth operations
+
+[advisory FreeBSD-EN-21:12]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-05-26
+Topic: Kernel double free when transmitting on a divert socket
+
+[advisory FreeBSD-EN-21:13]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-05-26
+Topic: mpt(4) I/O errors with a large maxphys value
+
+[advisory FreeBSD-EN-21:14]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-05-26
+Topic: pms(4) data corruption
+
+[advisory FreeBSD-EN-21:15]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-05-26
+Topic: virtio(4) device probing fails
+
+[advisory FreeBSD-EN-21:16]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-05-26
+Topic: dc update
+
+[advisory FreeBSD-EN-21:17]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-06-01
+Topic: Incorrect validation in rad_get_attr(3)
+
+[advisory FreeBSD-EN-21:18]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-06-29
+Topic: Missing C++20 headers in libc++
+
+[advisory FreeBSD-EN-21:19]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-06-29
+Topic: libcasper assertion failure
+
+[advisory FreeBSD-EN-21:20]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-06-29
+Topic: Missing backwards compatibility in vlan(4)
+
+[advisory FreeBSD-EN-21:21]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-06-29
+Topic: Kernel panic with ipfw link-layer filtering enabled
+
+[advisory FreeBSD-EN-21:22]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-06-29
+Topic: Linux compatibility layer futex(2) system call vulnerability
+
+[advisory FreeBSD-EN-21:23]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-08-24
+Topic: virtio_blk(4) fails to attach on some hypervisors
+
+[advisory FreeBSD-EN-21:24]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-08-24
+Topic: OpenSSL 1.1.1e API functions not exported
+
+[advisory FreeBSD-EN-21:25]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-08-24
+Topic: Fix NVMe iovec construction for large IOs
+
+[advisory FreeBSD-EN-21:26]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-11-03
+Topic: libevent1 ABI breakage
+
+[advisory FreeBSD-EN-21:27]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-11-03
+Topic: Root certificate bundle update
+
+[advisory FreeBSD-EN-21:28]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-11-03
+Topic: Fix kernel panic in vmci driver initialization
+
+[advisory FreeBSD-EN-21:29]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-11-03
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-22:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-01-11
+Topic: fsck_ffs fails to correct certain errors
+
+[advisory FreeBSD-EN-22:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-01-11
+Topic: Incorrect XSAVE state size
+
+[advisory FreeBSD-EN-22:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-01-11
+Topic: vPCI compatibility improvements with certain Hyper-V releases
+
+[advisory FreeBSD-EN-22:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-01-11
+Topic: Incorrect PCID mode invalidations
+
+[advisory FreeBSD-EN-22:05]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-01-11
+Topic: tail -F fails to follow some types of log rotation
+
+[advisory FreeBSD-EN-22:06]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-01-11
+Topic: Incorrect fragmented IPv4 packet handling in libalias
+
+[advisory FreeBSD-EN-22:07]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-02-01
+Topic: Intel CPU LA57 boot failure
+
+[advisory FreeBSD-EN-22:08]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-02-01
+Topic: Regression in i386 TLB invalidation logic
+
+[advisory FreeBSD-EN-22:09]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-03-15
+Topic: freebsd-update creating erroneous boot environments
+
+[advisory FreeBSD-EN-22:10]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-03-15
+Topic: ZFS writes fail to update file size
+
+[advisory FreeBSD-EN-22:11]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-03-15
+Topic: ZFS lseek(2) inconsistencies
+
+[advisory FreeBSD-EN-22:12]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-03-15
+Topic: ZFS panic upon concurrent 'zfs list' calls
+
+[advisory FreeBSD-EN-22:13]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-03-21
+Topic: ZFS data loss
+
+[advisory FreeBSD-EN-22:14]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-03-22
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-22:15]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-04-06
+Topic: pf(4) tables may fail to load
+
+[advisory FreeBSD-EN-22:16]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-08-09
+Topic: kevent(2) timers fire too often
+
+[advisory FreeBSD-EN-22:17]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-08-09
+Topic: Kernel memory corruption during SCSI error recovery
+
+[advisory FreeBSD-EN-22:18]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-08-09
+Topic: WiFi patch update
+
+[advisory FreeBSD-EN-22:19]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-08-09
+Topic: NULL pointer dereference in pam_exec(8)
+
+[advisory FreeBSD-EN-22:20]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-08-30
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-22:21]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-11-01
+Topic: ZFS B-Tree use-after-free
+
+[advisory FreeBSD-EN-22:22]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-11-01
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-22:23]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-11-01
+Topic: Memory pages become unreclaimable
+
+[advisory FreeBSD-EN-22:24]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-11-01
+Topic: ZFS snapshot directories not accessible over NFS
+
+[advisory FreeBSD-EN-22:25]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-08-28
+Topic: Possible data corruption with TCP SACK retransmissions
+
+[advisory FreeBSD-EN-22:26]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-11-01
+Topic: CAM ioctl(2) compatibility breakage
+
+[advisory FreeBSD-EN-22:27]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-11-01
+Topic: UEFI loader failing to boot older amd64 kernels
+
+[advisory FreeBSD-EN-22:28]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-11-29
+Topic: Regression in Heimdal KDC
+
+[advisory FreeBSD-EN-23:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-02-08
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-23:02]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-02-08
+Topic: sdhci(4) broken write-protect settings
+
+[advisory FreeBSD-EN-23:03]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-02-08
+Topic: ena driver crash after reset in 7th gen AWS instance types
+
+[advisory FreeBSD-EN-23:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-02-08
+Topic: ixgbe incorrectly reports input errors for 82599ES
+
+[advisory FreeBSD-EN-23:05]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-06-21
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-23:06]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-06-21
+Topic: x86 kernel console configuration
+
+[advisory FreeBSD-EN-23:07]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-06-21
+Topic: mpr(4) may fail to initialize devices
+
+[advisory FreeBSD-EN-23:08]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-08-01
+Topic: VNET and DPCPU module panic on arm64
+
+[advisory FreeBSD-EN-23:09]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-09-06
+Topic: freebsd-update incorrectly merges files on upgrade
+
+[advisory FreeBSD-EN-23:10]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-09-06
+Topic: PCI-e hot-plug is broken with certain devices
+
+[advisory FreeBSD-EN-23:11]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-09-06
+Topic: Root certificate bundle update
+
+[advisory FreeBSD-EN-23:12]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-10-03
+Topic: freebsd-update to 14.0 fails
+
+[advisory FreeBSD-EN-23:13]
+Type: EN
+Source-Branch: stable/14
+Commit: 5c2a559876d1
+Applicable: false
+Announced: 2023-11-08
+Topic: freebsd-update does not handle deep boot environments
+
+[advisory FreeBSD-EN-23:14]
+Type: EN
+Source-Branch: stable/14
+Commit: 56b09feb23d9
+Applicable: false
+Announced: 2023-11-08
+Topic: Incorrect regular expression escape handling
+
+[advisory FreeBSD-EN-23:15]
+Type: EN
+Source-Branch: stable/14
+Commit: 1e4798e9677f
+Applicable: false
+Announced: 2023-12-01
+Topic: Clang sanitizer failure with ASLR enabled
+
+[advisory FreeBSD-EN-23:16]
+Type: EN
+Source-Branch: stable/14
+Commit: 99385ec7c296
+Applicable: false
+Announced: 2023-12-01
+Topic: OpenZFS data corruption
+
+[advisory FreeBSD-EN-23:17]
+Type: EN
+Source-Branch: stable/14
+Commit: 118b866d9c39
+Applicable: false
+Announced: 2023-12-05
+Topic: ossl(4)'s AES-GCM implementation may give incorrect results
+
+[advisory FreeBSD-EN-23:18]
+Type: EN
+Source-Branch: stable/14
+Commit: f7f5c2419ea7
+Applicable: false
+Announced: 2023-12-05
+Topic: High CPU usage by ZFS kernel threads
+
+[advisory FreeBSD-EN-23:19]
+Type: EN
+Source-Branch: stable/14
+Commit: da7e9601a99a
+Applicable: false
+Announced: 2023-12-05
+Topic: Incorrect pkgbase version number for FreeBSD 14.0
+
+[advisory FreeBSD-EN-23:20]
+Type: EN
+Source-Branch: stable/14
+Commit: 210fce73ae0e
+Applicable: false
+Announced: 2023-12-05
+Topic: Incorrect results from the kernel physical memory allocator
+
+[advisory FreeBSD-EN-23:21]
+Type: EN
+Source-Branch: stable/14
+Commit: ae8387cc818a
+Applicable: false
+Announced: 2023-11-24
+Topic: tty(4) IUTF8 causes a kernel panic
+
+[advisory FreeBSD-EN-23:22]
+Type: EN
+Source-Branch: stable/14
+Commit: 62304a0c3b8b
+Applicable: false
+Announced: 2023-12-05
+Topic: ZFS snapshot directories not accessible over NFS
+
+[advisory FreeBSD-EN-24:01]
+Type: EN
+Source-Branch: stable/14
+Commit: 26fe22019cb2
+Applicable: false
+Announced: 2024-02-14
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-24:02]
+Type: EN
+Source-Branch: stable/14
+Commit: ede6fd06726c
+Applicable: false
+Announced: 2024-02-14
+Topic: Login class resource limits and CPU mask bypass
+
+[advisory FreeBSD-EN-24:03]
+Type: EN
+Source-Branch: stable/14
+Commit: 24346a2f7775
+Applicable: false
+Announced: 2024-02-14
+Topic: kqueue_close(2) page fault on exit using rfork(2)
+
+[advisory FreeBSD-EN-24:04]
+Type: EN
+Source-Branch: stable/14
+Commit: 2bfe735277b8
+Applicable: false
+Announced: 2024-02-14
+Topic: Kernel panic triggered by bind(2)
+
+[advisory FreeBSD-EN-24:05]
+Type: EN
+Source-Branch: stable/14
+Commit: 8d22744f5be1
+Applicable: false
+Announced: 2024-03-28
+Topic: TTY Kernel Panic
+
+[advisory FreeBSD-EN-24:06]
+Type: EN
+Source-Branch: stable/14
+Commit: 590e02d3c088
+Applicable: false
+Announced: 2024-03-28
+Topic: Insufficient barriers in WireGuard if_wg(4)
+
+[advisory FreeBSD-EN-24:07]
+Type: EN
+Source-Branch: stable/14
+Commit: fc31d474c40a
+Applicable: false
+Announced: 2024-03-28
+Topic: Clang crash when certain optimization is enabled
+
+[advisory FreeBSD-EN-24:08]
+Type: EN
+Source-Branch: stable/14
+Commit: c7db2e15e404
+Applicable: false
+Announced: 2024-03-28
+Topic: Kerberos segfaults when using weak crypto
+
+[advisory FreeBSD-EN-24:09]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2024-04-24
+Topic: High CPU usage by kernel threads related to ZFS
+
+[advisory FreeBSD-EN-24:10]
+Type: EN
+Source-Branch: stable/14
+Commit: 1c27279ed22d
+Applicable: false
+Announced: 2024-06-19
+Topic: Kernel memory leak in ZFS
+
+[advisory FreeBSD-EN-24:11]
+Type: EN
+Source-Branch: stable/14
+Commit: 7daf36028411
+Applicable: false
+Announced: 2024-06-19
+Topic: LDNS uses nameserver commented out in resolv.conf
+
+[advisory FreeBSD-EN-24:12]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2024-06-19
+Topic: Lock order reversal in killpg causing livelock
+
+[advisory FreeBSD-EN-24:13]
+Type: EN
+Source-Branch: stable/14
+Commit: 55c5dad2f305
+Applicable: false
+Announced: 2024-06-19
+Topic: Incorrect size passed to heap allocated std::string delete
+
+[advisory FreeBSD-EN-24:14]
+Type: EN
+Source-Branch: stable/14
+Commit: 048ad7a9ef9f
+Applicable: false
+Announced: 2024-08-07
+Topic: Incorrect ifconfig netmask assignment
+
+[advisory FreeBSD-EN-24:15]
+Type: EN
+Source-Branch: stable/14
+Commit: 33708452aaab
+Applicable: false
+Announced: 2024-09-04
+Topic: cron(8) / periodic(8) session login
+
+[advisory FreeBSD-EN-24:16]
+Type: EN
+Source-Branch: stable/14
+Commit: 38f74de7184a
+Applicable: false
+Announced: 2024-09-19
+Topic: Incorrect ICMPv6 state handling in pf
+
+[advisory FreeBSD-EN-24:17]
+Type: EN
+Source-Branch: stable/14
+Commit: 9e8d504bb5a1
+Applicable: false
+Announced: 2024-10-29
+Topic: XDG runtime directory's file descriptor leak at login
+
+[advisory FreeBSD-EN-25:01]
+Type: EN
+Source-Branch: stable/14
+Commit: 4c136aad80e6
+Applicable: false
+Announced: 2024-12-23
+Topic: NULL pointer dereference in the NFSv4 client
+
+[advisory FreeBSD-EN-25:02]
+Type: EN
+Source-Branch: stable/14
+Commit: 4b9ba274d736
+Applicable: false
+Announced: 2025-01-29
+Topic: System call auditing disabled by DTrace
+
+[advisory FreeBSD-EN-25:03]
+Type: EN
+Source-Branch: stable/14
+Commit: a158d26e89f2
+Applicable: false
+Announced: 2025-01-29
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-25:04]
+Type: EN
+Source-Branch: stable/14
+Commit: 475082194ac8
+Applicable: false
+Announced: 2025-04-10
+Topic: Timezone database information update
+
+[advisory FreeBSD-EN-25:05]
+Type: EN
+Source-Branch: stable/14
+Commit: fd4592006b13
+Applicable: false
+Announced: 2025-04-10
+Topic: Update expat to 2.7.1
+
+[advisory FreeBSD-EN-25:06]
+Type: EN
+Source-Branch: stable/14
+Commit: 7ea2874eadf9
+Applicable: false
+Announced: 2025-04-10
+Topic: daemon(8) missing signals
+
+[advisory FreeBSD-EN-25:07]
+Type: EN
+Source-Branch: stable/14
+Commit: cb29db243bd0
+Applicable: false
+Announced: 2025-04-10
+Topic: Update OpenSSL to 3.0.16
+
+[advisory FreeBSD-EN-25:08]
+Type: EN
+Source-Branch: stable/14
+Commit: 7577dae4d672
+Applicable: false
+Announced: 2025-04-10
+Topic: Root certificate bundle update
+
+[advisory FreeBSD-EN-25:09]
+Type: EN
+Source-Branch: stable/14
+Commit: c43ae65b4b89
+Applicable: false
+Announced: 2025-07-02
+Topic: Dynamically-loaded C++ libraries crashing at exit
+
+[advisory FreeBSD-EN-25:10]
+Type: EN
+Source-Branch: stable/14
+Commit: 6abe6a8a0d54
+Applicable: true
+Announced: 2025-07-02
+Topic: Corruption in ZFS replication streams from encrypted datasets
+
+[advisory FreeBSD-EN-25:11]
+Type: EN
+Source-Branch: stable/14
+Commit: 3f4a674a8ee4
+Applicable: false
+Announced: 2025-07-02
+Topic: ena resets and kernel panic on Nitro v4 or newer instances
+
+[advisory FreeBSD-EN-25:12]
+Type: EN
+Source-Branch: stable/14
+Commit: 0e8890a425bc
+Applicable: true
+Announced: 2025-08-08
+Topic: bsdinstall(8) not copying the correct loader on systems with
+
+[advisory FreeBSD-EN-25:13]
+Type: EN
+Source-Branch: stable/14
+Commit: 950343a170f0
+Applicable: true
+Announced: 2025-08-08
+Topic: net80211 TKIP crypto support fails for some drivers
+
+[advisory FreeBSD-EN-25:14]
+Type: EN
+Source-Branch: stable/14
+Commit: dd695839efd8
+Applicable: true
+Announced: 2025-08-08
+Topic: route(8) monitor buffers too much when redirected to a file
+
+[advisory FreeBSD-EN-25:15]
+Type: EN
+Source-Branch: stable/14
+Commit: 17d87881a363
+Applicable: true
+Announced: 2025-09-16
+Topic: arm64 syscall(2) allows unprivileged user to panic kernel
+
+[advisory FreeBSD-EN-25:16]
+Type: EN
+Source-Branch: stable/14
+Commit: 2fd0083fcc23
+Applicable: true
+Announced: 2025-09-16
+Topic: copy_file_range(2) fails to set output parameters
+
+[advisory FreeBSD-EN-25:17]
+Type: EN
+Source-Branch: stable/14
+Commit: 33f65f12eba1
+Applicable: true
+Announced: 2025-09-16
+Topic: bnxt(4) fails to set media type in some cases
+
+[advisory FreeBSD-EN-25:18]
+Type: EN
+Source-Branch: stable/14
+Commit: e26928669f39
+Applicable: true
+Announced: 2025-09-30
+Topic: freebsd-update(8) installs libraries in incorrect order
+
+[advisory FreeBSD-EN-25:19]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2025-12-16
+Topic: Unprivileged kernel NULL pointer dereference
+
+[advisory FreeBSD-EN-25:20]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2025-12-16
+Topic: bhyve(8) PCI passthru regression
+
+[advisory FreeBSD-EN-26:01]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2026-01-27
+Topic: devinfo output formatting regression
+
+[advisory FreeBSD-EN-26:02]
+Type: EN
+Source-Branch: stable/14
+Commit: bcd6bb8067d1
+Applicable: true
+Announced: 2026-01-27
+Topic: arm64 SVE signal context misalignment
+
+[advisory FreeBSD-EN-26:03]
+Type: EN
+Source-Branch: stable/14
+Commit: 99f641267d44
+Applicable: true
+Announced: 2026-01-27
+Topic: The page fault handler fails to zero memory
+
+[advisory FreeBSD-EN-26:04]
+Type: EN
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2026-02-10
+Topic: Kernel panic when dumping process core on arm64
+
+[advisory FreeBSD-SA-00:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-01-19
+Topic: Insecure temporary file handling in make(1)
+
+[advisory FreeBSD-SA-00:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-01-24
+Topic: Old procfs hole incompletely filled
+
+[advisory FreeBSD-SA-00:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-02-19
+Topic: Asmon/Ascpu ports fail to drop privileges
+
+[advisory FreeBSD-SA-00:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-02-19
+Topic: Delegate port contains numerous buffer overflows
+
+[advisory FreeBSD-SA-00:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-02-28
+Topic: MySQL allows bypassing of password authentication
+
+[advisory FreeBSD-SA-00:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-03-01
+Topic: htdig port allows remote reading of files
+
+[advisory FreeBSD-SA-00:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-03-15
+Topic: mh/nmh/exmh/exmh2 ports allow remote execution of binary code
+
+[advisory FreeBSD-SA-00:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-03-15
+Topic: Lynx ports contain numerous buffer overflows
+
+[advisory FreeBSD-SA-00:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-03-15
+Topic: mtr port contains a local root exploit.
+
+[advisory FreeBSD-SA-00:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-03-15
+Topic: orville-write port contains local root compromise.
+
+[advisory FreeBSD-SA-00:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-04-10
+Topic: ircII port contains a remote overflow
+
+[advisory FreeBSD-SA-00:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-04-10
+Topic: healthd allows a local root compromise
+
+[advisory FreeBSD-SA-00:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-04-19
+Topic: generic-nqs contains a local root compromise
+
+[advisory FreeBSD-SA-00:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-04-24
+Topic: imap-uw contains security vulnerabilities for "closed"
+
+[advisory FreeBSD-SA-00:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-04-24
+Topic: imap-uw allows local users to deny service to any mailbox
+
+[advisory FreeBSD-SA-00:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-05-09
+Topic: golddig port allows users to overwrite local files
+
+[advisory FreeBSD-SA-00:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-05-09
+Topic: Buffer overflow in libmytinfo may yield increased
+
+[advisory FreeBSD-SA-00:18]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-05-09
+Topic: gnapster/knapster ports allows remote users to view local files
+
+[advisory FreeBSD-SA-00:19]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-05-23
+Topic: local users can prevent all processes from exiting
+
+[advisory FreeBSD-SA-00:20]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-05-26
+Topic: krb5 port contains remote and local root exploits.
+
+[advisory FreeBSD-SA-00:21]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-06-07
+Topic: ssh port listens on extra network port [REVISED]
+
+[advisory FreeBSD-SA-00:22]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-06-07
+Topic: apsfilter allows users to execute arbitrary commands as
+
+[advisory FreeBSD-SA-00:23]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-06-19
+Topic: Remote denial-of-service in IP stack [REVISED]
+
+[advisory FreeBSD-SA-00:24]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-07-05
+Topic: libedit reads config file from current directory
+
+[advisory FreeBSD-SA-00:25]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-06-12
+Topic: FreeBSD/Alpha platform lacks kernel pseudo-random number
+
+[advisory FreeBSD-SA-00:26]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-07-05
+Topic: popper port contains remote vulnerability [REVISED]
+
+[advisory FreeBSD-SA-00:27]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-07-05
+Topic: XFree86-4.0 port contains local root overflow
+
+[advisory FreeBSD-SA-00:28]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-07-05
+Topic: majordomo is not safe to run on multi-user machines
+
+[advisory FreeBSD-SA-00:29]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-07-05
+Topic: wu-ftpd port contains remote root compromise [REVISED]
+
+[advisory FreeBSD-SA-00:30]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-07-05
+Topic: OpenSSH UseLogin directive permits remote root access
+
+[advisory FreeBSD-SA-00:31]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-07-05
+Topic: Canna port contains remote vulnerability [REVISED]
+
+[advisory FreeBSD-SA-00:32]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-07-05
+Topic: bitchx port contains client-side vulnerability
+
+[advisory FreeBSD-SA-00:33]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-07-12
+Topic: kerberosIV distribution contains multiple vulnerabilities
+
+[advisory FreeBSD-SA-00:34]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-08-14
+Topic: dhclient vulnerable to malicious dhcp server
+
+[advisory FreeBSD-SA-00:35]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-08-14
+Topic: proftpd port contains remote root compromise
+
+[advisory FreeBSD-SA-00:36]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-08-14
+Topic: ntop port allows remote and minor local compromise
+
+[advisory FreeBSD-SA-00:37]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-08-14
+Topic: cvsweb allows increased access to CVS committers
+
+[advisory FreeBSD-SA-00:38]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-08-14
+Topic: zope port allows remote modification of DTML documents
+
+[advisory FreeBSD-SA-00:39]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-08-28
+Topic: Two vulnerabilities in Netscape
+
+[advisory FreeBSD-SA-00:40]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-08-28
+Topic: mopd port allows remote root compromise
+
+[advisory FreeBSD-SA-00:41]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-08-28
+Topic: Malformed ELF images can cause a system hang
+
+[advisory FreeBSD-SA-00:42]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-08-28
+Topic: Linux binary compatability mode can cause system compromise
+
+[advisory FreeBSD-SA-00:43]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-08-28
+Topic: brouted port allows gid kmem compromise
+
+[advisory FreeBSD-SA-00:44]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-08-28
+Topic: xlockmore port allows reading of password file
+
+[advisory FreeBSD-SA-00:45]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-08-31
+Topic: esound port allows file permissions to be modified
+
+[advisory FreeBSD-SA-00:46]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-09-13
+Topic: screen port contains local root compromise
+
+[advisory FreeBSD-SA-00:47]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-09-13
+Topic: pine4 port allows denial of service
+
+[advisory FreeBSD-SA-00:48]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-09-13
+Topic: xchat port inappropriately handles URLs
+
+[advisory FreeBSD-SA-00:49]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-09-13
+Topic: eject port allows local root exploit
+
+[advisory FreeBSD-SA-00:50]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-09-13
+Topic: listmanager port allows local root compromise
+
+[advisory FreeBSD-SA-00:51]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-09-13
+Topic: mailman port allows local root compromise
+
+[advisory FreeBSD-SA-00:52]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-10-06
+Topic: TCP uses weak initial sequence numbers
+
+[advisory FreeBSD-SA-00:53]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-09-27
+Topic: catopen() may pose security risk for third party code
+
+[advisory FreeBSD-SA-00:54]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-10-13
+Topic: fingerd allows remote reading of filesystem
+
+[advisory FreeBSD-SA-00:55]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-10-13
+Topic: xpdf contains multiple vulnerabilities
+
+[advisory FreeBSD-SA-00:56]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-10-13
+Topic: LPRng contains potential root compromise
+
+[advisory FreeBSD-SA-00:57]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-10-13
+Topic: muh IRC bouncer remote vulnerability
+
+[advisory FreeBSD-SA-00:58]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-10-30
+Topic: chpass family contains local root vulnerability
+
+[advisory FreeBSD-SA-00:59]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-10-30
+Topic: pine4 port contains remote vulnerability
+
+[advisory FreeBSD-SA-00:60]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-10-30
+Topic: boa web server allows arbitrary file access/execution
+
+[advisory FreeBSD-SA-00:61]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-10-31
+Topic: tcpdump contains remote vulnerabilities [REISSUED]
+
+[advisory FreeBSD-SA-00:62]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-01
+Topic: top allows reading of kernel memory [REISSUED]
+
+[advisory FreeBSD-SA-00:63]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-01
+Topic: getnameinfo function allows remote denial of service
+
+[advisory FreeBSD-SA-00:64]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-06
+Topic: global port allows remote compromise through CGI script
+
+[advisory FreeBSD-SA-00:65]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-06
+Topic: xfce allows local X session compromise
+
+[advisory FreeBSD-SA-00:66]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-06
+Topic: Client vulnerability in Netscape
+
+[advisory FreeBSD-SA-00:67]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-10
+Topic: gnupg fails to correctly verify signatures
+
+[advisory FreeBSD-SA-00:68]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-13
+Topic: ncurses allows local privilege escalation [REVISED]
+
+[advisory FreeBSD-SA-00:69]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-14
+Topic: telnetd allows remote system resource consumption [REVISED]
+
+[advisory FreeBSD-SA-00:70]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-14
+Topic: ppp "deny_incoming" does not correctly deny incoming packets
+
+[advisory FreeBSD-SA-00:71]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-20
+Topic: mgetty can create or overwrite files
+
+[advisory FreeBSD-SA-00:72]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-20
+Topic: curl client-side vulnerability
+
+[advisory FreeBSD-SA-00:73]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-20
+Topic: thttpd allows remote reading of local files
+
+[advisory FreeBSD-SA-00:74]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-20
+Topic: gaim remote vulnerability
+
+[advisory FreeBSD-SA-00:75]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-20
+Topic: mod_php3/mod_php4 allows remote code execution
+
+[advisory FreeBSD-SA-00:76]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-11-20
+Topic: tcsh/csh creates insecure temporary file
+
+[advisory FreeBSD-SA-00:77]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-12-18
+Topic: Several vulnerabilities in procfs [REVISED]
+
+[advisory FreeBSD-SA-00:78]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-12-20
+Topic: bitchx/ko-bitchx allows remote code execution [REVISED]
+
+[advisory FreeBSD-SA-00:79]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-12-20
+Topic: oops allows remote code execution
+
+[advisory FreeBSD-SA-00:80]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-12-20
+Topic: halflifeserver allows remote code execution
+
+[advisory FreeBSD-SA-00:81]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2000-12-20
+Topic: ethereal allows remote code execution
+
+[advisory FreeBSD-SA-01:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-15
+Topic: Hostile server OpenSSH agent/X11 forwarding
+
+[advisory FreeBSD-SA-01:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-15
+Topic: syslog-ng remote denial-of-service
+
+[advisory FreeBSD-SA-01:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-15
+Topic: bash1 creates insecure temporary files
+
+[advisory FreeBSD-SA-01:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-15
+Topic: joe creates insecure recovery files
+
+[advisory FreeBSD-SA-01:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-15
+Topic: stunnel contains potential remote compromise
+
+[advisory FreeBSD-SA-01:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-15
+Topic: zope vulnerability allows escalation of privileges
+
+[advisory FreeBSD-SA-01:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-23
+Topic: Multiple XFree86 3.3.6 vulnerabilities
+
+[advisory FreeBSD-SA-01:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-23
+Topic: ipfw/ip6fw allows bypassing of 'established' keyword
+
+[advisory FreeBSD-SA-01:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-23
+Topic: crontab allows users to read certain files [REVISED]
+
+[advisory FreeBSD-SA-01:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-23
+Topic: bind remote denial of service
+
+[advisory FreeBSD-SA-01:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-29
+Topic: inetd ident server allows remote users to partially
+
+[advisory FreeBSD-SA-01:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-29
+Topic: periodic uses insecure temporary files [REVISED]
+
+[advisory FreeBSD-SA-01:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-29
+Topic: sort uses insecure temporary files
+
+[advisory FreeBSD-SA-01:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-29
+Topic: micq remote buffer overflow vulnerability
+
+[advisory FreeBSD-SA-01:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-29
+Topic: tinyproxy contains remote vulnerabilities
+
+[advisory FreeBSD-SA-01:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-29
+Topic: mysql may allow remote users to gain increased
+
+[advisory FreeBSD-SA-01:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-29
+Topic: exmh symlink vulnerability
+
+[advisory FreeBSD-SA-01:18]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-01-31
+Topic: BIND remotely exploitable buffer overflow
+
+[advisory FreeBSD-SA-01:19]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-02-07
+Topic: ja-xklock port contains a local root compromise
+
+[advisory FreeBSD-SA-01:20]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-02-07
+Topic: mars_nwe contains potential remote root compromise
+
+[advisory FreeBSD-SA-01:21]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-02-07
+Topic: ja-elvis and ko-helvis ports contain a local
+
+[advisory FreeBSD-SA-01:22]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-02-07
+Topic: dc20ctrl port contains a locally exploitable buffer overflow
+
+[advisory FreeBSD-SA-01:23]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-03-12
+Topic: icecast port contains remote vulnerability
+
+[advisory FreeBSD-SA-01:24]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-02-12
+Topic: SSH1 implementations may allow remote system, data compromise
+
+[advisory FreeBSD-SA-01:25]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-02-14
+Topic: Local and remote vulnerabilities in Kerberos IV
+
+[advisory FreeBSD-SA-01:26]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-03-12
+Topic: interbase contains remote backdoor
+
+[advisory FreeBSD-SA-01:27]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-03-12
+Topic: cfengine port contains remote root vulnerability
+
+[advisory FreeBSD-SA-01:28]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-03-12
+Topic: timed allows remote denial of service
+
+[advisory FreeBSD-SA-01:29]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-03-12
+Topic: rwhod allows remote denial of service
+
+[advisory FreeBSD-SA-01:30]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-03-22
+Topic: UFS/EXT2FS allows disclosure of deleted data
+
+[advisory FreeBSD-SA-01:31]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-04-06
+Topic: ntpd contains potential remote compromise
+
+[advisory FreeBSD-SA-01:32]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-04-16
+Topic: IPFilter may incorrectly pass packets [REVISED]
+
+[advisory FreeBSD-SA-01:33]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-04-17
+Topic: globbing vulnerability in ftpd [REVISED]
+
+[advisory FreeBSD-SA-01:34]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-04-23
+Topic: hylafax contains local compromise
+
+[advisory FreeBSD-SA-01:35]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-04-23
+Topic: licq contains multiple remote vulnerabilities
+
+[advisory FreeBSD-SA-01:36]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-04-23
+Topic: samba ports contain locally exploitable /tmp races
+
+[advisory FreeBSD-SA-01:37]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-04-23
+Topic: slrn contains remotely-exploitable buffer overflow
+
+[advisory FreeBSD-SA-01:38]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-04-23
+Topic: sudo contains local buffer overflow
+
+[advisory FreeBSD-SA-01:39]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-05-02
+Topic: TCP initial sequence number generation contains
+
+[advisory FreeBSD-SA-01:40]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-06-04
+Topic: fts(3) routines contain race condition [REVISED]
+
+[advisory FreeBSD-SA-01:41]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-07-09
+Topic: hanterm ports allow local root compromise
+
+[advisory FreeBSD-SA-01:42]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-07-10
+Topic: signal handling during exec may allow local root
+
+[advisory FreeBSD-SA-01:43]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-07-10
+Topic: fetchmail contains potentially exploitable buffer
+
+[advisory FreeBSD-SA-01:44]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-07-10
+Topic: gnupg contains format string vulnerability
+
+[advisory FreeBSD-SA-01:45]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-07-10
+Topic: samba
+
+[advisory FreeBSD-SA-01:46]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-07-10
+Topic: w3m contains remotely exploitable buffer overflow
+
+[advisory FreeBSD-SA-01:47]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-07-10
+Topic: xinetd contains multiple vulnerabilities
+
+[advisory FreeBSD-SA-01:48]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-07-17
+Topic: tcpdump contains remote buffer overflow
+
+[advisory FreeBSD-SA-01:49]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-07-23
+Topic: telnetd contains remote buffer overflow
+
+[advisory FreeBSD-SA-01:50]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-07-27
+Topic: windowmaker contains possibly exploitable buffer overflow
+
+[advisory FreeBSD-SA-01:51]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-07-30
+Topic: OpenSSL 0.9.6a and earlier contain flaw in PRNG [REVISED]
+
+[advisory FreeBSD-SA-01:52]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-08-06
+Topic: Denial of service using fragmented IPv4 packets
+
+[advisory FreeBSD-SA-01:53]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-08-17
+Topic: ipfw `me' on P2P interfaces matches remote address
+
+[advisory FreeBSD-SA-01:54]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-08-20
+Topic: telnetd contains remote buffer overflow
+
+[advisory FreeBSD-SA-01:55]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-08-21
+Topic: procfs vulnerability leaks set[ug]id process memory
+
+[advisory FreeBSD-SA-01:56]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-08-23
+Topic: tcp_wrappers PARANOID hostname checking does not work
+
+[advisory FreeBSD-SA-01:57]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-08-27
+Topic: sendmail contains local root vulnerability [REVISED]
+
+[advisory FreeBSD-SA-01:58]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-08-30
+Topic: lpd contains remote root vulnerability
+
+[advisory FreeBSD-SA-01:59]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-09-04
+Topic: rmuser contains a race condition exposing /etc/master.passwd
+
+[advisory FreeBSD-SA-01:60]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-09-24
+Topic: Multiple vulnerabilities in procmail signal handling
+
+[advisory FreeBSD-SA-01:61]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-10-08
+Topic: Squid in accelerator-only mode ignores ACLs
+
+[advisory FreeBSD-SA-01:62]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-10-08
+Topic: UUCP allows local root exploit
+
+[advisory FreeBSD-SA-01:63]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-12-02
+Topic: OpenSSH UseLogin directive permits privilege escalation
+
+[advisory FreeBSD-SA-01:64]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-12-04
+Topic: wu-ftpd port contains remote root compromise
+
+[advisory FreeBSD-SA-01:65]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-12-11
+Topic: Buffer overflow in libgtop_server
+
+[advisory FreeBSD-SA-01:66]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-12-11
+Topic: thttpd port contains remotely vulnerability
+
+[advisory FreeBSD-SA-01:67]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-12-17
+Topic: htdig configuration file vulnerability
+
+[advisory FreeBSD-SA-01:68]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2001-12-17
+Topic: xsane port uses insecure temporary file handling
+
+[advisory FreeBSD-SA-02:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-01-04
+Topic: Directory permission vulnerability in pkg_add [REVISED]
+
+[advisory FreeBSD-SA-02:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-01-04
+Topic: pw(8) race condition may allow disclosure of master.passwd
+
+[advisory FreeBSD-SA-02:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-01-04
+Topic: mod_auth_pgsql port authentication bypass
+
+[advisory FreeBSD-SA-02:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-01-04
+Topic: mutt ports contain remotely exploitable buffer overflow
+
+[advisory FreeBSD-SA-02:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-01-04
+Topic: pine port insecure URL handling [REVISED]
+
+[advisory FreeBSD-SA-02:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-01-16
+Topic: sudo port may enable local privilege escalation
+
+[advisory FreeBSD-SA-02:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-01-18
+Topic: Kerberos 5 su command uses getlogin for authorization
+
+[advisory FreeBSD-SA-02:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-01-24
+Topic: race condition during exec may allow local root compromise
+
+[advisory FreeBSD-SA-02:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-02-06
+Topic: fstatfs race condition may allow local denial of
+
+[advisory FreeBSD-SA-02:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-02-06
+Topic: rsync port contains remotely exploitable vulnerability
+
+[advisory FreeBSD-SA-02:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-02-12
+Topic: ucd-snmp/net-snmp remotely exploitable vulnerabilities
+
+[advisory FreeBSD-SA-02:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-02-21
+Topic: multiple security vulnerabilities in squid port
+
+[advisory FreeBSD-SA-02:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-03-07
+Topic: OpenSSH contains exploitable off-by-one bug
+
+[advisory FreeBSD-SA-02:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-03-12
+Topic: pam-pgsql port authentication bypass
+
+[advisory FreeBSD-SA-02:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-03-12
+Topic: cyrus-sasl library contains format string vulnerability
+
+[advisory FreeBSD-SA-02:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-03-12
+Topic: GIF/JPEG comment vulnerability in Netscape
+
+[advisory FreeBSD-SA-02:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-03-12
+Topic: mod_frontpage port contains exploitable buffer overflow
+
+[advisory FreeBSD-SA-02:18]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-03-18
+Topic: zlib double-free
+
+[advisory FreeBSD-SA-02:19]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-03-26
+Topic: squid heap buffer overflow in DNS handling
+
+[advisory FreeBSD-SA-02:20]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-04-16
+Topic: syncache/syncookies denial of service
+
+[advisory FreeBSD-SA-02:21]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-04-17
+Topic: routing table memory leak
+
+[advisory FreeBSD-SA-02:22]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-04-18
+Topic: mmap/msync denial of service
+
+[advisory FreeBSD-SA-02:23]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-04-22
+Topic: insecure handling of stdio file descriptors
+
+[advisory FreeBSD-SA-02:24]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-05-20
+Topic: k5su utility does not honor `wheel' group
+
+[advisory FreeBSD-SA-02:25]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-05-20
+Topic: bzip2 contains multiple security vulnerabilities
+
+[advisory FreeBSD-SA-02:26]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-05-29
+Topic: Remote denial-of-service when using accept filters
+
+[advisory FreeBSD-SA-02:27]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-05-29
+Topic: rc uses file globbing dangerously
+
+[advisory FreeBSD-SA-02:28]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-06-26
+Topic: buffer overflow in resolver
+
+[advisory FreeBSD-SA-02:29]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-07-12
+Topic: Buffer overflow in tcpdump when handling NFS packets
+
+[advisory FreeBSD-SA-02:30]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-07-12
+Topic: Users may trace previously privileged processes
+
+[advisory FreeBSD-SA-02:31]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-07-15
+Topic: openssh contains remote vulnerability
+
+[advisory FreeBSD-SA-02:32]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-07-31
+Topic: exploitable race condition in pppd
+
+[advisory FreeBSD-SA-02:33]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-08-05
+Topic: openssl contains multiple vulnerabilities
+
+[advisory FreeBSD-SA-02:34]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-08-01
+Topic: Sun RPC XDR decoder contains buffer overflow
+
+[advisory FreeBSD-SA-02:35]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-08-05
+Topic: local users may read and write arbitrary blocks on
+
+[advisory FreeBSD-SA-02:36]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-08-05
+Topic: Bug in NFS server code allows remote denial of service
+
+[advisory FreeBSD-SA-02:37]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-08-05
+Topic: local users can panic the system using the kqueue mechanism
+
+[advisory FreeBSD-SA-02:38]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-08-19
+Topic: Boundary checking errors involving signed integers
+
+[advisory FreeBSD-SA-02:39]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-09-16
+Topic: Applications using libkvm may leak sensitive descriptors
+
+[advisory FreeBSD-SA-02:40]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-11-12
+Topic: Buffer overflow in kadmind daemon
+
+[advisory FreeBSD-SA-02:41]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-11-15
+Topic: smrsh restrictions can be bypassed [REVISED]
+
+[advisory FreeBSD-SA-02:42]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-11-12
+Topic: buffer overrun in resolver
+
+[advisory FreeBSD-SA-02:43]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2002-11-15
+Topic: multiple vulnerabilities in BIND [REVISED]
+
+[advisory FreeBSD-SA-02:44]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-01-07
+Topic: file descriptor leak in fpathconf
+
+[advisory FreeBSD-SA-03:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-02-04
+Topic: remotely exploitable vulnerability in cvs server
+
+[advisory FreeBSD-SA-03:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-02-25
+Topic: OpenSSL timing-based SSL/TLS attack
+
+[advisory FreeBSD-SA-03:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-02-24
+Topic: Brute force attack on SYN cookies
+
+[advisory FreeBSD-SA-03:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-03-03
+Topic: sendmail header parsing buffer overflow
+
+[advisory FreeBSD-SA-03:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-03-20
+Topic: remote denial-of-service in XDR encoder/decoder
+
+[advisory FreeBSD-SA-03:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-03-21
+Topic: OpenSSL timing-based SSL/TLS attack
+
+[advisory FreeBSD-SA-03:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-03-30
+Topic: a second sendmail header parsing buffer overflow
+
+[advisory FreeBSD-SA-03:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-08-03
+Topic: Single byte buffer overflow in realpath(3)
+
+[advisory FreeBSD-SA-03:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-08-10
+Topic: Insufficient range checking of signal numbers
+
+[advisory FreeBSD-SA-03:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-08-10
+Topic: Kernel memory disclosure via ibcs2
+
+[advisory FreeBSD-SA-03:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-08-26
+Topic: sendmail DNS map problem
+
+[advisory FreeBSD-SA-03:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-09-16
+Topic: OpenSSH buffer management error
+
+[advisory FreeBSD-SA-03:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-09-17
+Topic: a third sendmail header parsing buffer overflow
+
+[advisory FreeBSD-SA-03:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-09-25
+Topic: denial of service due to ARP resource starvation
+
+[advisory FreeBSD-SA-03:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-10-05
+Topic: OpenSSH PAM challenge/authentication error
+
+[advisory FreeBSD-SA-03:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-10-02
+Topic: file descriptor leak in readv
+
+[advisory FreeBSD-SA-03:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-10-03
+Topic: kernel memory disclosure via procfs
+
+[advisory FreeBSD-SA-03:18]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-10-03
+Topic: OpenSSL vulnerabilities in ASN.1 parsing
+
+[advisory FreeBSD-SA-03:19]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2003-11-28
+Topic: bind8 negative cache poison attack
+
+[advisory FreeBSD-SA-04:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-01-30
+Topic: mksnap_ffs clears file system options
+
+[advisory FreeBSD-SA-04:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-02-05
+Topic: shmat reference counting bug
+
+[advisory FreeBSD-SA-04:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-02-25
+Topic: Jailed processes can attach to other jails
+
+[advisory FreeBSD-SA-04:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-03-02
+Topic: many out-of-sequence TCP packets denial-of-service
+
+[advisory FreeBSD-SA-04:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-03-17
+Topic: Denial-of-service vulnerability in OpenSSL
+
+[advisory FreeBSD-SA-04:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-03-29
+Topic: setsockopt(2) IPv6 sockets input validation error
+
+[advisory FreeBSD-SA-04:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-04-15
+Topic: CVS path validation errors
+
+[advisory FreeBSD-SA-04:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-05-05
+Topic: heimdal cross-realm trust vulnerability
+
+[advisory FreeBSD-SA-04:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-05-05
+Topic: heimdal kadmind remote heap buffer overflow
+
+[advisory FreeBSD-SA-04:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-05-19
+Topic: CVS pserver protocol parser errors
+
+[advisory FreeBSD-SA-04:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-05-26
+Topic: buffer cache invalidation implementation issues
+
+[advisory FreeBSD-SA-04:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-06-07
+Topic: Jailed processes can manipulate host routing tables
+
+[advisory FreeBSD-SA-04:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-06-30
+Topic: Linux binary compatibility mode input validation error
+
+[advisory FreeBSD-SA-04:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-09-19
+Topic: CVS
+
+[advisory FreeBSD-SA-04:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-10-04
+Topic: Boundary checking errors in syscons
+
+[advisory FreeBSD-SA-04:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-11-18
+Topic: Overflow error in fetch
+
+[advisory FreeBSD-SA-04:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2004-12-01
+Topic: Kernel memory disclosure in procfs and linprocfs
+
+[advisory FreeBSD-SA-05:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-03-28
+Topic: telnet client buffer overflows
+
+[advisory FreeBSD-SA-05:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-04-04
+Topic: sendfile kernel memory disclosure
+
+[advisory FreeBSD-SA-05:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-04-06
+Topic: unprivileged hardware access on amd64
+
+[advisory FreeBSD-SA-05:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-04-15
+Topic: Kernel memory disclosure in ifconf()
+
+[advisory FreeBSD-SA-05:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-04-22
+Topic: Multiple vulnerabilities in CVS
+
+[advisory FreeBSD-SA-05:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-05-06
+Topic: Incorrect permissions on /dev/iir
+
+[advisory FreeBSD-SA-05:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-05-06
+Topic: Local kernel memory disclosure in i386_get_ldt
+
+[advisory FreeBSD-SA-05:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-05-06
+Topic: Local kernel memory disclosure
+
+[advisory FreeBSD-SA-05:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-05-13
+Topic: information disclosure when using HTT
+
+[advisory FreeBSD-SA-05:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-06-09
+Topic: Infinite loops in tcpdump protocol decoding
+
+[advisory FreeBSD-SA-05:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-06-09
+Topic: gzip directory traversal and permission race vulnerabilities
+
+[advisory FreeBSD-SA-05:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-06-09
+Topic: BIND 9 DNSSEC remote denial of service vulnerability
+
+[advisory FreeBSD-SA-05:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-06-29
+Topic: ipfw packet matching errors with address tables
+
+[advisory FreeBSD-SA-05:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-06-29
+Topic: bzip2 denial of service and permission race vulnerabilities
+
+[advisory FreeBSD-SA-05:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-06-29
+Topic: TCP connection stall denial of service
+
+[advisory FreeBSD-SA-05:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-07-06
+Topic: Buffer overflow in zlib
+
+[advisory FreeBSD-SA-05:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-07-20
+Topic: devfs ruleset bypass
+
+[advisory FreeBSD-SA-05:18]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-07-27
+Topic: Buffer overflow in zlib
+
+[advisory FreeBSD-SA-05:19]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-07-27
+Topic: Incorrect key usage in AES-XCBC-MAC
+
+[advisory FreeBSD-SA-05:20]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-09-07
+Topic: Race condition in cvsbug
+
+[advisory FreeBSD-SA-05:21]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2005-10-11
+Topic: Potential SSL 2.0 rollback
+
+[advisory FreeBSD-SA-06:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-01-11
+Topic: Texindex temporary file privilege escalation
+
+[advisory FreeBSD-SA-06:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-01-11
+Topic: ee temporary file privilege escalation
+
+[advisory FreeBSD-SA-06:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-01-11
+Topic: Multiple vulnerabilities cpio
+
+[advisory FreeBSD-SA-06:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-01-11
+Topic: ipfw IP fragment denial of service
+
+[advisory FreeBSD-SA-06:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-01-18
+Topic: IEEE 802.11 buffer overflow
+
+[advisory FreeBSD-SA-06:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-01-25
+Topic: Local kernel memory disclosure
+
+[advisory FreeBSD-SA-06:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-01-25
+Topic: IP fragment handling panic in pf(4)
+
+[advisory FreeBSD-SA-06:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-02-01
+Topic: Infinite loop in SACK handling
+
+[advisory FreeBSD-SA-06:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-03-01
+Topic: Remote denial of service in OpenSSH
+
+[advisory FreeBSD-SA-06:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-03-01
+Topic: Remote denial of service in NFS server
+
+[advisory FreeBSD-SA-06:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-03-22
+Topic: IPsec replay attack vulnerability
+
+[advisory FreeBSD-SA-06:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-03-22
+Topic: OPIE arbitrary password change
+
+[advisory FreeBSD-SA-06:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-03-22
+Topic: Race condition in sendmail
+
+[advisory FreeBSD-SA-06:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-04-19
+Topic: FPU information disclosure
+
+[advisory FreeBSD-SA-06:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-05-31
+Topic: Inoperative access controls in ypserv(8)
+
+[advisory FreeBSD-SA-06:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-05-31
+Topic: smbfs chroot escape
+
+[advisory FreeBSD-SA-06:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-06-14
+Topic: Incorrect multipart message handling in Sendmail
+
+[advisory FreeBSD-SA-06:18]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-08-23
+Topic: Buffer overflow in sppp(4)
+
+[advisory FreeBSD-SA-06:19]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-09-06
+Topic: Incorrect PKCS#1 v1.5 padding validation in crypto(3)
+
+[advisory FreeBSD-SA-06:20]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-09-06
+Topic: Denial of Service in named(8)
+
+[advisory FreeBSD-SA-06:21]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-09-19
+Topic: Multiple vulnerabilities in gzip
+
+[advisory FreeBSD-SA-06:22]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-09-30
+Topic: Multiple vulnerabilities in OpenSSH
+
+[advisory FreeBSD-SA-06:23]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-09-28
+Topic: Multiple problems in crypto(3)
+
+[advisory FreeBSD-SA-06:24]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-11-08
+Topic: Infinite loop in corrupt archives handling in libarchive(3)
+
+[advisory FreeBSD-SA-06:25]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-12-06
+Topic: Kernel memory disclosure in firewire(4)
+
+[advisory FreeBSD-SA-06:26]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2006-12-06
+Topic: gtar name mangling symlink vulnerability
+
+[advisory FreeBSD-SA-07:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-01-11
+Topic: Jail rc.d script privilege escalation
+
+[advisory FreeBSD-SA-07:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-02-09
+Topic: Multiple Denial of Service vulnerabilities in named(8)
+
+[advisory FreeBSD-SA-07:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-04-26
+Topic: IPv6 Routing Header 0 is dangerous
+
+[advisory FreeBSD-SA-07:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-05-23
+Topic: Heap overflow in file(1)
+
+[advisory FreeBSD-SA-07:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-07-12
+Topic: Errors handling corrupt tar files in libarchive(3)
+
+[advisory FreeBSD-SA-07:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-08-01
+Topic: Buffer overflow in tcpdump(1)
+
+[advisory FreeBSD-SA-07:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-08-01
+Topic: Predictable query ids in named(8)
+
+[advisory FreeBSD-SA-07:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-10-03
+Topic: Buffer overflow in OpenSSL SSL_get_shared_ciphers()
+
+[advisory FreeBSD-SA-07:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-11-29
+Topic: Random value disclosure
+
+[advisory FreeBSD-SA-07:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2007-11-29
+Topic: gtar directory traversal vulnerability
+
+[advisory FreeBSD-SA-08:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-01-14
+Topic: pty snooping
+
+[advisory FreeBSD-SA-08:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-01-14
+Topic: inet_network() buffer overflow
+
+[advisory FreeBSD-SA-08:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-02-14
+Topic: sendfile(2) write-only file permission bypass
+
+[advisory FreeBSD-SA-08:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-02-14
+Topic: IPsec null pointer dereference panic
+
+[advisory FreeBSD-SA-08:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-04-17
+Topic: OpenSSH X11-forwarding privilege escalation
+
+[advisory FreeBSD-SA-08:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-07-13
+Topic: DNS cache poisoning
+
+[advisory FreeBSD-SA-08:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-09-03
+Topic: amd64 swapgs local privilege escalation
+
+[advisory FreeBSD-SA-08:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-09-03
+Topic: nmount(2) local arbitrary code execution
+
+[advisory FreeBSD-SA-08:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-09-03
+Topic: Remote kernel panics on IPv6 connections
+
+[advisory FreeBSD-SA-08:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-10-01
+Topic: IPv6 Neighbor Discovery Protocol routing vulnerability
+
+[advisory FreeBSD-SA-08:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-11-24
+Topic: arc4random(9) predictable sequence vulnerability
+
+[advisory FreeBSD-SA-08:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-12-23
+Topic: Cross-site request forgery in ftpd(8)
+
+[advisory FreeBSD-SA-08:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2008-12-23
+Topic: netgraph / bluetooth privilege escalation
+
+[advisory FreeBSD-SA-09:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-01-07
+Topic: Cross-site request forgery in lukemftpd(8)
+
+[advisory FreeBSD-SA-09:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-01-07
+Topic: OpenSSL incorrectly checks for malformed signatures
+
+[advisory FreeBSD-SA-09:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-01-13
+Topic: ntpd cryptographic signature bypass
+
+[advisory FreeBSD-SA-09:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-01-13
+Topic: BIND DNSSEC incorrect checks for malformed signatures
+
+[advisory FreeBSD-SA-09:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-02-16
+Topic: telnetd code execution vulnerability
+
+[advisory FreeBSD-SA-09:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-03-23
+Topic: Local privilege escalation
+
+[advisory FreeBSD-SA-09:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-04-22
+Topic: Information leak in db(3)
+
+[advisory FreeBSD-SA-09:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-04-22
+Topic: Remotely exploitable crash in OpenSSL
+
+[advisory FreeBSD-SA-09:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-06-10
+Topic: Local information disclosure via direct pipe writes
+
+[advisory FreeBSD-SA-09:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-06-10
+Topic: Missing permission check on SIOCSIFINFO_IN6 ioctl
+
+[advisory FreeBSD-SA-09:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-06-10
+Topic: ntpd stack-based buffer-overflow vulnerability
+
+[advisory FreeBSD-SA-09:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-07-29
+Topic: BIND named(8) dynamic update message remote DoS
+
+[advisory FreeBSD-SA-09:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-10-02
+Topic: kqueue pipe race conditions
+
+[advisory FreeBSD-SA-09:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-10-02
+Topic: Devfs / VFS NULL pointer race condition
+
+[advisory FreeBSD-SA-09:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-12-03
+Topic: SSL protocol flaw
+
+[advisory FreeBSD-SA-09:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-12-03
+Topic: Improper environment sanitization in rtld(1)
+
+[advisory FreeBSD-SA-09:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2009-12-03
+Topic: Inappropriate directory permissions in freebsd-update(8)
+
+[advisory FreeBSD-SA-10:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2010-01-06
+Topic: BIND named(8) cache poisoning with DNSSEC validation
+
+[advisory FreeBSD-SA-10:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2010-01-06
+Topic: ntpd mode 7 denial of service
+
+[advisory FreeBSD-SA-10:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2010-01-06
+Topic: ZFS ZIL playback with insecure permissions
+
+[advisory FreeBSD-SA-10:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2010-05-27
+Topic: Insufficient environment sanitization in jail(8)
+
+[advisory FreeBSD-SA-10:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2010-05-27
+Topic: OPIE off-by-one stack overflow
+
+[advisory FreeBSD-SA-10:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2010-05-27
+Topic: Unvalidated input in nfsclient
+
+[advisory FreeBSD-SA-10:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2010-07-13
+Topic: Lost mbuf flag resulting in data corruption
+
+[advisory FreeBSD-SA-10:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2010-09-20
+Topic: Integer overflow in bzip2 decompression
+
+[advisory FreeBSD-SA-10:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2010-11-10
+Topic: Spurious mutex unlock
+
+[advisory FreeBSD-SA-10:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2010-11-29
+Topic: OpenSSL multiple vulnerabilities
+
+[advisory FreeBSD-SA-11:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2011-04-20
+Topic: Network ACL mishandling in mountd(8)
+
+[advisory FreeBSD-SA-11:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2011-05-28
+Topic: BIND remote DoS with large RRSIG RRsets and negative caching
+
+[advisory FreeBSD-SA-11:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2011-09-28
+Topic: Remote packet Denial of Service against named(8) servers
+
+[advisory FreeBSD-SA-11:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2011-09-28
+Topic: Errors handling corrupt compress file in compress(1)
+
+[advisory FreeBSD-SA-11:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2011-09-28
+Topic: Buffer overflow in handling of UNIX socket addresses
+
+[advisory FreeBSD-SA-11:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2011-12-23
+Topic: Remote packet Denial of Service against named(8) servers
+
+[advisory FreeBSD-SA-11:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2011-12-23
+Topic: Code execution via chrooted ftpd
+
+[advisory FreeBSD-SA-11:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2011-12-23
+Topic: telnetd code execution vulnerability
+
+[advisory FreeBSD-SA-11:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2011-12-23
+Topic: pam_ssh improperly grants access when user account has
+
+[advisory FreeBSD-SA-11:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2011-12-23
+Topic: pam_start() does not validate service names
+
+[advisory FreeBSD-SA-12:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2012-05-03
+Topic: OpenSSL multiple vulnerabilities
+
+[advisory FreeBSD-SA-12:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2012-05-30
+Topic: Incorrect crypt() hashing
+
+[advisory FreeBSD-SA-12:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2012-06-12
+Topic: Incorrect handling of zero-length RDATA fields in named(8)
+
+[advisory FreeBSD-SA-12:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2012-06-12
+Topic: Privilege escalation when returning from kernel
+
+[advisory FreeBSD-SA-12:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2012-08-06
+Topic: named(8) DNSSEC validation Denial of Service
+
+[advisory FreeBSD-SA-12:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2012-11-22
+Topic: Multiple Denial of Service vulnerabilities with named(8)
+
+[advisory FreeBSD-SA-12:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2012-11-22
+Topic: Insufficient message length validation for EAP-TLS messages
+
+[advisory FreeBSD-SA-12:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2012-11-22
+Topic: Linux compatibility layer input validation error
+
+[advisory FreeBSD-SA-13:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-02-19
+Topic: BIND remote DoS with deliberately crafted DNS64 query
+
+[advisory FreeBSD-SA-13:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-02-19
+Topic: glob(3) related resource exhaustion
+
+[advisory FreeBSD-SA-13:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-04-02
+Topic: OpenSSL multiple vulnerabilities
+
+[advisory FreeBSD-SA-13:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-04-02
+Topic: BIND remote denial of service
+
+[advisory FreeBSD-SA-13:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-04-29
+Topic: Insufficient input validation in the NFS server
+
+[advisory FreeBSD-SA-13:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-06-18
+Topic: Privilege escalation via mmap
+
+[advisory FreeBSD-SA-13:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-07-26
+Topic: BIND remote denial of service
+
+[advisory FreeBSD-SA-13:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-07-26
+Topic: Incorrect privilege validation in the NFS server
+
+[advisory FreeBSD-SA-13:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-08-22
+Topic: integer overflow in IP_MSFILTER
+
+[advisory FreeBSD-SA-13:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-08-22
+Topic: Kernel memory disclosure in sctp(4)
+
+[advisory FreeBSD-SA-13:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-09-10
+Topic: Kernel memory disclosure in sendfile(2)
+
+[advisory FreeBSD-SA-13:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-09-10
+Topic: Insufficient credential checks in network ioctl(2)
+
+[advisory FreeBSD-SA-13:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-09-10
+Topic: Cross-mount links between nullfs(5) mounts
+
+[advisory FreeBSD-SA-13:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2013-11-19
+Topic: OpenSSH AES-GCM memory corruption vulnerability
+
+[advisory FreeBSD-SA-14:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-01-14
+Topic: bsnmpd remote denial of service vulnerability
+
+[advisory FreeBSD-SA-14:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-01-14
+Topic: ntpd distributed reflection Denial of Service vulnerability
+
+[advisory FreeBSD-SA-14:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-01-14
+Topic: OpenSSL multiple vulnerabilities
+
+[advisory FreeBSD-SA-14:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-01-14
+Topic: BIND remote denial of service vulnerability
+
+[advisory FreeBSD-SA-14:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-04-08
+Topic: Deadlock in the NFS server
+
+[advisory FreeBSD-SA-14:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-04-08
+Topic: OpenSSL multiple vulnerabilities
+
+[advisory FreeBSD-SA-14:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-04-30
+Topic: devfs rules not applied by default for jails
+
+[advisory FreeBSD-SA-14:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-04-30
+Topic: TCP reassembly vulnerability
+
+[advisory FreeBSD-SA-14:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-04-30
+Topic: OpenSSL use-after-free vulnerability
+
+[advisory FreeBSD-SA-14:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-05-13
+Topic: OpenSSL NULL pointer deference vulnerability
+
+[advisory FreeBSD-SA-14:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-06-03
+Topic: sendmail improper close-on-exec flag handling
+
+[advisory FreeBSD-SA-14:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-06-03
+Topic: ktrace kernel memory disclosure
+
+[advisory FreeBSD-SA-14:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-06-03
+Topic: Incorrect error handling in PAM policy parser
+
+[advisory FreeBSD-SA-14:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-06-05
+Topic: OpenSSL multiple vulnerabilities
+
+[advisory FreeBSD-SA-14:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-06-24
+Topic: iconv(3) NULL pointer dereference and out-of-bounds array access
+
+[advisory FreeBSD-SA-14:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-06-24
+Topic: Multiple vulnerabilities in file(1) and libmagic(3)
+
+[advisory FreeBSD-SA-14:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-07-08
+Topic: Kernel memory disclosure in control messages and SCTP
+
+[advisory FreeBSD-SA-14:18]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-09-09
+Topic: OpenSSL multiple vulnerabilities
+
+[advisory FreeBSD-SA-14:19]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-09-16
+Topic: Denial of Service in TCP packet processing
+
+[advisory FreeBSD-SA-14:20]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-10-21
+Topic: rtsold(8) remote buffer overflow vulnerability
+
+[advisory FreeBSD-SA-14:21]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-10-21
+Topic: routed(8) remote denial of service vulnerability
+
+[advisory FreeBSD-SA-14:22]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-10-21
+Topic: memory leak in sandboxed namei lookup
+
+[advisory FreeBSD-SA-14:23]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-10-21
+Topic: OpenSSL multiple vulnerabilities
+
+[advisory FreeBSD-SA-14:24]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-11-04
+Topic: Denial of service attack against sshd(8)
+
+[advisory FreeBSD-SA-14:25]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-11-04
+Topic: Kernel stack disclosure in setlogin(2) / getlogin(2)
+
+[advisory FreeBSD-SA-14:26]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-11-04
+Topic: Remote command execution in ftp(1)
+
+[advisory FreeBSD-SA-14:27]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-12-10
+Topic: Buffer overflow in stdio
+
+[advisory FreeBSD-SA-14:28]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-12-10
+Topic: Multiple vulnerabilities in file(1) and libmagic(3)
+
+[advisory FreeBSD-SA-14:29]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-12-10
+Topic: BIND remote denial of service vulnerability
+
+[advisory FreeBSD-SA-14:30]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-12-17
+Topic: unbound remote denial of service vulnerability
+
+[advisory FreeBSD-SA-14:31]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2014-12-23
+Topic: Multiple vulnerabilities in NTP suite
+
+[advisory FreeBSD-SA-15:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-01-14
+Topic: OpenSSL multiple vulnerabilities
+
+[advisory FreeBSD-SA-15:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-01-27
+Topic: SCTP SCTP_SS_VALUE kernel memory corruption and disclosure
+
+[advisory FreeBSD-SA-15:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-01-27
+Topic: SCTP stream reset vulnerability
+
+[advisory FreeBSD-SA-15:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-02-25
+Topic: Integer overflow in IGMP protocol
+
+[advisory FreeBSD-SA-15:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-02-25
+Topic: BIND remote denial of service vulnerability
+
+[advisory FreeBSD-SA-15:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-03-19
+Topic: Multiple OpenSSL vulnerabilities
+
+[advisory FreeBSD-SA-15:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-04-07
+Topic: Multiple vulnerabilities of ntp
+
+[advisory FreeBSD-SA-15:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-04-07
+Topic: Insecure default GELI keyfile permissions
+
+[advisory FreeBSD-SA-15:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-04-07
+Topic: Denial of Service with IPv6 Router Advertisements
+
+[advisory FreeBSD-SA-15:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-06-12
+Topic: Multiple OpenSSL vulnerabilities
+
+[advisory FreeBSD-SA-15:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-07-07
+Topic: BIND resolver remote denial of service when validating
+
+[advisory FreeBSD-SA-15:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-07-09
+Topic: OpenSSL alternate chains certificate forgery vulnerability
+
+[advisory FreeBSD-SA-15:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-07-21
+Topic: Resource exhaustion due to sessions stuck in LAST_ACK state
+
+[advisory FreeBSD-SA-15:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-07-28
+Topic: shell injection vulnerability in patch(1)
+
+[advisory FreeBSD-SA-15:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-07-28
+Topic: Resource exhaustion in TCP reassembly 
+
+[advisory FreeBSD-SA-15:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-07-28
+Topic: OpenSSH multiple vulnerabilities
+
+[advisory FreeBSD-SA-15:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-07-28
+Topic: BIND remote denial of service vulnerability
+
+[advisory FreeBSD-SA-15:18]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-08-05
+Topic: shell injection vulnerability in patch(1)
+
+[advisory FreeBSD-SA-15:19]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-08-05
+Topic: routed(8) remote denial of service vulnerability
+
+[advisory FreeBSD-SA-15:20]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-08-18
+Topic: Multiple integer overflows in expat (libbsdxml) XML parser
+
+[advisory FreeBSD-SA-15:21]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-08-25
+Topic: Local privilege escalation in IRET handler
+
+[advisory FreeBSD-SA-15:22]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-08-25
+Topic: OpenSSH multiple vulnerabilities
+
+[advisory FreeBSD-SA-15:23]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-09-02
+Topic: BIND remote denial of service vulnerability
+
+[advisory FreeBSD-SA-15:24]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-09-29
+Topic: rpcbind(8) remote denial of service [REVISED]
+
+[advisory FreeBSD-SA-15:25]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-10-26
+Topic: Multiple vulnerabilities of ntp [REVISED]
+
+[advisory FreeBSD-SA-15:26]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-12-05
+Topic: Multiple OpenSSL vulnerabilities
+
+[advisory FreeBSD-SA-15:27]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2015-12-16
+Topic: BIND remote denial of service vulnerability
+
+[advisory FreeBSD-SA-16:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-14
+Topic: SCTP ICMPv6 error message vulnerability
+
+[advisory FreeBSD-SA-16:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-14
+Topic: ntp panic threshold bypass vulnerability
+
+[advisory FreeBSD-SA-16:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-14
+Topic: Linux compatibility layer incorrect futex handling
+
+[advisory FreeBSD-SA-16:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-14
+Topic: Linux compatibility layer setgroups(2) system call
+
+[advisory FreeBSD-SA-16:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-14
+Topic: TCP MD5 signature denial of service
+
+[advisory FreeBSD-SA-16:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-14
+Topic: Insecure default snmpd.config permissions
+
+[advisory FreeBSD-SA-16:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-14
+Topic: OpenSSH client information leak
+
+[advisory FreeBSD-SA-16:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-27
+Topic: BIND remote denial of service vulnerability
+
+[advisory FreeBSD-SA-16:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-27
+Topic: Multiple vulnerabilities of ntp
+
+[advisory FreeBSD-SA-16:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-27
+Topic: Linux compatibility layer issetugid(2) system call
+
+[advisory FreeBSD-SA-16:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-01-30
+Topic: OpenSSL SSLv2 ciphersuite downgrade vulnerability
+
+[advisory FreeBSD-SA-16:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-03-10
+Topic: Multiple OpenSSL vulnerabilities
+
+[advisory FreeBSD-SA-16:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-03-10
+Topic: Multiple BIND vulnerabilities
+
+[advisory FreeBSD-SA-16:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-03-16
+Topic: OpenSSH xauth(1) command injection
+
+[advisory FreeBSD-SA-16:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-10-25
+Topic: Incorrect argument validation in sysarch(2)
+
+[advisory FreeBSD-SA-16:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-04-29
+Topic: Multiple vulnerabilities of ntp
+
+[advisory FreeBSD-SA-16:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-05-04
+Topic: Multiple OpenSSL vulnerabilities
+
+[advisory FreeBSD-SA-16:18]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-05-17
+Topic: Buffer overflow in keyboard driver
+
+[advisory FreeBSD-SA-16:19]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-05-17
+Topic: Incorrect argument handling in sendmsg(2)
+
+[advisory FreeBSD-SA-16:20]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-05-31
+Topic: Kernel stack disclosure in Linux compatibility layer
+
+[advisory FreeBSD-SA-16:21]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-05-31
+Topic: Kernel stack disclosure in 4.3BSD compatibility layer
+
+[advisory FreeBSD-SA-16:22]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-05-31
+Topic: Directory traversal in cpio(1)
+
+[advisory FreeBSD-SA-16:23]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-05-31
+Topic: Buffer overflow in libarchive(3)
+
+[advisory FreeBSD-SA-16:24]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-06-04
+Topic: Multiple vulnerabilities of ntp
+
+[advisory FreeBSD-SA-16:25]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-07-25
+Topic: Heap vulnerability in bspatch
+
+[advisory FreeBSD-SA-16:26]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-09-23
+Topic: Multiple OpenSSL vulnerabilities
+
+[advisory FreeBSD-SA-16:27]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-10-10
+Topic: Regression in OpenSSL suite
+
+[advisory FreeBSD-SA-16:28]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-10-10
+Topic: BIND remote Denial of Service vulnerability
+
+[advisory FreeBSD-SA-16:29]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-10-10
+Topic: Heap overflow vulnerability in bspatch
+
+[advisory FreeBSD-SA-16:30]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-10-10
+Topic: Multiple portsnap vulnerabilities
+
+[advisory FreeBSD-SA-16:31]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-10-05
+Topic: Multiple libarchive vulnerabilities
+
+[advisory FreeBSD-SA-16:32]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-10-25
+Topic: bhyve - privilege escalation vulnerability
+
+[advisory FreeBSD-SA-16:33]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-11-02
+Topic: OpenSSH Remote Denial of Service vulnerability
+
+[advisory FreeBSD-SA-16:34]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-11-02
+Topic: BIND Remote Denial of Service vulnerability
+
+[advisory FreeBSD-SA-16:35]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-11-02
+Topic: OpenSSL Remote DoS vulnerability
+
+[advisory FreeBSD-SA-16:36]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-12-06
+Topic: Possible login(1) argument injection in telnetd(8)
+
+[advisory FreeBSD-SA-16:37]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-12-06
+Topic: link_ntoa(3) buffer overflow 
+
+[advisory FreeBSD-SA-16:38]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-12-06
+Topic: bhyve(8) virtual machine escape
+
+[advisory FreeBSD-SA-16:39]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2016-12-22
+Topic: Multiple vulnerabilities of ntp
+
+[advisory FreeBSD-SA-17:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-01-11
+Topic: OpenSSH multiple vulnerabilities
+
+[advisory FreeBSD-SA-17:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-02-23
+Topic: OpenSSL multiple vulnerabilities
+
+[advisory FreeBSD-SA-17:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-04-12
+Topic: Multiple vulnerabilities of ntp
+
+[advisory FreeBSD-SA-17:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-04-27
+Topic: ipfilter(4) fragment handling panic
+
+[advisory FreeBSD-SA-17:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-07-12
+Topic: heimdal KDC-REP service name validation vulnerability
+
+[advisory FreeBSD-SA-17:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-08-10
+Topic: OpenSSH Denial of Service vulnerability
+
+[advisory FreeBSD-SA-17:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-10-16
+Topic: WPA2 protocol vulnerability
+
+[advisory FreeBSD-SA-17:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-11-15
+Topic: Kernel data leak via ptrace(PT_LWPINFO)
+
+[advisory FreeBSD-SA-17:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-11-15
+Topic: POSIX shm allows jails to access global namespace
+
+[advisory FreeBSD-SA-17:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-11-15
+Topic: Information leak in kldstat(2)
+
+[advisory FreeBSD-SA-17:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-11-29
+Topic: OpenSSL multiple vulnerabilities
+
+[advisory FreeBSD-SA-17:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2017-12-09
+Topic: OpenSSL multiple vulnerabilities
+
+[advisory FreeBSD-SA-18:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-03-07
+Topic: ipsec validation and use-after-free
+
+[advisory FreeBSD-SA-18:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-03-07
+Topic: Multiple vulnerabilities of ntp
+
+[advisory FreeBSD-SA-18:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-03-14
+Topic: Speculative Execution Vulnerabilities
+
+[advisory FreeBSD-SA-18:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-04-04
+Topic: vt console memory disclosure
+
+[advisory FreeBSD-SA-18:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-04-04
+Topic: ipsec crash or denial of service
+
+[advisory FreeBSD-SA-18:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-05-08
+Topic: Mishandling of x86 debug exceptions
+
+[advisory FreeBSD-SA-18:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-06-21
+Topic: Lazy FPU State Restore Information Disclosure
+
+[advisory FreeBSD-SA-18:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-08-06
+Topic: Resource exhaustion in TCP reassembly 
+
+[advisory FreeBSD-SA-18:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-08-14
+Topic: L1 Terminal Fault (L1TF) Kernel Information Disclosure
+
+[advisory FreeBSD-SA-18:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-08-14
+Topic: Resource exhaustion in IP fragment reassembly
+
+[advisory FreeBSD-SA-18:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-08-14
+Topic: Unauthenticated EAPOL-Key Decryption Vulnerability
+
+[advisory FreeBSD-SA-18:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-09-12
+Topic: Improper ELF header parsing
+
+[advisory FreeBSD-SA-18:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-11-27
+Topic: Multiple vulnerabilities in NFS server code
+
+[advisory FreeBSD-SA-18:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-12-04
+Topic: Insufficient bounds checking in bhyve(8) device model
+
+[advisory FreeBSD-SA-18:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2018-12-19
+Topic: bootpd buffer overflow
+
+[advisory FreeBSD-SA-19:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-02-05
+Topic: System call kernel data register leak
+
+[advisory FreeBSD-SA-19:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-02-05
+Topic: File description reference count leak
+
+[advisory FreeBSD-SA-19:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-05-14
+Topic: Multiple vulnerabilities in hostapd and wpa_supplicant
+
+[advisory FreeBSD-SA-19:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-05-14
+Topic: Authenticated denial of service in ntpd
+
+[advisory FreeBSD-SA-19:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-05-14
+Topic: IPv6 fragment reassembly panic in pf(4)
+
+[advisory FreeBSD-SA-19:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-05-14
+Topic: ICMP/ICMP6 packet filter bypass in pf
+
+[advisory FreeBSD-SA-19:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-05-14
+Topic: Microarchitectural Data Sampling (MDS)
+
+[advisory FreeBSD-SA-19:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-06-19
+Topic: Resource exhaustion in non-default RACK TCP stack
+
+[advisory FreeBSD-SA-19:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-07-02
+Topic: iconv buffer overflow
+
+[advisory FreeBSD-SA-19:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-07-02
+Topic: Kernel stack disclosure in UFS/FFS
+
+[advisory FreeBSD-SA-19:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-07-02
+Topic: Privilege escalation in cd(4) driver
+
+[advisory FreeBSD-SA-19:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-07-24
+Topic: telnet(1) client multiple vulnerabilities
+
+[advisory FreeBSD-SA-19:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-07-24
+Topic: pts(4) write-after-free
+
+[advisory FreeBSD-SA-19:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-07-24
+Topic: Kernel memory disclosure in freebsd32_ioctl
+
+[advisory FreeBSD-SA-19:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-07-24
+Topic: Reference count overflow in mqueue filesystem
+
+[advisory FreeBSD-SA-19:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-07-24
+Topic: Bhyve out-of-bounds read in XHCI device
+
+[advisory FreeBSD-SA-19:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-07-24
+Topic: File description reference count leak
+
+[advisory FreeBSD-SA-19:18]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-08-06
+Topic: Multiple vulnerabilities in bzip2
+
+[advisory FreeBSD-SA-19:19]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-08-06
+Topic: ICMPv6 / MLDv2 out-of-bounds memory access
+
+[advisory FreeBSD-SA-19:20]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-08-06
+Topic: Insufficient message length validation in bsnmp library
+
+[advisory FreeBSD-SA-19:21]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-08-06
+Topic: Insufficient validation of guest-supplied data (e1000 device)
+
+[advisory FreeBSD-SA-19:22]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-08-20
+Topic: IPv6 remote Denial-of-Service
+
+[advisory FreeBSD-SA-19:23]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-08-20
+Topic: kernel memory disclosure from /dev/midistat
+
+[advisory FreeBSD-SA-19:24]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-08-20
+Topic: Reference count overflow in mqueue filesystem 32-bit compat
+
+[advisory FreeBSD-SA-19:25]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-11-12
+Topic: Machine Check Exception on Page Size Change
+
+[advisory FreeBSD-SA-19:26]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2019-11-12
+Topic: Intel CPU Microcode Update
+
+[advisory FreeBSD-SA-20:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-01-28
+Topic: libfetch buffer overflow
+
+[advisory FreeBSD-SA-20:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-01-28
+Topic: Missing IPsec anti-replay window check
+
+[advisory FreeBSD-SA-20:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-01-28
+Topic: kernel stack data disclosure
+
+[advisory FreeBSD-SA-20:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-03-19
+Topic: TCP IPv6 SYN cache kernel information disclosure
+
+[advisory FreeBSD-SA-20:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-03-19
+Topic: Insufficient oce(4) ioctl(2) privilege checking
+
+[advisory FreeBSD-SA-20:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-03-19
+Topic: Insufficient ixl(4) ioctl(2) privilege checking
+
+[advisory FreeBSD-SA-20:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-03-19
+Topic: Incorrect user-controlled pointer use in epair
+
+[advisory FreeBSD-SA-20:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-03-19
+Topic: Kernel memory disclosure with nested jails
+
+[advisory FreeBSD-SA-20:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-03-19
+Topic: Multiple denial of service in ntpd
+
+[advisory FreeBSD-SA-20:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-04-21
+Topic: ipfw invalid mbuf handling
+
+[advisory FreeBSD-SA-20:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-04-21
+Topic: OpenSSL remote denial of service vulnerability
+
+[advisory FreeBSD-SA-20:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-05-12
+Topic: Insufficient packet length validation in libalias
+
+[advisory FreeBSD-SA-20:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-05-12
+Topic: Memory disclosure vulnerability in libalias
+
+[advisory FreeBSD-SA-20:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-05-12
+Topic: Improper checking in SCTP-AUTH shared key update
+
+[advisory FreeBSD-SA-20:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-05-12
+Topic: Use after free in cryptodev module
+
+[advisory FreeBSD-SA-20:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-05-12
+Topic: Insufficient cryptodev MAC key length check
+
+[advisory FreeBSD-SA-20:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-06-09
+Topic: USB HID descriptor parsing error
+
+[advisory FreeBSD-SA-20:18]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-07-08
+Topic: posix_spawnp(3) buffer overflow
+
+[advisory FreeBSD-SA-20:19]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-07-08
+Topic: Multiple vulnerabilities in unbound
+
+[advisory FreeBSD-SA-20:20]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-07-08
+Topic: IPv6 socket option race condition and use after free
+
+[advisory FreeBSD-SA-20:21]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-08-05
+Topic: Potential memory corruption in USB network device drivers
+
+[advisory FreeBSD-SA-20:22]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-08-05
+Topic: Multiple vulnerabilities in sqlite3
+
+[advisory FreeBSD-SA-20:23]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-08-05
+Topic: sendmsg(2) privilege escalation
+
+[advisory FreeBSD-SA-20:24]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-09-02
+Topic: IPv6 Hop-by-Hop options use-after-free bug
+
+[advisory FreeBSD-SA-20:25]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-09-02
+Topic: SCTP socket use-after-free bug
+
+[advisory FreeBSD-SA-20:26]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-09-02
+Topic: dhclient heap overflow
+
+[advisory FreeBSD-SA-20:27]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-09-15
+Topic: ure device driver susceptible to packet-in-packet attack
+
+[advisory FreeBSD-SA-20:28]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-09-15
+Topic: bhyve privilege escalation via VMCS access
+
+[advisory FreeBSD-SA-20:29]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-09-15
+Topic: bhyve SVM guest escape
+
+[advisory FreeBSD-SA-20:30]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-09-15
+Topic: ftpd privilege escalation via ftpchroot feature
+
+[advisory FreeBSD-SA-20:31]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-12-01
+Topic: ICMPv6 use-after-free in error message handling
+
+[advisory FreeBSD-SA-20:32]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-12-01
+Topic: Multiple vulnerabilities in rtsold
+
+[advisory FreeBSD-SA-20:33]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2020-12-08
+Topic: OpenSSL NULL pointer de-reference
+
+[advisory FreeBSD-SA-21:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-01-29
+Topic: Uninitialized kernel stack leaks in several file systems
+
+[advisory FreeBSD-SA-21:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-01-29
+Topic: Xen guests can triger backend Out Of Memory
+
+[advisory FreeBSD-SA-21:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-02-24
+Topic: login.access fails to apply rules
+
+[advisory FreeBSD-SA-21:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-02-24
+Topic: jail_remove(2) fails to kill all jailed processes
+
+[advisory FreeBSD-SA-21:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-02-24
+Topic: jail_attach(2) relies on the caller to change the cwd
+
+[advisory FreeBSD-SA-21:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-02-24
+Topic: Xen grant mapping error handling issues
+
+[advisory FreeBSD-SA-21:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-03-25
+Topic: Multiple vulnerabilities in OpenSSL
+
+[advisory FreeBSD-SA-21:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-04-06
+Topic: Memory disclosure by stale virtual memory mapping
+
+[advisory FreeBSD-SA-21:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-04-06
+Topic: double free in accept_filter(9) socket configuration interface
+
+[advisory FreeBSD-SA-21:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-04-06
+Topic: jail escape possible by mounting over jail root
+
+[advisory FreeBSD-SA-21:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-05-26
+Topic: SMAP bypass
+
+[advisory FreeBSD-SA-21:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-05-26
+Topic: Missing message validation in libradius(3)
+
+[advisory FreeBSD-SA-21:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-08-24
+Topic: Missing error handling in bhyve(8) device models
+
+[advisory FreeBSD-SA-21:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-08-24
+Topic: Remote code execution in ggatec(8)
+
+[advisory FreeBSD-SA-21:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-08-24
+Topic: libfetch out of bounds read
+
+[advisory FreeBSD-SA-21:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-08-24
+Topic: Multiple OpenSSL vulnerabilities
+
+[advisory FreeBSD-SA-21:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2021-08-24
+Topic: Multiple vulnerabilities in OpenSSL
+
+[advisory FreeBSD-SA-22:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-01-11
+Topic: vt console buffer overflow
+
+[advisory FreeBSD-SA-22:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-03-15
+Topic: Multiple WiFi issues
+
+[advisory FreeBSD-SA-22:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-03-15
+Topic: OpenSSL certificate parsing infinite loop
+
+[advisory FreeBSD-SA-22:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-04-06
+Topic: Potential jail escape vulnerabilities in netmap
+
+[advisory FreeBSD-SA-22:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-04-06
+Topic: Bhyve e82545 device emulation out-of-bounds write
+
+[advisory FreeBSD-SA-22:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-04-06
+Topic: mpr/mps/mpt driver ioctl heap out-of-bounds write
+
+[advisory FreeBSD-SA-22:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-04-06
+Topic: 802.11 heap buffer overflow
+
+[advisory FreeBSD-SA-22:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-04-06
+Topic: zlib compression out-of-bounds write
+
+[advisory FreeBSD-SA-22:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-08-09
+Topic: Out of bound read in elf_note_prpsinfo()
+
+[advisory FreeBSD-SA-22:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-08-09
+Topic: AIO credential reference count leak
+
+[advisory FreeBSD-SA-22:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-08-09
+Topic: Memory disclosure by stale virtual memory mapping
+
+[advisory FreeBSD-SA-22:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-08-09
+Topic: Missing bounds check in 9p message handling
+
+[advisory FreeBSD-SA-22:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-08-30
+Topic: zlib heap buffer overflow
+
+[advisory FreeBSD-SA-22:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-11-15
+Topic: Multiple vulnerabilities in Heimdal [REVISED]
+
+[advisory FreeBSD-SA-22:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2022-11-29
+Topic: Stack overflow in ping(8)
+
+[advisory FreeBSD-SA-23:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-02-08
+Topic: GELI silently omits the keyfile if read from stdin
+
+[advisory FreeBSD-SA-23:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-02-16
+Topic: OpenSSH pre-authentication double free
+
+[advisory FreeBSD-SA-23:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-02-16
+Topic: Multiple vulnerabilities in OpenSSL
+
+[advisory FreeBSD-SA-23:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-06-21
+Topic: Network authentication attack via pam_krb5
+
+[advisory FreeBSD-SA-23:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-06-21
+Topic: ssh-add does not honor per-hop destination constraints
+
+[advisory FreeBSD-SA-23:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-08-01
+Topic: Remote denial of service in IPv6 fragment reassembly
+
+[advisory FreeBSD-SA-23:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-08-01
+Topic: bhyve privileged guest escape via fwctl
+
+[advisory FreeBSD-SA-23:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-08-01
+Topic: Potential remote code execution via ssh-agent forwarding
+
+[advisory FreeBSD-SA-23:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-08-01
+Topic: Network authentication attack via pam_krb5
+
+[advisory FreeBSD-SA-23:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-09-06
+Topic: pf incorrectly handles multiple IPv6 fragment headers
+
+[advisory FreeBSD-SA-23:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-09-06
+Topic: Wi-Fi encryption bypass
+
+[advisory FreeBSD-SA-23:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-10-03
+Topic: msdosfs data disclosure
+
+[advisory FreeBSD-SA-23:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-10-03
+Topic: copy_file_range insufficient capability rights check
+
+[advisory FreeBSD-SA-23:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2023-10-03
+Topic: arm64 boot CPUs may lack speculative execution protections
+
+[advisory FreeBSD-SA-23:15]
+Type: SA
+Source-Branch: stable/14
+Commit: d2c65a1c9486
+Applicable: false
+Announced: 2023-11-07
+Topic: libc stdio buffer overflow
+
+[advisory FreeBSD-SA-23:16]
+Type: SA
+Source-Branch: stable/14
+Commit: 765757c6301f
+Applicable: false
+Announced: 2023-11-08
+Topic: Incorrect libcap_net limitation list manipulation
+
+[advisory FreeBSD-SA-23:17]
+Type: SA
+Source-Branch: stable/14
+Commit: a47a44c0d69c
+Applicable: false
+Announced: 2023-12-05
+Topic: TCP spoofing vulnerability in pf(4)
+
+[advisory FreeBSD-SA-23:18]
+Type: SA
+Source-Branch: stable/14
+Commit: 8d42f85d9d7b
+Applicable: false
+Announced: 2023-12-12
+Topic: NFS client data corruption and kernel memory disclosure
+
+[advisory FreeBSD-SA-23:19]
+Type: SA
+Source-Branch: stable/14
+Commit: 673d1ead65c9
+Applicable: false
+Announced: 2023-12-19
+Topic: Prefix Truncation Attack in the SSH protocol
+
+[advisory FreeBSD-SA-24:01]
+Type: SA
+Source-Branch: stable/14
+Commit: 426b28fdf700
+Applicable: false
+Announced: 2024-02-14
+Topic: bhyveload(8) host file access
+
+[advisory FreeBSD-SA-24:02]
+Type: SA
+Source-Branch: stable/14
+Commit: 215bb03edc54
+Applicable: false
+Announced: 2024-02-14
+Topic: jail(2) information leak
+
+[advisory FreeBSD-SA-24:03]
+Type: SA
+Source-Branch: stable/14
+Commit: e2b44c401cc2
+Applicable: false
+Announced: 2024-03-28
+Topic: Multiple vulnerabilities in unbound
+
+[advisory FreeBSD-SA-24:04]
+Type: SA
+Source-Branch: stable/14
+Commit: 620a6a54bb7b
+Applicable: false
+Announced: 2024-07-01
+Topic: OpenSSH pre-authentication remote code execution
+
+[advisory FreeBSD-SA-24:05]
+Type: SA
+Source-Branch: stable/14
+Commit: 3382c691dc6a
+Applicable: false
+Announced: 2024-08-07
+Topic: pf incorrectly matches different ICMPv6 states in the state table
+
+[advisory FreeBSD-SA-24:06]
+Type: SA
+Source-Branch: stable/14
+Commit: 8b400c8488f0
+Applicable: false
+Announced: 2024-08-07
+Topic: ktrace(2) fails to detach when executing a setuid binary
+
+[advisory FreeBSD-SA-24:07]
+Type: SA
+Source-Branch: stable/14
+Commit: 9328ded386d5
+Applicable: false
+Announced: 2024-08-07
+Topic: NFS client accepts file names containing path separators
+
+[advisory FreeBSD-SA-24:08]
+Type: SA
+Source-Branch: stable/14
+Commit: 73466449a9bf
+Applicable: false
+Announced: 2024-08-07
+Topic: OpenSSH pre-authentication async signal safety issue
+
+[advisory FreeBSD-SA-24:09]
+Type: SA
+Source-Branch: stable/14
+Commit: 9c2ef102166e
+Applicable: false
+Announced: 2024-09-04
+Topic: Multiple vulnerabilities in libnv
+
+[advisory FreeBSD-SA-24:10]
+Type: SA
+Source-Branch: stable/14
+Commit: 6ce4821f0859
+Applicable: false
+Announced: 2024-09-04
+Topic: bhyve(8) privileged guest escape via TPM device passthrough
+
+[advisory FreeBSD-SA-24:11]
+Type: SA
+Source-Branch: stable/14
+Commit: 803e0c2ab29b
+Applicable: false
+Announced: 2024-09-04
+Topic: Multiple issues in ctl(4) CAM Target Layer
+
+[advisory FreeBSD-SA-24:12]
+Type: SA
+Source-Branch: stable/14
+Commit: 90af1336ed5e
+Applicable: false
+Announced: 2024-09-04
+Topic: bhyve(8) privileged guest escape via USB controller
+
+[advisory FreeBSD-SA-24:13]
+Type: SA
+Source-Branch: stable/14
+Commit: 5946b0c6cbc7
+Applicable: false
+Announced: 2024-09-03
+Topic: Possible DoS in X.509 name checks in OpenSSL
+
+[advisory FreeBSD-SA-24:14]
+Type: SA
+Source-Branch: stable/14
+Commit: 4938f554469b
+Applicable: false
+Announced: 2024-09-04
+Topic: umtx Kernel panic or Use-After-Free
+
+[advisory FreeBSD-SA-24:15]
+Type: SA
+Source-Branch: stable/14
+Commit: 419da61f8203
+Applicable: false
+Announced: 2024-09-19
+Topic: bhyve(8) out-of-bounds read access via XHCI emulation
+
+[advisory FreeBSD-SA-24:16]
+Type: SA
+Source-Branch: stable/14
+Commit: 056c50c48be3
+Applicable: false
+Announced: 2024-09-19
+Topic: Integer overflow in libnv
+
+[advisory FreeBSD-SA-24:17]
+Type: SA
+Source-Branch: stable/14
+Commit: 86ba5941b132
+Applicable: false
+Announced: 2024-10-29
+Topic: Multiple issues in the bhyve hypervisor
+
+[advisory FreeBSD-SA-24:18]
+Type: SA
+Source-Branch: stable/14
+Commit: 2e7f4728fa73
+Applicable: false
+Announced: 2024-10-29
+Topic: Unbounded allocation in ctl(4) CAM Target Layer
+
+[advisory FreeBSD-SA-24:19]
+Type: SA
+Source-Branch: stable/14
+Commit: 51676e0a3bd3
+Applicable: false
+Announced: 2024-10-29
+Topic: Certificate revocation list fetch(1) option fails
+
+[advisory FreeBSD-SA-25:01]
+Type: SA
+Source-Branch: stable/14
+Commit: bf9a275b24f6
+Applicable: false
+Announced: 2025-01-29
+Topic: OpenSSH Keystroke Obfuscation Bypass
+
+[advisory FreeBSD-SA-25:02]
+Type: SA
+Source-Branch: stable/14
+Commit: 7a3a0402aeb6
+Applicable: false
+Announced: 2025-01-29
+Topic: Buffer overflow in some filesystems via NFS
+
+[advisory FreeBSD-SA-25:03]
+Type: SA
+Source-Branch: stable/14
+Commit: 93836ff92be8
+Applicable: false
+Announced: 2025-01-29
+Topic: Unprivileged access to system files
+
+[advisory FreeBSD-SA-25:04]
+Type: SA
+Source-Branch: stable/14
+Commit: 99d5ee8738a3
+Applicable: false
+Announced: 2025-01-29
+Topic: Uninitialized kernel memory disclosure via ktrace(2)
+
+[advisory FreeBSD-SA-25:05]
+Type: SA
+Source-Branch: stable/14
+Commit: 24ce323f020f
+Applicable: false
+Announced: 2025-02-21
+Topic: Multiple vulnerabilities in OpenSSH
+
+[advisory FreeBSD-SA-25:06]
+Type: SA
+Source-Branch: stable/14
+Commit: 5cf27a49a2de
+Applicable: true
+Announced: 2025-07-02
+Topic: Use-after-free in multi-threaded xz decoder
+
+[advisory FreeBSD-SA-25:07]
+Type: SA
+Source-Branch: stable/14
+Commit: 6dad4525a291
+Applicable: true
+Announced: 2025-08-08
+Topic: Integer overflow in libarchive leading to double free
+
+[advisory FreeBSD-SA-25:08]
+Type: SA
+Source-Branch: stable/14
+Commit: 270158508d7c
+Applicable: true
+Announced: 2025-09-30
+Topic: Multiple vulnerabilities in OpenSSL
+
+[advisory FreeBSD-SA-25:09]
+Type: SA
+Source-Branch: stable/14
+Commit: e276759b3687
+Applicable: true
+Announced: 2025-10-22
+Topic: SO_REUSEPORT_LB breaks connect(2) for UDP sockets
+
+[advisory FreeBSD-SA-25:10]
+Type: SA
+Source-Branch: stable/14
+Commit: cd40a23fb249
+Applicable: true
+Announced: 2025-11-26
+Topic: Cache poison in local-unbound service
+
+[advisory FreeBSD-SA-25:11]
+Type: SA
+Source-Branch: stable/14
+Commit: deb684f9d1d6
+Applicable: true
+Announced: 2025-12-16
+Topic: ipfw denial of service
+
+[advisory FreeBSD-SA-25:12]
+Type: SA
+Source-Branch: stable/14
+Commit: 26702912e857
+Applicable: true
+Announced: 2025-12-16
+Topic: Remote code execution via ND6 Router Advertisements
+
+[advisory FreeBSD-SA-26:01]
+Type: SA
+Source-Branch: stable/14
+Commit: ee8d50bfd59e
+Applicable: true
+Announced: 2026-01-27
+Topic: Multiple vulnerabilities in OpenSSL
+
+[advisory FreeBSD-SA-26:02]
+Type: SA
+Source-Branch: stable/14
+Commit: 53963866f708
+Applicable: true
+Announced: 2026-01-27
+Topic: Jail escape by a privileged user via nullfs
+
+[advisory FreeBSD-SA-26:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 2026-02-10
+Topic: blocklistd(8) socket leak
+
+[advisory FreeBSD-SA-26:04]
+Type: SA
+Source-Branch: stable/14
+Commit: 3ad3ab5f9b6e
+Applicable: true
+Announced: 2026-02-24
+Topic: Jail chroot escape via fd exchange with a different jail
+
+[advisory FreeBSD-SA-26:05]
+Type: SA
+Source-Branch: releng/14.4
+Commit: 7465d0b094b7
+Applicable: true
+Announced: 2026-02-24
+Topic: Local DoS and possible privilege escalation via routing sockets
+
+[advisory FreeBSD-SA-96:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-04-21
+Topic: sliplogin unauthorized access vulnerability
+
+[advisory FreeBSD-SA-96:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-04-22
+Topic: apache httpd meta-character escaping
+
+[advisory FreeBSD-SA-96:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-04-20
+Topic: *suggested action only* sendmail smrsh now available
+
+[advisory FreeBSD-SA-96:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-04-21
+Topic: syslog vulnerability
+
+[advisory FreeBSD-SA-96:09]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-05-17
+Topic: unauthorized access via mount_union / mount_msdos (vfsload)
+
+[advisory FreeBSD-SA-96:10]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-05-17
+Topic: system stability compromise via mount_union program
+
+[advisory FreeBSD-SA-96:11]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-05-21
+Topic: security compromise from man page utility
+
+[advisory FreeBSD-SA-96:12]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-06-28
+Topic: security compromise from perl (suidperl) utility
+
+[advisory FreeBSD-SA-96:13]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-06-05
+Topic: unauthorized mail reading via comsat
+
+[advisory FreeBSD-SA-96:14]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-06-24
+Topic: Firewall filter leak with user level ipfw
+
+[advisory FreeBSD-SA-96:15]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-07-04
+Topic: security compromise from ppp
+
+[advisory FreeBSD-SA-96:16]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-07-12
+Topic: security vulnerability in rdist
+
+[advisory FreeBSD-SA-96:17]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-07-16
+Topic: "Trojan Horse" vulnerability via rz program
+
+[advisory FreeBSD-SA-96:18]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-11-25
+Topic: Buffer overflow in lpr (revised)
+
+[advisory FreeBSD-SA-96:19]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-12-10
+Topic: Buffer overflow in modstat
+
+[advisory FreeBSD-SA-96:20]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1996-12-16
+Topic: unauthorized access via buffer overruns
+
+[advisory FreeBSD-SA-96:21]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1997-01-18
+Topic: unauthorized access via buffer overrun in talkd
+
+[advisory FreeBSD-SA-97:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1997-02-05
+Topic: setlocale() bug in all released versions of FreeBSD
+
+[advisory FreeBSD-SA-97:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1997-03-26
+Topic: Buffer overflow in lpd
+
+[advisory FreeBSD-SA-97:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1997-04-07
+Topic: sysinstall bug
+
+[advisory FreeBSD-SA-97:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1997-08-19
+Topic: security compromise via procfs
+
+[advisory FreeBSD-SA-97:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1997-10-29
+Topic: security compromise via open()
+
+[advisory FreeBSD-SA-97:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1997-12-09
+Topic: Pentium processors have flaw allowing unpriviledged crashes
+
+[advisory FreeBSD-SA-98:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1997-12-01
+Topic: LAND attack can cause harm to running FreeBSD systems
+
+[advisory FreeBSD-SA-98:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1998-03-12
+Topic: security compromise via mmap
+
+[advisory FreeBSD-SA-98:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1998-05-14
+Topic: Problems with TTCP
+
+[advisory FreeBSD-SA-98:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1998-06-02
+Topic: security compromise via mmap
+
+[advisory FreeBSD-SA-98:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1998-06-04
+Topic: system crash with NFS
+
+[advisory FreeBSD-SA-98:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1998-06-10
+Topic: smurf attack
+
+[advisory FreeBSD-SA-98:07]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1998-10-13
+Topic: TCP RST denial of sevice
+
+[advisory FreeBSD-SA-98:08]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1998-11-04
+Topic: IP fragmentation denial of service
+
+[advisory FreeBSD-SA-99:01]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1999-09-04
+Topic: BSD File Flags and Programming Techniques
+
+[advisory FreeBSD-SA-99:02]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1999-09-04
+Topic: Profiling Across Exec Calls
+
+[advisory FreeBSD-SA-99:03]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1999-09-05
+Topic: Three ftp daemons in ports vulnerable to attack.
+
+[advisory FreeBSD-SA-99:04]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1999-09-15
+Topic: Coredumps and symbolic links
+
+[advisory FreeBSD-SA-99:05]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1999-09-15
+Topic: fts library routine vulnerability
+
+[advisory FreeBSD-SA-99:06]
+Type: SA
+Source-Branch: 
+Commit: 
+Applicable: false
+Announced: 1999-09-16
+Topic: remote amd attack
+
