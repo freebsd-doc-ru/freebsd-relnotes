@@ -339,6 +339,10 @@ perl  tools/relnotes/bin/relnotes_stage5_to_stage6.pl \
 egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.1R/relnotes_stage1.txt >>releases/15.1R/relnotes_stage_all.txt
 egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.1R/relnotes_stage3.txt >>releases/15.1R/relnotes_stage_all.txt
 egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.1R/relnotes_stage5.txt >>releases/15.1R/relnotes_stage_all.txt
+egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.1R/relnotes_stage1.txt >>releases/15.1R/relnotes_stage_review.txt
+egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.1R/relnotes_stage3.txt >>releases/15.1R/relnotes_stage_review.txt
+egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.1R/relnotes_stage5.txt >>releases/15.1R/relnotes_stage_review.txt
+
 ```
 
 #### Stage 7 similar to stage1m stage 3, stage5
