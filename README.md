@@ -252,7 +252,7 @@ perl tools/relnotes/bin/relnotes_collect_stage3.pl \
 
 ### Stage 4: Prepare and review stage3 file
 
-Transfer new entries into the editable stage2 file:
+Transfer new entries into the editable stage4 file:
 
 ```
 perl relnotes_stage3_to_stage4.pl \
@@ -262,7 +262,7 @@ perl relnotes_stage3_to_stage4.pl \
 After this step, manually edit:
 
 ```
-/path/to/release/relnotes_stage2.txt
+/path/to/release/relnotes_stage4.txt
 ```
 
 Typical manual actions:
@@ -277,6 +277,122 @@ Typical manual actions:
 perl  tools/relnotes/bin/relnotes_stage3_to_stage4.pl \
   --release-dir releases/15.1R
 ```
+
+### Stage 5: Collect commits from Git with vendir commits
+
+Collect commits and generate the initial stage5 file:
+
+
+```
+perl relnotes_collect_stage5.pl \
+--src /path/to/freebsd-repo/src --from preversion-branch --to releaseversion-branch  \
+  --release-dir /path/to/release_information/dir
+```
+
+Resulting file:
+
+```
+/path/to/release_information/relnotes_stage5.txt
+```
+
+```
+perl tools/relnotes/bin/relnotes_collect_stage5.pl \
+--src ~/freebsd-src --from releng/15.0 --to stable/15  \
+  --release-dir releases/15.1R
+```
+
+
+### Stage 6: Prepare and review stage5 file
+
+Transfer new entries into the editable stage6 file:
+
+```
+perl relnotes_stage5_to_stage6.pl \
+  --release-dir /path/to/release
+```
+
+After this step, manually edit:
+
+```
+/path/to/release/relnotes_stage6.txt
+```
+
+Typical manual actions:
+
+* set `Status: accepted` or `rejected`
+* assign `Section`
+* adjust `Subject` and `Body` - usually it is not needed, it is copy from commit message.
+* write `Review` text - it goes directly to relnotes, if `Status: accepted`
+* optionally tune `Score` - it is order in the relnotes inside of the Section.
+
+```
+perl  tools/relnotes/bin/relnotes_stage5_to_stage6.pl \
+  --release-dir releases/15.1R
+```
+
+
+### Stage 7: Collect commits from Git with vendir commits
+
+#### Copy commit entry to prevent double processing in all stage
+
+```
+egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.1R/relnotes_stage1.txt >>releases/15.1R/relnotes_stage_all.txt
+egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.1R/relnotes_stage3.txt >>releases/15.1R/relnotes_stage_all.txt
+egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.1R/relnotes_stage5.txt >>releases/15.1R/relnotes_stage_all.txt
+```
+
+#### Stage 7 similar to stage1m stage 3, stage5
+
+Collect commits and generate the initial stage_all file:
+
+
+```
+perl relnotes_collect_stage_all.pl \
+--src /path/to/freebsd-repo/src --from preversion-branch --to releaseversion-branch  \
+  --release-dir /path/to/release_information/dir
+```
+
+Resulting file:
+
+```
+/path/to/release_information/relnotes_stage_all.txt
+```
+
+```
+perl tools/relnotes/bin/relnotes_collect_stage_all.pl \
+--src ~/freebsd-src --from releng/15.0 --to stable/15  \
+  --release-dir releases/15.1R
+```
+
+
+### Stage 8: Prepare and review stage_all file
+
+Transfer new entries into the editable stage_review file:
+
+```
+perl relnotes_stage_all_to_stage_review.pl \
+  --release-dir /path/to/release
+```
+
+After this step, manually edit:
+
+```
+/path/to/release/relnotes_stage6.txt
+```
+
+Typical manual actions:
+
+* set `Status: accepted` or `rejected`
+* assign `Section`
+* adjust `Subject` and `Body` - usually it is not needed, it is copy from commit message.
+* write `Review` text - it goes directly to relnotes, if `Status: accepted`
+* optionally tune `Score` - it is order in the relnotes inside of the Section.
+
+```
+perl  tools/relnotes/bin/relnotes_stage_all_to_stage_review.pl \
+  --release-dir releases/15.1R
+```
+
 
 
 ### Stage ADOC: Preview AsciiDoc changes (dry-run)
