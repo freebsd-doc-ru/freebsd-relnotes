@@ -693,3 +693,81 @@ Relnotes:	yes
  usr.sbin/periodic/etc/security/520.pfdenied        |   2 +-
  63 files changed, 2426 insertions(+), 144 deletions(-)
 
+[commit 34196ce83f9c9cf0138ac792b522c22afc4384c6]
+Date: 2026-04-17
+Score: 5
+CollectedAt: 2026-04-18T11:47:27 UTC
+Sponsor: 
+Subject: us.intl.acc.kbd: add it to Makefile
+Body:
+
+This keyboard was implemented but wasn't actually installed to the
+system.
+
+Fixes: a049678039e40bdf523230852f78887a12435def
+Discussed with: imp
+MFC after: 1 day
+Relnotes: yes
+
+(cherry picked from commit 3b373d484046a94d050a7901feadc001f35fa97f)
+
+
+ share/vt/keymaps/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+[commit 23eaa98d6dc197321791fca49f5e31621ac41994]
+Date: 2026-04-17
+Score: 5
+CollectedAt: 2026-04-18T11:47:27 UTC
+Sponsor: 
+Subject: br.lenovo.kdb: add it to Makefile
+Body:
+
+This keyboard was implemented but wasn't actually installed to the
+system.
+
+Fixes: 9357c694e8dca627c25b15529e8435b2ab3dd48b
+MFC after: 1 day
+Relnotes: yes
+
+(cherry picked from commit 6fb5df548e4a581f958f60544b7fa8ba1716c4c6)
+
+
+ share/vt/keymaps/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+[commit 2702a3ac1ab6170e10044eebecaafc2ebcabff9d]
+Date: 2026-04-12
+Score: 5
+CollectedAt: 2026-04-18T11:47:27 UTC
+Sponsor: SkunkWerks, GmbH
+Subject: release: remove Oracle Cloud Infrastructure build targets
+Body:
+
+Oracle's previous support is no longer available to the project.
+Repeated attempts to find a sponsor within Oracle's cloud business
+have not been successful.
+
+The last published official images are from 15.0-RELEASE.
+
+https://marketplace.oracle.com/app/freebsd-release
+
+Relnotes:	yes
+Sponsored by:	SkunkWerks, GmbH
+Differential Revision:	https://reviews.freebsd.org/D56360
+MFC after:	3 days
+
+(cherry picked from commit 3b108068121ba30fb3dbed569d6757da2ab529a4)
+
+
+ release/Makefile.oracle                            | 108 ---------------------
+ release/Makefile.vm                                |   5 -
+ release/release.conf.sample                        |   2 +-
+ .../oracle/arm64_shape_compatibilities.json        |  24 -----
+ .../oracle/default_shape_compatibilities.json      |   1 -
+ release/scripts/oracle/generate_metadata.lua       |  74 --------------
+ release/scripts/oracle/image_capability_data.json  |  96 ------------------
+ release/scripts/oracle/image_metadata.json         |  21 ----
+ release/tools/oracle.conf                          | 105 --------------------
+ 9 files changed, 1 insertion(+), 435 deletions(-)
+
