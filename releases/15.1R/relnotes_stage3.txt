@@ -1,0 +1,649 @@
+[commit 906f2745bd842cba8c017ae2fe7e7f18a64f3c44]
+Date: 2026-03-02
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: style.mdoc: Li macro is undeprecated for some time
+Body:
+
+Previously, the mdoc linter warned against using Li as it was deprecated
+upstream. However, upstream undeprecated it since last year. As usual
+when it comes to style, the best thing to do is to follow the existing
+style of the page. We have many manuals which prefer double quotes.
+
+MFC after:		3 days
+Citation:		https://cvsweb.bsd.lv/mandoc/mdoc.7?rev=1.297
+Differential Revision:	https://reviews.freebsd.org/D55297
+
+(cherry picked from commit fae551b76785d2357b09e2c022a92f410d871b9b)
+
+
+ share/man/man5/style.mdoc.5 | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
+
+[commit 317c242462bb3c34452bf61eb7d99b741eb766a6]
+Date: 2026-03-13
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: tarfs: swap deprecated ZSTD_resetDStream() with ZSTD_DCtx_reset()
+Body:
+
+ZSTD_resetDStream() is deprecated since 1.5.4: https://github.com/facebook/zstd/commit/5d8cfa6b96a6442ab1251f9de3b47a0eb12561a0
+
+This change is needed to MFV zstd 1.5.7.
+
+Approved by:	emaste (mentor)
+MFC after:	3 days
+Differential Revision:	https://reviews.freebsd.org/D55835
+
+(cherry picked from commit 922d73540d2d9897e5e8160c445cefa13581564e)
+
+
+ sys/fs/tarfs/tarfs_io.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+[commit ca1e0f9d60c9328164c7018592fa9de513e65b08]
+Date: 2026-02-19
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: The FreeBSD Foundation
+Subject: ofed: reduce usage of struct dma_attrs *dma_attrs
+Body:
+
+ib_verbs.h still uses struct dma_attrs *dma_attrs everywhere.
+It is beyond my knowledge when that struct got deprecated upstream but
+it is still supported by our LinuxKPI.  The problem is that the
+functions called with that argument (dma_map_single_attrs,
+dma_unmap_single_attrs, dma_map_sg_attrs, dma_unmap_sg_attrs) so far
+are #defines in LinuxKPI and drop the last argument (attrs) so it was
+never a problem.
+
+In preparation to pass the attrs to the actual implementation in LinuxKPI,
+which has gained support for them, we now pass dma_sttrs->flags which
+is the expected unsigned long bit field.
+
+If anyone has serious interest in updating our ofed implementation they
+could look into this some more and remove the usage of struct dma_attrs
+entirely.
+
+Sponsored by:	The FreeBSD Foundation
+Reviewed by:	kib
+Differential Revision: https://reviews.freebsd.org/D55390
+
+(cherry picked from commit 5edf24aac1d0978d37d62594f42d87c9f118622b)
+
+
+ sys/ofed/include/rdma/ib_verbs.h | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+[commit 9b75d6ec6929e7e6723fbfeb52f60acfa63e5dbc]
+Date: 2026-02-19
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: lpr: Add deprecation notice
+Body:
+
+These programs require elevated privileges to work and have not seen
+regular maintenance in decades.  Unless someone steps up and overhauls
+them, we will have to remove them before 16.0.  Better-maintained
+alternatives are available in ports (print/cups, sysutils/LPRng).
+
+MFC after:	3 days
+
+(cherry picked from commit d57dee7ab66f60537b557cb602be194e3eed253d)
+
+
+ usr.sbin/lpr/chkprintcap/chkprintcap.8 | 3 +++
+ usr.sbin/lpr/lp/lp.1                   | 3 +++
+ usr.sbin/lpr/lpc/lpc.8                 | 3 +++
+ usr.sbin/lpr/lpd/lpd.8                 | 3 +++
+ usr.sbin/lpr/lpq/lpq.1                 | 3 +++
+ usr.sbin/lpr/lpr/lpr.1                 | 3 +++
+ usr.sbin/lpr/lpr/printcap.5            | 3 +++
+ usr.sbin/lpr/lprm/lprm.1               | 3 +++
+ usr.sbin/lpr/lptest/lptest.1           | 3 +++
+ usr.sbin/lpr/pac/pac.8                 | 3 +++
+ 10 files changed, 30 insertions(+)
+
+[commit d967f923caaaaf9a4efd74d1c442788377e2bc89]
+Date: 2026-01-05
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: Convert fully to Python 3.  Remove licence text, only keep SPDX.
+Body:
+
+Update to use argparse rather than OptionParser (now deprecated).
+
+(cherry picked from commit eb1c0d74cbb99f329767b3d565ae57a3ec032bee)
+
+
+ tools/test/hwpmc/pmctest.py | 73 ++++++++++++---------------------------------
+ 1 file changed, 19 insertions(+), 54 deletions(-)
+
+[commit d653f474e901b1d43657b8955247d1bbd1c3d248]
+Date: 2026-02-07
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: libfetch: Check for failure to create SSL context
+Body:
+
+* Drop the ssl_meth member, there is no reason to hang on to it.
+
+* Replace deprecated SSLv23_client_method() with TLS_client_method().
+
+* Check the return value from SSL_CTX_new().
+
+MFC after:	1 week
+PR:		292903
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D55098
+
+(cherry picked from commit 4e160c6197f75fda3d5d5997ce893087058cf718)
+
+
+ lib/libfetch/common.c | 10 +++++++---
+ lib/libfetch/common.h |  1 -
+ 2 files changed, 7 insertions(+), 4 deletions(-)
+
+[commit 4cc3056c563fe1eb3a0d461f13c1552639fa388d]
+Date: 2026-01-08
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: icp: emit .note.GNU-stack section for all ELF targets
+Body:
+
+On FreeBSD, linking the zfs kernel module with binutils ld 2.44 shows
+the following warning:
+
+    ld: warning: aesni-gcm-avx2-vaes.o: missing .note.GNU-stack section
+    implies executable stack
+    ld: NOTE: This behaviour is deprecated and will be removed in a
+    future version of the linker
+
+Some of the `.S` files under `module/icp/asm-x86_64/modes` check whether
+to emit the `.note.GNU-stack` section using:
+
+    #if defined(__linux__) && defined(__ELF__)
+
+We could add `&& defined(__FreeBSD__)` to the test, but since all other
+`.S` files in the OpenZFS tree use:
+
+    #ifdef __ELF__
+
+it would seem more logical to use that instead. Any recent ELF platform
+should support these note sections by now.
+
+Reviewed-by: Brian Behlendorf <behlendorf1@llnl.gov>
+Signed-off-by: Dimitry Andric <dimitry@andric.com>
+Closes #18119
+
+ module/icp/asm-x86_64/modes/aesni-gcm-avx2-vaes.S | 2 +-
+ module/icp/asm-x86_64/modes/aesni-gcm-x86_64.S    | 2 +-
+ module/icp/asm-x86_64/modes/ghash-x86_64.S        | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+[commit 74bb8b966381e5ada69ea188f73427334f0b3b7b]
+Date: 2026-01-08
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: zfs: emit .note.GNU-stack section for all ELF targets
+Body:
+
+On FreeBSD, linking the zfs kernel module with binutils ld 2.44 shows
+the following warning:
+
+    ld: warning: aesni-gcm-avx2-vaes.o: missing .note.GNU-stack section implies executable stack
+    ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+
+Some of the `.S` files under `module/icp/asm-x86_64/modes` check whether
+to emit the `.note.GNU-stack` section using:
+
+    #if defined(__linux__) && defined(__ELF__)
+
+We could add `&& defined(__FreeBSD__)` to the test, but since all other
+`.S` files in the OpenZFS tree use:
+
+    #ifdef __ELF__
+
+it would seem more logical to use that instead. Any recent ELF platform
+should support these note sections by now.
+
+Reviewed by:	emaste, kib, imp
+MFC after:	3 days
+Differential Revision: https://reviews.freebsd.org/D54578
+
+(cherry picked from commit eb1b6ec7a79aff05f5f10e1d6b1c63a0d8dc5f2f)
+
+
+ sys/contrib/openzfs/module/icp/asm-x86_64/modes/aesni-gcm-avx2-vaes.S | 2 +-
+ sys/contrib/openzfs/module/icp/asm-x86_64/modes/aesni-gcm-x86_64.S    | 2 +-
+ sys/contrib/openzfs/module/icp/asm-x86_64/modes/ghash-x86_64.S        | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+[commit d3902baca506ec48e2f8b1121c7744766a175516]
+Date: 2026-01-04
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: loader.efi: only use firmware provided Blt on GOP
+Body:
+
+gfx_state.tg_private points to a EFI_GRAPHICS_OUTPUT_PROTOCOL only when
+using GOP.
+
+The firmware provided Blt functions on UGA platforms have been observed
+to not work on old MacBooks, and are likley hit or miss anyways as UGA
+has been deprecated since 2006.
+
+Reviewed by:	tsoome
+PR:		291935
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D54432
+
+(cherry picked from commit 9595055ae7494997bb07b4aaed544f88ac4c5e7f)
+
+
+ stand/common/gfx_fb.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+[commit 72333f20d0e98860d1d3b27557cf5e30e9150b8a]
+Date: 2025-12-13
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: oce(4): Fix a typo in a device debug message
+Body:
+
+- s/depricated/deprecated/
+
+(cherry picked from commit a3950d70a499e120c67da884865486e8599229bd)
+
+
+ sys/dev/oce/oce_mbox.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 4e3fbe5cc92ef4822877b08e6d40ff38433cf1de]
+Date: 2025-12-13
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: ng_hci(4): Fix a typo in a source code comment
+Body:
+
+- s/depricated/deprecated/
+
+(cherry picked from commit 756712d745db207085f1fe87dc8258434ec2147d)
+
+
+ sys/netgraph/bluetooth/include/ng_hci.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit cdb05de1eccecd9e7e2fbe2328e48418f1b9c943]
+Date: 2025-12-17
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: example.3: Show updated library macro usage
+Body:
+
+The LIBRARY section has been deprecated by upstream.
+Show the updated usage of the Lb macro in SYNOPSIS.
+
+Fixes:	4c07abdbacf49 (mandoc: Vendor import of upstream at 2025-06-13)
+(cherry picked from commit 3527e7e9f7b2f1737706378b99af778921849e9d)
+
+
+ share/examples/mdoc/example.3 | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+[commit 7cba27286364a77248234c305154afe53396f188]
+Date: 2025-12-01
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: ctfmerge: fix segfault when building on macOS
+Body:
+
+The barrier code was using semaphores which have been deprecated in
+macOS and not working at all, causing a race condition. Since macOS
+does not have pthread_barrier_*(), this change uses a condition
+variable instead.
+
+PR:		290958
+Reported by:	wosch
+Reviewed by:	imp, markj
+Differential Revision:	https://reviews.freebsd.org/D54018
+
+(cherry picked from commit 732b4aa05d78ca6831d02e67a43f34ad104f4f01)
+
+
+ cddl/contrib/opensolaris/tools/ctf/cvt/barrier.c | 26 +++---------------------
+ cddl/contrib/opensolaris/tools/ctf/cvt/barrier.h |  9 ++------
+ 2 files changed, 5 insertions(+), 30 deletions(-)
+
+[commit 703c98dc6eeb2b36ec94e138269a221704e55f4c]
+Date: 2025-09-15
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: libc++: Fix deprecation warnings with latest clang
+Body:
+
+Latest clang has become more strict in diagnosing deprecated decls, so
+pull in LLVM commit 9feac2cbd0d80927ce9a8b4c3e810d2b81802d55.
+
+Original commit message:
+[libc++] Improve deprecated diagnostic guards.
+
+Recent Clang-21 builds improved the deprecated diagnotics. This
+uncovered missing guards in libc++ internally.
+
+Reviewed by:	dim
+MFC after:	1 week
+Differential Revision: https://reviews.freebsd.org/D52531
+
+(cherry picked from commit 086ce467adec42d58414fdb4d54c2b6819cf0c07)
+
+
+ contrib/llvm-project/libcxx/include/__functional/binary_function.h  | 5 ++---
+ contrib/llvm-project/libcxx/include/__functional/unary_function.h   | 5 ++---
+ contrib/llvm-project/libcxx/include/__functional/weak_result_type.h | 2 ++
+ contrib/llvm-project/libcxx/include/__memory/allocator_traits.h     | 2 ++
+ 4 files changed, 8 insertions(+), 6 deletions(-)
+
+[commit e487653fe43434768b533b1d7f360ec448c05b4c]
+Date: 2025-09-15
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: libc++: avoid use of deprecated __reference_binds_to_temporary
+Body:
+
+This was removed in upstream libc++ in commit
+437ad06f762ab07d89badecdd20627db200b98d3, but as this does not apply
+cleanly to the current repository, I am applying the equivalent change
+in a minimally invasive way. This is needed to build with latest clang
+HEAD as of today.
+
+Reviewed by:	dim
+MFC after:	1 week
+Differential Revision: https://reviews.freebsd.org/D52530
+
+(cherry picked from commit dee76cf2f3dace6290ccab07c2db17355994e70f)
+
+
+ contrib/llvm-project/libcxx/include/tuple | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+[commit 29e3479f2d3068a2f3e2dbb578d3fabf6389e5a6]
+Date: 2025-09-15
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: libc++: avoid use of deprecated builtin
+Body:
+
+This pulls in LLVM commit accfbd4cb327411ad66c0109ba1841482b871967 to
+avoid the use of __libcpp_is_trivially_relocatable.
+This fixes building FreeBSD libc++ with clang HEAD as of today.
+
+Original commit message:
+[libc++] Replace __is_trivially_relocatable by is_trivially_copyable (#124970)
+
+The __is_trivially_relocatable builtin has semantics that do not
+correspond to any current or future notion of trivial relocation.
+Furthermore, it currently leads to incorrect optimizations for some
+types on supported compilers:
+- Clang on Windows where types with non-trivial destructors get
+  incorrectly optimized
+- AppleClang where types with non-trivial move constructors get
+  incorrectly optimized
+
+Until there is an agreed upon and bugfree implementation of what it
+means to be trivially relocatable, it is safer to simply use trivially
+copyable instead. This doesn't leave a lot of types behind and is
+definitely correct.
+
+Reviewed by:	dim
+MFC after:	1 week
+Differential Revision: https://reviews.freebsd.org/D52529
+
+(cherry picked from commit d61c75f634cf52fdef9590601d881f85275eee9a)
+
+
+ .../libcxx/include/__type_traits/is_trivially_relocatable.h       | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+[commit e1f0baa546b0e2af3495fac51903b51f6a1d0b26]
+Date: 2025-12-02
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: FreeBSD: Remove HAVE_INLINE_FLSL use
+Body:
+
+These macros are deprecated in FreeBSD kernel for several years,
+and unneeded for much longer.  Instead, similar to Linux, let
+kernel let compiler do the right things.
+
+Reviewed-by: Brian Behlendorf <behlendorf1@llnl.gov>
+Signed-off-by: Alexander Motin <alexander.motin@TrueNAS.com>
+Closes #18004
+
+ include/os/freebsd/spl/sys/sysmacros.h | 77 ++--------------------------------
+ 1 file changed, 4 insertions(+), 73 deletions(-)
+
+[commit 661b40ffdee25dd81d19fbbcd6cb09e3ec159342]
+Date: 2023-08-22
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: The FreeBSD Foundation
+Subject: Deprecate fdc(4) and floppy utilities
+Body:
+
+Floppies have been obsolete for over a decade.  Add a deprecation note
+now and plan to remove fdc(4) support in 16.
+
+Reviewed by:	ziaee
+Sponsored by:	The FreeBSD Foundation
+Differential Revision: https://reviews.freebsd.org/D41549
+
+(cherry picked from commit 4c736cfc69a7ef81c48c8431b31c7e31746fe816)
+
+
+ share/man/man4/fdc.4           | 8 +++++++-
+ usr.sbin/fdcontrol/fdcontrol.8 | 7 ++++++-
+ usr.sbin/fdformat/fdformat.8   | 7 ++++++-
+ usr.sbin/fdread/fdread.1       | 7 ++++++-
+ usr.sbin/fdwrite/fdwrite.1     | 7 ++++++-
+ 5 files changed, 31 insertions(+), 5 deletions(-)
+
+[commit 0005bb76e2e707f5ed39ca67beddb8a5d629c72e]
+Date: 2025-11-14
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: GCE: Add TARGET and FS to image family
+Body:
+
+GCE image family is meant to be unique per set of image characteristics
+so that a user can create instances using the image family instead of the
+image name to reliably get a similar image with updated software, but no
+other changes.
+
+Without this change, the instances create API would select the most recent
+non-deprecated image matching the name, regardless of architecture or
+filesystem.
+
+(cherry picked from commit fc83e6c5e1f20087314dc52b63e485db87a98b86)
+
+
+ release/Makefile.gce | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+[commit e224f2c1b98ba065942c83d322cdb8e3987d0c81]
+Date: 2025-11-07
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: random: Have RANDOM_PURE_START be a cross-platform source
+Body:
+
+and one that will be with us in the long-term future.
+(this helps reduce diffs in the future and for down-stream users
+that trim entropy sources).  Also, move deprecated (removed in 16.0)
+sources to the bottom of the list to reduce changes to 15.x.
+
+Reviewed by:	glebius
+Obtained from:	Juniper Networks
+Differential Revision:	https://reviews.freebsd.org/D53311
+(cherry picked from commit 9f3886347c1750cf80a82314470fc7186088eb9a)
+
+
+ sys/dev/random/fenestrasX/fx_pool.c | 20 ++++++++++----------
+ sys/dev/random/random_harvestq.c    |  8 ++++----
+ sys/sys/random.h                    |  8 ++++----
+ 3 files changed, 18 insertions(+), 18 deletions(-)
+
+[commit 3a64c667f16fbc3c1cedee081de895aa911be523]
+Date: 2025-10-22
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: nfs: Add support for the NFSv4 archive attribute
+Body:
+
+The archive attribute (UF_ARCHIVE) is listed as deprecated
+in RFC8881.  However, the Windows NFSv4.1 client folk disagree
+with this and say they need support for it.
+
+This patch adds support for it, in a manner similar to what
+is done for UF_SYSTEM and UF_HIDDEN.
+
+(cherry picked from commit 3b6d4c6cdffd6e37b8fa6e0b0fe3067210582c9c)
+
+
+ sys/fs/nfs/nfs_commonsubs.c     | 24 +++++++++++++++++++++---
+ sys/fs/nfs/nfsproto.h           |  4 ++++
+ sys/fs/nfsclient/nfs_clrpcops.c |  3 +++
+ sys/fs/nfsclient/nfs_clvnops.c  |  8 ++++++--
+ sys/fs/nfsserver/nfs_nfsdport.c | 11 +++++++----
+ sys/fs/nfsserver/nfs_nfsdserv.c | 12 +++++++++++-
+ 6 files changed, 52 insertions(+), 10 deletions(-)
+
+[commit be24d85ec78453b80effeb61dc8e5910a1caa3a8]
+Date: 2025-10-28
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: The FreeBSD Foundation
+Subject: bsdlabel: Bump removal to FreeBSD 16.0.
+Body:
+
+It is deprecated but was not removed prior to 15.0.
+
+Sponsored by:	The FreeBSD Foundation
+
+(cherry picked from commit 9447a4078121fd1ce961fed33dd0099040d0dac9)
+
+
+ sbin/bsdlabel/bsdlabel.8 | 2 +-
+ sbin/bsdlabel/bsdlabel.c | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+[commit 92f169fe0f197e4b7bf89583ce3fcfb37c5721ba]
+Date: 2025-10-24
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: The FreeBSD Foundation
+Subject: agp.4: Bump deprecation to 16.0
+Body:
+
+It was not actually removed prior to FreeBSD 15.0.
+
+Sponsored by:	The FreeBSD Foundation
+
+(cherry picked from commit cadadd1a0398fdeaebf62ab4d092ada0e3eb68c8)
+
+
+ share/man/man4/agp.4 | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+[commit 469ab88d107c05ab533a15d4014d1a97b5a13c86]
+Date: 2025-10-24
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: The FreeBSD Foundation
+Subject: cam: Bump deprecated sysctl removal to 16
+Body:
+
+The descriptions for these unmapped_io and rotating sysctls indicated
+that they're deprecated and being removed for FreeBSD 15.0.  That did
+not happen, so update to FreeBSD 16 instead.
+
+Sponsored by:	The FreeBSD Foundation
+
+(cherry picked from commit e93db9abc9a62d662c40d783663d64cdb829a0cc)
+
+
+ sys/cam/ata/ata_da.c   | 4 ++--
+ sys/cam/scsi/scsi_da.c | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+[commit 59ba7278499f0ee20fd9c43a34bb2b72ae57dcbb]
+Date: 2025-10-24
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: The FreeBSD Foundation
+Subject: le(4): Update depreciation notice
+Body:
+
+This driver was in fact not removed prior to FreeBSD 15.0.
+
+Sponsored by:	The FreeBSD Foundation
+
+(cherry picked from commit e4d6433e9c0379e164ff50ce829b5b1c0716bcb1)
+
+
+ share/man/man4/le.4 | 4 ++--
+ sys/dev/le/lance.c  | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+[commit f935c0f66f75e882185ed8bc46f39054f2ced4e1]
+Date: 2025-10-13
+Score: 5
+CollectedAt: 2026-04-18T11:23:58 UTC
+Sponsor: 
+Subject: blacklist: Avoid duplicate manual pages in METALOG
+Body:
+
+Previously, blacklist man pages were just a symlink to their blocklist
+counterpart, this in turn installed blocklist man pages twice, and
+resulted in a duplicate error when running metalog_reader.lua -c.
+
+Take advantage of the duplication to document nuances in blacklist, such
+as the fact that it uses the new database and socket name (blocklist).
+Also, note that it has been renamed to blocklist.  In the future, it
+will help to document its deprecation.
+
+Approved by:	emaste (mentor)
+Fixes:	7238317403b9 ("blocklist: Rename blacklist to blocklist")
+MFC after:	2 days
+
+(cherry picked from commit c6240045536548c22ce40d9ef36c1dc52abcfc9c)
+
+
+ contrib/blocklist/bin/blacklistctl.8    | 136 ++++++++++++++
+ contrib/blocklist/bin/blacklistd.8      | 308 ++++++++++++++++++++++++++++++++
+ contrib/blocklist/bin/blacklistd.conf.5 | 242 +++++++++++++++++++++++++
+ contrib/blocklist/lib/libblacklist.3    | 188 +++++++++++++++++++
+ lib/libblacklist/Makefile               |  17 +-
+ usr.sbin/blacklistctl/Makefile          |   3 +-
+ usr.sbin/blacklistd/Makefile            |   4 +-
+ 7 files changed, 884 insertions(+), 14 deletions(-)
+

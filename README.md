@@ -174,21 +174,29 @@ When run with `--write`, the tool:
 
 ## Command-line Examples
 
-### Stage 1: Collect commits from Git
+### Stage 1: Collect commits from Git with `Relnote: yes`
 
 Collect commits and generate the initial stage1 file:
 
 
 ```
-perl relnotes_stage1_from_git.pl \
-  --release-dir /path/to/release
+perl relnotes_collect.pl \
+--src /path/to/freebsd-repo/src --from preversion-branch --to releaseversion-branch  \
+  --release-dir /path/to/release_information/dir
 ```
 
 Resulting file:
 
 ```
-/path/to/release/relnotes_stage1.txt
+/path/to/release_information/relnotes_stage1.txt
 ```
+
+```
+perl tools/relnotes/bin/relnotes_collect.pl \
+--src ~/freebsd-src --from releng/15.0 --to stable/15  \
+  --release-dir releases/15.1R
+```
+
 
 ### Stage 2: Prepare and review stage2 file
 
@@ -209,10 +217,69 @@ Typical manual actions:
 
 * set `Status: accepted` or `rejected`
 * assign `Section`
-* adjust `Subject` and `Body`
-* optionally tune `Score`
+* adjust `Subject` and `Body` - usually it is not needed, it is copy from commit message.
+* write `Review` text - it goes directly to relnotes, if `Status: accepted`
+* optionally tune `Score` - it is order in the relnotes inside of the Section.
 
-### Stage 3: Preview AsciiDoc changes (dry-run)
+```
+perl  tools/relnotes/bin/relnotes_stage1_to_stage2.pl \
+  --release-dir releases/15.1R
+```
+
+### Stage 3: Collect commits from Git with depreciation texts
+
+Collect commits and generate the initial stage3 file:
+
+
+```
+perl relnotes_collect_stage3.pl \
+--src /path/to/freebsd-repo/src --from preversion-branch --to releaseversion-branch  \
+  --release-dir /path/to/release_information/dir
+```
+
+Resulting file:
+
+```
+/path/to/release_information/relnotes_stage3.txt
+```
+
+```
+perl tools/relnotes/bin/relnotes_collect_stage3.pl \
+--src ~/freebsd-src --from releng/15.0 --to stable/15  \
+  --release-dir releases/15.1R
+```
+
+
+### Stage 4: Prepare and review stage3 file
+
+Transfer new entries into the editable stage2 file:
+
+```
+perl relnotes_stage3_to_stage4.pl \
+  --release-dir /path/to/release
+```
+
+After this step, manually edit:
+
+```
+/path/to/release/relnotes_stage2.txt
+```
+
+Typical manual actions:
+
+* set `Status: accepted` or `rejected`
+* assign `Section`
+* adjust `Subject` and `Body` - usually it is not needed, it is copy from commit message.
+* write `Review` text - it goes directly to relnotes, if `Status: accepted`
+* optionally tune `Score` - it is order in the relnotes inside of the Section.
+
+```
+perl  tools/relnotes/bin/relnotes_stage3_to_stage4.pl \
+  --release-dir releases/15.1R
+```
+
+
+### Stage ADOC: Preview AsciiDoc changes (dry-run)
 
 Show what would be inserted into `relnotes.adoc` without modifying files:
 

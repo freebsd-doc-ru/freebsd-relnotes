@@ -1,0 +1,749 @@
+[commit 74f357256769e12c3a843c75d1def483234312f3]
+Date: 2026-03-13
+Score: 5
+Status: accepted(include=yes,score=90)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: Userland.contrib
+Subject: MFC: MFV: zlib 1.3.2.
+Review: man:zlib[3] has been updated updated to version 1.3.2.
+Body:
+
+Relnotes:	yes
+
+(cherry picked from commit 7aa1dba6b00ccfb7d66627badc8a7aaa06b02946)
+
+
+ lib/libz/Symbol.map                            |  13 +
+ lib/libz/Versions.def                          |   6 +
+ sys/contrib/zlib/ChangeLog                     |  51 +++
+ sys/contrib/zlib/FAQ                           |  46 +-
+ sys/contrib/zlib/LICENSE                       |   2 +-
+ sys/contrib/zlib/README                        |  28 +-
+ sys/contrib/zlib/compress.c                    |  44 +-
+ sys/contrib/zlib/contrib/README.contrib        |  57 ---
+ sys/contrib/zlib/contrib/gcc_gvmat64/gvmat64.S | 574 -------------------------
+ sys/contrib/zlib/crc32.c                       | 164 +++----
+ sys/contrib/zlib/deflate.c                     | 176 +++++---
+ sys/contrib/zlib/deflate.h                     |   8 +-
+ sys/contrib/zlib/doc/algorithm.txt             |   2 +-
+ sys/contrib/zlib/gzguts.h                      |  64 +--
+ sys/contrib/zlib/gzlib.c                       | 103 +++--
+ sys/contrib/zlib/gzread.c                      | 296 ++++++++-----
+ sys/contrib/zlib/gzwrite.c                     | 267 +++++++-----
+ sys/contrib/zlib/infback.c                     |  87 +---
+ sys/contrib/zlib/inffast.c                     |  13 +-
+ sys/contrib/zlib/inffixed.h                    | 182 ++++----
+ sys/contrib/zlib/inflate.c                     | 189 ++------
+ sys/contrib/zlib/inflate.h                     |   2 +-
+ sys/contrib/zlib/inftrees.c                    | 143 +++++-
+ sys/contrib/zlib/inftrees.h                    |   4 +-
+ sys/contrib/zlib/test/example.c                |  14 +-
+ sys/contrib/zlib/test/infcover.c               |  10 +-
+ sys/contrib/zlib/test/minigzip.c               |  89 ++--
+ sys/contrib/zlib/trees.c                       |  28 +-
+ sys/contrib/zlib/uncompr.c                     |  62 ++-
+ sys/contrib/zlib/zconf.h                       |  54 ++-
+ sys/contrib/zlib/zconf.h.in                    |  46 +-
+ sys/contrib/zlib/zlib.3                        |  22 +-
+ sys/contrib/zlib/zlib.h                        | 309 +++++++++----
+ sys/contrib/zlib/zlib.map                      |  16 +
+ sys/contrib/zlib/zlib.pc.in                    |   1 +
+ sys/contrib/zlib/zutil.c                       |  84 ++--
+ sys/contrib/zlib/zutil.h                       |  99 ++++-
+ 37 files changed, 1613 insertions(+), 1742 deletions(-)
+
+[commit a9b93531788cc125c928cc3488975f0330f75137]
+Date: 2026-03-01
+Score: 5
+Status: accepted(include=yes,score=85)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor: Yandex LLC
+Section: Network.general
+Subject: ipfw: add support for masked ip-address lookups
+Review: The man:ipfw[8] firewall now supports masked IP address lookups in tables, allowing non-contiguous prefixes for more efficient firewall rule configurations. This enables CPU-effective firewall setups by masking non-significant bits in lookup keys and table entries.
+Body:
+
+Current radix-based implementation of lookup tables in ipfw does
+not support non-contiguous prefixes while this type of lookup is
+needed to write CPU-effective firewall configurations.
+
+For some of the cases we can reach the goal using a masked table
+lookup by adding masked (e.g. zero non-significant bits) records
+into a table and then zero non-significant bits in lookup key
+prior to making a table lookup.
+
+Obtained from:  Yandex LLC
+Relnotes:       yes
+Sponsored by:   Yandex LLC
+Differential Revision:  https://reviews.freebsd.org/D53694
+
+(cherry picked from commit 32cd3ee5901ea33d41ff550e5f40ce743c8d4165)
+
+
+ sbin/ipfw/ipfw.8                                   | 151 ++++++--
+ sbin/ipfw/ipfw2.c                                  | 193 ++++++++--
+ sbin/ipfw/tests/test_add_rule.py                   | 243 +++++++++++-
+ sys/netinet/ip_fw.h                                |  81 +++-
+ sys/netpfil/ipfw/ip_fw2.c                          | 231 ++++++-----
+ sys/netpfil/ipfw/ip_fw_sockopt.c                   |  32 ++
+ sys/netpfil/ipfw/ip_fw_table.c                     |  26 +-
+ tests/atf_python/sys/netpfil/ipfw/insn_headers.py  |  37 +-
+ tests/atf_python/sys/netpfil/ipfw/insns.py         | 179 ++++++++-
+ tests/atf_python/sys/netpfil/ipfw/ioctl.py         |   1 +
+ tests/atf_python/sys/netpfil/ipfw/ioctl_headers.py |  41 +-
+ tests/sys/netpfil/common/utils.subr                |   3 +
+ tests/sys/netpfil/ipfw/Makefile                    |   6 +-
+ tests/sys/netpfil/ipfw/lookup.sh                   | 428 +++++++++++++++++++++
+ tests/sys/netpfil/ipfw/lookup_inetd.conf           |   1 +
+ 15 files changed, 1418 insertions(+), 235 deletions(-)
+
+[commit e16f1bf3baa1e039b55eb583a4b5925c9c8e2383]
+Date: 2026-01-04
+Score: 5
+Status: accepted(include=yes,score=35)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: Drivers.device
+Subject: asmc(4): pull 32-bit support for the driver
+Review: The man:asmc[4] driver no longer supports 32-bit Intel-based Macs, making it clear that use on i386 hardware is not supported.
+Body:
+
+The asmc(4) driver should work for 32-bit Intel-based Macs, in theory, if
+the model details were added to the detection list. That being said,
+32-bit Intel Macs were only released and available to the general public
+for 8 months [1], so the value in maintaining i386 support in the driver is
+reduced due to limited hardware access.
+
+Remove 32-bit support for the driver officially to make it clear its use is
+not supported.
+
+This should fix building `NOTES.i386` by proxy as well.
+
+Relnotes:	yes
+MFC after:	2 weeks
+Fixes:		f224591746b ("Add ASMC_DEBUG make option")
+Fixes:		8342d9f7b5f ("asmc(4): Stop building it on i386, as...")
+Differential Revision:	https://reviews.freebsd.org/D55544
+
+(cherry picked from commit 1f2f5eba24aa53e180a4eb46b772410e5a782469)
+
+
+ sys/x86/conf/NOTES | 2 --
+ 1 file changed, 2 deletions(-)
+
+[commit c20f5fd443228743fed3b071ee30216145940178]
+Date: 2026-02-09
+Score: 5
+Status: accepted(include=yes,score=10)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: Docs.manpages
+Subject: ifconfig.8: Start new sentence on new line
+Review: The man:ifconfig[8] manual page formatting has been corrected to improve readability.
+Body:
+
+This change was forgotten by me in the previous commit to this file.
+
+Reported by:	kib
+Approved by:	implicit (change omitted from previous commit)
+Fixes:		31ec8b6407fdd5a87d70265762457c67ce618283
+
+(cherry picked from commit e912723afb4e6bcfa828fcb73f35cd82fc6bca68)
+
+Reviewed by:            glebius, kp, pouria, zlei
+Approved by:            glebius, pouria
+Relnotes:               yes
+Differential Revision:  https://reviews.freebsd.org/D54382
+
+
+ sbin/ifconfig/ifconfig.8 | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+[commit 20294a77a8d40bb645efad4b365ddaa9e7a53db2]
+Date: 2026-02-07
+Score: 5
+Status: rejected(include=no,score=5)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: undecided
+Subject: netinet6: Fix my style issues
+Review: The commit fixes style issues in man:ifconfig[8] and the IPv6 interface attachment code. These changes do not introduce user-visible functional changes, improvements, or regressions.
+Body:
+
+Reported by:		pouria
+Reviewed by:		pouria, ziaee, glebius
+Approved by:		glebius
+Fixes:			31ec8b6407fdd5a87d70265762457c67ce618283
+Differential Revision:	https://reviews.freebsd.org/D55136
+
+(cherry picked from commit 4548149a81026ad9b1706b2b7e7ad47a4c1358b6)
+
+Reviewed by:            glebius, kp, pouria, zlei
+Approved by:            glebius, pouria
+Relnotes:               yes
+Differential Revision:  https://reviews.freebsd.org/D54382
+
+
+ sbin/ifconfig/ifconfig.8    | 19 +++++++++++--------
+ sys/netinet6/in6_ifattach.c | 22 +++++++++-------------
+ 2 files changed, 20 insertions(+), 21 deletions(-)
+
+[commit 4c7357aaf5d2fbe85eb6d86b59efe11c6f0e8c9a]
+Date: 2025-10-03
+Score: 5
+Status: rejected(include=no,score=20)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: undecided
+Subject: sys/netinet6: Use atomic(9) for dad_failures counter
+Review: The IPv6 SLAAC address generation code now uses atomic operations for the dad_failures counter, which may affect address stability in rare duplicate address detection failure scenarios.
+Body:
+
+Replace counter(9) usage with more lightweight atomic(9) in the
+code handling RFC 7217 SLAAC address generation.
+
+Also, use `u_int` types with this. Leaving `dad_failures` local to
+`in6_get_stableifid()` as a `uint64_t` to avoid changing the generated
+addresses from previous code; this also gives some headroom for
+future changes.
+
+While here, moved some `#include` lines to adhere to style(9).
+
+Reviewed by:		glebius, jhibbits, jtl, zlei
+Approved by:		glebius, jtl, zlei
+Differential Revision:	https://reviews.freebsd.org/D52731
+
+(cherry picked from commit 0c94dc9da7c238603e43c55ca6da64c417fc2204)
+
+Reviewed by:            glebius, kp, pouria, zlei
+Approved by:            glebius, pouria
+Relnotes:               yes
+Differential Revision:  https://reviews.freebsd.org/D54382
+
+
+ sys/netinet6/in6.c          | 3 ---
+ sys/netinet6/in6_ifattach.c | 6 ++++--
+ sys/netinet6/in6_proto.c    | 4 ++--
+ sys/netinet6/in6_var.h      | 2 +-
+ sys/netinet6/ip6_var.h      | 2 +-
+ sys/netinet6/nd6_nbr.c      | 8 +++++---
+ sys/netinet6/nd6_rtr.c      | 4 +++-
+ 7 files changed, 16 insertions(+), 13 deletions(-)
+
+[commit 76cd2807fc3a686abf4f6e87705896a69315e943]
+Date: 2025-09-22
+Score: 5
+Status: accepted(include=yes,score=85)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: Network.general
+Subject: sys/netinet6: Fix ABI breakage introduced with RFC 7217 support
+Review: The networking ABI has been restored by moving a variable from a public structure to a private one, preventing binary compatibility issues for modules or programs using the previous kernel interface. (Recheck it, ABI could be broken only in non-release branches)
+Body:
+
+commit 31ec8b6407fdd5a87d70265762457c67ce618283 added a `dad_failures`
+variable to `struct nd_ifinfo`, which broke the netowrking ABI.
+
+This commit fixes it by moving such variable to `struct in6_ifextra`
+which is not a public interface, while `struct nd_ifinfo` is back
+in its original state.
+
+Thanks to kib, markj and glebious for their help and suggestions
+in solving this problem.
+
+Reported by:	"Herbert J. Skuhra" <herbert@gojira.at>
+Tested by:	"Herbert J. Skuhra" <herbert@gojira.at>
+Approved by:	glebius
+Fixes:		31ec8b6407fdd5a87d70265762457c67ce618283
+
+(cherry picked from commit 0ec13430c583830cc4d29640787e2d154b140e31)
+
+Reviewed by:            glebius, kp, pouria, zlei
+Approved by:            glebius, pouria
+Relnotes:               yes
+Differential Revision:  https://reviews.freebsd.org/D54382
+
+
+ sys/netinet6/in6.c          | 3 +++
+ sys/netinet6/in6_ifattach.c | 2 +-
+ sys/netinet6/in6_var.h      | 2 ++
+ sys/netinet6/nd6.c          | 4 ----
+ sys/netinet6/nd6.h          | 1 -
+ sys/netinet6/nd6_nbr.c      | 6 +++---
+ sys/netinet6/nd6_rtr.c      | 2 +-
+ 7 files changed, 10 insertions(+), 10 deletions(-)
+
+[commit 865e0b20ca3cefce25d68bd355090d414c2dfb84]
+Date: 2025-09-20
+Score: 5
+Status: accepted(include=yes,score=85)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: Network.general
+Subject: sys/netinet6: Implement RFC 7217
+Review: The support for RFC 7217 stable IPv6 address generation via a new ifconfig 'stableaddr' flag and associated sysctls has been added. The feature is disabled by default, preserving existing behavior. The man:ifconfig[8] manual page is updated with documentation.
+Body:
+
+Implement RFC 7217 (A Method for Generating Semantically Opaque
+Interface Identifiers with IPv6 Stateless Address Autoconfiguration
+(SLAAC)) in our IPv6 stack.
+
+A new ifconfig `stableaddr` flag is added to enable the feature on
+interfaces, which defaults to on or off for new interfaces based
+on the sysctl `net.inet6.ip6.use_stableaddr` (off by default, so
+this commit causes no change in behavior with default settings).
+
+The algorithm follows the RFC in its logic, using SHA256-HMAC as
+the algorithm to derive addresses so as to provide code that can
+be leveraged by future implentations of RFC 8981, leveraging the
+`hostuuid` as the secret.
+
+The source of the hostidentifier can be configured using the sysctl
+`net.inet6.ip6.stableaddr_netifsource`, while the number of retries
+generating a new address in case of collision can be configured
+using the `net.inet6.ip6.stableaddr_maxretries` sysctl (default 3).
+
+Documentation about all these flags is added to the ifconfig(8) man
+page.
+
+Reviewed by:		cognet, glebius, hrs
+Tested by:		zarychtam@plan-b.pwste.edu.pl
+Approved by:		cognet, glebius
+Relnotes:		yes
+Differential Revision:	https://reviews.freebsd.org/D49681
+
+(cherry picked from commit 31ec8b6407fdd5a87d70265762457c67ce618283)
+
+Reviewed by:		glebius, kp, pouria, zlei
+Approved by:		glebius, pouria
+Relnotes:		yes
+Differential Revision:	https://reviews.freebsd.org/D54382
+
+
+ sbin/ifconfig/af_inet6.c    |   2 +
+ sbin/ifconfig/af_nd6.c      |   1 +
+ sbin/ifconfig/ifconfig.8    |  30 +++++
+ sys/netinet6/in6.h          |   3 +
+ sys/netinet6/in6_ifattach.c | 275 +++++++++++++++++++++++++++++++++++++-------
+ sys/netinet6/in6_ifattach.h |   2 +
+ sys/netinet6/in6_proto.c    |  10 ++
+ sys/netinet6/ip6_input.c    |   1 +
+ sys/netinet6/ip6_var.h      |  12 ++
+ sys/netinet6/nd6.c          |   9 ++
+ sys/netinet6/nd6.h          |   2 +
+ sys/netinet6/nd6_nbr.c      |  35 +++++-
+ sys/netinet6/nd6_rtr.c      |  94 ++++++++++-----
+ usr.sbin/ndp/ndp.c          |   7 ++
+ 14 files changed, 406 insertions(+), 77 deletions(-)
+
+[commit 4bc40d5a624ec839d49d4c33c0a5a8c1fa60a1d7]
+Date: 2026-01-28
+Score: 5
+Status: accepted(include=yes,score=75)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: Userland.programs
+Subject: daemon: Add option for output file mode
+Review: The man:daemon[8] utility now supports specifying the output file mode via a new option, allowing non-root log collectors to access log files and improving compatibility with log rotation tools.
+Body:
+
+The daemon utility has always created its output file with a fixed mode
+of 0600. This causes issues for log collection setups where the collector
+does not run as root but instead relies on group access to the watched
+daemon’s log file.
+
+Introduce a new option that allows specifying the output file mode using
+install(1)-style semantics. This enables non-root log collectors to access
+the file as intended and improves compatibility with log rotation tools.
+
+Reviewed by:	kevans
+MFC after:	1 week
+Relnotes:	yes
+Differential Revision:	https://reviews.freebsd.org/D54930
+
+(cherry picked from commit a3b90a1f008365d9f62773998f89f9c872e2bed5)
+
+
+ usr.sbin/daemon/daemon.8 | 17 +++++++++++++++--
+ usr.sbin/daemon/daemon.c | 28 +++++++++++++++++++++-------
+ 2 files changed, 36 insertions(+), 9 deletions(-)
+
+[commit a50789d8b89bd32199c6a9bf75b48ed8dee1e70d]
+Date: 2026-01-03
+Score: 5
+Status: accepted(include=yes,score=85)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: Kernel.general
+Subject: powerpc: put the isync inside the TD_LOCK() checking loop
+Review: A race condition in the powerpc thread switching code that could cause system hangs during boot on multi-CPU power9 pseries guests  has been resolved.
+Body:
+
+Fix a narrow window where the lock is unlocked but the checking CPU
+hasn't flushed things appropriately.
+
+Inside this window the CPU inside cpu_switch() will loop forever thinking
+the destination thread is still blocked/locked even though it is not.
+
+This manifests as the system hanging after starting all APs.
+
+I've seen this reliably trigger in qemu-system-ppc64 running power9 pseries
+guests; the more CPUs the more likely it triggers at boot.
+
+PR: kern/292167
+Differential Revision:	https://reviews.freebsd.org/D54478
+Reviewed by:	jhibbits
+MFC after:	1 week
+Relnotes:	yes
+
+(cherry picked from commit 8df2e542146801fd01675e56724eaa567d04c209)
+
+
+ sys/powerpc/powerpc/swtch32.S | 2 +-
+ sys/powerpc/powerpc/swtch64.S | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+[commit 275c11b7ccffffb8faf31fb0fb98e99ea5b413da]
+Date: 2025-11-18
+Score: 5
+Status: accepted(include=yes,score=85)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: Userland.libraries
+Subject: libc: implement C23 <stdbit.h> functions
+Review: Adds C23 `<stdbit.h>` header with bit manipulation functions like `stdc_bit_ceil()`, `stdc_bit_width()`, and `stdc_count_ones()`. This provides standard bit operations for C programs.
+Body:
+
+This new header complies with ISO/IEC 9899:2024 (C23).
+
+Contrary to glibc, we do not provide inline definitions in
+<stdbit.h> as we expect our system compiler to soon recognise
+these as builtins anyway.
+
+Relnotes:	yes
+MFC after:	1 month
+Reviewed by:	adrian
+Approved by:	markj (mentor)
+Differential Revision:	https://reviews.freebsd.org/D53657
+
+(cherry picked from commit 6296500a85c8474e3ff3fe2f8e4a9d56dd0acd64)
+
+
+ include/Makefile                           |   4 +-
+ include/stdbit.h                           | 124 +++++++++++++++++++++++++++++
+ lib/libc/Makefile                          |   1 +
+ lib/libc/stdbit/Makefile.inc               |  19 +++++
+ lib/libc/stdbit/Symbol.map                 |  85 ++++++++++++++++++++
+ lib/libc/stdbit/stdc_bit_ceil.c            |  71 +++++++++++++++++
+ lib/libc/stdbit/stdc_bit_floor.c           |  53 ++++++++++++
+ lib/libc/stdbit/stdc_bit_width.c           |  53 ++++++++++++
+ lib/libc/stdbit/stdc_count_ones.c          |  38 +++++++++
+ lib/libc/stdbit/stdc_count_zeros.c         |  38 +++++++++
+ lib/libc/stdbit/stdc_first_leading_one.c   |  57 +++++++++++++
+ lib/libc/stdbit/stdc_first_leading_zero.c  |  57 +++++++++++++
+ lib/libc/stdbit/stdc_first_trailing_one.c  |  52 ++++++++++++
+ lib/libc/stdbit/stdc_first_trailing_zero.c |  53 ++++++++++++
+ lib/libc/stdbit/stdc_has_single_bit.c      |  38 +++++++++
+ lib/libc/stdbit/stdc_leading_ones.c        |  60 ++++++++++++++
+ lib/libc/stdbit/stdc_leading_zeros.c       |  60 ++++++++++++++
+ lib/libc/stdbit/stdc_trailing_ones.c       |  56 +++++++++++++
+ lib/libc/stdbit/stdc_trailing_zeros.c      |  56 +++++++++++++
+ 19 files changed, 973 insertions(+), 2 deletions(-)
+
+[commit 104488641acaf2269d860d8abf142d80a340a5e8]
+Date: 2025-11-17
+Score: 5
+Status: accepted(include=yes,score=70)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: Userland.libraries
+Subject: msun: expose the C23 functions we already support in <math.h>
+Review: The C23 trigonometric functions from the `*pi` family (acospi, acospif etc.) have beed exposed in <math.h>. This provides standard-conforming APIs for applications using these functions.
+Body:
+
+This is the *pi family of trigonometric functions. Quite a few C23
+functions are still missing.  These seem to be:
+acospi, acospif, acospil, asinpi, asinpif, asinpil, atan2pi, atan2pif,
+atan2pil, atanpi, atanpif, atanpil, canonicalize, canonicalizef,
+canonicalizel, compoundn, compoundnf, compoundnl, daddl, ddivl, dfmal,
+dmull, dsqrtl, dsubl, exp10, exp10f, exp10l, exp10m1, exp10m1f,
+exp10m1l, exp2m1, exp2m1f, exp2m1l, fadd, faddl, fdiv, fdivl, ffma,
+ffmal, fmaximum, fmaximum_mag, fmaximum_mag_num, fmaximum_mag_numf,
+fmaximum_mag_numl, fmaximum_magf, fmaximum_magl, fmaximum_num,
+fmaximum_numf, fmaximum_numl, fmaximumf, fmaximuml, fminimum,
+fminimum_mag, fminimum_mag_num, fminimum_mag_numf, fminimum_mag_numl,
+fminimum_magf, fminimum_magl, fminimum_num, fminimum_numf,
+fminimum_numl, fminimumf, fminimuml, fmul, fmull, fromfp, fromfpf,
+fromfpl, fromfpx, fromfpxf, fromfpxl, fsqrt, fsqrtl, fsub, fsubl,
+iscanonical, iseqsig, issignaling, issubnormal, iszero, nextdown,
+nextdownf, nextdownl, nextup, nextupf, nextupl, pown, pownf, pownl,
+powr, powrf, powrl, rootf, rootl, rootn, roundeven, roundevenf,
+roundevenl, rsqrt, rsqrtf, rsqrtl, ufromfp, ufromfpf, ufromfpl,
+ufromfpx, ufromfpxf, ufromfpxl.
+
+Reviewed by:	imp
+Approved by:	markj (mentor)
+MFC after:	1 month
+Relnotes:	yes
+Differential Revision:	https://reviews.freebsd.org/D53783
+
+(cherry picked from commit 37fa5b36abb15b322493aba20146709d48359507)
+
+
+ lib/msun/src/math.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+[commit 992f994bb71ec61e893457bfc2ffc02dfd8c0b50]
+Date: 2025-12-18
+Score: 5
+Status: accepted(include=yes,score=60)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: Docs.manpages
+Subject: librt/mq_getfd_np.3: Initial manual page
+Review: Adds a manual page for the undocumented man:mq_getfd_np[3] function from man:librt[3]. This provides documentation for a function that has been present since FreeBSD 11.
+Body:
+
+The mq_getfd_np function appeared in FreeBSD 11 with no documentation.
+This function dereferences the mqd_t as a pointer to an int.
+
+Relnotes:		yes
+MFC after:		3 days
+Reviewed by:		kib (previous), markj, ziaee
+Differential Revision:	https://reviews.freebsd.org/D43947
+
+(cherry picked from commit ca2413d216197fd55f9363d6f65c641ff1aa3ec5)
+
+
+ lib/librt/Makefile      |  2 ++
+ lib/librt/mq_getfd_np.3 | 57 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 59 insertions(+)
+
+[commit 24ea81047de7c75fd57c54deda0b36c3225c367b]
+Date: 2025-11-10
+Score: 5
+Status: accepted(include=yes,score=60)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: Userland.libraries
+Subject: lib/libc: implement C23 memalignment()
+Review: The C23 `memalignment()` function has been added to libc, allowing programs to compute pointer alignment. A man page has been included.
+Body:
+
+This new function computes the alignment of a pointer.
+It is part of ISO/IEC 9899:2024, the new C standard.
+If the pointer is a null pointer, null is returned.
+I have tried to write an implementation that can cope
+with traditional address-based architectures, even if
+size_t and uintptr_t are of different length.  Adjustments
+may be needed for CHERI though.
+
+A man page is provided, too.  No unit test for now.
+
+Reviewed by:	kib, imp, ziaee (manpages), pauamma@gundo.com
+Approved by:	markj (mentor)
+MFC after:	1 month
+Relnotes:	yes
+Differential Revision:	https://reviews.freebsd.org/D53673
+
+(cherry picked from commit 6c57e368eb1777f6097158eeca2fcc175d068dba)
+
+
+ include/stdlib.h               |  8 +++++++
+ lib/libc/stdlib/Makefile.inc   |  4 ++--
+ lib/libc/stdlib/Symbol.map     |  1 +
+ lib/libc/stdlib/memalignment.3 | 53 ++++++++++++++++++++++++++++++++++++++++++
+ lib/libc/stdlib/memalignment.c | 28 ++++++++++++++++++++++
+ 5 files changed, 92 insertions(+), 2 deletions(-)
+
+[commit 9657c50cdd7741404d99881fdd9243175086ede1]
+Date: 2025-10-24
+Score: 5
+Status: accepted(include=yes,score=30)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor: The FreeBSD Foundation
+Section: Network.general
+Subject: ipfw: Retire obsolete compat code
+Review: The man:ipfw[8] version 3 compatibility code for FreeBSD 8 and earlier is removed, as it is obsolete and no longer needed. This cleanup may affect systems still using very old configurations, but it does not change the functionality for current supported releases.
+Body:
+
+The current IPFW version 3 dates to 2010 (commit cc4d3c30ea28, "Bring in
+the most recent version of ipfw and dummynet, developed").
+
+The compat code for FreeBSD 8 and earlier has a number of issues and is
+no longer needed, so remove it.
+
+Reported by:	Ilja Van Sprundel <ivansprundel@ioactive.com>
+Reviewed by:	ae, glebius
+Relnotes:	Yes
+Sponsored by:	The FreeBSD Foundation
+Differential Revision: https://reviews.freebsd.org/D53343
+
+(cherry picked from commit c59aab9a5b3970b3ccec744f759e6cb87e938dbe)
+
+
+ sys/conf/files                   |   1 -
+ sys/modules/dummynet/Makefile    |   3 +-
+ sys/netinet/raw_ip.c             |   4 -
+ sys/netpfil/ipfw/ip_dn_glue.c    | 858 ---------------------------------------
+ sys/netpfil/ipfw/ip_dn_private.h |  10 +-
+ sys/netpfil/ipfw/ip_dummynet.c   |  96 ++---
+ 6 files changed, 29 insertions(+), 943 deletions(-)
+
+[commit c10317b0c455be506ae62b391e5491e1b75914aa]
+Date: 2025-10-23
+Score: 5
+Status: accepted(include=yes,score=70)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: Userland.programs
+Subject: sockstat: add support for UDP-Lite endpoints
+Review: The man:sockstat[1] utility now displays UDP-Lite endpoints by default.
+Body:
+
+With this patch UDP-Lite endpoints are also show per default.
+
+Reviewed by:		Peter Lei, Nick Banks
+Relnotes:		yes
+Differential Revision:	https://reviews.freebsd.org/D53230
+
+(cherry picked from commit f48c6390dd5a01ab2b33f26ee50f4e8cbe8ae737)
+
+
+ usr.bin/sockstat/main.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+[commit 88c0ce38bc18acaf50188eda402384a0cb93890d]
+Date: 2025-09-04
+Score: 5
+Status: accepted(include=yes,score=75)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor: Intel Corporation
+Section: Drivers.device
+Subject: qat: enable qat driver for 402xx device
+Review: The man:qat[4] driver now supports the 402xx device (IDs 0x4944/0x4945) using the existing qat_4xxx driver. Device-specific firmware files has been added.
+Body:
+
+Enabled qat driver support for 402xx device with
+ID 0x4944/0x4945. This is an additional device supported
+under the existing qat_4xxx driver. Firmwares specific to
+the 402xx device are added.
+
+Signed-off-by: Hareshx Sankar Raj <hareshx.sankar.raj@intel.com>
+
+Relnotes:	yes
+Sponsored by:	Intel Corporation
+MFC after:	1 month
+Differential Revision:	https://reviews.freebsd.org/D52488
+
+(cherry picked from commit 7fbd362c091b2b384d14c3ed5af9234bb2eff9c2)
+
+
+ sys/contrib/dev/qat/qat_402xx.bin              | Bin 0 -> 665360 bytes
+ sys/contrib/dev/qat/qat_402xx_mmp.bin          | Bin 0 -> 150084 bytes
+ sys/dev/qat/include/common/adf_accel_devices.h |   4 ++
+ sys/dev/qat/qat_api/include/icp_sal_versions.h |   2 +-
+ sys/dev/qat/qat_common/qat_uclo.c              |   1 +
+ sys/dev/qat/qat_hw/qat_4xxx/adf_4xxx_hw_data.c |  58 +++++++++++++++++++------
+ sys/dev/qat/qat_hw/qat_4xxx/adf_4xxx_hw_data.h |   6 +++
+ sys/dev/qat/qat_hw/qat_4xxx/adf_drv.c          |  15 ++++---
+ sys/dev/qat/qat_hw/qat_4xxxvf/adf_drv.c        |  15 ++++---
+ sys/modules/qatfw/qat_4xxx/Makefile            |   5 ++-
+ 10 files changed, 78 insertions(+), 28 deletions(-)
+
+[commit 7f6f2139eef9f9fc263977c847c6dbf235a1b1b7]
+Date: 2025-10-12
+Score: 5
+Status: accepted(include=yes,score=85)
+CollectedAt: 2026-04-03T13:00:19 UTC
+Sponsor:
+Section: Userland.contrib
+Subject: blocklist: Rename blacklist to blocklist
+Review: The blacklist subsystem has been renamed to blocklist (man:blocklistd[8]) throughout the system. Old names in rc scripts, firewall rules, and configuration knobs remain functional but emit warnings. This change follows upstream terminology updates.
+Body:
+
+Follow up upstream rename from blacklist to blocklist.
+
+- Old names and rc scripts are still valid, but emitting an ugly warning
+- Old firewall rules and anchor names should work, but emitting an ugly
+  warning
+- Old MK_BLACKLIST* knobs are wired to the new ones
+
+Although care has been taken not to break current configurations, this
+is a large patch containing mostly duplicated code.  If issues arise, it
+will be swiftly reverted.
+
+Reviewed by:	ivy (pkgbase)
+Approved by:	emaste (mentor)
+MFC after:	2 days
+Relnotes:	yes
+
+(cherry picked from commit 7238317403b95a8e35cf0bc7cd66fbd78ecbe521)
+
+
+ contrib/blocklist/bin/blacklistctl.c               | 170 ++++++
+ contrib/blocklist/bin/blacklistd.c                 | 592 +++++++++++++++++++++
+ contrib/blocklist/bin/old_internal.c               |  50 ++
+ contrib/blocklist/bin/old_internal.h               |  58 ++
+ contrib/blocklist/include/blacklist.h              |  65 +++
+ contrib/blocklist/include/old_bl.h                 |  80 +++
+ contrib/blocklist/lib/blacklist.c                  | 117 ++++
+ contrib/blocklist/lib/old_bl.c                     | 554 +++++++++++++++++++
+ crypto/openssh/auth-pam.c                          |   4 +-
+ crypto/openssh/auth.c                              |   8 +-
+ crypto/openssh/{blacklist.c => blocklist.c}        |  16 +-
+ .../{blacklist_client.h => blocklist_client.h}     |  30 +-
+ crypto/openssh/monitor.c                           |   8 +-
+ crypto/openssh/servconf.c                          |  18 +-
+ crypto/openssh/servconf.h                          |   2 +-
+ crypto/openssh/sshd-session.c                      |  10 +-
+ crypto/openssh/sshd_config                         |   2 +-
+ crypto/openssh/sshd_config.5                       |  14 +-
+ lib/Makefile                                       |   1 +
+ lib/libblacklist/Makefile                          |  24 +-
+ lib/libblocklist/Makefile                          |  30 ++
+ lib/libblocklist/Makefile.depend                   |  16 +
+ lib/libsysdecode/Makefile.depend                   |   2 +-
+ libexec/Makefile                                   |   6 +-
+ libexec/blacklistd-helper/Makefile                 |   7 -
+ libexec/blocklistd-helper/Makefile                 |  10 +
+ .../Makefile.depend                                |   0
+ libexec/blocklistd-helper/blacklistd-helper        | 293 ++++++++++
+ libexec/fingerd/Makefile                           |   8 +-
+ libexec/fingerd/Makefile.depend.options            |   2 +-
+ libexec/fingerd/fingerd.c                          |  16 +-
+ libexec/rc/rc.conf                                 |   6 +-
+ libexec/rc/rc.d/Makefile                           |   5 +-
+ libexec/rc/rc.d/blacklistd                         |  10 +-
+ libexec/rc/rc.d/blocklistd                         |  46 ++
+ release/packages/ucl/blocklist-all.ucl             |   8 +-
+ secure/libexec/sshd-auth/Makefile                  |  10 +-
+ secure/libexec/sshd-session/Makefile               |  10 +-
+ secure/usr.sbin/sshd/Makefile.depend.options       |   2 +-
+ share/man/man5/periodic.conf.5                     |   2 +-
+ share/man/man5/src.conf.5                          |  43 +-
+ share/mk/bsd.libnames.mk                           |   1 +
+ share/mk/local.dirdeps-options.mk                  |   1 +
+ share/mk/src.libnames.mk                           |  10 +-
+ share/mk/src.opts.mk                               |  10 +
+ targets/pseudo/userland/Makefile.depend            |   6 +
+ targets/pseudo/userland/lib/Makefile.depend        |   4 +
+ targets/pseudo/userland/libexec/Makefile.depend    |   4 +-
+ tools/build/mk/OptionalObsoleteFiles.inc           |  21 +-
+ tools/build/options/WITHOUT_BLACKLIST              |   6 +-
+ tools/build/options/WITHOUT_BLACKLIST_SUPPORT      |   8 +-
+ tools/build/options/WITHOUT_BLOCKLIST              |   4 +
+ tools/build/options/WITHOUT_BLOCKLIST_SUPPORT      |   6 +
+ usr.sbin/Makefile                                  |   2 +
+ usr.sbin/blacklistctl/Makefile                     |  10 +-
+ usr.sbin/blacklistd/Makefile                       |  13 +-
+ usr.sbin/blacklistd/blacklistd.conf                |  10 +-
+ usr.sbin/blocklistctl/Makefile                     |  22 +
+ usr.sbin/blocklistctl/Makefile.depend              |  18 +
+ usr.sbin/blocklistd/Makefile                       |  23 +
+ usr.sbin/blocklistd/Makefile.depend                |  18 +
+ usr.sbin/blocklistd/blocklistd.conf                |  16 +
+ usr.sbin/periodic/etc/security/520.pfdenied        |   2 +-
+ 63 files changed, 2426 insertions(+), 144 deletions(-)
+
