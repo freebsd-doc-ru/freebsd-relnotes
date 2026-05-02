@@ -9741,3 +9741,1006 @@ Differential Revision:  https://reviews.freebsd.org/D52869
  contrib/blocklist/test/srvtest.c                   |  42 +++-
  58 files changed, 1293 insertions(+), 587 deletions(-)
 
+[commit ace0a38a9756748c225cdf7270858b3cc35a3154]
+Date: 2025-10-03
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: The FreeBSD Foundation
+Subject: style.9: Encourage style changes when doing significant modifications
+Body:
+
+The rule of allowing style changes when about half or more of a file (or
+group of files), coupled with the advice of avoiding stylistic changes,
+could be interpreted as forbidding most style changes, even in heavily
+modified functions.
+
+In order to rule out that interpretation and ease transition towards our
+prescribed style:
+1. Clarify that avoiding stylistic changes concerns only "standalone"
+   ones.
+2. Actually encourage changing the style, and extend the cases where it
+   is explicitly allowed to do so to any single logical unit as little
+   as a function, keeping the existing "about half" of modified code as
+   a rule of thumb.
+
+When point 2 above applies, encourage to commit pure style changes
+separately, and to add style-only commits to '.git-blame-ignore-revs'.
+
+Add a specific note ruling out "horizontal" style changes spanning
+unrelated directories in the whole tree, which make the merge (MFC)
+process more difficult.
+
+While here, be slightly more stringent on new kernel code.
+
+While here, regroup the paragraphs talking about style, and put them at
+the end (before the recent C++ section).
+
+While here, rephrase the requirement on third-party maintained code to
+be slightly less stringent.
+
+Reviewed by:    jhb, imp
+Sponsored by:   The FreeBSD Foundation
+Differential Revision:  https://reviews.freebsd.org/D52885
+
+(cherry picked from commit af2c7d9f6452f2281a832b03375910f99230f924)
+
+
+ share/man/man9/style.9 | 52 +++++++++++++++++++++++++++++---------------------
+ 1 file changed, 30 insertions(+), 22 deletions(-)
+
+[commit 04f744ce91efbb37f89b8e6d04f24af111e8bd8f]
+Date: 2026-04-23
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: arm64/vmm: Enable 16-bit VMIDs when in use by pmap
+Body:
+
+pmap_init always uses 16-bit VMIDs when supported, but we never enable
+them in VTCR_EL2 (for ASIDs, locore enables them in TCR_EL1 and
+pmap_init keys off whether they've been enabled, but the order in which
+pmap_init and vmmops_modinit run is reversed). As a result, although the
+full 16-bit value can be stored to VTTBR_EL2 and read back, the upper 8
+bits are treated as 0, and so VMIDs that our VMID allocation believes
+are distinct end up aliasing.
+
+In future this interface may change such that vmm decides on the VMID
+width and tells the pmap to use that, with appropriate support for
+unloading and reloading vmm, but that can come as a follow-up change, as
+this is a more minimal bug fix.
+
+Reviewed by:	markj
+Obtained from:	CheriBSD
+Fixes:		47e073941f4e ("Import the kernel parts of bhyve/arm64")
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D55860
+
+(cherry picked from commit 44e4f45aec4469440af434098e61bd13982bbbc0)
+
+
+ sys/arm64/arm64/pmap.c         | 11 +++++++++++
+ sys/arm64/include/hypervisor.h |  2 ++
+ sys/arm64/include/pmap.h       |  1 +
+ sys/arm64/vmm/vmm_arm64.c      |  2 ++
+ 4 files changed, 16 insertions(+)
+
+[commit cef2f7b440ffa67271690a6aba532e4c090772db]
+Date: 2026-03-31
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: ifnet: Fix races in if_vmove_reclaim()
+Body:
+
+The thread running if_vmove_reclaim() may race with other threads those
+running if_detach(), if_vmove_loan() or if_vmove_reclaim(). In case the
+current thread loses race, two issues arise,
+
+ 1. It is unstable and unsafe to access ifp->if_vnet,
+ 2. The interface is removed from "active" list, hence if_unlink_ifnet()
+    can fail.
+
+For the first case, check against source prison's vnet instead, given
+the interface is obtained from that vnet.
+
+For the second one, return ENODEV to indicate the interface was on the
+list but the current thread loses race, to distinguish from ENXIO, which
+means the interface or child prison is not found. This is the same with
+if_vmove_loan().
+
+Reviewed by:	kp, pouria
+Fixes:		a779388f8bb3 if: Protect V_ifnet in vnet_if_return()
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D55997
+
+(cherry picked from commit ee9456ce37539da5b651945eea18502f290eb133)
+
+
+ sys/net/if.c | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+
+[commit a989b0fbc965b453d97e3d032efb4f9c7592734a]
+Date: 2026-03-17
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: ifnet: Remove unreachable code
+Body:
+
+The ioctls SIOCSIFVNET and SIOCSIFRVNET are for userland only. For
+SIOCSIFVNET, if_vmove_loan(), the interface is obtained from current
+VNET. For SIOCSIFRVNET, if_vmove_reclaim(), a valid child prison is
+held before getting the interface. In both cases the VNET of the
+obtained interfaces is stable, so there's no need to check it.
+
+No functional change intended.
+
+Reviewed by:	glebius, jamie (for #jails)
+MFC after:	2 weeks
+Differential Revision:	https://reviews.freebsd.org/D55828
+
+(cherry picked from commit e0731059af912a27d0f842959218946b1daaa7d1)
+
+
+ sys/net/if.c | 18 ------------------
+ 1 file changed, 18 deletions(-)
+
+[commit bcef4427a470274ba1f0c5fa7affe41253a93633]
+Date: 2025-07-27
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: ahci(4): Add another device ID for Marvell 9128 SATA controller: 0x91a3
+Body:
+
+This was encountered on a Gigabyte GA-P55A-UD4 motherboard identifying itself
+as:
+ahci0@pci0:2:0:0:       class=0x01018f rev=0x11 hdr=0x00 vendor=0x1b4b device=0x91a3 subvendor=0x1458 subdevice=0xb000
+    vendor     = 'Marvell Technology Group Ltd.'
+    class      = mass storage
+    subclass   = ATA
+
+The physical chip has "88SE9128-NAA2" printed on it.
+
+Similar code has been in Linux for a long time:
+https://github.com/torvalds/linux/commit/50be5e3657cd2851a297dc0b3fd459f25829d29b
+
+Co-authored-by:	Michael Osipov <michaelo@FreeBSD.org>
+PR:		288526
+Reviewed by:	jhb
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D56464
+
+(cherry picked from commit c72edc2b2eb283450df8db05cf9321aee7de0bcb)
+
+
+ sys/dev/ahci/ahci_pci.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+[commit 8d584f064885495d47811c98027a8005ea5135c1]
+Date: 2026-03-29
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: bluetooth: remove redundant 0x0bda entries from ng_ubt_rtl, rtlbtfw
+Body:
+
+Generic Realtek vendor rules already match all 0x0bda Bluetooth devices.
+Remove the redundant per-product entries from ng_ubt_rtl.c,
+rtlbtfw main.c, and rtlbtfw.conf.
+
+Reviewed by:	wulf
+MFC after:	1 month
+Differential Revision:	https://reviews.freebsd.org/D56137
+
+(cherry picked from commit f3fc362c0fb27731e2c22523e0cedf1adec26c44)
+
+
+ sys/netgraph/bluetooth/drivers/ubt/ng_ubt_rtl.c | 24 +++------
+ usr.sbin/bluetooth/rtlbtfw/main.c               | 24 +++------
+ usr.sbin/bluetooth/rtlbtfw/rtlbtfw.conf         | 68 -------------------------
+ 3 files changed, 12 insertions(+), 104 deletions(-)
+
+[commit 1e5aff8e5bc607f6bfaaf982b9c07ce365cd9bf4]
+Date: 2026-04-23
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: contrib/tzdata: import tzdata 2026b
+Body:
+
+Changes: https://github.com/eggert/tz/blob/2026b/NEWS
+
+(cherry picked from commit 9b95cab0a2927dfe07dbe6dc0056a80d5c730414)
+
+
+ contrib/tzdata/NEWS         | 53 +++++++++++++++++++++++++++++++++++-------
+ contrib/tzdata/northamerica | 56 ++++++++++++++++++++++++++++++++++++++++++++-
+ contrib/tzdata/version      |  2 +-
+ contrib/tzdata/zone.tab     |  2 +-
+ contrib/tzdata/zone1970.tab |  2 +-
+ contrib/tzdata/zonenow.tab  |  3 +++
+ 6 files changed, 106 insertions(+), 12 deletions(-)
+
+[commit 0b97aba5c25be8a76cca6f77a40a972a7e70a98f]
+Date: 2026-02-20
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: libnetbsd: import `__CTASSERT(..)` macros
+Body:
+
+These compile-time assert macros are similar to `Static_assert` on FreeBSD.
+
+These macros are in use in newer versions of `contrib/netbsd-tests`.
+
+Obtained from:	https://github.com/NetBSD/src (c26cc77b3a0b26b95a2)
+MFC after:	1 week
+
+(cherry picked from commit d1f1402dff63dd163d4ba4ac65f7f2ffd00c5e08)
+
+
+ lib/libnetbsd/sys/cdefs.h | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+[commit 1f86a86b21fc4e2796d5d489ad0a8e6148328790]
+Date: 2026-02-25
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: lib/libnetbsd: bring in `__type_m{ax,in}*` macro family
+Body:
+
+These macros are used by some of the NetBSD tests which calculate the
+size of types, e.g., `__type_max(time_t)`.
+
+This wraps up the set of macros needed in order to update to the a
+netbsd-tests snapshot from this past month.
+
+Obtained from:	https://github.com/netbsd/src (55b4b44)
+MFC after:	1 week
+
+(cherry picked from commit db5344a7445f1a796bc3cacd32a46e88e3e589a7)
+
+
+ lib/libnetbsd/sys/cdefs.h | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+
+[commit f8162575f2114c26e52753ece0fac9738b97a79e]
+Date: 2026-02-25
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: libnetbsd: add math.h and sys/time.h
+Body:
+
+- `math.h`: `isinff(..)`
+- `sys/time.h`: `timespec*(x)`
+
+These two headers are used by tests in newer snapshots of
+`contrib/netbsd-tests`.
+
+MFC after:	1 week
+
+(cherry picked from commit 2a6c2d9c38dc421025b6c18cac68fe9965c574c0)
+
+
+ lib/libnetbsd/math.h     | 14 ++++++++++++++
+ lib/libnetbsd/sys/time.h | 35 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 49 insertions(+)
+
+[commit b44a9bd37e605e5f9a06af5a39ac26eb6962239c]
+Date: 2026-03-01
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: asmc: output the SMC firmware revision on attach
+Body:
+
+The SMC firmware revision can prove helpful when determining why the
+behavior of a given controller varies from the maintainers' expected
+behavior.
+
+This should be a sysctl (eventually), but for now dumping out the
+information via `device_printf(..)` suffices, given that only one
+asmc(4) compatible device can exist in an Apple platform at any
+given point in time. This will become a sysctl in the future after
+additional improvements are incorporated from OpenBSD and NetBSD.
+
+MFC after:	1 week
+Obtained from:	https://github.com/openbsd/src/ (sys/dev/acpi/asmc.c @ 142d064)
+Differential Revision: https://reviews.freebsd.org/D55577
+
+(cherry picked from commit e81e724358e43dcf951e244a9df9df3eaa983fe9)
+
+
+ sys/dev/asmc/asmc.c    | 11 +++++++++--
+ sys/dev/asmc/asmcvar.h |  3 +++
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+
+[commit 3541e09bbbcb65074b69bc66216de2c1c4aee7c2]
+Date: 2026-04-09
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: mfiutil(8)/mrsasutil(8): "show drives" truncates information
+Body:
+
+Improve mfi_pd_inq_string() by
+* Reusing buffer sizes from cam/cam.h according to SCSI specification + NULL byte
+* Don't truncate vendor-specific information by escaping into a too small buffer
+* Use cam_strvis() from libcam instead of old, outdated local copy
+* Recaculate size of inq_string based on the reused buffer sizes and
+  format statements
+
+PR:		294354
+Reviewed by:	imp
+MFC after:	2 weeks
+Differential Revision:	https://reviews.freebsd.org/D56328
+
+(cherry picked from commit 850eb149e7ab0733fcf9469a607dca223ff467ad)
+
+
+ usr.sbin/mfiutil/Makefile    |  2 +-
+ usr.sbin/mfiutil/mfi_drive.c | 59 +++++++++-----------------------------------
+ 2 files changed, 13 insertions(+), 48 deletions(-)
+
+[commit ae4ae80a27a348474f0be17168bd5f2d9dbdd960]
+Date: 2026-03-10
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: Chelsio Communications
+Subject: pciconf: Add a tree mode
+Body:
+
+This lists PCI devices in a hierarchy showing the parent/child
+relationship of PCI devices and bridges.  While this is inspired by
+lspci -t output, the format is closer to ps -d and also prefers using
+new-bus device names when possible.  If a device does not have a
+driver, the PCI selector is output in place of the device name.
+
+When the -v flag is given, the vendor and device ID strings are output
+after the device name.  If a string for an ID isn't found, the hex ID
+values are output instead.
+
+Reviewed by:	imp
+Sponsored by:	Chelsio Communications
+Differential Revision:	https://reviews.freebsd.org/D55774
+
+(cherry picked from commit 14b8a27883c15d3add3114f855eff7c6bda1b015)
+
+
+ usr.sbin/pciconf/pciconf.8 |  24 +++++
+ usr.sbin/pciconf/pciconf.c | 255 ++++++++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 277 insertions(+), 2 deletions(-)
+
+[commit d17f7f9e911ad77ac14cb2974935c57931a7720b]
+Date: 2026-02-17
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: vchiq: Fix return type of vchiq_copy_from_user
+Body:
+
+Change the function definition to map the declaration and consistently
+return an enum value.  This fixes the following error reported by GCC:
+
+sys/contrib/vchiq/interface/vchiq_arm/vchiq_2835_arm.c:322:1: error: conflicting types for 'vchiq_copy_from_user' due to enum/integer mismatch; have 'int(void *, const void *, int)' [-Werror=enum-int-mismatch]
+  322 | vchiq_copy_from_user(void *dst, const void *src, int size)
+      | ^~~~~~~~~~~~~~~~~~~~
+In file included from sys/contrib/vchiq/interface/vchiq_arm/vchiq_arm.h:38,
+                 from sys/contrib/vchiq/interface/vchiq_arm/vchiq_2835_arm.c:61:
+sys/contrib/vchiq/interface/vchiq_arm/vchiq_core.h:647:1: note: previous declaration of 'vchiq_copy_from_user' with type 'VCHIQ_STATUS_T(void *, const void *, int)'
+  647 | vchiq_copy_from_user(void *dst, const void *src, int size);
+      | ^~~~~~~~~~~~~~~~~~~~
+
+Differential Revision:	https://reviews.freebsd.org/D55163
+
+(cherry picked from commit 1101292a555d24c11d7630b638dc25e1ed22c061)
+
+
+ sys/contrib/vchiq/interface/vchiq_arm/vchiq_2835_arm.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+[commit 63e4b5c5e92422abbb7f08f973d34ba7402b82d7]
+Date: 2026-01-27
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: kyua: Workaround unclear warning from GCC
+Body:
+
+GCC 15 does not like a push_back() invocation in utils::find_core()
+and incorrectly believes libc++ will free a non-heap pointer.  Disable
+the warning to pacify GCC.
+
+In function 'void std::__1::__libcpp_operator_delete(_Args ...) [with _Args = {void*, long unsigned int}]',
+    inlined from 'void std::__1::__do_deallocate_handle_size(void*, size_t, _Args ...) [with _Args = {}]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/new:298:39,
+    inlined from 'void std::__1::__libcpp_deallocate(void*, size_t, size_t)' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/new:311:39,
+    inlined from 'void std::__1::allocator<_Tp>::deallocate(_Tp*, size_t) [with _Tp = utils::fs::path]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/__memory/allocator.h:132:31,
+    inlined from 'static void std::__1::allocator_traits<_Alloc>::deallocate(allocator_type&, pointer, size_type) [with _Alloc = std::__1::allocator<utils::fs::path>]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/__memory/allocator_traits.h:314:19,
+    inlined from 'std::__1::__split_buffer<_Tp, _Allocator>::~__split_buffer() [with _Tp = utils::fs::path; _Allocator = std::__1::allocator<utils::fs::path>&]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/__split_buffer:365:31,
+    inlined from 'std::__1::vector<_Tp, _Alloc>::pointer std::__1::vector<_Tp, _Alloc>::__push_back_slow_path(_Up&&) [with _Up = utils::fs::path; _Tp = utils::fs::path; _Allocator = std::__1::allocator<utils::fs::path>]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/vector:1504:1,
+    inlined from 'void std::__1::vector<_Tp, _Alloc>::push_back(value_type&&) [with _Tp = utils::fs::path; _Allocator = std::__1::allocator<utils::fs::path>]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/vector:1526:34,
+    inlined from 'utils::optional<utils::fs::path> utils::find_core(const fs::path&, const process::status&, const fs::path&)' at contrib/kyua/utils/stacktrace.cpp:217:25:
+/usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/new:274:38: error: 'void operator delete(void*, size_t)' called on pointer '<unknown>' with nonzero offset [24, 9223372036854775807] [-Werror=free-nonheap-object]
+  274 |   __builtin_operator_delete(__args...);
+      |                                      ^
+In function 'void* std::__1::__libcpp_operator_new(_Args ...) [with _Args = {long unsigned int}]',
+    inlined from 'void* std::__1::__libcpp_allocate(size_t, size_t)' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/new:289:31,
+    inlined from '_Tp* std::__1::allocator<_Tp>::allocate(size_t) [with _Tp = utils::fs::path]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/__memory/allocator.h:118:54,
+    inlined from 'constexpr std::__1::__allocation_result<typename std::__1::allocator_traits<_Alloc>::pointer> std::__1::__allocate_at_least(_Alloc&, size_t) [with _Alloc = allocator<utils::fs::path>]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/__memory/allocate_at_least.h:41:27,
+    inlined from 'std::__1::__split_buffer<_Tp, _Allocator>::__split_buffer(size_type, size_type, __alloc_rr&) [with _Tp = utils::fs::path; _Allocator = std::__1::allocator<utils::fs::path>&]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/__split_buffer:353:49,
+    inlined from 'std::__1::vector<_Tp, _Alloc>::pointer std::__1::vector<_Tp, _Alloc>::__push_back_slow_path(_Up&&) [with _Up = utils::fs::path; _Tp = utils::fs::path; _Allocator = std::__1::allocator<utils::fs::path>]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/vector:1498:47,
+    inlined from 'void std::__1::vector<_Tp, _Alloc>::push_back(value_type&&) [with _Tp = utils::fs::path; _Allocator = std::__1::allocator<utils::fs::path>]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/vector:1526:34,
+    inlined from 'utils::optional<utils::fs::path> utils::find_core(const fs::path&, const process::status&, const fs::path&)' at contrib/kyua/utils/stacktrace.cpp:216:25:
+/usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/new:265:42: note: returned from 'void* operator new(size_t)'
+  265 |   return __builtin_operator_new(__args...);
+      |                                          ^
+
+Reviewed by:	imp, dim
+Differential Revision:	https://reviews.freebsd.org/D54868
+
+(cherry picked from commit 5c504c625d1faffd7cc7c3dfece62c72c012b4c5)
+
+
+ usr.bin/kyua/Makefile | 2 ++
+ 1 file changed, 2 insertions(+)
+
+[commit 441beb326fbf62a36f129a0766fa6b8d4cf994a1]
+Date: 2026-01-27
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: netbsd-tests t_regex_att: Use __nonstring for a non-string constant
+Body:
+
+Fixes the following warning from GCC 15:
+
+contrib/netbsd-tests/lib/libc/regex/t_regex_att.c:54:30: error: initializer-string for array of 'char' truncates NUL terminator but destination lacks 'nonstring' attribute (4 chars into 3 available) [-Werror=unterminated-string-initialization]
+   54 | static const char delim[3] = "\\\\\0";
+      |                              ^~~~~~~~
+
+Reviewed by:	ngie, imp, dim
+Differential Revision:	https://reviews.freebsd.org/D54866
+
+(cherry picked from commit 2dea50a661b903513efc42e270c4e6f5c2b89bc3)
+
+
+ contrib/netbsd-tests/lib/libc/regex/t_regex_att.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit c62cae9b53fe2c5e52a185d3ed37f55ef383f064]
+Date: 2026-01-21
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: AFRL, DARPA
+Subject: rpctls_impl.c: Use a direct cast to uintptr_t instead of __DECONST
+Body:
+
+This fixes the build on CHERI architectures where the compiler warns
+about a direct cast between uint64_t and const void * inside of
+__DECONST.  However, GCC would also complain about this on 32-bit
+kernels due to uint64_t not being the same size as a pointer.  Also,
+a direct cast to uintptr_t to right-size the cookie value is more
+direct than using __DECONST given that there is no "const" pointer
+involved in the expression.
+
+Reviewed by:	brooks, glebius
+Obtained from:	CheriBSD
+Sponsored by:	AFRL, DARPA
+Differential Revision:	https://reviews.freebsd.org/D54797
+
+(cherry picked from commit 5eb1d4eec67685a933cedd5a20fbec86febcd3a9)
+
+
+ sys/rpc/rpcsec_tls/rpctls_impl.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 4f536daec8fbfc05ae0097a825386848056cbbbd]
+Date: 2026-01-14
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: AFRL, DARPA
+Subject: rtld: Switch to using <assert.h> for assert
+Body:
+
+The stock assert() works because rtld-libc includes a custom
+implementation of __assert().
+
+Reviewed by:	imp, kib
+Obtained from:	CheriBSD
+Sponsored by:	AFRL, DARPA
+Differential Revision:	https://reviews.freebsd.org/D54712
+
+(cherry picked from commit 3ea97c9de2b24c685d42be12dd57fad2f67b3f1b)
+
+
+ libexec/rtld-elf/debug.h | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+[commit 3c01c7df984019d3db1b7a1d5e4d61d8c366df28]
+Date: 2026-01-14
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: AFRL, DARPA
+Subject: rtld: Use uintptr_t instead of Elf_Addr for init/fini function pointers
+Body:
+
+This is a no-op on non-CHERI architectures, but is required for CHERI
+where Elf_Addr is only an address and not a complete pointer.
+
+While here, consistently use `uintptr_t *` for arrays of init/fini
+function pointers.
+
+Reviewed by:	imp, kib
+Effort:		CHERI upstreaming
+Obtained from:	CheriBSD
+Sponsored by:	AFRL, DARPA
+Differential Revision:	https://reviews.freebsd.org/D54711
+
+(cherry picked from commit e96ec1a1eb935aa2febcbf9629a52c85297a088e)
+
+
+ libexec/rtld-elf/rtld.c | 42 ++++++++++++++++++++----------------------
+ libexec/rtld-elf/rtld.h | 10 +++++-----
+ 2 files changed, 25 insertions(+), 27 deletions(-)
+
+[commit 4bbc38778316711e552ada29bf15c0f850351974]
+Date: 2026-01-14
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: AFRL, DARPA
+Subject: rtld: Simplify walking program headers
+Body:
+
+Store phnum in Obj_Entry instead of phsize and use that to simplify
+the terminate expressions when iterating over program headers.
+
+Reviewed by:	kib
+Obtained from:	CheriBSD
+Sponsored by:	AFRL, DARPA
+Differential Revision:	https://reviews.freebsd.org/D54710
+
+(cherry picked from commit 31a440a0e9a26fee109ed753e3493c72b9dc05e9)
+
+
+ libexec/rtld-elf/map_object.c      |  2 +-
+ libexec/rtld-elf/powerpc/reloc.c   |  4 +---
+ libexec/rtld-elf/powerpc64/reloc.c |  4 +---
+ libexec/rtld-elf/rtld.c            | 18 ++++++++----------
+ libexec/rtld-elf/rtld.h            |  2 +-
+ 5 files changed, 12 insertions(+), 18 deletions(-)
+
+[commit cee4e16cb6fbaf1c5b9ed8daad69986886e96af7]
+Date: 2026-03-03
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: Klara, Inc.
+Subject: libutil: take a size_t in trimdomain()
+Body:
+
+INT_MAX is already larger than a reasonable hostname might be, but
+size_t makes some of this easier to reason about as we do arithmetic
+with it.  This would maybe not be worth it if we had to bump the
+soversion because of it, but libutil does symbol versioning now so we
+can provide a compat shim.
+
+While we're here, fix some inconsistencies in argument names in the
+manpage.
+
+Reviewed by:	des
+Obtained from:	https://github.com/apple-oss-distributions/libutil
+Sponsored by:	Klara, Inc.
+
+(cherry picked from commit 7e70589b1bee4853cb11e3d8eb963079b18ff534)
+
+
+ lib/libutil/Symbol.map   |  5 ++++-
+ lib/libutil/libutil.h    |  2 +-
+ lib/libutil/trimdomain.3 |  8 ++++----
+ lib/libutil/trimdomain.c | 18 +++++++++++++++++-
+ 4 files changed, 26 insertions(+), 7 deletions(-)
+
+[commit 8696cc8d0bbf4a87bc7c87186b0c5d35253b91ca]
+Date: 2025-12-03
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: The FreeBSD Foundation
+Subject: rtw89: fix mismerge
+Body:
+
+Due to FreeBSD-specific code it seems a code update was not applied
+to the FreeBSD part during the v6.17 driver update.
+Add the missing lines.
+
+Sponsored by:	The FreeBSD Foundation
+Fixes:		b35044b38f74c
+
+(cherry picked from commit adb16cd389c3456cbd538b658c3c0af5145dde91)
+
+
+ sys/contrib/dev/rtw89/core.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+[commit 342a37387f313ae691190d69f11400620521a268]
+Date: 2026-04-15
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: The FreeBSD Foundation
+Subject: LinuxKPI: 802.11: set IEEE80211_MIN_ACTION_SIZE according to struct
+Body:
+
+IEEE80211_MIN_ACTION_SIZE came up in the mt76 vendor subtree merge
+as one of the non-mechanical changes which made me look.
+Rather than (incorrectly) hand counting the offset from the beginning
+of a frame, use the offset from the beginning of struct ieee80211_mgmt.
+
+Sponsored by:	The FreeBSD Foundation
+
+(cherry picked from commit f252ce00898d17f4892534934b8097cd7ccb9e26)
+
+
+ sys/compat/linuxkpi/common/include/linux/ieee80211.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+[commit 3548ab72de58a5351c78529a282c6ef56428eed1]
+Date: 2026-04-14
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: The FreeBSD Foundation
+Subject: LinuxKPI: sync overflow.h from Linux v7.0
+Body:
+
+overflow.h was imported directly from Linux in 3208d4ad2b8320a.
+Update the file to the newer version as needed for v7.0 driver updates.
+
+Sponsored by:	The FreeBSD Foundation
+Obtained from:	git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+		028ef9c96e96197026887c0f092424679298aae8 (tag: v7.0)
+Reviewed by:	emaste, dumbbell
+Differential Revision: https://reviews.freebsd.org/D56394
+
+(cherry picked from commit d2c85255d4fca37ec9774f85f867f8fc89a51269)
+
+
+ .../linuxkpi/common/include/linux/overflow.h       | 144 +++++++++++++++++++--
+ 1 file changed, 130 insertions(+), 14 deletions(-)
+
+[commit 5c8640e863a1366752a123441a5b686e7c8401eb]
+Date: 2026-04-12
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: hid: Change Usage Page names to match documentation
+Body:
+
+According to "HID Usage Tables FOR Universal Serial Bus (USB)"
+Usage Page ID range 0x93-0xF1CF is "Reserved" and Usage Page ID range
+0xFF00-0xFFFF is "Vendor-defined".
+
+MFC after:	1 week
+
+(cherry picked from commit 2ba6ce584a8cab75262cb86a5daf310d6706890c)
+
+
+ sys/dev/hid/hid.h | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+[commit 393c53fd219d7f4f00413d49943714623cd52b5d]
+Date: 2026-03-29
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: hkbd(4): be more cautious & explicit about Apple vendor checking
+Body:
+
+Apply the changes to ukbd(4) as well.
+
+Signed-off-by: tslight <tslight@pm.com>
+
+Reviewed by:	wulf
+MFC after:	1 month
+Pull Request:	https://github.com/freebsd/freebsd-src/pull/1998
+
+(cherry picked from commit 103325323c7daf9fe6c9a6c71aa5c90974c9dff4)
+
+
+ sys/dev/hid/hkbd.c            | 63 +++++++++++++++++++++++--------------------
+ sys/dev/usb/input/ukbd.c      | 57 +++++++++++++++++++++------------------
+ sys/modules/hid/hkbd/Makefile |  2 +-
+ 3 files changed, 66 insertions(+), 56 deletions(-)
+
+[commit 26408151bb1d952e37ff25bfb9cc200332a5e13a]
+Date: 2026-03-11
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: rtlbtfw(8): Add support for Realtek 8852CE
+Body:
+
+Add the USB Vendor/Product ID (0x13d3:0x3612) for
+the new Realtek 8852CE drive to make sure it works.
+
+Signed-off-by: Ying Xu <fakeshadow1337@gmail.com>
+Reviewed by: pouria, wulf
+Pull Request: https://github.com/freebsd/freebsd-src/pull/2071
+
+(cherry picked from commit 2e9366982798144764159f9c0faced5f0e208b85)
+
+
+ sys/netgraph/bluetooth/drivers/ubt/ng_ubt_rtl.c | 1 +
+ usr.sbin/bluetooth/rtlbtfw/main.c               | 1 +
+ usr.sbin/bluetooth/rtlbtfw/rtlbtfw.conf         | 2 +-
+ 3 files changed, 3 insertions(+), 1 deletion(-)
+
+[commit e60d2d53ed838ac50d25080abc415e387b404f09]
+Date: 2026-04-13
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: libarchive: merge from vendor branch
+Body:
+
+libarchive 3.8.7
+
+Important bugfixes:
+ #2871 libarchive: fix handling of option failures
+ #2897 iso9660: fix undefined behavior
+ #2898 RAR: fix LZSS window size mismatch after PPMd block
+ #2900 CAB: fix NULL pointer dereference during skip
+ #2911 libarchive: do not continue with truncated numbers
+ #2919 CAB: Fix Heap OOB Write in CAB LZX decoder
+ #2934 iso9660: fix posibble heap buffer overflow on 32-bit systems
+ #2939 cpio: Fix -R memory leak
+ #2947 libarchive: lzop and grzip filter support
+
+Important bugfixes between 3.8.5 and 3.8.6:
+ #2860 bsdunzip: fix ISO week year and Gregorian year confusion
+ #2864 7zip: ix SEGV in check_7zip_header_in_sfx via ELF offset validation
+ #2875 7zip: fix out-of-bounds access on ELF 64-bit header
+ #2877 RAR5 reader: fix infinite loop in rar5 decompression
+ #2878 mtree reader: Fix file descriptor leak in mtree parser cleanup
+       (CWE-775)
+ #2892 RAR5 reader: fix potential memory leak
+ #2893 RAR5: fix SIGSEGV when archive_read_support_format_rar5 is called
+       twice
+ #2895 CAB reader: fix memory leak on repeated calls to
+       archive_read_support_format_cab
+
+Obtained from:	libarchive
+Vendor commit:	ded82291ab41d5e355831b96b0e1ff49e24d8939
+MFC after:	1 week
+
+(cherry picked from commit eb5165bb491138f60d9004bc4c781490016d9288)
+
+
+ contrib/libarchive/NEWS                            |    4 +
+ contrib/libarchive/README.md                       |    9 +-
+ contrib/libarchive/cpio/cmdline.c                  |   15 +-
+ contrib/libarchive/cpio/cpio.c                     |  123 ++-
+ contrib/libarchive/cpio/cpio.h                     |    2 -
+ contrib/libarchive/cpio/test/test_format_newc.c    |    7 +
+ contrib/libarchive/libarchive/archive.h            |    4 +-
+ contrib/libarchive/libarchive/archive_acl.c        |    6 +-
+ .../libarchive/libarchive/archive_check_magic.c    |    4 +-
+ .../libarchive/archive_cryptor_private.h           |    4 +
+ contrib/libarchive/libarchive/archive_entry.h      |    2 +-
+ contrib/libarchive/libarchive/archive_hmac.c       |    6 +
+ contrib/libarchive/libarchive/archive_options.c    |    4 +-
+ contrib/libarchive/libarchive/archive_pathmatch.c  |    4 +-
+ contrib/libarchive/libarchive/archive_ppmd8.c      |   22 +-
+ .../libarchive/libarchive/archive_ppmd8_private.h  |   25 -
+ contrib/libarchive/libarchive/archive_read.c       |   12 +-
+ .../libarchive/archive_read_append_filter.c        |    4 +
+ .../libarchive/archive_read_disk_posix.c           |    6 +-
+ .../libarchive/archive_read_open_filename.c        |    7 +-
+ .../libarchive/archive_read_support_filter_grzip.c |    2 +-
+ .../libarchive/archive_read_support_filter_lz4.c   |    4 +-
+ .../libarchive/archive_read_support_filter_lzop.c  |    2 +-
+ .../archive_read_support_filter_program.c          |    2 +
+ .../libarchive/archive_read_support_format_7zip.c  |   24 +-
+ .../libarchive/archive_read_support_format_cab.c   |   24 +-
+ .../libarchive/archive_read_support_format_cpio.c  |    4 +-
+ .../archive_read_support_format_iso9660.c          |   26 +-
+ .../libarchive/archive_read_support_format_lha.c   |   11 +-
+ .../libarchive/archive_read_support_format_mtree.c |    7 +-
+ .../libarchive/archive_read_support_format_rar.c   |   73 +-
+ .../libarchive/archive_read_support_format_rar5.c  |   45 +-
+ .../libarchive/archive_read_support_format_tar.c   |    6 +-
+ .../libarchive/archive_read_support_format_xar.c   |   14 +-
+ .../libarchive/archive_read_support_format_zip.c   |   22 +-
+ contrib/libarchive/libarchive/archive_string.c     |   16 +-
+ contrib/libarchive/libarchive/archive_write.c      |    2 +-
+ .../archive_write_add_filter_b64encode.c           |   22 +-
+ .../libarchive/archive_write_add_filter_bzip2.c    |    7 +-
+ .../libarchive/archive_write_add_filter_gzip.c     |   12 +-
+ .../libarchive/archive_write_add_filter_lrzip.c    |   21 +-
+ .../libarchive/archive_write_add_filter_lz4.c      |   14 +-
+ .../libarchive/archive_write_add_filter_lzop.c     |    7 +-
+ .../libarchive/archive_write_add_filter_uuencode.c |   22 +-
+ .../libarchive/archive_write_add_filter_xz.c       |   27 +-
+ .../libarchive/archive_write_add_filter_zstd.c     |   52 +-
+ .../libarchive/archive_write_disk_posix.c          |   30 +-
+ .../libarchive/archive_write_set_format_7zip.c     |    9 +-
+ .../archive_write_set_format_cpio_binary.c         |    4 +-
+ .../archive_write_set_format_cpio_newc.c           |    2 +-
+ .../libarchive/archive_write_set_format_cpio_odc.c |    2 +-
+ .../libarchive/archive_write_set_format_gnutar.c   |   34 +-
+ .../libarchive/archive_write_set_format_iso9660.c  |   18 +-
+ .../libarchive/archive_write_set_format_mtree.c    |    2 +-
+ .../libarchive/archive_write_set_format_pax.c      |    6 +-
+ .../libarchive/archive_write_set_format_ustar.c    |   27 +-
+ .../libarchive/archive_write_set_format_v7tar.c    |   27 +-
+ .../libarchive/archive_write_set_format_xar.c      |    6 +-
+ .../libarchive/archive_write_set_format_zip.c      |   49 +-
+ contrib/libarchive/libarchive/test/test_acl_text.c |   23 +
+ .../libarchive/test/test_archive_pathmatch.c       |   18 +
+ .../test/test_archive_string_conversion.c          |  135 +++
+ .../test/test_gnutar_filename_encoding.c           |   40 +
+ .../libarchive/test/test_read_format_7zip.c        |   26 +
+ .../test/test_read_format_7zip_malformed.c         |   17 +
+ .../test/test_read_format_7zip_malformed3.7z.uu    |   24 +
+ .../test_read_format_7zip_sfx_elf64trunc.elf.uu    |    5 +
+ .../libarchive/test/test_read_format_cab_lzx_oob.c |   45 +
+ .../test/test_read_format_cab_lzx_oob.cab.uu       |   11 +
+ .../test/test_read_format_cab_skip_malformed.c     |   41 +
+ .../test_read_format_cab_skip_malformed.cab.uu     |   95 ++
+ .../test/test_read_format_iso_zisofs_overflow.c    |  104 ++
+ .../test_read_format_iso_zisofs_overflow.iso.uu    | 1096 ++++++++++++++++++++
+ .../test/test_read_format_lha_oversize_header.c    |   50 +
+ .../test_read_format_lha_oversize_header.lzh.uu    |   60 ++
+ .../test/test_read_format_rar5_loop_bug.c          |   53 +
+ .../test/test_read_format_rar5_loop_bug.rar.uu     |  189 ++++
+ .../libarchive/test/test_read_set_format.c         |   34 +
+ .../libarchive/test/test_ustar_filename_encoding.c |   40 +
+ .../libarchive/test/test_v7tar_filename_encoding.c |   67 ++
+ .../test/test_warn_missing_hardlink_target.c       |    2 +-
+ .../libarchive/libarchive/test/test_write_disk.c   |   29 +
+ .../libarchive/test/test_write_disk_perms.c        |   11 +-
+ .../libarchive/test/test_zip_filename_encoding.c   |   40 +
+ .../la_getline.c => libarchive_fe/lafe_getline.c}  |   11 +-
+ .../la_getline.h => libarchive_fe/lafe_getline.h}  |   15 +-
+ contrib/libarchive/tar/bsdtar.c                    |   20 +-
+ contrib/libarchive/tar/read.c                      |    2 +-
+ contrib/libarchive/tar/util.c                      |    8 +-
+ contrib/libarchive/tar/write.c                     |   16 +-
+ contrib/libarchive/test_utils/test_common.h        |    4 +
+ contrib/libarchive/test_utils/test_main.c          |   85 +-
+ contrib/libarchive/unzip/bsdunzip.c                |    6 +-
+ lib/libarchive/tests/Makefile                      |   13 +
+ usr.bin/unzip/Makefile                             |    2 +-
+ 95 files changed, 3019 insertions(+), 372 deletions(-)
+
+[commit 150ac95e4a56855e7ffaa1014d7a82e9eda89f65]
+Date: 2026-04-13
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: Traverse Technologies (providing Ten64 HW for testing)
+Subject: dpaa2: Extract checksum statuses on ingress
+Body:
+
+In order to enable RX checksum offloading we need to check the
+meta-information for the (good) frames to see if the L3/4 checksums
+were calculated and if there was an error.
+
+The way the buffere are setup, the needed frame meta-information is
+already requested. All we have to do is make sure it is really part
+of the RX frame, that it is valid, and if the respective bits are set.
+
+Also do not forget to set the (dummy) csum_data as otherwise upper
+layers will just be cranky. An artefact of the past which likely
+should disappear.
+
+PR:		292006
+Reviewed by:	bz, tuexen
+Tested by:	bz, tuexen
+Approved by:	tuexen
+Obtained from:	bz (initial version, D55320)
+MFC after:	3 days
+Sponsored by:	Traverse Technologies (providing Ten64 HW for testing)
+Differential Revision:	https://reviews.freebsd.org/D56383
+
+(cherry picked from commit 4a6d7fc1a00b69925b3edc39acef0391487a8e3e)
+
+
+ sys/dev/dpaa2/dpaa2_frame.c | 100 ++++++++++++++++++++++++++++++++++++++------
+ sys/dev/dpaa2/dpaa2_frame.h |  63 +++++++++++++++++++++++++++-
+ sys/dev/dpaa2/dpaa2_ni.c    |  76 ++++++++++++++++++++++++++++++++-
+ sys/dev/dpaa2/dpaa2_ni.h    |   6 ++-
+ 4 files changed, 227 insertions(+), 18 deletions(-)
+
+[commit 901aec0a855b5c69b327e423558fbcc001781805]
+Date: 2026-02-08
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: The FreeBSD Foundation
+Subject: linuxkpi: Handle bin attributes in sysfs attribute groups
+Body:
+
+For instance, this is used by DRM drivers to declare the EDID property
+of an GPU output connector:
+
+    sysctl -b sys.device.drmn1.card0.card0-DP-1.edid | edid-decode
+
+    ...
+    Block 0, Base EDID:
+      EDID Structure Version & Revision: 1.4
+      Vendor & Product Identification:
+        Manufacturer: SAM
+        Model: 29814
+        Serial Number: 810635354 (0x3051505a)
+        Made in: week 15 of 2025
+    ...
+
+Reviewed by:	bz, emaste, wulf
+Sponsored by:	The FreeBSD Foundation
+Differential Revision: https://reviews.freebsd.org/D55176
+
+(cherry picked from commit 5bb0f63020669bd3675c651ba7745fc4356edc1a)
+
+
+ sys/compat/linuxkpi/common/include/linux/sysfs.h | 34 +++++++++++++++++-------
+ 1 file changed, 25 insertions(+), 9 deletions(-)
+
+[commit 4d3670980878f20a4b3b53596d23bf1f7fd4e5a6]
+Date: 2026-04-17
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: sctp(4): Fix a typo in a source code comment
+Body:
+
+- s/initited/initiated/
+
+Obtained from:	NetBSD
+
+(cherry picked from commit a154d72775cbf3f0679fb2f989b3d1a035ae41c9)
+
+
+ sys/netinet/sctp_structs.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 16719d34073444c50fcd57d337d0f1246c8e84c9]
+Date: 2026-04-17
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: 
+Subject: rc.conf: Fix typo in comment
+Body:
+
+The correct path is /etc/defaults/rc.conf (defaults in plural).
+
+Reviewed by:	netchild
+Fixes:		cc4eb1ea1040 ("Add support for a /etc/defaults/vendor.conf override file")
+MFC after:	3 days
+Differential Revision:	https://reviews.freebsd.org/D56456
+
+(cherry picked from commit 8e08080ee581dfd30c128d032035da7b6ae44463)
+
+
+ libexec/rc/rc.conf | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit f5f3c16d9256fb8bb2c38e1dd91ca420f240bfd6]
+Date: 2026-03-20
+Score: 5
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: The FreeBSD Foundation
+Subject: ath11k: restore module Makefile
+Body:
+
+During the subtree merge and checking out the updated version of ath12k
+parts of the previous ath11k merge were accidentally undone.
+Retore the ath11k Makefile as well after 3c4eef5d838b restored the
+driver bits.
+
+Fixes:		a96550206e4b ("ath12k: update Atheros/QCA's ath12k ..")
+Sponsored by:	The FreeBSD Foundation
+
+(cherry picked from commit f9795615415074b23faf8e5d937c2ef31045d3d0)
+
+
+ sys/modules/ath11k/Makefile | 63 +++++++++++++++++++++++++++++++--------------
+ 1 file changed, 43 insertions(+), 20 deletions(-)
+

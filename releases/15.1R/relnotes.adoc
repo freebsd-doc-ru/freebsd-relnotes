@@ -127,6 +127,11 @@ This section covers changes and additions to userland applications, contributed 
 [[userland-libraries]]
 === Runtime Libraries and API
 
+[[cloud]]
+== Cloud Support
+
+This section covers changes in support for cloud environments.
+
 [[kernel]]
 == Kernel
 
@@ -169,6 +174,9 @@ This section describes changes that affect networking in FreeBSD.
 
 [[network-general]]
 === General Network
+
+[[wireless-networking]]
+=== Wireless Networking
 
 [[hardware]]
 == Hardware Support

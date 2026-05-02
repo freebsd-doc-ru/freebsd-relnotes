@@ -57,7 +57,6 @@ my %allowed = map { $_ => 1 } qw(
     relnotes_stage2.txt
     relnotes_stage4.txt
     relnotes_stage6.txt
-    relnotes_stage8.txt
     relnotes_stage_review.txt
 );
 

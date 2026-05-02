@@ -193,7 +193,7 @@ Resulting file:
 
 ```
 perl tools/relnotes/bin/relnotes_collect.pl \
---src ~/freebsd-src --from releng/15.0 --to stable/15  \
+--src ~/freebsd-src --from releng/15.0 --to releng/15.1  \
   --release-dir releases/15.1R
 ```
 
@@ -245,7 +245,7 @@ Resulting file:
 
 ```
 perl tools/relnotes/bin/relnotes_collect_stage3.pl \
---src ~/freebsd-src --from releng/15.0 --to stable/15  \
+--src ~/freebsd-src --from releng/15.0 --to releng/15.1  \
   --release-dir releases/15.1R
 ```
 
@@ -297,7 +297,7 @@ Resulting file:
 
 ```
 perl tools/relnotes/bin/relnotes_collect_stage5.pl \
---src ~/freebsd-src --from releng/15.0 --to stable/15  \
+--src ~/freebsd-src --from releng/15.0 --to releng/15.1  \
   --release-dir releases/15.1R
 ```
 
@@ -364,7 +364,7 @@ Resulting file:
 
 ```
 perl tools/relnotes/bin/relnotes_collect_stage_all.pl \
---src ~/freebsd-src --from releng/15.0 --to stable/15  \
+--src ~/freebsd-src --from releng/15.0 --to releng/15.1  \
   --release-dir releases/15.1R
 ```
 

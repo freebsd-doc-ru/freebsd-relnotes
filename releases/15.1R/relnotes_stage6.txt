@@ -3,7 +3,7 @@ Date: 2026-03-08
 Score: 5
 Status: proposed(include=yes,score=35)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: manuals: System message vs kernel message
 Review: Updates man pages to consistently differentiate syslog system messages from kernel messages, improving clarity for operators.
@@ -37,9 +37,9 @@ Closes:		https://github.com/freebsd/freebsd-src/pull/2067
 [commit e2fcde7333a515907316cf1a4ee4858edc90419d]
 Date: 2026-04-08
 Score: 5
-Status: proposed(include=yes,score=95)
+Status: accepted(include=yes,score=95)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: MFV: crypto/openssl: update to 3.5.6
 Review: OpenSSL updated to version 3.5.6.
@@ -326,7 +326,7 @@ Date: 2026-04-10
 Score: 5
 Status: proposed(include=yes,score=25)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: builtin.1: Command list maintenance
 Review: The man:builtin[1] manual page now includes a link to man:return[1] and fixes alphabetical sorting in the rendered output.
@@ -402,12 +402,12 @@ Sponsored by:		https://www.patreon.com/bsdivy
 [commit 6af32a9d37ad689a9a72c45bfeaa6f7e52a33a4f]
 Date: 2026-03-15
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
 Sponsor: The FreeBSD Foundation
 Section: Userland.contrib
 Subject: tcpdump: Update to 4.99.6
-Review: tcpdump updated to version 4.99.6.
+Review: man:tcpdump[1] has been updated to version 4.99.6.
 Body:
 
 Changes:	https://github.com/the-tcpdump-group/tcpdump/blob/tcpdump-4.99/CHANGES
@@ -493,12 +493,12 @@ Differential Revision:	https://reviews.freebsd.org/D55871
 [commit e0ae00f43186a518444e0f750b66d998085239df]
 Date: 2026-03-14
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
 Sponsor: The FreeBSD Foundation
 Section: Userland.contrib
 Subject: libpcap: Update to 1.10.6
-Review: libpcap updated to version 1.10.6.
+Review: libpcap has been updated to version 1.10.6.
 Body:
 
 Changes:	https://raw.githubusercontent.com/the-tcpdump-group/libpcap/89e982c37c36ad0bf9f10b7ded421cb42422effa/CHANGES
@@ -589,12 +589,12 @@ Differential Revision:	https://reviews.freebsd.org/D55858
 [commit 0b94911946e96001963a4ef9222cf117e8d8d4bd]
 Date: 2026-04-02
 Score: 5
-Status: proposed(include=yes,score=90)
+Status: accepted(include=yes,score=90)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: contrib/expat: import expat 2.7.5
-Review: expat updated to version 2.7.5.
+Review: expat has been updated to version 2.7.5.
 Body:
 
 Changes: https://github.com/libexpat/libexpat/blob/R_2_7_5/expat/Changes
@@ -649,12 +649,12 @@ Security:	CVE-2026-25210
 [commit 7176f76d2251331c4ec6fff8d7c699771717f1fa]
 Date: 2026-03-31
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: MFV: xz 5.8.3.
-Review: xz has been updated to version 5.8.3.
+Review: man:xz[1] has been updated to version 5.8.3.
 Body:
 
 Security:	CVE-2026-34743
@@ -701,12 +701,12 @@ Sponsored by:	The FreeBSD Foundation
 [commit 5a35d505bf0c4d16ef94477bfcbc85b9a87b2c0c]
 Date: 2026-03-12
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
 Sponsor: The FreeBSD Foundation
 Section: Drivers.device
 Subject: ath11k: update module Makefile after vendor import of v6.19[-rc6]
-Review: ath11k driver updated to Linux kernel version 6.19-rc6.
+Review: man:ath11k[4] driver updated to Linux kernel version 6.19-rc6.
 Body:
 
 Sponsored by:   The FreeBSD Foundation
@@ -722,7 +722,7 @@ Date: 2026-02-13
 Score: 5
 Status: proposed(include=no,score=10)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: kmsan: Implement __msan_test_shadow()
 Review: The commit adds __msan_test_shadow() to support building OpenZFS with KMSAN enabled, which is an internal development tool for kernel memory sanitizer testing and has no direct user-visible impact.
@@ -772,7 +772,7 @@ Date: 2026-03-27
 Score: 5
 Status: proposed(include=no,score=1)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: if_types: Fix a typo in a source code comment
 Review: Typo fix in a comment only, no user-visible impact.
@@ -791,12 +791,12 @@ Obtained from:	OpenBSD
 [commit 74f357256769e12c3a843c75d1def483234312f3]
 Date: 2026-03-13
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: MFC: MFV: zlib 1.3.2.
-Review: zlib has been updated to version 1.3.2.
+Review: man:zlib[3] has been updated to version 1.3.2.
 Body:
 
 Relnotes:	yes
@@ -846,7 +846,7 @@ Relnotes:	yes
 [commit a9b93531788cc125c928cc3488975f0330f75137]
 Date: 2026-03-01
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
 Sponsor: Yandex LLC
 Section: Network.general
@@ -891,9 +891,9 @@ Differential Revision:  https://reviews.freebsd.org/D53694
 [commit a6f17dd2430b92b88a98f10ed35936e7e80f636b]
 Date: 2026-02-13
 Score: 5
-Status: proposed(include=yes,score=65)
+Status: accepted(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.programs
 Subject: diff3: fix merge mode
 Review: The man:diff3[1] utility's merge mode is made compatible with GNU diff3, improving interoperability with other systems and tools.
@@ -963,7 +963,7 @@ Date: 2026-03-13
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Storage.general
 Subject: tarfs: swap deprecated ZSTD_resetDStream() with ZSTD_DCtx_reset()
 Review: The tarfs driver now uses the non-deprecated ZSTD_DCtx_reset() API for Zstandard decompression, maintaining compatibility with newer zstd library versions.
@@ -988,7 +988,7 @@ Date: 2026-03-03
 Score: 5
 Status: proposed(include=yes,score=30)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: rallocx path: only set errno on the realloc case.
 Review: jemalloc updated to include a fix for errno handling in rallocx.
@@ -1011,7 +1011,7 @@ Date: 2026-03-03
 Score: 5
 Status: proposed(include=yes,score=40)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: Set errno to ENOMEM on rallocx() OOM failures
 Review: jemalloc's rallocx() function now sets errno to ENOMEM on out-of-memory failures, aligning its behavior with realloc().
@@ -1035,7 +1035,7 @@ Pull Request:	https://github.com/freebsd/freebsd-src/pull/2059
 [commit 7fe98ee4d49ad4a7c5e994a999567aec4b34f84e]
 Date: 2026-03-02
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
 Sponsor: Spectra Logic
 Section: Storage.general
@@ -1124,7 +1124,7 @@ Date: 2026-01-27
 Score: 5
 Status: proposed(include=yes,score=40)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: Merge commit 81b20e110b3f from llvm git (by Roland McGrath):
 Review: libc++ updated to work with GCC 15 type_traits builtins, ensuring compatibility during the transition.
@@ -1217,7 +1217,7 @@ Date: 2026-03-03
 Score: 5
 Status: proposed(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: contrib/tzdata: import tzdata 2026a
 Review: tzdata updated to version 2026a.
@@ -1245,7 +1245,7 @@ Date: 2026-03-04
 Score: 5
 Status: proposed(include=no,score=5)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: ObsoleteFiles.inc: revert accidental merge failure
 Review: Exclude: internal file cleanup with no user-visible impact.
@@ -1260,12 +1260,12 @@ Reported by:	des
 [commit a8dbd836b7856aa6f12cb2442a224fdb58d17f54]
 Date: 2026-03-02
 Score: 5
-Status: proposed(include=yes,score=100)
+Status: accepted(include=yes,score=100)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: zfs: merge openzfs/zfs@1c702dda3 (zfs-2.4-release) into stable/15
-Review: OpenZFS updated to version 2.4.1.
+Review: OpenZFS has been updated to version 2.4.1.
 Body:
 
 OpenZFS 2.4.1
@@ -1462,7 +1462,7 @@ Date: 2026-02-07
 Score: 5
 Status: proposed(include=no,score=10)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: ath10k: usb: make compile using [a future] linuxkpi_usb
 Review: The ath10k USB driver is updated to compile with a future linuxkpi_usb, but remains incomplete and non-functional for users. It warns that USB support is incomplete and hardware probing fails, so there is no practical user-visible improvement.
@@ -1498,7 +1498,7 @@ Date: 2026-02-09
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Drivers.device
 Subject: ahci: Restrict NVMe redirection by BAR size
 Review: The ahci driver now restricts NVMe redirection based on BAR size, preventing potential issues with older Intel hardware emulators.
@@ -1550,7 +1550,7 @@ Date: 2026-02-09
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.programs
 Subject: traceroute: MFC: graceful recover after networking errors with as_server
 Review: The man:traceroute[8] and man:traceroute6[8] utilities now gracefully recover from networking errors when communicating with the as_server during AS number lookups with the -a flag. This prevents the loss of AS number display for subsequent hops after a connection interruption, particularly in traces with many non-responding hops.
@@ -1596,7 +1596,7 @@ Date: 2026-01-31
 Score: 5
 Status: proposed(include=yes,score=100)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: OpenSSL: update vendor sources to match 3.5.5 content
 Review: OpenSSL updated to version 3.5.5.
@@ -2567,7 +2567,7 @@ Date: 2026-02-01
 Score: 5
 Status: proposed(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: OpenSSL: commit sys/crypto changes for 3.5.5
 Review: OpenSSL updated to version 3.5.5.
@@ -2596,7 +2596,7 @@ Date: 2026-01-31
 Score: 5
 Status: proposed(include=yes,score=100)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: openssl: import 3.5.5
 Review: OpenSSL updated to version 3.5.5.
@@ -4899,12 +4899,12 @@ Merge commit '808413da28df9fb93e1f304e6016b15e660f54c8'
 [commit 0029027156f419fc60839ed87863eedccabfde5c]
 Date: 2026-01-28
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: GoogleTest: import 1.17.0
-Review: GoogleTest updated to version 1.17.0. The new version now requires C++17 to build.
+Review: GoogleTest has been updated to version 1.17.0. The new version now requires {cpp}17 to build.
 Body:
 
 The changes between the two versions can be found in this diff of the
@@ -4988,7 +4988,7 @@ Date: 2026-02-15
 Score: 5
 Status: proposed(include=no,score=10)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: libnetbsd: import the `__nothing` macro
 Review: The commit imports the `__nothing` macro from NetBSD for use in tests, which is an internal development tool with no direct user-visible impact.
@@ -5011,7 +5011,7 @@ Date: 2026-02-07
 Score: 5
 Status: proposed(include=no,score=10)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: openzfs sys/types32.h: use abi_compat.h for time32_t
 Review: The commit updates internal header files for OpenZFS to use abi_compat.h for time32_t, which is a low-level implementation detail with no direct user-visible impact.
@@ -5028,12 +5028,12 @@ Body:
 [commit 9b2cba4a8a690bc6d4ac174cc2f2daddbc43a84d]
 Date: 2026-02-10
 Score: 5
-Status: proposed(include=yes,score=15)
+Status: accepted(include=yes,score=15)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: usb_vendors: update to 2025.12.13
-Review: USB vendor database updated to 2025.12.13.
+Review: USB vendor database has been updated to 2025.12.13.
 Body:
 
 (cherry picked from commit 8d4c1043bb0630710cbea9f744cdaef499c0ed79)
@@ -5045,12 +5045,12 @@ Body:
 [commit 2483216eecf34c8a19277ea37b322cd660183645]
 Date: 2026-02-10
 Score: 5
-Status: proposed(include=yes,score=70)
+Status: accepted(include=yes,score=70)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: pci_vendors: update to 2026-02-10
-Review: The PCI vendor database is updated to the 2026-02-10 version, providing current hardware identification for tools like pciconf(8).
+Review: The PCI vendor database has been updated to the 2026-02-10 version, providing current hardware identification for tools like man:pciconf[8].
 Body:
 
 (cherry picked from commit 1acfc913e6b936dec3effc7d1e902a50e5432406)
@@ -5062,12 +5062,12 @@ Body:
 [commit 297d5bf8906776137aeac82e48ca2e87944d95b7]
 Date: 2026-01-14
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: ncurses: merge update to ncurses 6.6
-Review: ncurses updated to version 6.6. The update is ABI compatible with version 6.5. HTML documentation is removed.
+Review: ncurses has been updated to version 6.6. The update is ABI compatible with version 6.5. HTML documentation is removed.
 Body:
 
 6.6 is ABI compatible with 6.5 (tested with abidiff)
@@ -5500,7 +5500,7 @@ Date: 2026-02-18
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: Merge commit bfb276e55c76 from upstream OpenZFS (by Jessica Clarke)
 Review: Fixes incorrect time_t size detection for PowerPC architectures in OpenZFS, ensuring proper compatibility with FreeBSD's 64-bit time_t on PowerPC.
@@ -5564,12 +5564,12 @@ Sponsored by:	Klara, Inc.
 [commit 0c370a416b683287b3cb9e346446d203b2a57371]
 Date: 2026-02-02
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
 Sponsor: Microchip Technology Inc.
 Section: Drivers.device
 Subject: smartpqi: Update to vendor version 14.4690.0.2008 - 15.2.0.2008
-Review: smartpqi driver updated to vendor version 14.4690.0.2008 - 15.2.0.2008. The update adds support for new controllers and increases the I/O buffer size limit for passthrough ioctl from 16-bit to 32-bit.
+Review: smartpqi driver has been updated to vendor version 14.4690.0.2008 - 15.2.0.2008. The update adds support for new controllers and increases the I/O buffer size limit for passthrough ioctl from 16-bit to 32-bit.
 Body:
 
 Update to versions:
@@ -5638,7 +5638,7 @@ Date: 2026-02-11
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Storage.general
 Subject: Fix `send:raw` permission for send `-w -I`
 Review: The man:zfs[8] send command with -w -I options now correctly respects the 'send:raw' delegated permission instead of requiring the broader 'send' permission.
@@ -5668,7 +5668,7 @@ Date: 2025-12-30
 Score: 5
 Status: proposed(include=no,score=10)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: CI: Add Alpine Linux 3.23 runner to the pipeline (#18087)
 Review: Adds an Alpine Linux 3.23 runner to the CI pipeline for OpenZFS testing, with associated compatibility fixes. The runner is not enabled by default and does not affect production builds or user installations.
@@ -5709,12 +5709,12 @@ Reviewed-by: Tino Reichardt <milky-zfs@mcmilk.de>
 [commit d73fac00cdd413ebfe6f18907ea9ca4cb6051200]
 Date: 2026-02-07
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: MFV: Import blocklist 2026-02-07 (10a907f)
-Review: blocklistd updated to version 2026-02-07.
+Review: man:blocklistd[8] has been updated to version 2026-02-07.
 Body:
 
 Merge commit 'a39ba5e2935176fe982235556e46ba3f51178187'
@@ -5778,7 +5778,7 @@ Date: 2026-01-21
 Score: 5
 Status: proposed(include=no,score=5)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: sym(4): Use memcpy(9) instead of bcopy(9)
 Review: The commit replaces bcopy(9) with memcpy(9) in the sym(4) driver, which is an internal implementation change with no user-visible impact.
@@ -5797,12 +5797,12 @@ Obtained from:	BSD-licensed Linux sym53c8xx driver
 [commit da4c7b4518ddc7c395ea476b1c543ee01034962c]
 Date: 2026-02-01
 Score: 5
-Status: proposed(include=yes,score=35)
+Status: accepted(include=yes,score=35)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: contrib/spleen: Update to 2.2.O
-Review: Spleen font updated to version 2.2.0. The update adds several previously missing characters critical for manual pages on high-dpi displays, including em-dash, en-dash, hyphen, angle brackets, white square, dagger, and double dagger. It also improves character alignment across different font sizes.
+Review: Spleen font has been updated to version 2.2.0. The update adds several previously missing characters critical for manual pages on high-dpi displays, including em-dash, en-dash, hyphen, angle brackets, white square, dagger, and double dagger. It also improves character alignment across different font sizes.
 Body:
 
 This release adds several new characters critical to the manual pages
@@ -5834,7 +5834,7 @@ Date: 2026-01-06
 Score: 5
 Status: proposed(include=yes,score=30)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: cxgbe.4: Update for recent HARDWARE
 Review: Updates man:cxgbe[4] documentation to include Chelsio T7 adapter support and reorganizes hardware list reverse chronologically.
@@ -5862,7 +5862,7 @@ Date: 2026-01-08
 Score: 5
 Status: proposed(include=no,score=10)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: icp: emit .note.GNU-stack section for all ELF targets
 Review: The commit fixes a build warning for the zfs kernel module when linking with binutils ld 2.44, but this is an internal build detail with no direct user-visible impact. It does not affect functionality, behavior, or configuration.
@@ -5903,7 +5903,7 @@ Date: 2026-01-05
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Storage.general
 Subject: Rename several printf attributes declarations to __printf__
 Review: Renames printf attribute declarations in OpenZFS to avoid compilation errors with clang 21+ when building the kernel.
@@ -5945,9 +5945,9 @@ Closes #18095
 [commit 144c1eda397330eeb79cd6fe312f80f5d3f1952f]
 Date: 2025-12-22
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Network.general
 Subject: nfs: Add some support for POSIX draft ACLs
 Review: Adds support for POSIX draft ACLs in NFSv4.2, currently limited to UFS filesystems with the 'acls' option. Interoperability with non-supporting NFSv4.2 clients and servers is maintained.
@@ -5984,7 +5984,7 @@ Date: 2025-09-16
 Score: 5
 Status: proposed(include=no,score=20)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: crypto/openssl: fix importing new versions from pristine trees
 Review: Fixes a build issue when importing new OpenSSL versions from pristine trees by ensuring the compiler is properly passed to Configure.
@@ -6012,7 +6012,7 @@ Date: 2025-10-11
 Score: 5
 Status: proposed(include=no,score=10)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: crypto/openssl: update vendor update instructions
 Review: The commit replaces the plain text vendor update instructions for OpenSSL with a Markdown version and updates the documentation, but does not change any user-visible functionality, configuration, or behavior.
@@ -6068,7 +6068,7 @@ Date: 2026-01-26
 Score: 5
 Status: proposed(include=yes,score=100)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: openssl: Fix multiple vulnerabilities
 Review: OpenSSL updated to version 3.0.16+ with fixes for multiple security vulnerabilities including stack buffer overflows, heap out-of-bounds writes, NULL pointer dereferences, and improper validation in PKCS#12, CMS, TLS 1.3, and other components.
@@ -6132,7 +6132,7 @@ Date: 2026-01-16
 Score: 5
 Status: proposed(include=yes,score=25)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Drivers.device
 Subject: vchiq: fix build with clang 21
 Review: Suppresses a clang 21 warning when building the vchiq driver, allowing successful compilation with newer compilers.
@@ -6197,7 +6197,7 @@ Date: 2026-01-11
 Score: 5
 Status: proposed(include=yes,score=60)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: Import latest mtree from NetBSD
 Review: The mtree(8) man page is updated to clarify that the "type" keyword remains mandatory when using the "-R all" option, ensuring consistent behavior.
@@ -6279,7 +6279,7 @@ Date: 2026-01-05
 Score: 5
 Status: proposed(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: libarchive: merge from vendor branch
 Review: libarchive updated to version 3.8.5. This includes important bugfixes, such as a fix for a regression in bsdtar's zero-length pattern handling from version 3.8.4.
@@ -6328,7 +6328,7 @@ Date: 2025-12-01
 Score: 5
 Status: proposed(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: libarchive: merge from vendor branch
 Review: libarchive updated to version 3.8.4. This includes important bug fixes for bsdtar pattern handling and directory traversal.
@@ -6372,7 +6372,7 @@ Date: 2025-11-19
 Score: 5
 Status: proposed(include=yes,score=95)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: libarchive: merge from vendor branch
 Review: libarchive has been updated to version 3.8.3. This includes important bug fixes for temporary file creation, buffer overruns in LHA and 7-Zip handling, and support for LZ4 and Zstd data with leading skippable frames.
@@ -6428,7 +6428,7 @@ Date: 2025-12-12
 Score: 5
 Status: proposed(include=yes,score=40)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: pci_vendors: update to version 2025-12-12
 Review: pci_vendors database updated to version 2025-12-12.
@@ -6445,7 +6445,7 @@ Date: 2025-10-28
 Score: 5
 Status: proposed(include=yes,score=40)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: pci_vendors: update to 2025-10-18
 Review: The PCI vendor database is updated to the 2025-10-18 version, providing current vendor and device identification information.
@@ -6462,7 +6462,7 @@ Date: 2025-10-28
 Score: 5
 Status: proposed(include=yes,score=25)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: usb_vendors: update to 2025-09-15
 Review: USB vendor database updated to 2025-09-15.
@@ -6479,7 +6479,7 @@ Date: 2026-01-08
 Score: 5
 Status: proposed(include=no,score=10)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: zfs: emit .note.GNU-stack section for all ELF targets
 Review: The commit fixes a build warning for the ZFS kernel module when linking with binutils ld 2.44, but it is a minor internal build fix without user-visible impact.
@@ -6521,7 +6521,7 @@ Date: 2025-12-31
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: Merge commit faa5141b9be4 from file git (by Christos Zoulas):
 Review: The file(1) utility now correctly handles magic.mgc files built on systems with different endianness, fixing cross-endian builds.
@@ -6545,12 +6545,12 @@ MFC after:	3 days
 [commit 11aa32794394d3300b8a7f51ab00006a36987060]
 Date: 2025-12-03
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: Update to bmake-20251111
-Review: bmake updated to version 20251111.
+Review: man:bmake[1] has been updated to version 20251111.
 Body:
 
 Merge commit '638c66de4a0faa4c2e815e81cd4021c2387c7e0f'
@@ -6735,9 +6735,9 @@ Differential Revision:	https://reviews.freebsd.org/D54192
 [commit e16e4cd25c1d83abcf8ec90c50d6dc146c8d74dc]
 Date: 2025-12-21
 Score: 5
-Status: proposed(include=yes,score=75)
+Status: accepted(include=yes,score=75)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Drivers.device
 Subject: mfi(4): Add subvendor and subdevice for Fujitsu RAID Controller SAS 6Gbit/s 1GB (D3116)
 Review: The mfi(4) driver now supports the Fujitsu RAID Controller SAS 6Gbit/s 1GB (D3116) used in Fujitsu PRIMERGY servers.
@@ -6852,7 +6852,7 @@ Date: 2025-12-30
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Storage.general
 Subject: zfs: rename several printf attribute declarations to __printf__
 Review: The commit renames printf attribute declarations in OpenZFS to maintain compatibility with FreeBSD kernel printf extensions when building with clang 21+. This prevents build errors in ZFS modules.
@@ -6895,7 +6895,7 @@ Date: 2025-12-30
 Score: 5
 Status: proposed(include=no,score=0)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: ncurses: avoid warnings about too-long initializer strings
 Review: Error, not correct JSON Failed to parse the request body as JSON: messages[1].content: invalid escape at line 1 column 6326
@@ -6927,7 +6927,7 @@ Date: 2025-11-17
 Score: 5
 Status: proposed(include=yes,score=25)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: contrib/mandoc: document .St -ieee754-2008 in mdoc(7)
 Review: Documentation for the .St -ieee754-2008 macro is added to the mdoc(7) manual page.
@@ -6948,7 +6948,7 @@ Date: 2025-11-17
 Score: 5
 Status: proposed(include=yes,score=40)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: contrib/mandoc: add -ieee754-2008
 Review: The mandoc utility now supports the -ieee754-2008 macro, which is used for generating man pages that reference IEEE 754-2008 standards.
@@ -6971,7 +6971,7 @@ Date: 2025-12-17
 Score: 5
 Status: proposed(include=yes,score=30)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: example.3: Show updated library macro usage
 Review: The commit updates a documentation example to reflect the deprecation of the LIBRARY section in man:mandoc[1], showing the updated usage of the Lb macro in SYNOPSIS.
@@ -6992,7 +6992,7 @@ Date: 2025-12-23
 Score: 5
 Status: proposed(include=yes,score=15)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: udl.4: Consolidate HARDWARE and add HISTORY
 Review: The man:udl[4] manual page is updated to consolidate HARDWARE and DESCRIPTION sections and add HISTORY information.
@@ -7016,7 +7016,7 @@ Date: 2025-12-23
 Score: 5
 Status: proposed(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: MFV 762f11d98d5cd57ebbe85c36e9e86a557a91fe4e: xz 5.8.2.
 Review: xz has been updated to version 5.8.2.
@@ -7063,12 +7063,12 @@ Body:
 [commit 791fb098c9e84282b7d061c5708569757e6c65a3]
 Date: 2025-12-19
 Score: 5
-Status: proposed(include=yes,score=65)
+Status: accepted(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: Import latest mtree from NetBSD
-Review: mtree updated to version from NetBSD, incorporating fixes from PRs 192839 and 219467.
+Review: man:mtree[8] has been updated to version from NetBSD.
 Body:
 
 Merge commit 'eb2ccba0c11b405ac613c3046997765317cc8b5c'
@@ -7091,7 +7091,7 @@ Date: 2025-12-24
 Score: 5
 Status: proposed(include=yes,score=95)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: zfs: merge openzfs/zfs@743334913 (zfs-2.4-release) into stable/15
 Review: OpenZFS has been updated to version 2.4.0. This includes bug fixes for space leaks, deadlocks in snapshot automount expiry, and zpool command conflicts.
@@ -7173,7 +7173,7 @@ Date: 2025-12-16
 Score: 5
 Status: proposed(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: MFV: Import blocklist 2025-12-15 (8a4b011)
 Review: blocklistd updated to version 2025-12-15.
@@ -7200,7 +7200,7 @@ Date: 2025-12-16
 Score: 5
 Status: proposed(include=no,score=10)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: blocklist: Add vendor import instructions
 Review: Adds vendor import instructions and a script to adapt blocklist for FreeBSD, but does not represent a user-visible change in functionality or an update to the software itself.
@@ -7227,7 +7227,7 @@ Date: 2025-12-13
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: Import latest mtree from NetBSD
 Review: mtree updated to version from NetBSD, bringing various improvements and fixes to the file system hierarchy comparison and creation tool.
@@ -7258,7 +7258,7 @@ Date: 2025-12-18
 Score: 5
 Status: proposed(include=no,score=10)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: Revert "ipfilter: Add missing kenv fetch"
 Review: The commit reverts a previous change that added a missing kenv fetch for ipfilter, but the underlying dependency has not been merged, so there is no net user-visible change.
@@ -7278,7 +7278,7 @@ Date: 2025-11-13
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Bootloader.general
 Subject: arm64: Fix calculating kernel size for preload metadata
 Review: Fixes a kernel size calculation for preload metadata on arm64, ensuring correct kernel image size for boot.
@@ -7303,7 +7303,7 @@ Date: 2025-11-12
 Score: 5
 Status: proposed(include=yes,score=20)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: apm(8): Drop MLINK to apmconf(8)
 Review: The man:apm[8] manual page no longer includes a link to the obsolete man:apmconf[8] page.
@@ -7325,7 +7325,7 @@ Date: 2025-12-01
 Score: 5
 Status: proposed(include=no,score=35)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: ctfmerge: fix segfault when building on macOS
 Review: Fixes a race condition and segmentation fault when building ctfmerge on macOS by replacing deprecated semaphores with condition variables.
@@ -7351,12 +7351,12 @@ Differential Revision:	https://reviews.freebsd.org/D54018
 [commit c439ae17b1b8dce71e36df45738c8430ec0c7a4e]
 Date: 2025-12-06
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
 Sponsor: The FreeBSD Foundation
 Section: Network.wireless
 Subject: ath11k: update Atheros/QCA's ath11k driver
-Review: The ath11k wireless driver is updated to a new upstream version based on Linux kernel v6.18. This update includes bug fixes, performance improvements, and new features for supported Atheros/QCA wireless chipsets.
+Review: The man:ath11k[4] wireless driver has been updated to a new upstream version based on Linux kernel v6.18. This update includes bug fixes, performance improvements, and new features for supported Atheros/QCA wireless chipsets.
 Body:
 
 This version is based on
@@ -7442,12 +7442,12 @@ Sponsored by:   The FreeBSD Foundation
 [commit 17c0fbc240c323a2ddeb875d2a9fcbfc2960d378]
 Date: 2025-12-06
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
 Sponsor: The FreeBSD Foundation
 Section: Drivers.device
 Subject: ath10k: update Atheros/QCA's ath10k driver
-Review: The ath10k wireless driver is updated to a newer version based on Linux kernel v6.18. This update includes various improvements and bug fixes for Atheros/QCA wireless devices.
+Review: The man:ath10k[4] wireless driver is updated to a newer version based on Linux kernel v6.18. This update includes various improvements and bug fixes for Atheros/QCA wireless devices.
 Body:
 
 This version is based on
@@ -7513,12 +7513,12 @@ Sponsored by:	The FreeBSD Foundation
 [commit 1fa2a48dab667057068d0b5568954d842adebf84]
 Date: 2025-12-06
 Score: 5
-Status: proposed(include=yes,score=75)
+Status: accepted(include=yes,score=75)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Drivers.device
 Subject: ath-common: update common Atheros/QCA code
-Review: ath-common driver code updated to Linux kernel version 6.17, improving Atheros/QCA wireless hardware support.
+Review: man:ath[4] driver code updated to Linux kernel version 6.17, improving Atheros/QCA wireless hardware support.
 Body:
 
 This version is based on
@@ -7546,7 +7546,7 @@ Date: 2025-12-14
 Score: 5
 Status: proposed(include=yes,score=75)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Storage.general
 Subject: zfs: Merge commit 86b064469dc9c2 from OpenZFS
 Review: The commit fixes a potential null pointer dereference in the ZFS filesystem's fsync implementation for FIFO (named pipe) cases, preventing a kernel panic when syncing named pipes.
@@ -7585,7 +7585,7 @@ Date: 2025-12-11
 Score: 5
 Status: proposed(include=yes,score=95)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: contrib/tzdata: import tzdata 2025c
 Review: tzdata updated to version 2025c.
@@ -7625,7 +7625,7 @@ Date: 2025-11-17
 Score: 5
 Status: proposed(include=no,score=10)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: CI: Add smatch static analysis workflow
 Review: Adds a GitHub Actions workflow for smatch static analysis of OpenZFS code. This is an internal development tool change with no direct user-visible impact.
@@ -7655,7 +7655,7 @@ Date: 2025-11-21
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: lldb: Fix empty register set when trying to get size of register
 Review: Fixes a bug in lldb where register information could be missing during debugging sessions on x86_64, improving debugger reliability.
@@ -7682,7 +7682,7 @@ Date: 2025-11-21
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: lldb: Fix Architecture parsing by reading the ELF header. (#162811)
 Review: LLDB now correctly parses ELF headers to determine process architecture, improving debugging compatibility between architectures.
@@ -7709,12 +7709,12 @@ Obtained from:	llvm-project 394e7ded8b6bcff1382468b407ca620a2837f41b
 [commit e65e9bc1b4dd4503b77c311dafdfc77eabe3243c]
 Date: 2025-12-06
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
 Sponsor: The FreeBSD Foundation
 Section: Network.wireless
 Subject: rtw88: update Realtek's rtw88 driver
-Review: The Realtek rtw88 wireless driver is updated to a newer upstream version based on Linux kernel v6.18.
+Review: The Realtek man:rtw88[4] wireless driver is updated to a newer upstream version based on Linux kernel v6.18.
 Body:
 
 This version is based on
@@ -7735,12 +7735,12 @@ Sponsored by:	The FreeBSD Foundation
 [commit e37206a66db0bc359901435ecc09726fc6fe701d]
 Date: 2025-12-02
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: sqlite3: Update to 3.50.4
-Review: sqlite3 updated to version 3.50.4.
+Review: man:sqlite3[1] has been updated to version 3.50.4.
 Body:
 
 Release notes at https://www.sqlite.org/releaselog/3_50_4.html.
@@ -7764,7 +7764,7 @@ Date: 2025-11-28
 Score: 5
 Status: proposed(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: Remove TableGen objects from libllvm, fixing bad option registrations
 Review: Fixes a regression where LLVM tools like llvm-cov and llvm-as would fail with 'CommandLine Error: Option 'o' registered more than once!' due to conflicting global command line option objects.
@@ -7828,7 +7828,7 @@ Date: 2025-11-21
 Score: 5
 Status: proposed(include=yes,score=95)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: Mitigate YXDOMAIN and nodata non-referral answer poisoning.
 Review: The unbound DNS resolver mitigates a cache poisoning vulnerability (CVE-2025-11411) for YXDOMAIN and nodata non-referral answers.
@@ -7854,7 +7854,7 @@ Date: 2025-11-23
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: Reapply "Merge commit e24f90190c77 from llvm git (by Brad Smith):"
 Review: The commit enables outline atomics for FreeBSD/aarch64 in the compiler and ensures libgcc_s is linked against libcompiler_rt.a, affecting users building with bootstrapped compilers. This resolves build issues where libgcc_s could not find required helper routines.
@@ -7906,7 +7906,7 @@ Date: 2025-11-18
 Score: 5
 Status: proposed(include=yes,score=60)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Network.general
 Subject: ipfw: fix lookup dst-ip opcode
 Review: The ipfw firewall no longer incorrectly falls through to LOOKUP_DSCP opcode handling for destination IP lookups, preventing potential misclassification of packets.
@@ -7929,7 +7929,7 @@ Date: 2025-11-20
 Score: 5
 Status: proposed(include=no,score=5)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: ObsoleteFiles.inc: Fix up incorrect merge
 Review: Internal build system cleanup; no user-visible impact.
@@ -7949,7 +7949,7 @@ Date: 2025-11-18
 Score: 5
 Status: proposed(include=yes,score=100)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: zfs: merge openzfs/zfs@099f69ff5 (zfs-2.4-release) into stable/15
 Review: OpenZFS updated to version 2.4.0 rc4.
@@ -8142,12 +8142,12 @@ Differential Revision:	https://reviews.freebsd.org/D53546
 [commit ca36afaf671b776ee7b6c878c7b9c94852908dd1]
 Date: 2025-11-10
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: MFV: less v685.
-Review: less has been updated to version 685.
+Review: man:less[1] has been updated to version 685.
 Body:
 
 (cherry picked from commit d5cb458b4b58b0f0b3c058a32439f232fd5455ca)
@@ -8193,7 +8193,7 @@ Date: 2025-11-07
 Score: 5
 Status: proposed(include=no,score=15)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: random: Have RANDOM_PURE_START be a cross-platform source
 Review: The commit reorders entropy sources to place a cross-platform source at the start and deprecated sources at the end, which may affect the randomness initialization sequence but does not introduce new user-visible features, remove functionality, or change configurations.
@@ -8220,7 +8220,7 @@ Date: 2025-10-17
 Score: 5
 Status: proposed(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Hardware.virtualization
 Subject: vmm: Fix a deadlock between vm_smp_rendezvous() and vcpu_lock_all()
 Review: The commit fixes a deadlock between vm_smp_rendezvous() and vcpu_lock_all() in the vmm subsystem, which could occur when booting Windows guests. This resolves a potential system hang in virtualized environments.
@@ -8360,12 +8360,12 @@ Sponsored by:	The FreeBSD Foundation
 [commit aa2fe36f5e4b3b907af2ea94945ae9cab7263d0c]
 Date: 2025-10-09
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accept(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
 Sponsor: The FreeBSD Foundation
 Section: Userland.contrib
 Subject: contrib/bsddialog: Import version 1.0.5
-Review: bsddialog updated to version 1.0.5.
+Review: man:bsddialog[1] has been updated to version 1.0.5.
 Body:
 
 Version for change and feature requests.
@@ -8436,7 +8436,7 @@ Date: 2025-10-11
 Score: 5
 Status: proposed(include=yes,score=25)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: OpenSSL: install .pc files from the exporters subdir
 Review: OpenSSL pkg-config (.pc) files are now installed from the correct location, avoiding post-installation fixes. Orphaned build files are removed.
@@ -8478,7 +8478,7 @@ Date: 2025-10-11
 Score: 5
 Status: proposed(include=no,score=30)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: crypto/openssl: remove autogenerated files
 Review: Removes autogenerated OpenSSL configuration files that contained build host paths and adds them to .gitignore to prevent accidental re-addition.
@@ -8510,7 +8510,7 @@ Date: 2025-10-03
 Score: 5
 Status: proposed(include=yes,score=95)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: crypto/openssl: update to 3.5.4
 Review: OpenSSL updated to version 3.5.4.
@@ -8589,7 +8589,7 @@ Date: 2025-09-22
 Score: 5
 Status: proposed(include=yes,score=100)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: crypto/openssl: update component to 3.5.3
 Review: OpenSSL updated to version 3.5.3.
@@ -8770,7 +8770,7 @@ Date: 2025-08-21
 Score: 5
 Status: proposed(include=no,score=10)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: undecided
 Subject: crypto/openssl: apply polish to new vendor import process
 Review: The commit improves the internal vendor import process for OpenSSL by isolating the build environment and adding debug printouts, but these changes are internal build system improvements with no direct user-visible impact.
@@ -8797,7 +8797,7 @@ Date: 2025-10-28
 Score: 5
 Status: proposed(include=yes,score=40)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: dtrace/arm64: properly traverse the symbol table
 Review: The commit fixes a bug in the DTrace FBT provider on arm64 where the symbol table traversal could stop prematurely, improving reliability of DTrace function boundary tracing on that architecture.
@@ -8826,7 +8826,7 @@ Date: 2025-10-30
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: bhyve.8: Correct description for -c flag, tag spdx
 Review: The man:bhyve[8] manual page now correctly documents the full syntax for the -c flag, which supports complex CPU topology specifiers beyond just <numcpus>.
@@ -8853,7 +8853,7 @@ Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=10)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.programs
 Subject: fwcontrol(8): Fix a typo in a message
 Review: Fixes a typo in an error message displayed by man:fwcontrol[8].
@@ -8872,7 +8872,7 @@ Date: 2025-10-31
 Score: 5
 Status: proposed(include=yes,score=65)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: Revert "Merge commit e24f90190c77 from llvm git (by Brad Smith):"
 Review: The commit reverts a change that previously disabled outline atomics for FreeBSD/aarch64, re-enabling them. This affects code generation for aarch64 targets, potentially improving performance or compatibility.
@@ -8898,7 +8898,7 @@ Date: 2025-10-29
 Score: 5
 Status: proposed(include=yes,score=75)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: Merge commit e24f90190c77 from llvm git (by Brad Smith):
 Review: The LLVM/Clang driver now enables outline atomics for FreeBSD/aarch64, allowing the compiler to generate calls to compiler_rt helper functions for atomic operations on systems where they are available.
@@ -8922,7 +8922,7 @@ Date: 2025-10-27
 Score: 5
 Status: proposed(include=yes,score=60)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: MFV: Import blocklist 2025-10-26 (ff13526)
 Review: blocklistd updated to version 2025-10-26.
@@ -8949,7 +8949,7 @@ Date: 2025-10-25
 Score: 5
 Status: proposed(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: MFV: Import blocklist 2025-10-25 (156df4f)
 Review: blocklistctl and blocklistd updated to version 2025-10-25.
@@ -9021,7 +9021,7 @@ Date: 2025-10-21
 Score: 5
 Status: proposed(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: libarchive: merge from vendor branch
 Review: libarchive updated to version 3.8.2. This includes security fixes for CVE-2025-25724 and other bug fixes affecting archive extraction, compression, and file descriptor handling.
@@ -9177,10 +9177,10 @@ Date: 2025-10-17
 Score: 5
 Status: proposed(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Drivers.device
 Subject: iwlwifi: update Intel's mvm/mld drivers
-Review: Intel iwlwifi wireless drivers updated to Linux kernel v6.17-based version. The update includes new Multi-Link Device (MLD) driver support and various firmware API changes.
+Review: Intel man:iwlwifi[4] wireless drivers updated to Linux kernel v6.17-based version. The update includes new Multi-Link Device (MLD) driver support and various firmware API changes.
 Body:
 
 This version is based on
@@ -9417,12 +9417,12 @@ Obtained from:	git://git.kernel.org/pub/scm/linux/kernel/git/iwlwifi/iwlwifi-nex
 [commit fc3c317b055cfd835e4b7720e708bf32738146d6]
 Date: 2025-10-23
 Score: 5
-Status: proposed(include=yes,score=90)
+Status: accepted(include=yes,score=90)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: unbound: Vendor import 1.24.1
-Review: Unbound updated to version 1.24.1.
+Review: man:unbound[8] has been updated to version 1.24.1.
 Body:
 
 Release notes at
@@ -9584,7 +9584,7 @@ Date: 2025-10-08
 Score: 5
 Status: proposed(include=yes,score=40)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: local-unbound-setup: Set so-sndbuf to 0
 Review: The local-unbound-setup script now sets so-sndbuf to 0 to prevent Unbound 1.24.0+ from attempting to allocate a 4 MB socket buffer, which is unnecessary for local resolver usage and could cause startup warnings.
@@ -9610,7 +9610,7 @@ Date: 2025-10-07
 Score: 5
 Status: proposed(include=yes,score=90)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: unbound: Vendor import 1.24.0
 Review: Unbound updated to version 1.24.0.
@@ -9756,7 +9756,7 @@ Date: 2025-10-25
 Score: 5
 Status: proposed(include=yes,score=90)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: zfs: merge openzfs/zfs@814f9afba (zfs-2.4-release) into stable/15
 Review: OpenZFS updated to version 2.4.0-rc3. This includes bug fixes and improvements such as corrected mount/share error handling, ashift warnings suppression, and zpool iostat regression fixes.
@@ -9937,7 +9937,7 @@ Date: 2025-09-25
 Score: 5
 Status: proposed(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Drivers.device
 Subject: pci: add quirk to disable Function-Level Reset (FLR)
 Review: Adds a quirk to disable Function-Level Reset (FLR) for MediaTek mt76 WiFi cards, which prevents the cards from becoming unresponsive after a reset. This allows the cards to be discovered and used under bhyve, enabling wifibox functionality and development for a LinuxKPI-based mt76 driver.
@@ -10031,7 +10031,7 @@ Differential Revision: https://reviews.freebsd.org/D52825
 [commit f0033878b92e1a00120fec4edf590715f7c4ecbc]
 Date: 2025-10-09
 Score: 5
-Status: proposed(include=yes,score=85)
+Status: accepted(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
 Sponsor: The FreeBSD Foundation
 Section: Kernel.general
@@ -10093,7 +10093,7 @@ Date: 2025-10-12
 Score: 5
 Status: proposed(include=yes,score=85)
 CollectedAt: 2026-04-18T11:55:55 UTC
-Sponsor: 
+Sponsor:
 Section: Userland.contrib
 Subject: MFV: Import blocklist 2025-04-28 (8aa81bf)
 Review: blocklistd updated to version 2025-04-28. The update includes a rename from 'blacklist' to 'blocklist' for binaries, libraries, and configuration files, which may require user adjustments. A backward-incompatible database change requires a new database to be created on service start.
@@ -10187,4 +10187,1106 @@ Differential Revision:  https://reviews.freebsd.org/D52869
  contrib/blocklist/test/cltest.c                    |   6 +-
  contrib/blocklist/test/srvtest.c                   |  42 +++-
  58 files changed, 1293 insertions(+), 587 deletions(-)
+
+[commit ace0a38a9756748c225cdf7270858b3cc35a3154]
+Date: 2025-10-03
+Score: 5
+Status: proposed(include=no,score=5)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: The FreeBSD Foundation
+Section: undecided
+Subject: style.9: Encourage style changes when doing significant modifications
+Review: Minor documentation update clarifying code style guidelines; no user-visible functional impact.
+Body:
+
+The rule of allowing style changes when about half or more of a file (or
+group of files), coupled with the advice of avoiding stylistic changes,
+could be interpreted as forbidding most style changes, even in heavily
+modified functions.
+
+In order to rule out that interpretation and ease transition towards our
+prescribed style:
+1. Clarify that avoiding stylistic changes concerns only "standalone"
+   ones.
+2. Actually encourage changing the style, and extend the cases where it
+   is explicitly allowed to do so to any single logical unit as little
+   as a function, keeping the existing "about half" of modified code as
+   a rule of thumb.
+
+When point 2 above applies, encourage to commit pure style changes
+separately, and to add style-only commits to '.git-blame-ignore-revs'.
+
+Add a specific note ruling out "horizontal" style changes spanning
+unrelated directories in the whole tree, which make the merge (MFC)
+process more difficult.
+
+While here, be slightly more stringent on new kernel code.
+
+While here, regroup the paragraphs talking about style, and put them at
+the end (before the recent C++ section).
+
+While here, rephrase the requirement on third-party maintained code to
+be slightly less stringent.
+
+Reviewed by:    jhb, imp
+Sponsored by:   The FreeBSD Foundation
+Differential Revision:  https://reviews.freebsd.org/D52885
+
+(cherry picked from commit af2c7d9f6452f2281a832b03375910f99230f924)
+
+
+ share/man/man9/style.9 | 52 +++++++++++++++++++++++++++++---------------------
+ 1 file changed, 30 insertions(+), 22 deletions(-)
+
+[commit 04f744ce91efbb37f89b8e6d04f24af111e8bd8f]
+Date: 2026-04-23
+Score: 5
+Status: proposed(include=yes,score=70)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: Hardware.virtualization
+Subject: arm64/vmm: Enable 16-bit VMIDs when in use by pmap
+Review: Fix for ARM64 VMM VMID aliasing on hardware supporting 16-bit VMIDs. The commit enables 16-bit VMIDs in VTCR_EL2 when the pmap supports them, preventing VMID aliasing issues.
+Body:
+
+pmap_init always uses 16-bit VMIDs when supported, but we never enable
+them in VTCR_EL2 (for ASIDs, locore enables them in TCR_EL1 and
+pmap_init keys off whether they've been enabled, but the order in which
+pmap_init and vmmops_modinit run is reversed). As a result, although the
+full 16-bit value can be stored to VTTBR_EL2 and read back, the upper 8
+bits are treated as 0, and so VMIDs that our VMID allocation believes
+are distinct end up aliasing.
+
+In future this interface may change such that vmm decides on the VMID
+width and tells the pmap to use that, with appropriate support for
+unloading and reloading vmm, but that can come as a follow-up change, as
+this is a more minimal bug fix.
+
+Reviewed by:	markj
+Obtained from:	CheriBSD
+Fixes:		47e073941f4e ("Import the kernel parts of bhyve/arm64")
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D55860
+
+(cherry picked from commit 44e4f45aec4469440af434098e61bd13982bbbc0)
+
+
+ sys/arm64/arm64/pmap.c         | 11 +++++++++++
+ sys/arm64/include/hypervisor.h |  2 ++
+ sys/arm64/include/pmap.h       |  1 +
+ sys/arm64/vmm/vmm_arm64.c      |  2 ++
+ 4 files changed, 16 insertions(+)
+
+[commit cef2f7b440ffa67271690a6aba532e4c090772db]
+Date: 2026-03-31
+Score: 5
+Status: proposed(include=no,score=5)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: undecided
+Subject: ifnet: Fix races in if_vmove_reclaim()
+Review: This is a race condition fix with no user-visible configuration, feature or behavior change.
+Body:
+
+The thread running if_vmove_reclaim() may race with other threads those
+running if_detach(), if_vmove_loan() or if_vmove_reclaim(). In case the
+current thread loses race, two issues arise,
+
+ 1. It is unstable and unsafe to access ifp->if_vnet,
+ 2. The interface is removed from "active" list, hence if_unlink_ifnet()
+    can fail.
+
+For the first case, check against source prison's vnet instead, given
+the interface is obtained from that vnet.
+
+For the second one, return ENODEV to indicate the interface was on the
+list but the current thread loses race, to distinguish from ENXIO, which
+means the interface or child prison is not found. This is the same with
+if_vmove_loan().
+
+Reviewed by:	kp, pouria
+Fixes:		a779388f8bb3 if: Protect V_ifnet in vnet_if_return()
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D55997
+
+(cherry picked from commit ee9456ce37539da5b651945eea18502f290eb133)
+
+
+ sys/net/if.c | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+
+[commit a989b0fbc965b453d97e3d032efb4f9c7592734a]
+Date: 2026-03-17
+Score: 5
+Status: proposed(include=no,score=5)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: undecided
+Subject: ifnet: Remove unreachable code
+Review: Removes unreachable code in the network interface layer; no functional change for users.
+Body:
+
+The ioctls SIOCSIFVNET and SIOCSIFRVNET are for userland only. For
+SIOCSIFVNET, if_vmove_loan(), the interface is obtained from current
+VNET. For SIOCSIFRVNET, if_vmove_reclaim(), a valid child prison is
+held before getting the interface. In both cases the VNET of the
+obtained interfaces is stable, so there's no need to check it.
+
+No functional change intended.
+
+Reviewed by:	glebius, jamie (for #jails)
+MFC after:	2 weeks
+Differential Revision:	https://reviews.freebsd.org/D55828
+
+(cherry picked from commit e0731059af912a27d0f842959218946b1daaa7d1)
+
+
+ sys/net/if.c | 18 ------------------
+ 1 file changed, 18 deletions(-)
+
+[commit bcef4427a470274ba1f0c5fa7affe41253a93633]
+Date: 2025-07-27
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: Drivers.device
+Subject: ahci(4): Add another device ID for Marvell 9128 SATA controller: 0x91a3
+Review: ahci(4) now supports the Marvell 88SE9128 SATA controller with PCI device ID 0x91a3.
+Body:
+
+This was encountered on a Gigabyte GA-P55A-UD4 motherboard identifying itself
+as:
+ahci0@pci0:2:0:0:       class=0x01018f rev=0x11 hdr=0x00 vendor=0x1b4b device=0x91a3 subvendor=0x1458 subdevice=0xb000
+    vendor     = 'Marvell Technology Group Ltd.'
+    class      = mass storage
+    subclass   = ATA
+
+The physical chip has "88SE9128-NAA2" printed on it.
+
+Similar code has been in Linux for a long time:
+https://github.com/torvalds/linux/commit/50be5e3657cd2851a297dc0b3fd459f25829d29b
+
+Co-authored-by:	Michael Osipov <michaelo@FreeBSD.org>
+PR:		288526
+Reviewed by:	jhb
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D56464
+
+(cherry picked from commit c72edc2b2eb283450df8db05cf9321aee7de0bcb)
+
+
+ sys/dev/ahci/ahci_pci.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+[commit 8d584f064885495d47811c98027a8005ea5135c1]
+Date: 2026-03-29
+Score: 5
+Status: proposed(include=no,score=5)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: undecided
+Subject: bluetooth: remove redundant 0x0bda entries from ng_ubt_rtl, rtlbtfw
+Review: This is an internal cleanup that removes redundant per-product entries; no user-visible behavior change occurs.
+Body:
+
+Generic Realtek vendor rules already match all 0x0bda Bluetooth devices.
+Remove the redundant per-product entries from ng_ubt_rtl.c,
+rtlbtfw main.c, and rtlbtfw.conf.
+
+Reviewed by:	wulf
+MFC after:	1 month
+Differential Revision:	https://reviews.freebsd.org/D56137
+
+(cherry picked from commit f3fc362c0fb27731e2c22523e0cedf1adec26c44)
+
+
+ sys/netgraph/bluetooth/drivers/ubt/ng_ubt_rtl.c | 24 +++------
+ usr.sbin/bluetooth/rtlbtfw/main.c               | 24 +++------
+ usr.sbin/bluetooth/rtlbtfw/rtlbtfw.conf         | 68 -------------------------
+ 3 files changed, 12 insertions(+), 104 deletions(-)
+
+[commit 1e5aff8e5bc607f6bfaaf982b9c07ce365cd9bf4]
+Date: 2026-04-23
+Score: 5
+Status: accepted(include=yes,score=90)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: Userland.contrib
+Subject: contrib/tzdata: import tzdata 2026b
+Review: tzdata has been updated to 2026b.
+Body:
+
+Changes: https://github.com/eggert/tz/blob/2026b/NEWS
+
+(cherry picked from commit 9b95cab0a2927dfe07dbe6dc0056a80d5c730414)
+
+
+ contrib/tzdata/NEWS         | 53 +++++++++++++++++++++++++++++++++++-------
+ contrib/tzdata/northamerica | 56 ++++++++++++++++++++++++++++++++++++++++++++-
+ contrib/tzdata/version      |  2 +-
+ contrib/tzdata/zone.tab     |  2 +-
+ contrib/tzdata/zone1970.tab |  2 +-
+ contrib/tzdata/zonenow.tab  |  3 +++
+ 6 files changed, 106 insertions(+), 12 deletions(-)
+
+[commit 0b97aba5c25be8a76cca6f77a40a972a7e70a98f]
+Date: 2026-02-20
+Score: 5
+Status: proposed(include=no,score=5)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: undecided
+Subject: libnetbsd: import `__CTASSERT(..)` macros
+Review: Internal addition of a compile-time assert macro for NetBSD compatibility; no user-visible impact.
+Body:
+
+These compile-time assert macros are similar to `Static_assert` on FreeBSD.
+
+These macros are in use in newer versions of `contrib/netbsd-tests`.
+
+Obtained from:	https://github.com/NetBSD/src (c26cc77b3a0b26b95a2)
+MFC after:	1 week
+
+(cherry picked from commit d1f1402dff63dd163d4ba4ac65f7f2ffd00c5e08)
+
+
+ lib/libnetbsd/sys/cdefs.h | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+[commit 1f86a86b21fc4e2796d5d489ad0a8e6148328790]
+Date: 2026-02-25
+Score: 5
+Status: proposed(include=no,score=5)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: undecided
+Subject: lib/libnetbsd: bring in `__type_m{ax,in}*` macro family
+Review: Internal addition of type macros for NetBSD compatibility; no user-visible impact.
+Body:
+
+These macros are used by some of the NetBSD tests which calculate the
+size of types, e.g., `__type_max(time_t)`.
+
+This wraps up the set of macros needed in order to update to the a
+netbsd-tests snapshot from this past month.
+
+Obtained from:	https://github.com/netbsd/src (55b4b44)
+MFC after:	1 week
+
+(cherry picked from commit db5344a7445f1a796bc3cacd32a46e88e3e589a7)
+
+
+ lib/libnetbsd/sys/cdefs.h | 30 ++++++++++++++++++++++++++++++
+ 1 file changed, 30 insertions(+)
+
+[commit f8162575f2114c26e52753ece0fac9738b97a79e]
+Date: 2026-02-25
+Score: 5
+Status: proposed(include=no,score=5)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: undecided
+Subject: libnetbsd: add math.h and sys/time.h
+Review: Internal addition of header stubs for libnetbsd to support tests; no user-visible impact.
+Body:
+
+- `math.h`: `isinff(..)`
+- `sys/time.h`: `timespec*(x)`
+
+These two headers are used by tests in newer snapshots of
+`contrib/netbsd-tests`.
+
+MFC after:	1 week
+
+(cherry picked from commit 2a6c2d9c38dc421025b6c18cac68fe9965c574c0)
+
+
+ lib/libnetbsd/math.h     | 14 ++++++++++++++
+ lib/libnetbsd/sys/time.h | 35 +++++++++++++++++++++++++++++++++++
+ 2 files changed, 49 insertions(+)
+
+[commit b44a9bd37e605e5f9a06af5a39ac26eb6962239c]
+Date: 2026-03-01
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: Drivers.device
+Subject: asmc: output the SMC firmware revision on attach
+Review: The commit adds a device_printf message on attach to display the SMC firmware revision, providing diagnostic information for asmc(4) users.
+Body:
+
+The SMC firmware revision can prove helpful when determining why the
+behavior of a given controller varies from the maintainers' expected
+behavior.
+
+This should be a sysctl (eventually), but for now dumping out the
+information via `device_printf(..)` suffices, given that only one
+asmc(4) compatible device can exist in an Apple platform at any
+given point in time. This will become a sysctl in the future after
+additional improvements are incorporated from OpenBSD and NetBSD.
+
+MFC after:	1 week
+Obtained from:	https://github.com/openbsd/src/ (sys/dev/acpi/asmc.c @ 142d064)
+Differential Revision: https://reviews.freebsd.org/D55577
+
+(cherry picked from commit e81e724358e43dcf951e244a9df9df3eaa983fe9)
+
+
+ sys/dev/asmc/asmc.c    | 11 +++++++++--
+ sys/dev/asmc/asmcvar.h |  3 +++
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+
+[commit 3541e09bbbcb65074b69bc66216de2c1c4aee7c2]
+Date: 2026-04-09
+Score: 5
+Status: proposed(include=yes,score=60)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: Userland.programs
+Subject: mfiutil(8)/mrsasutil(8): "show drives" truncates information
+Review: The 'show drives' command in mfiutil(8) and mrsasutil(8) now no longer truncates vendor-specific information.
+Body:
+
+Improve mfi_pd_inq_string() by
+* Reusing buffer sizes from cam/cam.h according to SCSI specification + NULL byte
+* Don't truncate vendor-specific information by escaping into a too small buffer
+* Use cam_strvis() from libcam instead of old, outdated local copy
+* Recaculate size of inq_string based on the reused buffer sizes and
+  format statements
+
+PR:		294354
+Reviewed by:	imp
+MFC after:	2 weeks
+Differential Revision:	https://reviews.freebsd.org/D56328
+
+(cherry picked from commit 850eb149e7ab0733fcf9469a607dca223ff467ad)
+
+
+ usr.sbin/mfiutil/Makefile    |  2 +-
+ usr.sbin/mfiutil/mfi_drive.c | 59 +++++++++-----------------------------------
+ 2 files changed, 13 insertions(+), 48 deletions(-)
+
+[commit ae4ae80a27a348474f0be17168bd5f2d9dbdd960]
+Date: 2026-03-10
+Score: 5
+Status: proposed(include=yes,score=75)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: Chelsio Communications
+Section: Userland.programs
+Subject: pciconf: Add a tree mode
+Review: pciconf adds a tree mode to display PCI devices in a hierarchy showing parent/child relationships with new-bus device names or PCI selectors.
+Body:
+
+This lists PCI devices in a hierarchy showing the parent/child
+relationship of PCI devices and bridges.  While this is inspired by
+lspci -t output, the format is closer to ps -d and also prefers using
+new-bus device names when possible.  If a device does not have a
+driver, the PCI selector is output in place of the device name.
+
+When the -v flag is given, the vendor and device ID strings are output
+after the device name.  If a string for an ID isn't found, the hex ID
+values are output instead.
+
+Reviewed by:	imp
+Sponsored by:	Chelsio Communications
+Differential Revision:	https://reviews.freebsd.org/D55774
+
+(cherry picked from commit 14b8a27883c15d3add3114f855eff7c6bda1b015)
+
+
+ usr.sbin/pciconf/pciconf.8 |  24 +++++
+ usr.sbin/pciconf/pciconf.c | 255 ++++++++++++++++++++++++++++++++++++++++++++-
+ 2 files changed, 277 insertions(+), 2 deletions(-)
+
+[commit d17f7f9e911ad77ac14cb2974935c57931a7720b]
+Date: 2026-02-17
+Score: 5
+Status: proposed(include=no,score=10)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: undecided
+Subject: vchiq: Fix return type of vchiq_copy_from_user
+Review: Internal fix for a compile-time type mismatch in the VCHIQ driver. No user-visible impact.
+Body:
+
+Change the function definition to map the declaration and consistently
+return an enum value.  This fixes the following error reported by GCC:
+
+sys/contrib/vchiq/interface/vchiq_arm/vchiq_2835_arm.c:322:1: error: conflicting types for 'vchiq_copy_from_user' due to enum/integer mismatch; have 'int(void *, const void *, int)' [-Werror=enum-int-mismatch]
+  322 | vchiq_copy_from_user(void *dst, const void *src, int size)
+      | ^~~~~~~~~~~~~~~~~~~~
+In file included from sys/contrib/vchiq/interface/vchiq_arm/vchiq_arm.h:38,
+                 from sys/contrib/vchiq/interface/vchiq_arm/vchiq_2835_arm.c:61:
+sys/contrib/vchiq/interface/vchiq_arm/vchiq_core.h:647:1: note: previous declaration of 'vchiq_copy_from_user' with type 'VCHIQ_STATUS_T(void *, const void *, int)'
+  647 | vchiq_copy_from_user(void *dst, const void *src, int size);
+      | ^~~~~~~~~~~~~~~~~~~~
+
+Differential Revision:	https://reviews.freebsd.org/D55163
+
+(cherry picked from commit 1101292a555d24c11d7630b638dc25e1ed22c061)
+
+
+ sys/contrib/vchiq/interface/vchiq_arm/vchiq_2835_arm.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+[commit 63e4b5c5e92422abbb7f08f973d34ba7402b82d7]
+Date: 2026-01-27
+Score: 5
+Status: proposed(include=no,score=15)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: undecided
+Subject: kyua: Workaround unclear warning from GCC
+Review: Internal build fix for kyua compilation with GCC 15; no user-visible change.
+Body:
+
+GCC 15 does not like a push_back() invocation in utils::find_core()
+and incorrectly believes libc++ will free a non-heap pointer.  Disable
+the warning to pacify GCC.
+
+In function 'void std::__1::__libcpp_operator_delete(_Args ...) [with _Args = {void*, long unsigned int}]',
+    inlined from 'void std::__1::__do_deallocate_handle_size(void*, size_t, _Args ...) [with _Args = {}]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/new:298:39,
+    inlined from 'void std::__1::__libcpp_deallocate(void*, size_t, size_t)' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/new:311:39,
+    inlined from 'void std::__1::allocator<_Tp>::deallocate(_Tp*, size_t) [with _Tp = utils::fs::path]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/__memory/allocator.h:132:31,
+    inlined from 'static void std::__1::allocator_traits<_Alloc>::deallocate(allocator_type&, pointer, size_type) [with _Alloc = std::__1::allocator<utils::fs::path>]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/__memory/allocator_traits.h:314:19,
+    inlined from 'std::__1::__split_buffer<_Tp, _Allocator>::~__split_buffer() [with _Tp = utils::fs::path; _Allocator = std::__1::allocator<utils::fs::path>&]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/__split_buffer:365:31,
+    inlined from 'std::__1::vector<_Tp, _Alloc>::pointer std::__1::vector<_Tp, _Alloc>::__push_back_slow_path(_Up&&) [with _Up = utils::fs::path; _Tp = utils::fs::path; _Allocator = std::__1::allocator<utils::fs::path>]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/vector:1504:1,
+    inlined from 'void std::__1::vector<_Tp, _Alloc>::push_back(value_type&&) [with _Tp = utils::fs::path; _Allocator = std::__1::allocator<utils::fs::path>]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/vector:1526:34,
+    inlined from 'utils::optional<utils::fs::path> utils::find_core(const fs::path&, const process::status&, const fs::path&)' at contrib/kyua/utils/stacktrace.cpp:217:25:
+/usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/new:274:38: error: 'void operator delete(void*, size_t)' called on pointer '<unknown>' with nonzero offset [24, 9223372036854775807] [-Werror=free-nonheap-object]
+  274 |   __builtin_operator_delete(__args...);
+      |                                      ^
+In function 'void* std::__1::__libcpp_operator_new(_Args ...) [with _Args = {long unsigned int}]',
+    inlined from 'void* std::__1::__libcpp_allocate(size_t, size_t)' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/new:289:31,
+    inlined from '_Tp* std::__1::allocator<_Tp>::allocate(size_t) [with _Tp = utils::fs::path]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/__memory/allocator.h:118:54,
+    inlined from 'constexpr std::__1::__allocation_result<typename std::__1::allocator_traits<_Alloc>::pointer> std::__1::__allocate_at_least(_Alloc&, size_t) [with _Alloc = allocator<utils::fs::path>]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/__memory/allocate_at_least.h:41:27,
+    inlined from 'std::__1::__split_buffer<_Tp, _Allocator>::__split_buffer(size_type, size_type, __alloc_rr&) [with _Tp = utils::fs::path; _Allocator = std::__1::allocator<utils::fs::path>&]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/__split_buffer:353:49,
+    inlined from 'std::__1::vector<_Tp, _Alloc>::pointer std::__1::vector<_Tp, _Alloc>::__push_back_slow_path(_Up&&) [with _Up = utils::fs::path; _Tp = utils::fs::path; _Allocator = std::__1::allocator<utils::fs::path>]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/vector:1498:47,
+    inlined from 'void std::__1::vector<_Tp, _Alloc>::push_back(value_type&&) [with _Tp = utils::fs::path; _Allocator = std::__1::allocator<utils::fs::path>]' at /usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/vector:1526:34,
+    inlined from 'utils::optional<utils::fs::path> utils::find_core(const fs::path&, const process::status&, const fs::path&)' at contrib/kyua/utils/stacktrace.cpp:216:25:
+/usr/obj/.../amd64.amd64/tmp/usr/include/c++/v1/new:265:42: note: returned from 'void* operator new(size_t)'
+  265 |   return __builtin_operator_new(__args...);
+      |                                          ^
+
+Reviewed by:	imp, dim
+Differential Revision:	https://reviews.freebsd.org/D54868
+
+(cherry picked from commit 5c504c625d1faffd7cc7c3dfece62c72c012b4c5)
+
+
+ usr.bin/kyua/Makefile | 2 ++
+ 1 file changed, 2 insertions(+)
+
+[commit 441beb326fbf62a36f129a0766fa6b8d4cf994a1]
+Date: 2026-01-27
+Score: 5
+Status: proposed(include=no,score=0)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: undecided
+Subject: netbsd-tests t_regex_att: Use __nonstring for a non-string constant
+Review: Error, not correct JSON Failed to parse the request body as JSON: messages[1].content: invalid escape at line 1 column 6260
+Body:
+
+Fixes the following warning from GCC 15:
+
+contrib/netbsd-tests/lib/libc/regex/t_regex_att.c:54:30: error: initializer-string for array of 'char' truncates NUL terminator but destination lacks 'nonstring' attribute (4 chars into 3 available) [-Werror=unterminated-string-initialization]
+   54 | static const char delim[3] = "\\\\\0";
+      |                              ^~~~~~~~
+
+Reviewed by:	ngie, imp, dim
+Differential Revision:	https://reviews.freebsd.org/D54866
+
+(cherry picked from commit 2dea50a661b903513efc42e270c4e6f5c2b89bc3)
+
+
+ contrib/netbsd-tests/lib/libc/regex/t_regex_att.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit c62cae9b53fe2c5e52a185d3ed37f55ef383f064]
+Date: 2026-01-21
+Score: 5
+Status: proposed(include=no,score=1)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: AFRL, DARPA
+Section: undecided
+Subject: rpctls_impl.c: Use a direct cast to uintptr_t instead of __DECONST
+Review: Internal build fix for CHERI and 32-bit architectures with no user-visible impact.
+Body:
+
+This fixes the build on CHERI architectures where the compiler warns
+about a direct cast between uint64_t and const void * inside of
+__DECONST.  However, GCC would also complain about this on 32-bit
+kernels due to uint64_t not being the same size as a pointer.  Also,
+a direct cast to uintptr_t to right-size the cookie value is more
+direct than using __DECONST given that there is no "const" pointer
+involved in the expression.
+
+Reviewed by:	brooks, glebius
+Obtained from:	CheriBSD
+Sponsored by:	AFRL, DARPA
+Differential Revision:	https://reviews.freebsd.org/D54797
+
+(cherry picked from commit 5eb1d4eec67685a933cedd5a20fbec86febcd3a9)
+
+
+ sys/rpc/rpcsec_tls/rpctls_impl.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 4f536daec8fbfc05ae0097a825386848056cbbbd]
+Date: 2026-01-14
+Score: 5
+Status: proposed(include=no,score=5)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: AFRL, DARPA
+Section: undecided
+Subject: rtld: Switch to using <assert.h> for assert
+Review: Internal refactoring in the runtime linker; no user-visible changes.
+Body:
+
+The stock assert() works because rtld-libc includes a custom
+implementation of __assert().
+
+Reviewed by:	imp, kib
+Obtained from:	CheriBSD
+Sponsored by:	AFRL, DARPA
+Differential Revision:	https://reviews.freebsd.org/D54712
+
+(cherry picked from commit 3ea97c9de2b24c685d42be12dd57fad2f67b3f1b)
+
+
+ libexec/rtld-elf/debug.h | 5 +----
+ 1 file changed, 1 insertion(+), 4 deletions(-)
+
+[commit 3c01c7df984019d3db1b7a1d5e4d61d8c366df28]
+Date: 2026-01-14
+Score: 5
+Status: proposed(include=no,score=10)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: AFRL, DARPA
+Section: undecided
+Subject: rtld: Use uintptr_t instead of Elf_Addr for init/fini function pointers
+Review: No user-visible impact: internal type change for CHERI support only.
+Body:
+
+This is a no-op on non-CHERI architectures, but is required for CHERI
+where Elf_Addr is only an address and not a complete pointer.
+
+While here, consistently use `uintptr_t *` for arrays of init/fini
+function pointers.
+
+Reviewed by:	imp, kib
+Effort:		CHERI upstreaming
+Obtained from:	CheriBSD
+Sponsored by:	AFRL, DARPA
+Differential Revision:	https://reviews.freebsd.org/D54711
+
+(cherry picked from commit e96ec1a1eb935aa2febcbf9629a52c85297a088e)
+
+
+ libexec/rtld-elf/rtld.c | 42 ++++++++++++++++++++----------------------
+ libexec/rtld-elf/rtld.h | 10 +++++-----
+ 2 files changed, 25 insertions(+), 27 deletions(-)
+
+[commit 4bbc38778316711e552ada29bf15c0f850351974]
+Date: 2026-01-14
+Score: 5
+Status: proposed(include=no,score=5)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: AFRL, DARPA
+Section: undecided
+Subject: rtld: Simplify walking program headers
+Review: Internal refactoring of program header handling in the runtime link-editor; no user-visible impact.
+Body:
+
+Store phnum in Obj_Entry instead of phsize and use that to simplify
+the terminate expressions when iterating over program headers.
+
+Reviewed by:	kib
+Obtained from:	CheriBSD
+Sponsored by:	AFRL, DARPA
+Differential Revision:	https://reviews.freebsd.org/D54710
+
+(cherry picked from commit 31a440a0e9a26fee109ed753e3493c72b9dc05e9)
+
+
+ libexec/rtld-elf/map_object.c      |  2 +-
+ libexec/rtld-elf/powerpc/reloc.c   |  4 +---
+ libexec/rtld-elf/powerpc64/reloc.c |  4 +---
+ libexec/rtld-elf/rtld.c            | 18 ++++++++----------
+ libexec/rtld-elf/rtld.h            |  2 +-
+ 5 files changed, 12 insertions(+), 18 deletions(-)
+
+[commit cee4e16cb6fbaf1c5b9ed8daad69986886e96af7]
+Date: 2026-03-03
+Score: 5
+Status: proposed(include=no,score=20)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: Klara, Inc.
+Section: undecided
+Subject: libutil: take a size_t in trimdomain()
+Review: The function signature of trimdomain() in libutil has been changed to accept size_t instead of int, with backward compatibility provided via symbol versioning.
+Body:
+
+INT_MAX is already larger than a reasonable hostname might be, but
+size_t makes some of this easier to reason about as we do arithmetic
+with it.  This would maybe not be worth it if we had to bump the
+soversion because of it, but libutil does symbol versioning now so we
+can provide a compat shim.
+
+While we're here, fix some inconsistencies in argument names in the
+manpage.
+
+Reviewed by:	des
+Obtained from:	https://github.com/apple-oss-distributions/libutil
+Sponsored by:	Klara, Inc.
+
+(cherry picked from commit 7e70589b1bee4853cb11e3d8eb963079b18ff534)
+
+
+ lib/libutil/Symbol.map   |  5 ++++-
+ lib/libutil/libutil.h    |  2 +-
+ lib/libutil/trimdomain.3 |  8 ++++----
+ lib/libutil/trimdomain.c | 18 +++++++++++++++++-
+ 4 files changed, 26 insertions(+), 7 deletions(-)
+
+[commit 8696cc8d0bbf4a87bc7c87186b0c5d35253b91ca]
+Date: 2025-12-03
+Score: 5
+Status: proposed(include=yes,score=50)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: The FreeBSD Foundation
+Section: Network.wireless
+Subject: rtw89: fix mismerge
+Review: Fix for a merge error in the rtw89 wireless driver where missing lines were added back, correcting the FreeBSD-specific part of the v6.17 driver update.
+Body:
+
+Due to FreeBSD-specific code it seems a code update was not applied
+to the FreeBSD part during the v6.17 driver update.
+Add the missing lines.
+
+Sponsored by:	The FreeBSD Foundation
+Fixes:		b35044b38f74c
+
+(cherry picked from commit adb16cd389c3456cbd538b658c3c0af5145dde91)
+
+
+ sys/contrib/dev/rtw89/core.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+[commit 342a37387f313ae691190d69f11400620521a268]
+Date: 2026-04-15
+Score: 5
+Status: proposed(include=no,score=10)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: The FreeBSD Foundation
+Section: undecided
+Subject: LinuxKPI: 802.11: set IEEE80211_MIN_ACTION_SIZE according to struct
+Review: Internal improvement to LinuxKPI 802.11 action size calculation; no user-visible impact.
+Body:
+
+IEEE80211_MIN_ACTION_SIZE came up in the mt76 vendor subtree merge
+as one of the non-mechanical changes which made me look.
+Rather than (incorrectly) hand counting the offset from the beginning
+of a frame, use the offset from the beginning of struct ieee80211_mgmt.
+
+Sponsored by:	The FreeBSD Foundation
+
+(cherry picked from commit f252ce00898d17f4892534934b8097cd7ccb9e26)
+
+
+ sys/compat/linuxkpi/common/include/linux/ieee80211.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+[commit 3548ab72de58a5351c78529a282c6ef56428eed1]
+Date: 2026-04-14
+Score: 5
+Status: proposed(include=yes,score=50)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: The FreeBSD Foundation
+Section: Drivers.device
+Subject: LinuxKPI: sync overflow.h from Linux v7.0
+Review: Synced overflow.h to support updated wireless drivers.
+Body:
+
+overflow.h was imported directly from Linux in 3208d4ad2b8320a.
+Update the file to the newer version as needed for v7.0 driver updates.
+
+Sponsored by:	The FreeBSD Foundation
+Obtained from:	git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+		028ef9c96e96197026887c0f092424679298aae8 (tag: v7.0)
+Reviewed by:	emaste, dumbbell
+Differential Revision: https://reviews.freebsd.org/D56394
+
+(cherry picked from commit d2c85255d4fca37ec9774f85f867f8fc89a51269)
+
+
+ .../linuxkpi/common/include/linux/overflow.h       | 144 +++++++++++++++++++--
+ 1 file changed, 130 insertions(+), 14 deletions(-)
+
+[commit 5c8640e863a1366752a123441a5b686e7c8401eb]
+Date: 2026-04-12
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: Userland.libraries
+Subject: hid: Change Usage Page names to match documentation
+Review: HID Usage Page names in userland are updated to match USB HID documentation.
+Body:
+
+According to "HID Usage Tables FOR Universal Serial Bus (USB)"
+Usage Page ID range 0x93-0xF1CF is "Reserved" and Usage Page ID range
+0xFF00-0xFFFF is "Vendor-defined".
+
+MFC after:	1 week
+
+(cherry picked from commit 2ba6ce584a8cab75262cb86a5daf310d6706890c)
+
+
+ sys/dev/hid/hid.h | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+[commit 393c53fd219d7f4f00413d49943714623cd52b5d]
+Date: 2026-03-29
+Score: 5
+Status: proposed(include=yes,score=42)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: Drivers.device
+Subject: hkbd(4): be more cautious & explicit about Apple vendor checking
+Review: Tightened Apple vendor checking in hkbd(4) and ukbd(4) drivers for improved device identification robustness.
+Body:
+
+Apply the changes to ukbd(4) as well.
+
+Signed-off-by: tslight <tslight@pm.com>
+
+Reviewed by:	wulf
+MFC after:	1 month
+Pull Request:	https://github.com/freebsd/freebsd-src/pull/1998
+
+(cherry picked from commit 103325323c7daf9fe6c9a6c71aa5c90974c9dff4)
+
+
+ sys/dev/hid/hkbd.c            | 63 +++++++++++++++++++++++--------------------
+ sys/dev/usb/input/ukbd.c      | 57 +++++++++++++++++++++------------------
+ sys/modules/hid/hkbd/Makefile |  2 +-
+ 3 files changed, 66 insertions(+), 56 deletions(-)
+
+[commit 26408151bb1d952e37ff25bfb9cc200332a5e13a]
+Date: 2026-03-11
+Score: 5
+Status: proposed(include=yes,score=70)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: Drivers.device
+Subject: rtlbtfw(8): Add support for Realtek 8852CE
+Review: Support for Realtek 8852CE Bluetooth hardware added.
+Body:
+
+Add the USB Vendor/Product ID (0x13d3:0x3612) for
+the new Realtek 8852CE drive to make sure it works.
+
+Signed-off-by: Ying Xu <fakeshadow1337@gmail.com>
+Reviewed by: pouria, wulf
+Pull Request: https://github.com/freebsd/freebsd-src/pull/2071
+
+(cherry picked from commit 2e9366982798144764159f9c0faced5f0e208b85)
+
+
+ sys/netgraph/bluetooth/drivers/ubt/ng_ubt_rtl.c | 1 +
+ usr.sbin/bluetooth/rtlbtfw/main.c               | 1 +
+ usr.sbin/bluetooth/rtlbtfw/rtlbtfw.conf         | 2 +-
+ 3 files changed, 3 insertions(+), 1 deletion(-)
+
+[commit e60d2d53ed838ac50d25080abc415e387b404f09]
+Date: 2026-04-13
+Score: 5
+Status: proposed(include=yes,score=95)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: Userland.contrib
+Subject: libarchive: merge from vendor branch
+Review: libarchive has been updated to 3.8.7.
+Body:
+
+libarchive 3.8.7
+
+Important bugfixes:
+ #2871 libarchive: fix handling of option failures
+ #2897 iso9660: fix undefined behavior
+ #2898 RAR: fix LZSS window size mismatch after PPMd block
+ #2900 CAB: fix NULL pointer dereference during skip
+ #2911 libarchive: do not continue with truncated numbers
+ #2919 CAB: Fix Heap OOB Write in CAB LZX decoder
+ #2934 iso9660: fix posibble heap buffer overflow on 32-bit systems
+ #2939 cpio: Fix -R memory leak
+ #2947 libarchive: lzop and grzip filter support
+
+Important bugfixes between 3.8.5 and 3.8.6:
+ #2860 bsdunzip: fix ISO week year and Gregorian year confusion
+ #2864 7zip: ix SEGV in check_7zip_header_in_sfx via ELF offset validation
+ #2875 7zip: fix out-of-bounds access on ELF 64-bit header
+ #2877 RAR5 reader: fix infinite loop in rar5 decompression
+ #2878 mtree reader: Fix file descriptor leak in mtree parser cleanup
+       (CWE-775)
+ #2892 RAR5 reader: fix potential memory leak
+ #2893 RAR5: fix SIGSEGV when archive_read_support_format_rar5 is called
+       twice
+ #2895 CAB reader: fix memory leak on repeated calls to
+       archive_read_support_format_cab
+
+Obtained from:	libarchive
+Vendor commit:	ded82291ab41d5e355831b96b0e1ff49e24d8939
+MFC after:	1 week
+
+(cherry picked from commit eb5165bb491138f60d9004bc4c781490016d9288)
+
+
+ contrib/libarchive/NEWS                            |    4 +
+ contrib/libarchive/README.md                       |    9 +-
+ contrib/libarchive/cpio/cmdline.c                  |   15 +-
+ contrib/libarchive/cpio/cpio.c                     |  123 ++-
+ contrib/libarchive/cpio/cpio.h                     |    2 -
+ contrib/libarchive/cpio/test/test_format_newc.c    |    7 +
+ contrib/libarchive/libarchive/archive.h            |    4 +-
+ contrib/libarchive/libarchive/archive_acl.c        |    6 +-
+ .../libarchive/libarchive/archive_check_magic.c    |    4 +-
+ .../libarchive/archive_cryptor_private.h           |    4 +
+ contrib/libarchive/libarchive/archive_entry.h      |    2 +-
+ contrib/libarchive/libarchive/archive_hmac.c       |    6 +
+ contrib/libarchive/libarchive/archive_options.c    |    4 +-
+ contrib/libarchive/libarchive/archive_pathmatch.c  |    4 +-
+ contrib/libarchive/libarchive/archive_ppmd8.c      |   22 +-
+ .../libarchive/libarchive/archive_ppmd8_private.h  |   25 -
+ contrib/libarchive/libarchive/archive_read.c       |   12 +-
+ .../libarchive/archive_read_append_filter.c        |    4 +
+ .../libarchive/archive_read_disk_posix.c           |    6 +-
+ .../libarchive/archive_read_open_filename.c        |    7 +-
+ .../libarchive/archive_read_support_filter_grzip.c |    2 +-
+ .../libarchive/archive_read_support_filter_lz4.c   |    4 +-
+ .../libarchive/archive_read_support_filter_lzop.c  |    2 +-
+ .../archive_read_support_filter_program.c          |    2 +
+ .../libarchive/archive_read_support_format_7zip.c  |   24 +-
+ .../libarchive/archive_read_support_format_cab.c   |   24 +-
+ .../libarchive/archive_read_support_format_cpio.c  |    4 +-
+ .../archive_read_support_format_iso9660.c          |   26 +-
+ .../libarchive/archive_read_support_format_lha.c   |   11 +-
+ .../libarchive/archive_read_support_format_mtree.c |    7 +-
+ .../libarchive/archive_read_support_format_rar.c   |   73 +-
+ .../libarchive/archive_read_support_format_rar5.c  |   45 +-
+ .../libarchive/archive_read_support_format_tar.c   |    6 +-
+ .../libarchive/archive_read_support_format_xar.c   |   14 +-
+ .../libarchive/archive_read_support_format_zip.c   |   22 +-
+ contrib/libarchive/libarchive/archive_string.c     |   16 +-
+ contrib/libarchive/libarchive/archive_write.c      |    2 +-
+ .../archive_write_add_filter_b64encode.c           |   22 +-
+ .../libarchive/archive_write_add_filter_bzip2.c    |    7 +-
+ .../libarchive/archive_write_add_filter_gzip.c     |   12 +-
+ .../libarchive/archive_write_add_filter_lrzip.c    |   21 +-
+ .../libarchive/archive_write_add_filter_lz4.c      |   14 +-
+ .../libarchive/archive_write_add_filter_lzop.c     |    7 +-
+ .../libarchive/archive_write_add_filter_uuencode.c |   22 +-
+ .../libarchive/archive_write_add_filter_xz.c       |   27 +-
+ .../libarchive/archive_write_add_filter_zstd.c     |   52 +-
+ .../libarchive/archive_write_disk_posix.c          |   30 +-
+ .../libarchive/archive_write_set_format_7zip.c     |    9 +-
+ .../archive_write_set_format_cpio_binary.c         |    4 +-
+ .../archive_write_set_format_cpio_newc.c           |    2 +-
+ .../libarchive/archive_write_set_format_cpio_odc.c |    2 +-
+ .../libarchive/archive_write_set_format_gnutar.c   |   34 +-
+ .../libarchive/archive_write_set_format_iso9660.c  |   18 +-
+ .../libarchive/archive_write_set_format_mtree.c    |    2 +-
+ .../libarchive/archive_write_set_format_pax.c      |    6 +-
+ .../libarchive/archive_write_set_format_ustar.c    |   27 +-
+ .../libarchive/archive_write_set_format_v7tar.c    |   27 +-
+ .../libarchive/archive_write_set_format_xar.c      |    6 +-
+ .../libarchive/archive_write_set_format_zip.c      |   49 +-
+ contrib/libarchive/libarchive/test/test_acl_text.c |   23 +
+ .../libarchive/test/test_archive_pathmatch.c       |   18 +
+ .../test/test_archive_string_conversion.c          |  135 +++
+ .../test/test_gnutar_filename_encoding.c           |   40 +
+ .../libarchive/test/test_read_format_7zip.c        |   26 +
+ .../test/test_read_format_7zip_malformed.c         |   17 +
+ .../test/test_read_format_7zip_malformed3.7z.uu    |   24 +
+ .../test_read_format_7zip_sfx_elf64trunc.elf.uu    |    5 +
+ .../libarchive/test/test_read_format_cab_lzx_oob.c |   45 +
+ .../test/test_read_format_cab_lzx_oob.cab.uu       |   11 +
+ .../test/test_read_format_cab_skip_malformed.c     |   41 +
+ .../test_read_format_cab_skip_malformed.cab.uu     |   95 ++
+ .../test/test_read_format_iso_zisofs_overflow.c    |  104 ++
+ .../test_read_format_iso_zisofs_overflow.iso.uu    | 1096 ++++++++++++++++++++
+ .../test/test_read_format_lha_oversize_header.c    |   50 +
+ .../test_read_format_lha_oversize_header.lzh.uu    |   60 ++
+ .../test/test_read_format_rar5_loop_bug.c          |   53 +
+ .../test/test_read_format_rar5_loop_bug.rar.uu     |  189 ++++
+ .../libarchive/test/test_read_set_format.c         |   34 +
+ .../libarchive/test/test_ustar_filename_encoding.c |   40 +
+ .../libarchive/test/test_v7tar_filename_encoding.c |   67 ++
+ .../test/test_warn_missing_hardlink_target.c       |    2 +-
+ .../libarchive/libarchive/test/test_write_disk.c   |   29 +
+ .../libarchive/test/test_write_disk_perms.c        |   11 +-
+ .../libarchive/test/test_zip_filename_encoding.c   |   40 +
+ .../la_getline.c => libarchive_fe/lafe_getline.c}  |   11 +-
+ .../la_getline.h => libarchive_fe/lafe_getline.h}  |   15 +-
+ contrib/libarchive/tar/bsdtar.c                    |   20 +-
+ contrib/libarchive/tar/read.c                      |    2 +-
+ contrib/libarchive/tar/util.c                      |    8 +-
+ contrib/libarchive/tar/write.c                     |   16 +-
+ contrib/libarchive/test_utils/test_common.h        |    4 +
+ contrib/libarchive/test_utils/test_main.c          |   85 +-
+ contrib/libarchive/unzip/bsdunzip.c                |    6 +-
+ lib/libarchive/tests/Makefile                      |   13 +
+ usr.bin/unzip/Makefile                             |    2 +-
+ 95 files changed, 3019 insertions(+), 372 deletions(-)
+
+[commit 150ac95e4a56855e7ffaa1014d7a82e9eda89f65]
+Date: 2026-04-13
+Score: 5
+Status: proposed(include=yes,score=72)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: Traverse Technologies (providing Ten64 HW for testing)
+Section: Network.general
+Subject: dpaa2: Extract checksum statuses on ingress
+Review: RX checksum offloading is now supported for dpaa2 interfaces, enabling hardware checksum validation for incoming frames.
+Body:
+
+In order to enable RX checksum offloading we need to check the
+meta-information for the (good) frames to see if the L3/4 checksums
+were calculated and if there was an error.
+
+The way the buffere are setup, the needed frame meta-information is
+already requested. All we have to do is make sure it is really part
+of the RX frame, that it is valid, and if the respective bits are set.
+
+Also do not forget to set the (dummy) csum_data as otherwise upper
+layers will just be cranky. An artefact of the past which likely
+should disappear.
+
+PR:		292006
+Reviewed by:	bz, tuexen
+Tested by:	bz, tuexen
+Approved by:	tuexen
+Obtained from:	bz (initial version, D55320)
+MFC after:	3 days
+Sponsored by:	Traverse Technologies (providing Ten64 HW for testing)
+Differential Revision:	https://reviews.freebsd.org/D56383
+
+(cherry picked from commit 4a6d7fc1a00b69925b3edc39acef0391487a8e3e)
+
+
+ sys/dev/dpaa2/dpaa2_frame.c | 100 ++++++++++++++++++++++++++++++++++++++------
+ sys/dev/dpaa2/dpaa2_frame.h |  63 +++++++++++++++++++++++++++-
+ sys/dev/dpaa2/dpaa2_ni.c    |  76 ++++++++++++++++++++++++++++++++-
+ sys/dev/dpaa2/dpaa2_ni.h    |   6 ++-
+ 4 files changed, 227 insertions(+), 18 deletions(-)
+
+[commit 901aec0a855b5c69b327e423558fbcc001781805]
+Date: 2026-02-08
+Score: 5
+Status: proposed(include=yes,score=50)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: The FreeBSD Foundation
+Section: Drivers.device
+Subject: linuxkpi: Handle bin attributes in sysfs attribute groups
+Review: The sysfs attribute group interface in the Linux KPI now supports binary attributes, enabling DRM drivers to expose EDID properties of GPU connectors. This allows users to retrieve monitor EDID data via sysctl, for example with 'sysctl -b sys.device.drmn1.card0.card0-DP-1.edid'.
+Body:
+
+For instance, this is used by DRM drivers to declare the EDID property
+of an GPU output connector:
+
+    sysctl -b sys.device.drmn1.card0.card0-DP-1.edid | edid-decode
+
+    ...
+    Block 0, Base EDID:
+      EDID Structure Version & Revision: 1.4
+      Vendor & Product Identification:
+        Manufacturer: SAM
+        Model: 29814
+        Serial Number: 810635354 (0x3051505a)
+        Made in: week 15 of 2025
+    ...
+
+Reviewed by:	bz, emaste, wulf
+Sponsored by:	The FreeBSD Foundation
+Differential Revision: https://reviews.freebsd.org/D55176
+
+(cherry picked from commit 5bb0f63020669bd3675c651ba7745fc4356edc1a)
+
+
+ sys/compat/linuxkpi/common/include/linux/sysfs.h | 34 +++++++++++++++++-------
+ 1 file changed, 25 insertions(+), 9 deletions(-)
+
+[commit 4d3670980878f20a4b3b53596d23bf1f7fd4e5a6]
+Date: 2026-04-17
+Score: 5
+Status: proposed(include=no,score=1)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: undecided
+Subject: sctp(4): Fix a typo in a source code comment
+Review: Only a comment typo fix; no user-visible impact.
+Body:
+
+- s/initited/initiated/
+
+Obtained from:	NetBSD
+
+(cherry picked from commit a154d72775cbf3f0679fb2f989b3d1a035ae41c9)
+
+
+ sys/netinet/sctp_structs.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 16719d34073444c50fcd57d337d0f1246c8e84c9]
+Date: 2026-04-17
+Score: 5
+Status: proposed(include=no,score=1)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor:
+Section: undecided
+Subject: rc.conf: Fix typo in comment
+Review: This commit only fixes a typo in a comment and does not introduce any user-visible change.
+Body:
+
+The correct path is /etc/defaults/rc.conf (defaults in plural).
+
+Reviewed by:	netchild
+Fixes:		cc4eb1ea1040 ("Add support for a /etc/defaults/vendor.conf override file")
+MFC after:	3 days
+Differential Revision:	https://reviews.freebsd.org/D56456
+
+(cherry picked from commit 8e08080ee581dfd30c128d032035da7b6ae44463)
+
+
+ libexec/rc/rc.conf | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit f5f3c16d9256fb8bb2c38e1dd91ca420f240bfd6]
+Date: 2026-03-20
+Score: 5
+Status: proposed(include=no,score=15)
+CollectedAt: 2026-05-01T04:52:14 UTC
+Sponsor: The FreeBSD Foundation
+Section: undecided
+Subject: ath11k: restore module Makefile
+Review: The ath11k kernel module Makefile was restored after being accidentally undone during a previous merge, restoring the ability to build the ath11k driver.
+Body:
+
+During the subtree merge and checking out the updated version of ath12k
+parts of the previous ath11k merge were accidentally undone.
+Retore the ath11k Makefile as well after 3c4eef5d838b restored the
+driver bits.
+
+Fixes:		a96550206e4b ("ath12k: update Atheros/QCA's ath12k ..")
+Sponsored by:	The FreeBSD Foundation
+
+(cherry picked from commit f9795615415074b23faf8e5d937c2ef31045d3d0)
+
+
+ sys/modules/ath11k/Makefile | 63 +++++++++++++++++++++++++++++++--------------
+ 1 file changed, 43 insertions(+), 20 deletions(-)
 
