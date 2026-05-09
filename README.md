@@ -416,6 +416,13 @@ In this mode:
 * planned insertions are grouped by section
 * already documented commits are skipped
 
+```
+perl tools/relnotes/bin/relnotes_stage2_to_adoc.pl \
+  --release-dir releases/15.1R \
+  --dry-run
+```
+
+
 ### Stage 3: Write changes into relnotes.adoc
 
 Apply the changes to `relnotes.adoc`:
@@ -431,6 +438,13 @@ Behavior:
 * new entries are appended to the correct sections
 * existing AsciiDoc content is preserved
 * duplicate commits are not re-inserted
+
+```
+perl tools/relnotes/bin/relnotes_stage2_to_adoc.pl \
+  --release-dir releases/15.1R \
+  --write
+```
+
 
 ### Typical workflow summary
 
@@ -461,10 +475,10 @@ perl tools/relnotes/bin/relnotes_stage_copy.pl --into relnotes_docs.txt  --from 
 
 ```
 
-### generate the list of Sthe Security Advisories and Errata Notices
+### generate the list of the Security Advisories and Errata Notices
 
 ```
-freebsd-relnotes % perl tools/relnotes/bin/relnotes_advisories.pl --repo ~/freebsd-src --branch releng/14.4 --advisories-dir advisories  --release-dir releases/14.4R --format-relnotes
+freebsd-relnotes % perl tools/relnotes/bin/relnotes_advisories.pl --repo ~/freebsd-src --branch releng/15.1 --advisories-dir advisories  --release-dir releases/15.1R --format-relnotes
 
 ```
 

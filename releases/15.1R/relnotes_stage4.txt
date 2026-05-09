@@ -3,7 +3,7 @@ Date: 2026-03-02
 Score: 5
 Status: rejected(include=yes,score=15)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: Docs.manpages
 Subject: style.mdoc: Li macro is undeprecated for some time
 Review: The mdoc linter no longer warns about using the Li macro, as it has been undeprecated upstream. This affects authors editing manual pages.
@@ -29,7 +29,7 @@ Date: 2026-03-13
 Score: 5
 Status: rejected(include=no,score=10)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: tarfs: swap deprecated ZSTD_resetDStream() with ZSTD_DCtx_reset()
 Review: The commit updates tarfs to use a non-deprecated ZSTD API, which is an internal implementation detail with no direct user-visible impact. It does not introduce new features, change behavior, or affect configuration.
@@ -89,9 +89,9 @@ Differential Revision: https://reviews.freebsd.org/D55390
 [commit 9b75d6ec6929e7e6723fbfeb52f60acfa63e5dbc]
 Date: 2026-02-19
 Score: 5
-Status: accepted(include=yes,score=85)
+Status: added(include=yes,score=85)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.deprecated
 Subject: lpr: Add deprecation notice
 Review: The lpr suite of printing utilities (man:lpr[1], man:lpd[8], man:lpc[8], man:lpq[1], man:lprm[1], man:lp[1], man:pac[8], man:lptest[1], man:chkprintcap[8]) has been deprecated and may be removed before FreeBSD 16.0. Users are advised to use alternatives such as print/cups or sysutils/LPRng from the ports collection.
@@ -124,7 +124,7 @@ Date: 2026-01-05
 Score: 5
 Status: rejected(include=no,score=5)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: Convert fully to Python 3.  Remove licence text, only keep SPDX.
 Review: The commit converts a test tool to Python 3 and updates argument parsing, but it is an internal test utility with no direct user impact.
@@ -143,7 +143,7 @@ Date: 2026-02-07
 Score: 5
 Status: rejected(include=yes,score=65)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.libraries
 Subject: libfetch: Check for failure to create SSL context
 Review: libfetch now uses TLS_client_method() instead of the deprecated SSLv23_client_method() and checks for SSL context creation failure, improving security and reliability for applications using libfetch.
@@ -172,7 +172,7 @@ Date: 2026-01-08
 Score: 5
 Status: rejected(include=no,score=10)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: icp: emit .note.GNU-stack section for all ELF targets
 Review: The commit fixes a build warning in the ZFS kernel module when linking with binutils ld 2.44, but it is an internal build fix with no user-visible impact on functionality, performance, or configuration.
@@ -213,7 +213,7 @@ Date: 2026-01-08
 Score: 5
 Status: rejected(include=no,score=25)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: zfs: emit .note.GNU-stack section for all ELF targets
 Review: The commit fixes a linker warning when building the ZFS kernel module with binutils ld 2.44 by ensuring .note.GNU-stack sections are emitted for all ELF targets. This prevents a deprecation warning about an implied executable stack, which is a build-time issue affecting developers and packagers.
@@ -253,9 +253,9 @@ Differential Revision: https://reviews.freebsd.org/D54578
 [commit d3902baca506ec48e2f8b1121c7744766a175516]
 Date: 2026-01-04
 Score: 5
-Status: accepted(include=yes,score=75)
+Status: added(include=yes,score=75)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: Bootloader.general
 Subject: loader.efi: only use firmware provided Blt on GOP
 Review: The EFI boot loader now uses firmware-provided Blt functions only when using GOP (Graphics Output Protocol), not UGA (Universal Graphics Adapter). This improves compatibility with older MacBook systems where UGA Blt functions were unreliable.
@@ -284,7 +284,7 @@ Date: 2025-12-13
 Score: 5
 Status: rejected(include=no,score=1)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: oce(4): Fix a typo in a device debug message
 Review: Fixes a typo in a debug message for the oce(4) driver; no user-visible impact.
@@ -303,7 +303,7 @@ Date: 2025-12-13
 Score: 5
 Status: rejected(include=no,score=1)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: ng_hci(4): Fix a typo in a source code comment
 Review: Fixes a typo in a source code comment only.
@@ -322,7 +322,7 @@ Date: 2025-12-17
 Score: 5
 Status: rejected(include=yes,score=20)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: Docs.manpages
 Subject: example.3: Show updated library macro usage
 Review: The commit updates an example man page to reflect the deprecated LIBRARY section and shows updated usage of the Lb macro, which is a documentation change.
@@ -343,7 +343,7 @@ Date: 2025-12-01
 Score: 5
 Status: rejected(include=no,score=30)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: ctfmerge: fix segfault when building on macOS
 Review: Fixes a race condition and segfault when building CTF data on macOS by replacing deprecated semaphores with condition variables.
@@ -371,7 +371,7 @@ Date: 2025-09-15
 Score: 5
 Status: rejected(include=yes,score=65)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.contrib
 Subject: libc++: Fix deprecation warnings with latest clang
 Review: libc++ updated to fix deprecation warnings with latest clang.
@@ -404,7 +404,7 @@ Date: 2025-09-15
 Score: 5
 Status: rejected(include=yes,score=40)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.contrib
 Subject: libc++: avoid use of deprecated __reference_binds_to_temporary
 Review: The commit updates libc++ to avoid a deprecated feature, ensuring compatibility with the latest clang HEAD. This change is necessary for building with recent compiler versions.
@@ -431,7 +431,7 @@ Date: 2025-09-15
 Score: 5
 Status: rejected(include=no,score=15)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: libc++: avoid use of deprecated builtin
 Review: The commit fixes a build issue with clang HEAD by updating libc++ to avoid deprecated builtins, but this is an internal implementation detail with no direct user-visible impact.
@@ -473,7 +473,7 @@ Date: 2025-12-02
 Score: 5
 Status: rejected(include=no,score=5)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: FreeBSD: Remove HAVE_INLINE_FLSL use
 Review: Internal kernel macro cleanup with no user-visible impact.
@@ -493,7 +493,7 @@ Closes #18004
 [commit 661b40ffdee25dd81d19fbbcd6cb09e3ec159342]
 Date: 2023-08-22
 Score: 5
-Status: accepted(include=yes,score=85)
+Status: added(include=yes,score=85)
 CollectedAt: 2026-04-18T11:23:58 UTC
 Sponsor: The FreeBSD Foundation
 Section: Drivers.deprecated
@@ -521,9 +521,9 @@ Differential Revision: https://reviews.freebsd.org/D41549
 [commit 0005bb76e2e707f5ed39ca67beddb8a5d629c72e]
 Date: 2025-11-14
 Score: 5
-Status: accepted(include=yes,score=70)
+Status: added(include=yes,score=70)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: Cloud.general
 Subject: GCE: Add TARGET and FS to image family
 Review: The GCE image family now includes TARGET and FS in its name, ensuring that image families are unique per architecture and filesystem. This prevents the GCE instances API from selecting an incompatible image when using an image family name.
@@ -549,7 +549,7 @@ Date: 2025-11-07
 Score: 5
 Status: rejected(include=no,score=10)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: random: Have RANDOM_PURE_START be a cross-platform source
 Review: The commit adjusts the order of entropy sources in the random subsystem, moving deprecated sources to the bottom for 15.x compatibility, but does not introduce user-visible changes in functionality, behavior, or configuration.
@@ -574,9 +574,9 @@ Differential Revision:	https://reviews.freebsd.org/D53311
 [commit 3a64c667f16fbc3c1cedee081de895aa911be523]
 Date: 2025-10-22
 Score: 5
-Status: accepted(include=yes,score=75)
+Status: added(include=yes,score=75)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: Storage.general
 Subject: nfs: Add support for the NFSv4 archive attribute
 Review: The NFSv4 client and server now support the archive attribute (UF_ARCHIVE), which is used by Windows NFSv4.1 clients despite being deprecated in RFC8881. This improves interoperability with Windows NFS clients.
@@ -603,7 +603,7 @@ is done for UF_SYSTEM and UF_HIDDEN.
 [commit be24d85ec78453b80effeb61dc8e5910a1caa3a8]
 Date: 2025-10-28
 Score: 5
-Status: accepted(include=yes,score=80)
+Status: added(include=yes,score=80)
 CollectedAt: 2026-04-18T11:23:58 UTC
 Sponsor: The FreeBSD Foundation
 Section: Userland.deprecated
@@ -625,10 +625,10 @@ Sponsored by:	The FreeBSD Foundation
 [commit 92f169fe0f197e4b7bf89583ce3fcfb37c5721ba]
 Date: 2025-10-24
 Score: 5
-Status: accepted(include=yes,score=45)
+Status: added(include=yes,score=45)
 CollectedAt: 2026-04-18T11:23:58 UTC
 Sponsor: The FreeBSD Foundation
-Section: Docs.manpages
+Section: Drivers.deprecated
 Subject: agp.4: Bump deprecation to 16.0
 Review: The man:agp[4] driver deprecation notice has been updated to indicate removal in FreeBSD 16.0 instead of 15.0.
 Body:
@@ -646,7 +646,7 @@ Sponsored by:	The FreeBSD Foundation
 [commit 469ab88d107c05ab533a15d4014d1a97b5a13c86]
 Date: 2025-10-24
 Score: 5
-Status: accepted(include=yes,score=30)
+Status: added(include=yes,score=30)
 CollectedAt: 2026-04-18T11:23:58 UTC
 Sponsor: The FreeBSD Foundation
 Section: Kernel.general
@@ -670,7 +670,7 @@ Sponsored by:	The FreeBSD Foundation
 [commit 59ba7278499f0ee20fd9c43a34bb2b72ae57dcbb]
 Date: 2025-10-24
 Score: 5
-Status: accepted(include=yes,score=60)
+Status: added(include=yes,score=60)
 CollectedAt: 2026-04-18T11:23:58 UTC
 Sponsor: The FreeBSD Foundation
 Section: Drivers.device
@@ -692,12 +692,12 @@ Sponsored by:	The FreeBSD Foundation
 [commit f935c0f66f75e882185ed8bc46f39054f2ced4e1]
 Date: 2025-10-13
 Score: 5
-Status: accepted(include=yes,score=35)
+Status: added(include=yes,score=35)
 CollectedAt: 2026-04-18T11:23:58 UTC
-Sponsor:
+Sponsor: 
 Section: Docs.manpages
 Subject: blacklist: Avoid duplicate manual pages in METALOG
-Review: The commit adds manual pages for the deprecated blacklist utilities (man:blacklistctl[8], man:blacklistd[8], man:blacklistd.conf[5], man:libblacklist[3]), documenting their deprecation and nuances. This provides users with updated documentation for the deprecated blacklist tools, which are now renamed to blocklist.
+Review: The manual pages have been added for the deprecated blacklist utilities (man:blacklistctl[8], man:blacklistd[8], man:blacklistd.conf[5], man:libblacklist[3]), documenting their deprecation and nuances. This provides users with updated documentation for the deprecated blacklist tools, which are now renamed to blocklist.
 Body:
 
 Previously, blacklist man pages were just a symlink to their blocklist

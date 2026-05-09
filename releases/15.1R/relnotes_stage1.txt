@@ -771,3 +771,325 @@ MFC after:	3 days
  release/tools/oracle.conf                          | 105 --------------------
  9 files changed, 1 insertion(+), 435 deletions(-)
 
+[commit 1b5b7867b67fdbe412cc4136834f21dbeef26bea]
+Date: 2026-05-03
+Score: 5
+CollectedAt: 2026-05-09T08:57:23 UTC
+Sponsor: 
+Subject: ports.7/FILES: Expand and refactor into 3 tables
+Body:
+
+Add make.conf, CHANGES, CONTRIBUTING.Md, UPDATING, and Tools/scripts.
+Refactor the FILES section of the ports reference manual into a bigger
+table with three sections separated by root directory. Remove preceeding
+article from all but "the big Kahuna", and root dirs where reasonable.
+
+Approved by:	re (cperciva)
+MFC after:              3 days
+Relnotes:		yes
+Reported by:            adamw, arrowd, linimon
+Differential Revision:	https://reviews.freebsd.org/D55441
+
+(cherry picked from commit 28deec9b7e2b08b00160eb39de84ade6f27eb125)
+(cherry picked from commit aa519edfe50a65db516e62752914cb6922b3227f)
+
+
+ share/man/man7/ports.7 | 47 +++++++++++++++++++++++++++++------------------
+ 1 file changed, 29 insertions(+), 18 deletions(-)
+
+[commit 1aa2b46a07075ea79d22e91a1325b88de4efd27e]
+Date: 2026-05-06
+Score: 5
+CollectedAt: 2026-05-09T08:57:23 UTC
+Sponsor: 
+Subject: MFV: zstd 1.5.7.
+Body:
+
+Approved by:	re (cperciva)
+MFC after:	2 weeks
+Relnotes:	yes
+
+(cherry picked from commit c0d9a07101a1e72769ee0619a583f63a078fb391)
+(cherry picked from commit 7c9418613a31571e4eceda55a417f7183d26acb5)
+(cherry picked from commit 111a42d7d78a88ba6ff7b5d61b0867faccc00276)
+(cherry picked from commit ff426ceef657d7c478471e631349c5d1a8b96453)
+
+
+ lib/libzstd/Makefile                               |    4 +
+ sys/conf/files                                     |    1 +
+ sys/contrib/zstd/.buckconfig                       |    9 -
+ sys/contrib/zstd/.buckversion                      |    1 -
+ sys/contrib/zstd/CHANGELOG                         |  148 +-
+ sys/contrib/zstd/CONTRIBUTING.md                   |  489 ---
+ sys/contrib/zstd/FREEBSD-Xlist                     |   11 +-
+ sys/contrib/zstd/LICENSE                           |    8 +-
+ sys/contrib/zstd/Makefile                          |  439 ---
+ sys/contrib/zstd/README.md                         |   96 +-
+ sys/contrib/zstd/SECURITY.md                       |   15 +
+ sys/contrib/zstd/TESTING.md                        |   43 -
+ sys/contrib/zstd/appveyor.yml                      |  205 --
+ sys/contrib/zstd/doc/README.md                     |   25 -
+ sys/contrib/zstd/doc/educational_decoder/Makefile  |   62 -
+ sys/contrib/zstd/doc/educational_decoder/README.md |   36 -
+ sys/contrib/zstd/doc/educational_decoder/harness.c |  119 -
+ .../zstd/doc/educational_decoder/zstd_decompress.c | 2320 -------------
+ .../zstd/doc/educational_decoder/zstd_decompress.h |   61 -
+ sys/contrib/zstd/doc/images/CSpeed2.png            |  Bin 73335 -> 0 bytes
+ sys/contrib/zstd/doc/images/DCspeed5.png           |  Bin 69278 -> 0 bytes
+ sys/contrib/zstd/doc/images/DSpeed3.png            |  Bin 27123 -> 0 bytes
+ sys/contrib/zstd/doc/images/cdict_v136.png         |  Bin 33330 -> 0 bytes
+ sys/contrib/zstd/doc/images/dict-cr.png            |  Bin 90412 -> 0 bytes
+ sys/contrib/zstd/doc/images/dict-cs.png            |  Bin 91518 -> 0 bytes
+ sys/contrib/zstd/doc/images/dict-ds.png            |  Bin 98316 -> 0 bytes
+ sys/contrib/zstd/doc/images/zstd_cdict_v1_3_5.png  |  Bin 93969 -> 0 bytes
+ sys/contrib/zstd/doc/images/zstd_logo86.png        |  Bin 5963 -> 0 bytes
+ sys/contrib/zstd/doc/zstd_compression_format.md    | 1692 ----------
+ sys/contrib/zstd/doc/zstd_manual.html              | 1908 -----------
+ sys/contrib/zstd/examples/Makefile                 |   93 -
+ sys/contrib/zstd/examples/README.md                |   46 -
+ sys/contrib/zstd/examples/common.h                 |  234 --
+ sys/contrib/zstd/examples/dictionary_compression.c |   97 -
+ .../zstd/examples/dictionary_decompression.c       |   99 -
+ .../zstd/examples/multiple_simple_compression.c    |  116 -
+ .../zstd/examples/multiple_streaming_compression.c |  133 -
+ sys/contrib/zstd/examples/simple_compression.c     |   68 -
+ sys/contrib/zstd/examples/simple_decompression.c   |   65 -
+ sys/contrib/zstd/examples/streaming_compression.c  |  140 -
+ .../examples/streaming_compression_thread_pool.c   |  180 --
+ .../zstd/examples/streaming_decompression.c        |  100 -
+ sys/contrib/zstd/examples/streaming_memory_usage.c |  137 -
+ sys/contrib/zstd/lib/BUCK                          |  232 --
+ sys/contrib/zstd/lib/Makefile                      |  357 --
+ sys/contrib/zstd/lib/README.md                     |   35 +-
+ sys/contrib/zstd/lib/common/allocations.h          |   55 +
+ sys/contrib/zstd/lib/common/bits.h                 |  205 ++
+ sys/contrib/zstd/lib/common/bitstream.h            |  192 +-
+ sys/contrib/zstd/lib/common/compiler.h             |  211 +-
+ sys/contrib/zstd/lib/common/cpu.h                  |   38 +-
+ sys/contrib/zstd/lib/common/debug.c                |    8 +-
+ sys/contrib/zstd/lib/common/debug.h                |   42 +-
+ sys/contrib/zstd/lib/common/entropy_common.c       |   52 +-
+ sys/contrib/zstd/lib/common/error_private.c        |   12 +-
+ sys/contrib/zstd/lib/common/error_private.h        |   93 +-
+ sys/contrib/zstd/lib/common/fse.h                  |  108 +-
+ sys/contrib/zstd/lib/common/fse_decompress.c       |  144 +-
+ sys/contrib/zstd/lib/common/huf.h                  |  245 +-
+ sys/contrib/zstd/lib/common/mem.h                  |  112 +-
+ sys/contrib/zstd/lib/common/pool.c                 |   38 +-
+ sys/contrib/zstd/lib/common/pool.h                 |   19 +-
+ sys/contrib/zstd/lib/common/portability_macros.h   |   56 +-
+ sys/contrib/zstd/lib/common/threading.c            |   88 +-
+ sys/contrib/zstd/lib/common/threading.h            |   23 +-
+ sys/contrib/zstd/lib/common/xxhash.c               |   16 +-
+ sys/contrib/zstd/lib/common/xxhash.h               | 3417 ++++++++++++++------
+ sys/contrib/zstd/lib/common/zstd_common.c          |   37 +-
+ sys/contrib/zstd/lib/common/zstd_deps.h            |   14 +-
+ sys/contrib/zstd/lib/common/zstd_internal.h        |  195 +-
+ sys/contrib/zstd/lib/common/zstd_trace.h           |   19 +-
+ sys/contrib/zstd/lib/compress/clevels.h            |    2 +-
+ sys/contrib/zstd/lib/compress/fse_compress.c       |  146 +-
+ sys/contrib/zstd/lib/compress/hist.c               |   12 +-
+ sys/contrib/zstd/lib/compress/hist.h               |    9 +-
+ sys/contrib/zstd/lib/compress/huf_compress.c       |  472 +--
+ sys/contrib/zstd/lib/compress/zstd_compress.c      | 3322 +++++++++++++------
+ .../zstd/lib/compress/zstd_compress_internal.h     |  671 ++--
+ .../zstd/lib/compress/zstd_compress_literals.c     |  156 +-
+ .../zstd/lib/compress/zstd_compress_literals.h     |   24 +-
+ .../zstd/lib/compress/zstd_compress_sequences.c    |   20 +-
+ .../zstd/lib/compress/zstd_compress_sequences.h    |   15 +-
+ .../zstd/lib/compress/zstd_compress_superblock.c   |  393 ++-
+ .../zstd/lib/compress/zstd_compress_superblock.h   |    2 +-
+ sys/contrib/zstd/lib/compress/zstd_cwksp.h         |  279 +-
+ sys/contrib/zstd/lib/compress/zstd_double_fast.c   |  244 +-
+ sys/contrib/zstd/lib/compress/zstd_double_fast.h   |   32 +-
+ sys/contrib/zstd/lib/compress/zstd_fast.c          |  704 ++--
+ sys/contrib/zstd/lib/compress/zstd_fast.h          |   21 +-
+ sys/contrib/zstd/lib/compress/zstd_lazy.c          | 1063 +++---
+ sys/contrib/zstd/lib/compress/zstd_lazy.h          |  198 +-
+ sys/contrib/zstd/lib/compress/zstd_ldm.c           |  101 +-
+ sys/contrib/zstd/lib/compress/zstd_ldm.h           |   22 +-
+ sys/contrib/zstd/lib/compress/zstd_ldm_geartab.h   |    2 +-
+ sys/contrib/zstd/lib/compress/zstd_opt.c           |  570 ++--
+ sys/contrib/zstd/lib/compress/zstd_opt.h           |   58 +-
+ sys/contrib/zstd/lib/compress/zstd_preSplit.c      |  238 ++
+ sys/contrib/zstd/lib/compress/zstd_preSplit.h      |   33 +
+ sys/contrib/zstd/lib/compress/zstdmt_compress.c    |  414 ++-
+ sys/contrib/zstd/lib/compress/zstdmt_compress.h    |   21 +-
+ sys/contrib/zstd/lib/decompress/huf_decompress.c   | 1031 +++---
+ .../zstd/lib/decompress/huf_decompress_amd64.S     |  139 +-
+ sys/contrib/zstd/lib/decompress/zstd_ddict.c       |    8 +-
+ sys/contrib/zstd/lib/decompress/zstd_ddict.h       |    2 +-
+ sys/contrib/zstd/lib/decompress/zstd_decompress.c  |  410 ++-
+ .../zstd/lib/decompress/zstd_decompress_block.c    |  723 +++--
+ .../zstd/lib/decompress/zstd_decompress_block.h    |    9 +-
+ .../zstd/lib/decompress/zstd_decompress_internal.h |   18 +-
+ sys/contrib/zstd/lib/deprecated/zbuff.h            |    2 +-
+ sys/contrib/zstd/lib/deprecated/zbuff_common.c     |    2 +-
+ sys/contrib/zstd/lib/deprecated/zbuff_compress.c   |    2 +-
+ sys/contrib/zstd/lib/deprecated/zbuff_decompress.c |    4 +-
+ sys/contrib/zstd/lib/dictBuilder/cover.c           |  141 +-
+ sys/contrib/zstd/lib/dictBuilder/cover.h           |   12 +-
+ sys/contrib/zstd/lib/dictBuilder/divsufsort.h      |   10 -
+ sys/contrib/zstd/lib/dictBuilder/fastcover.c       |    8 +-
+ sys/contrib/zstd/lib/dictBuilder/zdict.c           |  125 +-
+ sys/contrib/zstd/lib/freebsd/zstd_kfreebsd.h       |    6 +
+ sys/contrib/zstd/lib/legacy/zstd_legacy.h          |   39 +-
+ sys/contrib/zstd/lib/legacy/zstd_v01.c             |   69 +-
+ sys/contrib/zstd/lib/legacy/zstd_v01.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v02.c             |  107 +-
+ sys/contrib/zstd/lib/legacy/zstd_v02.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v03.c             |  111 +-
+ sys/contrib/zstd/lib/legacy/zstd_v03.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v04.c             |   99 +-
+ sys/contrib/zstd/lib/legacy/zstd_v04.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v05.c             |  107 +-
+ sys/contrib/zstd/lib/legacy/zstd_v05.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v06.c             |  132 +-
+ sys/contrib/zstd/lib/legacy/zstd_v06.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v07.c             |  117 +-
+ sys/contrib/zstd/lib/legacy/zstd_v07.h             |    2 +-
+ sys/contrib/zstd/lib/libzstd.mk                    |   98 +-
+ sys/contrib/zstd/lib/libzstd.pc.in                 |   10 +-
+ sys/contrib/zstd/lib/module.modulemap              |   16 +-
+ sys/contrib/zstd/lib/zdict.h                       |  101 +-
+ sys/contrib/zstd/lib/zstd.h                        | 1157 +++++--
+ sys/contrib/zstd/lib/zstd_errors.h                 |   44 +-
+ sys/contrib/zstd/programs/BUCK                     |   44 -
+ sys/contrib/zstd/programs/Makefile                 |  435 ---
+ sys/contrib/zstd/programs/README.md                |  191 +-
+ sys/contrib/zstd/programs/benchfn.c                |   12 +-
+ sys/contrib/zstd/programs/benchfn.h                |   14 +-
+ sys/contrib/zstd/programs/benchzstd.c              | 1287 +++++---
+ sys/contrib/zstd/programs/benchzstd.h              |   80 +-
+ sys/contrib/zstd/programs/datagen.c                |    2 +-
+ sys/contrib/zstd/programs/datagen.h                |   10 +-
+ sys/contrib/zstd/programs/dibio.c                  |   33 +-
+ sys/contrib/zstd/programs/dibio.h                  |    2 +-
+ sys/contrib/zstd/programs/fileio.c                 | 1887 ++++++-----
+ sys/contrib/zstd/programs/fileio.h                 |   35 +-
+ sys/contrib/zstd/programs/fileio_asyncio.c         |  663 ++++
+ sys/contrib/zstd/programs/fileio_asyncio.h         |  195 ++
+ sys/contrib/zstd/programs/fileio_common.h          |  121 +
+ sys/contrib/zstd/programs/fileio_types.h           |   86 +
+ sys/contrib/zstd/programs/lorem.c                  |  285 ++
+ sys/contrib/zstd/programs/lorem.h                  |   32 +
+ sys/contrib/zstd/programs/platform.h               |   46 +-
+ sys/contrib/zstd/programs/timefn.c                 |  139 +-
+ sys/contrib/zstd/programs/timefn.h                 |   70 +-
+ sys/contrib/zstd/programs/util.c                   |  408 ++-
+ sys/contrib/zstd/programs/util.h                   |   66 +-
+ sys/contrib/zstd/programs/zstd.1                   |  489 ++-
+ sys/contrib/zstd/programs/zstd.1.md                |  598 ++--
+ sys/contrib/zstd/programs/zstdcli.c                |  648 ++--
+ sys/contrib/zstd/programs/zstdcli_trace.c          |    2 +-
+ sys/contrib/zstd/programs/zstdcli_trace.h          |    2 +-
+ sys/contrib/zstd/programs/zstdgrep.1               |   10 +-
+ sys/contrib/zstd/programs/zstdgrep.1.md            |   10 +-
+ sys/contrib/zstd/programs/zstdless                 |    8 +-
+ sys/contrib/zstd/programs/zstdless.1               |    6 +-
+ sys/contrib/zstd/programs/zstdless.1.md            |    6 +-
+ sys/contrib/zstd/zlibWrapper/BUCK                  |   22 -
+ sys/contrib/zstd/zlibWrapper/Makefile              |  119 -
+ sys/contrib/zstd/zlibWrapper/README.md             |    4 +-
+ sys/contrib/zstd/zlibWrapper/examples/example.c    |  629 ----
+ .../zstd/zlibWrapper/examples/example_original.c   |  618 ----
+ sys/contrib/zstd/zlibWrapper/examples/fitblk.c     |  254 --
+ .../zstd/zlibWrapper/examples/fitblk_original.c    |  233 --
+ sys/contrib/zstd/zlibWrapper/examples/minigzip.c   |  640 ----
+ sys/contrib/zstd/zlibWrapper/examples/zwrapbench.c | 1016 ------
+ sys/contrib/zstd/zlibWrapper/gzclose.c             |    6 +-
+ sys/contrib/zstd/zlibWrapper/gzcompatibility.h     |   16 +-
+ sys/contrib/zstd/zlibWrapper/gzguts.h              |   20 +-
+ sys/contrib/zstd/zlibWrapper/gzlib.c               |   99 +-
+ sys/contrib/zstd/zlibWrapper/gzread.c              |   95 +-
+ sys/contrib/zstd/zlibWrapper/gzwrite.c             |   89 +-
+ sys/contrib/zstd/zlibWrapper/zstd_zlibwrapper.c    |   90 +-
+ sys/contrib/zstd/zlibWrapper/zstd_zlibwrapper.h    |   15 +-
+ usr.bin/zstd/Makefile                              |    2 +
+ 191 files changed, 17754 insertions(+), 23515 deletions(-)
+
+[commit 109324d5e7ab893c15540fe97325b3eeaee88d20]
+Date: 2026-05-06
+Score: 5
+CollectedAt: 2026-05-09T08:57:23 UTC
+Sponsor: 
+Subject: MFV less v691
+Body:
+
+Approved by:	re (cperciva)
+Relnotes:	yes
+
+(cherry picked from commit dafba19e42e78cd3d7c9264ece49ddd3d7d70da5)
+
+MFV: less v692.
+
+(cherry picked from commit e2abec625bf07c054f7ac2df2402d6c454113df8)
+(cherry picked from commit 423b0bc492d5264ee518c6569d3c90ee0efb338c)
+
+
+ contrib/less/LICENSE         |    2 +-
+ contrib/less/NEWS            |   83 +++
+ contrib/less/README          |   60 +-
+ contrib/less/brac.c          |    2 +-
+ contrib/less/ch.c            |   14 +-
+ contrib/less/charset.c       |   31 +-
+ contrib/less/charset.h       |    2 +-
+ contrib/less/cmd.h           |   26 +-
+ contrib/less/cmdbuf.c        |  138 ++--
+ contrib/less/command.c       |   87 +--
+ contrib/less/compose.uni     |   14 +-
+ contrib/less/cvt.c           |    2 +-
+ contrib/less/decode.c        |  107 ++-
+ contrib/less/edit.c          |   16 +-
+ contrib/less/evar.c          |    2 +-
+ contrib/less/filename.c      |   20 +-
+ contrib/less/fmt.uni         |    2 +-
+ contrib/less/forwback.c      |   37 +-
+ contrib/less/funcs.h         |   75 ++-
+ contrib/less/help.c          |    9 +-
+ contrib/less/ifile.c         |   12 +-
+ contrib/less/input.c         |    3 +-
+ contrib/less/jump.c          |   18 +-
+ contrib/less/lang.h          |    5 +-
+ contrib/less/less.h          |   19 +-
+ contrib/less/less.hlp        |    7 +-
+ contrib/less/less.nro        | 1495 ++++++++++++++++++++++++++++--------------
+ contrib/less/lessecho.c      |    2 +-
+ contrib/less/lessecho.nro    |   37 +-
+ contrib/less/lesskey.c       |    2 +-
+ contrib/less/lesskey.h       |    2 +-
+ contrib/less/lesskey.nro     |  389 +++++++----
+ contrib/less/lesskey_parse.c |   37 +-
+ contrib/less/lglob.h         |    2 +-
+ contrib/less/line.c          |   39 +-
+ contrib/less/linenum.c       |    2 +-
+ contrib/less/lsystem.c       |   22 +-
+ contrib/less/main.c          |   55 +-
+ contrib/less/mark.c          |  154 +++--
+ contrib/less/omit.uni        |    2 +-
+ contrib/less/optfunc.c       |  132 ++--
+ contrib/less/option.c        |  134 ++--
+ contrib/less/option.h        |    3 +-
+ contrib/less/opttbl.c        |   11 +-
+ contrib/less/os.c            |   65 +-
+ contrib/less/output.c        |   38 +-
+ contrib/less/pattern.c       |    2 +-
+ contrib/less/pattern.h       |    2 +-
+ contrib/less/pckeys.h        |   45 +-
+ contrib/less/position.c      |   16 +-
+ contrib/less/position.h      |    2 +-
+ contrib/less/prompt.c        |   38 +-
+ contrib/less/screen.c        |  527 ++++++++++-----
+ contrib/less/scrsize.c       |    2 +-
+ contrib/less/search.c        |   23 +-
+ contrib/less/signal.c        |   30 +-
+ contrib/less/tags.c          |    9 +-
+ contrib/less/ttyin.c         |    6 +-
+ contrib/less/ubin.uni        |    2 +-
+ contrib/less/version.c       |   21 +-
+ contrib/less/wide.uni        |   23 +-
+ contrib/less/xbuf.c          |   12 +-
+ contrib/less/xbuf.h          |   11 +-
+ usr.bin/less/defines.h       |  116 ++--
+ 64 files changed, 2852 insertions(+), 1451 deletions(-)
+

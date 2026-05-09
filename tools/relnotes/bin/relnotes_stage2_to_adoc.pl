@@ -318,7 +318,7 @@ if ($write) {
     #print "End \@records\n";
 
     # Сгруппировать по файлам
-    print @stage2_files;
+    #print @stage2_files;
     for my $file (@stage2_files) {
 
         my @all = Relnotes::Store::read_file($file);
