@@ -466,12 +466,24 @@ perl relnotes_stage2_to_adoc.pl --release-dir /path/to/release --write
 ### Select, order and output into new file, append or show on screen
 
 ```
-perl tools/relnotes/bin/relnotes_stage_copy.pl --select "Commit, StatusScore, Subject"  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/14.4R
+perl tools/relnotes/bin/relnotes_stage_copy.pl --select "Commit, StatusScore, Subject"  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
 
-perl tools/relnotes/bin/relnotes_stage_copy.pl --insert--into relnotes_docs.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/14.4R
+perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
 
-perl tools/relnotes/bin/relnotes_stage_copy.pl --into relnotes_docs.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/14.4R
+perl tools/relnotes/bin/relnotes_stage_copy.pl --into relnotes_stage8.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
 
+
+```
+
+```
+perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage2.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
+
+perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage4.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
+
+perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage6.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
+
+
+perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
 
 ```
 

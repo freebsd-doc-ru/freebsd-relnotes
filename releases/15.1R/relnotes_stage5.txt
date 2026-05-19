@@ -10744,3 +10744,804 @@ Sponsored by:	The FreeBSD Foundation
  sys/modules/ath11k/Makefile | 63 +++++++++++++++++++++++++++++++--------------
  1 file changed, 43 insertions(+), 20 deletions(-)
 
+[commit 7781f5e09ffc70e7b0618533b65838882a47c4ba]
+Date: 2026-04-17
+Score: 5
+CollectedAt: 2026-05-09T09:10:10 UTC
+Sponsor: 
+Subject: dtrace: Improve dmesg kernel message prefix
+Body:
+
+Provide intuitive log search keywords and increased system consistency.
+
+Approved by:	re (cperciva)
+MFC after:		2 weeks
+Reported by:		mav
+Reviewed by:		0mp, dteske
+OpenZFS change:		d45c8d648 (Improve dmesg kernel message prefix)
+Differential Revision:	https://reviews.freebsd.org/D55765
+
+(cherry picked from commit 49e9b3061df036a73e8bc424c026158f3f57b183)
+(cherry picked from commit b5f45474517646c3df377a75e50260026742ee92)
+
+
+ sys/cddl/compat/opensolaris/kern/opensolaris_cmn_err.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+[commit bf5ca5ced57d615093056e7f8013497b0fe4068f]
+Date: 2026-04-28
+Score: 5
+CollectedAt: 2026-05-09T09:10:10 UTC
+Sponsor: 
+Subject: bsdinstall: Improve auto-partition message
+Body:
+
+Manually tuning ZFS for systems with <8GB ram hasn't been necessary at
+least since the switch to OpenZFS. We have users reporting using 1GB RAM
+with no manual tuning/issues. Further, the page this links to is a stale
+wiki page, which is causing complaints. Remove this misleading note and
+replace it with a similar message for UFS. While here, reword that note
+to be a bit clearer.
+
+Approved by:	re (cperciva)
+PR:			287719
+MFC after:		3 days
+Differential Revision:	https://reviews.freebsd.org/D50971
+
+(cherry picked from commit 5ed26c21e4ff1d478d4611abbf3dc14cc1b77244)
+(cherry picked from commit 5702d242429f1f791e05a720a9a411b1e64212dc)
+
+
+ usr.sbin/bsdinstall/scripts/auto | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+[commit 1aa2b46a07075ea79d22e91a1325b88de4efd27e]
+Date: 2026-05-06
+Score: 5
+CollectedAt: 2026-05-09T09:10:10 UTC
+Sponsor: 
+Subject: MFV: zstd 1.5.7.
+Body:
+
+Approved by:	re (cperciva)
+MFC after:	2 weeks
+Relnotes:	yes
+
+(cherry picked from commit c0d9a07101a1e72769ee0619a583f63a078fb391)
+(cherry picked from commit 7c9418613a31571e4eceda55a417f7183d26acb5)
+(cherry picked from commit 111a42d7d78a88ba6ff7b5d61b0867faccc00276)
+(cherry picked from commit ff426ceef657d7c478471e631349c5d1a8b96453)
+
+
+ lib/libzstd/Makefile                               |    4 +
+ sys/conf/files                                     |    1 +
+ sys/contrib/zstd/.buckconfig                       |    9 -
+ sys/contrib/zstd/.buckversion                      |    1 -
+ sys/contrib/zstd/CHANGELOG                         |  148 +-
+ sys/contrib/zstd/CONTRIBUTING.md                   |  489 ---
+ sys/contrib/zstd/FREEBSD-Xlist                     |   11 +-
+ sys/contrib/zstd/LICENSE                           |    8 +-
+ sys/contrib/zstd/Makefile                          |  439 ---
+ sys/contrib/zstd/README.md                         |   96 +-
+ sys/contrib/zstd/SECURITY.md                       |   15 +
+ sys/contrib/zstd/TESTING.md                        |   43 -
+ sys/contrib/zstd/appveyor.yml                      |  205 --
+ sys/contrib/zstd/doc/README.md                     |   25 -
+ sys/contrib/zstd/doc/educational_decoder/Makefile  |   62 -
+ sys/contrib/zstd/doc/educational_decoder/README.md |   36 -
+ sys/contrib/zstd/doc/educational_decoder/harness.c |  119 -
+ .../zstd/doc/educational_decoder/zstd_decompress.c | 2320 -------------
+ .../zstd/doc/educational_decoder/zstd_decompress.h |   61 -
+ sys/contrib/zstd/doc/images/CSpeed2.png            |  Bin 73335 -> 0 bytes
+ sys/contrib/zstd/doc/images/DCspeed5.png           |  Bin 69278 -> 0 bytes
+ sys/contrib/zstd/doc/images/DSpeed3.png            |  Bin 27123 -> 0 bytes
+ sys/contrib/zstd/doc/images/cdict_v136.png         |  Bin 33330 -> 0 bytes
+ sys/contrib/zstd/doc/images/dict-cr.png            |  Bin 90412 -> 0 bytes
+ sys/contrib/zstd/doc/images/dict-cs.png            |  Bin 91518 -> 0 bytes
+ sys/contrib/zstd/doc/images/dict-ds.png            |  Bin 98316 -> 0 bytes
+ sys/contrib/zstd/doc/images/zstd_cdict_v1_3_5.png  |  Bin 93969 -> 0 bytes
+ sys/contrib/zstd/doc/images/zstd_logo86.png        |  Bin 5963 -> 0 bytes
+ sys/contrib/zstd/doc/zstd_compression_format.md    | 1692 ----------
+ sys/contrib/zstd/doc/zstd_manual.html              | 1908 -----------
+ sys/contrib/zstd/examples/Makefile                 |   93 -
+ sys/contrib/zstd/examples/README.md                |   46 -
+ sys/contrib/zstd/examples/common.h                 |  234 --
+ sys/contrib/zstd/examples/dictionary_compression.c |   97 -
+ .../zstd/examples/dictionary_decompression.c       |   99 -
+ .../zstd/examples/multiple_simple_compression.c    |  116 -
+ .../zstd/examples/multiple_streaming_compression.c |  133 -
+ sys/contrib/zstd/examples/simple_compression.c     |   68 -
+ sys/contrib/zstd/examples/simple_decompression.c   |   65 -
+ sys/contrib/zstd/examples/streaming_compression.c  |  140 -
+ .../examples/streaming_compression_thread_pool.c   |  180 --
+ .../zstd/examples/streaming_decompression.c        |  100 -
+ sys/contrib/zstd/examples/streaming_memory_usage.c |  137 -
+ sys/contrib/zstd/lib/BUCK                          |  232 --
+ sys/contrib/zstd/lib/Makefile                      |  357 --
+ sys/contrib/zstd/lib/README.md                     |   35 +-
+ sys/contrib/zstd/lib/common/allocations.h          |   55 +
+ sys/contrib/zstd/lib/common/bits.h                 |  205 ++
+ sys/contrib/zstd/lib/common/bitstream.h            |  192 +-
+ sys/contrib/zstd/lib/common/compiler.h             |  211 +-
+ sys/contrib/zstd/lib/common/cpu.h                  |   38 +-
+ sys/contrib/zstd/lib/common/debug.c                |    8 +-
+ sys/contrib/zstd/lib/common/debug.h                |   42 +-
+ sys/contrib/zstd/lib/common/entropy_common.c       |   52 +-
+ sys/contrib/zstd/lib/common/error_private.c        |   12 +-
+ sys/contrib/zstd/lib/common/error_private.h        |   93 +-
+ sys/contrib/zstd/lib/common/fse.h                  |  108 +-
+ sys/contrib/zstd/lib/common/fse_decompress.c       |  144 +-
+ sys/contrib/zstd/lib/common/huf.h                  |  245 +-
+ sys/contrib/zstd/lib/common/mem.h                  |  112 +-
+ sys/contrib/zstd/lib/common/pool.c                 |   38 +-
+ sys/contrib/zstd/lib/common/pool.h                 |   19 +-
+ sys/contrib/zstd/lib/common/portability_macros.h   |   56 +-
+ sys/contrib/zstd/lib/common/threading.c            |   88 +-
+ sys/contrib/zstd/lib/common/threading.h            |   23 +-
+ sys/contrib/zstd/lib/common/xxhash.c               |   16 +-
+ sys/contrib/zstd/lib/common/xxhash.h               | 3417 ++++++++++++++------
+ sys/contrib/zstd/lib/common/zstd_common.c          |   37 +-
+ sys/contrib/zstd/lib/common/zstd_deps.h            |   14 +-
+ sys/contrib/zstd/lib/common/zstd_internal.h        |  195 +-
+ sys/contrib/zstd/lib/common/zstd_trace.h           |   19 +-
+ sys/contrib/zstd/lib/compress/clevels.h            |    2 +-
+ sys/contrib/zstd/lib/compress/fse_compress.c       |  146 +-
+ sys/contrib/zstd/lib/compress/hist.c               |   12 +-
+ sys/contrib/zstd/lib/compress/hist.h               |    9 +-
+ sys/contrib/zstd/lib/compress/huf_compress.c       |  472 +--
+ sys/contrib/zstd/lib/compress/zstd_compress.c      | 3322 +++++++++++++------
+ .../zstd/lib/compress/zstd_compress_internal.h     |  671 ++--
+ .../zstd/lib/compress/zstd_compress_literals.c     |  156 +-
+ .../zstd/lib/compress/zstd_compress_literals.h     |   24 +-
+ .../zstd/lib/compress/zstd_compress_sequences.c    |   20 +-
+ .../zstd/lib/compress/zstd_compress_sequences.h    |   15 +-
+ .../zstd/lib/compress/zstd_compress_superblock.c   |  393 ++-
+ .../zstd/lib/compress/zstd_compress_superblock.h   |    2 +-
+ sys/contrib/zstd/lib/compress/zstd_cwksp.h         |  279 +-
+ sys/contrib/zstd/lib/compress/zstd_double_fast.c   |  244 +-
+ sys/contrib/zstd/lib/compress/zstd_double_fast.h   |   32 +-
+ sys/contrib/zstd/lib/compress/zstd_fast.c          |  704 ++--
+ sys/contrib/zstd/lib/compress/zstd_fast.h          |   21 +-
+ sys/contrib/zstd/lib/compress/zstd_lazy.c          | 1063 +++---
+ sys/contrib/zstd/lib/compress/zstd_lazy.h          |  198 +-
+ sys/contrib/zstd/lib/compress/zstd_ldm.c           |  101 +-
+ sys/contrib/zstd/lib/compress/zstd_ldm.h           |   22 +-
+ sys/contrib/zstd/lib/compress/zstd_ldm_geartab.h   |    2 +-
+ sys/contrib/zstd/lib/compress/zstd_opt.c           |  570 ++--
+ sys/contrib/zstd/lib/compress/zstd_opt.h           |   58 +-
+ sys/contrib/zstd/lib/compress/zstd_preSplit.c      |  238 ++
+ sys/contrib/zstd/lib/compress/zstd_preSplit.h      |   33 +
+ sys/contrib/zstd/lib/compress/zstdmt_compress.c    |  414 ++-
+ sys/contrib/zstd/lib/compress/zstdmt_compress.h    |   21 +-
+ sys/contrib/zstd/lib/decompress/huf_decompress.c   | 1031 +++---
+ .../zstd/lib/decompress/huf_decompress_amd64.S     |  139 +-
+ sys/contrib/zstd/lib/decompress/zstd_ddict.c       |    8 +-
+ sys/contrib/zstd/lib/decompress/zstd_ddict.h       |    2 +-
+ sys/contrib/zstd/lib/decompress/zstd_decompress.c  |  410 ++-
+ .../zstd/lib/decompress/zstd_decompress_block.c    |  723 +++--
+ .../zstd/lib/decompress/zstd_decompress_block.h    |    9 +-
+ .../zstd/lib/decompress/zstd_decompress_internal.h |   18 +-
+ sys/contrib/zstd/lib/deprecated/zbuff.h            |    2 +-
+ sys/contrib/zstd/lib/deprecated/zbuff_common.c     |    2 +-
+ sys/contrib/zstd/lib/deprecated/zbuff_compress.c   |    2 +-
+ sys/contrib/zstd/lib/deprecated/zbuff_decompress.c |    4 +-
+ sys/contrib/zstd/lib/dictBuilder/cover.c           |  141 +-
+ sys/contrib/zstd/lib/dictBuilder/cover.h           |   12 +-
+ sys/contrib/zstd/lib/dictBuilder/divsufsort.h      |   10 -
+ sys/contrib/zstd/lib/dictBuilder/fastcover.c       |    8 +-
+ sys/contrib/zstd/lib/dictBuilder/zdict.c           |  125 +-
+ sys/contrib/zstd/lib/freebsd/zstd_kfreebsd.h       |    6 +
+ sys/contrib/zstd/lib/legacy/zstd_legacy.h          |   39 +-
+ sys/contrib/zstd/lib/legacy/zstd_v01.c             |   69 +-
+ sys/contrib/zstd/lib/legacy/zstd_v01.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v02.c             |  107 +-
+ sys/contrib/zstd/lib/legacy/zstd_v02.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v03.c             |  111 +-
+ sys/contrib/zstd/lib/legacy/zstd_v03.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v04.c             |   99 +-
+ sys/contrib/zstd/lib/legacy/zstd_v04.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v05.c             |  107 +-
+ sys/contrib/zstd/lib/legacy/zstd_v05.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v06.c             |  132 +-
+ sys/contrib/zstd/lib/legacy/zstd_v06.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v07.c             |  117 +-
+ sys/contrib/zstd/lib/legacy/zstd_v07.h             |    2 +-
+ sys/contrib/zstd/lib/libzstd.mk                    |   98 +-
+ sys/contrib/zstd/lib/libzstd.pc.in                 |   10 +-
+ sys/contrib/zstd/lib/module.modulemap              |   16 +-
+ sys/contrib/zstd/lib/zdict.h                       |  101 +-
+ sys/contrib/zstd/lib/zstd.h                        | 1157 +++++--
+ sys/contrib/zstd/lib/zstd_errors.h                 |   44 +-
+ sys/contrib/zstd/programs/BUCK                     |   44 -
+ sys/contrib/zstd/programs/Makefile                 |  435 ---
+ sys/contrib/zstd/programs/README.md                |  191 +-
+ sys/contrib/zstd/programs/benchfn.c                |   12 +-
+ sys/contrib/zstd/programs/benchfn.h                |   14 +-
+ sys/contrib/zstd/programs/benchzstd.c              | 1287 +++++---
+ sys/contrib/zstd/programs/benchzstd.h              |   80 +-
+ sys/contrib/zstd/programs/datagen.c                |    2 +-
+ sys/contrib/zstd/programs/datagen.h                |   10 +-
+ sys/contrib/zstd/programs/dibio.c                  |   33 +-
+ sys/contrib/zstd/programs/dibio.h                  |    2 +-
+ sys/contrib/zstd/programs/fileio.c                 | 1887 ++++++-----
+ sys/contrib/zstd/programs/fileio.h                 |   35 +-
+ sys/contrib/zstd/programs/fileio_asyncio.c         |  663 ++++
+ sys/contrib/zstd/programs/fileio_asyncio.h         |  195 ++
+ sys/contrib/zstd/programs/fileio_common.h          |  121 +
+ sys/contrib/zstd/programs/fileio_types.h           |   86 +
+ sys/contrib/zstd/programs/lorem.c                  |  285 ++
+ sys/contrib/zstd/programs/lorem.h                  |   32 +
+ sys/contrib/zstd/programs/platform.h               |   46 +-
+ sys/contrib/zstd/programs/timefn.c                 |  139 +-
+ sys/contrib/zstd/programs/timefn.h                 |   70 +-
+ sys/contrib/zstd/programs/util.c                   |  408 ++-
+ sys/contrib/zstd/programs/util.h                   |   66 +-
+ sys/contrib/zstd/programs/zstd.1                   |  489 ++-
+ sys/contrib/zstd/programs/zstd.1.md                |  598 ++--
+ sys/contrib/zstd/programs/zstdcli.c                |  648 ++--
+ sys/contrib/zstd/programs/zstdcli_trace.c          |    2 +-
+ sys/contrib/zstd/programs/zstdcli_trace.h          |    2 +-
+ sys/contrib/zstd/programs/zstdgrep.1               |   10 +-
+ sys/contrib/zstd/programs/zstdgrep.1.md            |   10 +-
+ sys/contrib/zstd/programs/zstdless                 |    8 +-
+ sys/contrib/zstd/programs/zstdless.1               |    6 +-
+ sys/contrib/zstd/programs/zstdless.1.md            |    6 +-
+ sys/contrib/zstd/zlibWrapper/BUCK                  |   22 -
+ sys/contrib/zstd/zlibWrapper/Makefile              |  119 -
+ sys/contrib/zstd/zlibWrapper/README.md             |    4 +-
+ sys/contrib/zstd/zlibWrapper/examples/example.c    |  629 ----
+ .../zstd/zlibWrapper/examples/example_original.c   |  618 ----
+ sys/contrib/zstd/zlibWrapper/examples/fitblk.c     |  254 --
+ .../zstd/zlibWrapper/examples/fitblk_original.c    |  233 --
+ sys/contrib/zstd/zlibWrapper/examples/minigzip.c   |  640 ----
+ sys/contrib/zstd/zlibWrapper/examples/zwrapbench.c | 1016 ------
+ sys/contrib/zstd/zlibWrapper/gzclose.c             |    6 +-
+ sys/contrib/zstd/zlibWrapper/gzcompatibility.h     |   16 +-
+ sys/contrib/zstd/zlibWrapper/gzguts.h              |   20 +-
+ sys/contrib/zstd/zlibWrapper/gzlib.c               |   99 +-
+ sys/contrib/zstd/zlibWrapper/gzread.c              |   95 +-
+ sys/contrib/zstd/zlibWrapper/gzwrite.c             |   89 +-
+ sys/contrib/zstd/zlibWrapper/zstd_zlibwrapper.c    |   90 +-
+ sys/contrib/zstd/zlibWrapper/zstd_zlibwrapper.h    |   15 +-
+ usr.bin/zstd/Makefile                              |    2 +
+ 191 files changed, 17754 insertions(+), 23515 deletions(-)
+
+[commit 109324d5e7ab893c15540fe97325b3eeaee88d20]
+Date: 2026-05-06
+Score: 5
+CollectedAt: 2026-05-09T09:10:10 UTC
+Sponsor: 
+Subject: MFV less v691
+Body:
+
+Approved by:	re (cperciva)
+Relnotes:	yes
+
+(cherry picked from commit dafba19e42e78cd3d7c9264ece49ddd3d7d70da5)
+
+MFV: less v692.
+
+(cherry picked from commit e2abec625bf07c054f7ac2df2402d6c454113df8)
+(cherry picked from commit 423b0bc492d5264ee518c6569d3c90ee0efb338c)
+
+
+ contrib/less/LICENSE         |    2 +-
+ contrib/less/NEWS            |   83 +++
+ contrib/less/README          |   60 +-
+ contrib/less/brac.c          |    2 +-
+ contrib/less/ch.c            |   14 +-
+ contrib/less/charset.c       |   31 +-
+ contrib/less/charset.h       |    2 +-
+ contrib/less/cmd.h           |   26 +-
+ contrib/less/cmdbuf.c        |  138 ++--
+ contrib/less/command.c       |   87 +--
+ contrib/less/compose.uni     |   14 +-
+ contrib/less/cvt.c           |    2 +-
+ contrib/less/decode.c        |  107 ++-
+ contrib/less/edit.c          |   16 +-
+ contrib/less/evar.c          |    2 +-
+ contrib/less/filename.c      |   20 +-
+ contrib/less/fmt.uni         |    2 +-
+ contrib/less/forwback.c      |   37 +-
+ contrib/less/funcs.h         |   75 ++-
+ contrib/less/help.c          |    9 +-
+ contrib/less/ifile.c         |   12 +-
+ contrib/less/input.c         |    3 +-
+ contrib/less/jump.c          |   18 +-
+ contrib/less/lang.h          |    5 +-
+ contrib/less/less.h          |   19 +-
+ contrib/less/less.hlp        |    7 +-
+ contrib/less/less.nro        | 1495 ++++++++++++++++++++++++++++--------------
+ contrib/less/lessecho.c      |    2 +-
+ contrib/less/lessecho.nro    |   37 +-
+ contrib/less/lesskey.c       |    2 +-
+ contrib/less/lesskey.h       |    2 +-
+ contrib/less/lesskey.nro     |  389 +++++++----
+ contrib/less/lesskey_parse.c |   37 +-
+ contrib/less/lglob.h         |    2 +-
+ contrib/less/line.c          |   39 +-
+ contrib/less/linenum.c       |    2 +-
+ contrib/less/lsystem.c       |   22 +-
+ contrib/less/main.c          |   55 +-
+ contrib/less/mark.c          |  154 +++--
+ contrib/less/omit.uni        |    2 +-
+ contrib/less/optfunc.c       |  132 ++--
+ contrib/less/option.c        |  134 ++--
+ contrib/less/option.h        |    3 +-
+ contrib/less/opttbl.c        |   11 +-
+ contrib/less/os.c            |   65 +-
+ contrib/less/output.c        |   38 +-
+ contrib/less/pattern.c       |    2 +-
+ contrib/less/pattern.h       |    2 +-
+ contrib/less/pckeys.h        |   45 +-
+ contrib/less/position.c      |   16 +-
+ contrib/less/position.h      |    2 +-
+ contrib/less/prompt.c        |   38 +-
+ contrib/less/screen.c        |  527 ++++++++++-----
+ contrib/less/scrsize.c       |    2 +-
+ contrib/less/search.c        |   23 +-
+ contrib/less/signal.c        |   30 +-
+ contrib/less/tags.c          |    9 +-
+ contrib/less/ttyin.c         |    6 +-
+ contrib/less/ubin.uni        |    2 +-
+ contrib/less/version.c       |   21 +-
+ contrib/less/wide.uni        |   23 +-
+ contrib/less/xbuf.c          |   12 +-
+ contrib/less/xbuf.h          |   11 +-
+ usr.bin/less/defines.h       |  116 ++--
+ 64 files changed, 2852 insertions(+), 1451 deletions(-)
+
+[commit 409247a6cbd11e3510025e025f3b82184c3de17c]
+Date: 2026-05-13
+Score: 5
+CollectedAt: 2026-05-19T18:12:34 UTC
+Sponsor: 
+Subject: zfs: merge openzfs/zfs@6330a45b0 (zfs-2.4-release) into stable/15
+Body:
+
+OpenZFS 2.4.2
+
+Notable upstream pull request merges:
+ #18208 6f14581e1 Cleanup allocation class selection
+ #18235 7590972f7 Prevent range tree corruption race by updating
+                  dnode_sync()
+ #18255 b06caaeec range_tree: use zfs_panic_recover() for partial-overlap
+                  remove
+ #18258 33961142a Fix deadlock on dmu_tx_assign() from vdev_rebuild()
+ #18262 02ed09106 Fix check for .cfi_negate_ra_state on aarch64
+ #18263 9f92266b7 Fix redundant declaration of dsl_pool_t
+ #18276 3862aadf7 Fix vdev_rebuild_range() tx commit
+ #18290 a94b137aa FreeBSD: Improve dmesg kernel message prefix
+ #18294 938c8c98b draid: fix data corruption after disk clear
+ #18310 b40cd9191 Fix s_active leak in zfsvfs_hold() when z_unmounted is
+                  true
+ #18380 9b8ccbd2c draid: fix import failure after disks replacements
+ #18399 4bb759274 Add support for POSIX_FADV_DONTNEED
+ #18403 aba3ed30a fix memleak in spa_errlog.c
+ #18405 e9a8c6e08 draid: allow seq resilver reads from degraded vdevs
+ #18414 da44040bb draid: fix cksum errors after rebuild with degraded disks
+ #18421 e7524594a Fix read corruption after block clone after truncate
+ #18440 b8addf922 dmu_direct: avoid UAF in dmu_write_direct_done()
+ #18473 76fd64ac9 Fix rare cksum errors after rebuild
+ #18482 fc87e269e Initialize vr_last_txg for rebuild
+ #18489 38501e182 Fix long POSIX_FADV_DONTNEED for single block files
+
+Approved by:	re (cperciva)
+Obtained from:	OpenZFS
+OpenZFS commit:	6330a45b06d20125de679aae5f63ba14082671ef
+OpenZFS tag:	zfs-2.4.2
+
+(cherry picked from commit a40f24ec28554c2387e766a47d2d4cb910d95865)
+
+
+ .../openzfs/.github/workflows/checkstyle.yaml      |   7 +-
+ sys/contrib/openzfs/.github/workflows/codeql.yml   |   2 +-
+ .../.github/workflows/scripts/generate-ci-type.py  |  33 +-
+ .../.github/workflows/scripts/merge_summary.awk    |  38 ++
+ .../.github/workflows/scripts/qemu-1-setup.sh      |  43 +-
+ .../.github/workflows/scripts/qemu-2-start.sh      |  81 ++-
+ .../.github/workflows/scripts/qemu-3-deps-vm.sh    |  22 +-
+ .../.github/workflows/scripts/qemu-4-build-vm.sh   |  11 +-
+ .../.github/workflows/scripts/qemu-6-tests.sh      |   4 +-
+ .../.github/workflows/scripts/qemu-7-prepare.sh    |  47 +-
+ .../.github/workflows/scripts/qemu-8-summary.sh    |   8 +-
+ .../workflows/scripts/qemu-9-summary-page.sh       |   4 +-
+ sys/contrib/openzfs/.github/workflows/smatch.yml   |   4 +-
+ sys/contrib/openzfs/.github/workflows/zfs-arm.yml  |  40 ++
+ .../.github/workflows/zfs-qemu-packages.yml        |  25 +-
+ sys/contrib/openzfs/.github/workflows/zfs-qemu.yml |  46 +-
+ sys/contrib/openzfs/.github/workflows/zloop.yml    |   7 +-
+ sys/contrib/openzfs/META                           |   4 +-
+ sys/contrib/openzfs/Makefile.am                    |   1 +
+ sys/contrib/openzfs/README.md                      |  42 +-
+ sys/contrib/openzfs/autogen.sh                     |   1 +
+ sys/contrib/openzfs/cmd/Makefile.am                |   1 +
+ sys/contrib/openzfs/cmd/raidz_test/Makefile.am     |   1 +
+ sys/contrib/openzfs/cmd/zdb/Makefile.am            |   1 +
+ sys/contrib/openzfs/cmd/zed/Makefile.am            |   1 +
+ sys/contrib/openzfs/cmd/zed/zed.d/Makefile.am      |   1 +
+ sys/contrib/openzfs/cmd/zed/zed_event.c            |   2 +-
+ sys/contrib/openzfs/cmd/zfs/Makefile.am            |   1 +
+ sys/contrib/openzfs/cmd/zfs/zfs_main.c             |   2 +-
+ sys/contrib/openzfs/cmd/zinject/Makefile.am        |   1 +
+ sys/contrib/openzfs/cmd/zpool/Makefile.am          |   1 +
+ sys/contrib/openzfs/cmd/zpool_influxdb/Makefile.am |   1 +
+ sys/contrib/openzfs/cmd/zstream/Makefile.am        |   1 +
+ sys/contrib/openzfs/config/CppCheck.am             |   1 +
+ sys/contrib/openzfs/config/Rules.am                |   1 +
+ sys/contrib/openzfs/config/Shellcheck.am           |   1 +
+ sys/contrib/openzfs/config/Substfiles.am           |   1 +
+ sys/contrib/openzfs/config/always-arch.m4          |   1 +
+ .../openzfs/config/always-compiler-options.m4      |   1 +
+ sys/contrib/openzfs/config/always-cppcheck.m4      |   1 +
+ sys/contrib/openzfs/config/always-parallel.m4      |   1 +
+ sys/contrib/openzfs/config/always-python.m4        |   1 +
+ sys/contrib/openzfs/config/always-pyzfs.m4         |   1 +
+ sys/contrib/openzfs/config/always-sed.m4           |   1 +
+ sys/contrib/openzfs/config/always-shellcheck.m4    |   1 +
+ sys/contrib/openzfs/config/always-system.m4        |   1 +
+ sys/contrib/openzfs/config/ax_compare_version.m4   |   1 +
+ sys/contrib/openzfs/config/ax_count_cpus.m4        |   1 +
+ sys/contrib/openzfs/config/ax_python_devel.m4      |   1 +
+ sys/contrib/openzfs/config/ax_restore_flags.m4     |   1 +
+ sys/contrib/openzfs/config/ax_save_flags.m4        |   1 +
+ sys/contrib/openzfs/config/deb.am                  |  21 +-
+ sys/contrib/openzfs/config/find_system_library.m4  |   1 +
+ sys/contrib/openzfs/config/gettext.m4              |   1 +
+ sys/contrib/openzfs/config/host-cpu-c-abi.m4       |   1 +
+ sys/contrib/openzfs/config/iconv.m4                |   1 +
+ .../openzfs/config/kernel-access-ok-type.m4        |   1 +
+ sys/contrib/openzfs/config/kernel-acl.m4           |  32 +
+ sys/contrib/openzfs/config/kernel-add-disk.m4      |   1 +
+ sys/contrib/openzfs/config/kernel-assign_str.m4    |   1 +
+ sys/contrib/openzfs/config/kernel-automount.m4     |   1 +
+ sys/contrib/openzfs/config/kernel-bio.m4           |   1 +
+ sys/contrib/openzfs/config/kernel-bio_max_segs.m4  |   1 +
+ sys/contrib/openzfs/config/kernel-blk-queue.m4     |  27 +
+ sys/contrib/openzfs/config/kernel-blkdev.m4        |   1 +
+ .../config/kernel-block-device-operations.m4       |   1 +
+ .../openzfs/config/kernel-commit-metadata.m4       |   1 +
+ .../openzfs/config/kernel-config-defined.m4        |   1 +
+ .../config/kernel-copy-from-user-inatomic.m4       |  29 -
+ .../openzfs/config/kernel-cpu_has_feature.m4       |   1 +
+ .../openzfs/config/kernel-declare-event-class.m4   |   1 +
+ sys/contrib/openzfs/config/kernel-dentry-alias.m4  |  32 +
+ .../openzfs/config/kernel-dentry-operations.m4     |   1 +
+ .../openzfs/config/kernel-discard-granularity.m4   |   1 +
+ sys/contrib/openzfs/config/kernel-drop-inode.m4    |   1 +
+ sys/contrib/openzfs/config/kernel-file.m4          |   1 +
+ sys/contrib/openzfs/config/kernel-filelock.m4      |  23 +
+ .../openzfs/config/kernel-filemap-splice-read.m4   |   1 +
+ .../openzfs/config/kernel-flush_dcache_page.m4     |   1 +
+ sys/contrib/openzfs/config/kernel-fmode-t.m4       |   1 +
+ .../openzfs/config/kernel-follow-down-one.m4       |   1 +
+ sys/contrib/openzfs/config/kernel-fpu.m4           |   1 +
+ sys/contrib/openzfs/config/kernel-free-inode.m4    |   1 +
+ sys/contrib/openzfs/config/kernel-fs-context.m4    |  36 ++
+ sys/contrib/openzfs/config/kernel-fst-mount.m4     |  30 -
+ sys/contrib/openzfs/config/kernel-fsync-bdev.m4    |   1 +
+ .../openzfs/config/kernel-generic_fadvise.m4       |   1 +
+ .../openzfs/config/kernel-generic_fillattr.m4      |   1 +
+ .../openzfs/config/kernel-generic_io_acct.m4       |   1 +
+ sys/contrib/openzfs/config/kernel-genhd-flags.m4   |   1 +
+ sys/contrib/openzfs/config/kernel-get-disk-ro.m4   |   1 +
+ sys/contrib/openzfs/config/kernel-iattr-vfsid.m4   |   1 +
+ sys/contrib/openzfs/config/kernel-idmap_mnt_api.m4 |   1 +
+ sys/contrib/openzfs/config/kernel-inode-create.m4  |   1 +
+ sys/contrib/openzfs/config/kernel-inode-getattr.m4 |   1 +
+ sys/contrib/openzfs/config/kernel-inode-lookup.m4  |   1 +
+ .../openzfs/config/kernel-inode-permission.m4      |   1 +
+ sys/contrib/openzfs/config/kernel-inode-setattr.m4 |   1 +
+ sys/contrib/openzfs/config/kernel-inode-state.m4   |   1 +
+ sys/contrib/openzfs/config/kernel-inode-times.m4   |   1 +
+ .../openzfs/config/kernel-insert-inode-locked.m4   |   1 +
+ .../openzfs/config/kernel-is_owner_or_cap.m4       |   1 +
+ sys/contrib/openzfs/config/kernel-kasan-enabled.m4 |   1 +
+ .../openzfs/config/kernel-kmap-atomic-args.m4      |   1 +
+ .../openzfs/config/kernel-kmap-local-page.m4       |   1 +
+ sys/contrib/openzfs/config/kernel-kmem.m4          |   1 +
+ sys/contrib/openzfs/config/kernel-kthread.m4       |   1 +
+ sys/contrib/openzfs/config/kernel-kuid-helpers.m4  |   1 +
+ sys/contrib/openzfs/config/kernel-kuidgid.m4       |   1 +
+ .../openzfs/config/kernel-make-request-fn.m4       |   1 +
+ sys/contrib/openzfs/config/kernel-misc-minor.m4    |   1 +
+ sys/contrib/openzfs/config/kernel-mkdir.m4         |   1 +
+ sys/contrib/openzfs/config/kernel-mknod.m4         |   1 +
+ sys/contrib/openzfs/config/kernel-mm-page-flags.m4 |   1 +
+ sys/contrib/openzfs/config/kernel-mm-pagemap.m4    |   1 +
+ sys/contrib/openzfs/config/kernel-namespace.m4     |   1 +
+ sys/contrib/openzfs/config/kernel-objtool.m4       |   1 +
+ .../config/kernel-pagemap-folio_wait_bit.m4        |   1 +
+ .../config/kernel-pagemap-readahead-page.m4        |   1 +
+ sys/contrib/openzfs/config/kernel-pde-data.m4      |   1 +
+ sys/contrib/openzfs/config/kernel-percpu.m4        |   1 +
+ .../openzfs/config/kernel-pin-user-pages.m4        |   1 +
+ .../openzfs/config/kernel-proc-operations.m4       |   1 +
+ sys/contrib/openzfs/config/kernel-reclaim_state.m4 |   1 +
+ .../openzfs/config/kernel-register_sysctl_table.m4 |   1 +
+ sys/contrib/openzfs/config/kernel-rename.m4        |   1 +
+ .../openzfs/config/kernel-revalidate-disk-size.m4  |   1 +
+ sys/contrib/openzfs/config/kernel-sb-dying.m4      |   1 +
+ sys/contrib/openzfs/config/kernel-sb-wb-err.m4     |   1 +
+ sys/contrib/openzfs/config/kernel-sched.m4         |   1 +
+ .../openzfs/config/kernel-security-inode-init.m4   |   1 +
+ sys/contrib/openzfs/config/kernel-set-nlink.m4     |   1 +
+ .../openzfs/config/kernel-setattr-prepare.m4       |   1 +
+ sys/contrib/openzfs/config/kernel-sget-args.m4     |   1 +
+ sys/contrib/openzfs/config/kernel-show-options.m4  |   1 +
+ sys/contrib/openzfs/config/kernel-shrink.m4        |   1 +
+ sys/contrib/openzfs/config/kernel-siginfo.m4       |   1 +
+ sys/contrib/openzfs/config/kernel-stdarg.m4        |   1 +
+ sys/contrib/openzfs/config/kernel-strlcpy.m4       |   1 +
+ sys/contrib/openzfs/config/kernel-symlink.m4       |   1 +
+ sys/contrib/openzfs/config/kernel-sysfs.m4         |   1 +
+ sys/contrib/openzfs/config/kernel-timer.m4         |   1 +
+ sys/contrib/openzfs/config/kernel-tmpfile.m4       |   1 +
+ .../openzfs/config/kernel-totalhigh_pages.m4       |   1 +
+ .../openzfs/config/kernel-totalram-pages-func.m4   |   1 +
+ .../openzfs/config/kernel-truncate-setsize.m4      |   1 +
+ sys/contrib/openzfs/config/kernel-types.m4         |   1 +
+ sys/contrib/openzfs/config/kernel-usleep_range.m4  |   1 +
+ .../openzfs/config/kernel-vfs-file_range.m4        |   1 +
+ .../config/kernel-vfs-filemap_dirty_folio.m4       |   1 +
+ sys/contrib/openzfs/config/kernel-vfs-fsync.m4     |   1 +
+ sys/contrib/openzfs/config/kernel-vfs-iov_iter.m4  |   1 +
+ .../openzfs/config/kernel-vfs-migrate_folio.m4     |   1 +
+ .../openzfs/config/kernel-vfs-migratepage.m4       |   1 +
+ .../openzfs/config/kernel-vfs-read_folio.m4        |   1 +
+ sys/contrib/openzfs/config/kernel-vfs-readpages.m4 |   1 +
+ .../openzfs/config/kernel-vfs-set_page_dirty.m4    |   1 +
+ sys/contrib/openzfs/config/kernel-vfs-writepage.m4 |   1 +
+ sys/contrib/openzfs/config/kernel-writeback.m4     |   1 +
+ sys/contrib/openzfs/config/kernel-xattr-handler.m4 |   1 +
+ sys/contrib/openzfs/config/kernel-zero_page.m4     |   1 +
+ sys/contrib/openzfs/config/kernel.m4               |  22 +-
+ sys/contrib/openzfs/config/lib-ld.m4               |   1 +
+ sys/contrib/openzfs/config/lib-link.m4             |   1 +
+ sys/contrib/openzfs/config/lib-prefix.m4           |   1 +
+ sys/contrib/openzfs/config/mount-helper.m4         |   1 +
+ sys/contrib/openzfs/config/nls.m4                  |   1 +
+ sys/contrib/openzfs/config/pkg.m4                  |   1 +
+ sys/contrib/openzfs/config/po.m4                   |   1 +
+ sys/contrib/openzfs/config/progtest.m4             |   1 +
+ sys/contrib/openzfs/config/rpm.am                  |   1 +
+ sys/contrib/openzfs/config/tgz.am                  |   1 +
+ sys/contrib/openzfs/config/toolchain-cfi.m4        |  33 +
+ sys/contrib/openzfs/config/toolchain-simd.m4       |   1 +
+ sys/contrib/openzfs/config/user-aio.h.m4           |   1 +
+ sys/contrib/openzfs/config/user-backtrace.m4       |   1 +
+ sys/contrib/openzfs/config/user-clock_gettime.m4   |   1 +
+ sys/contrib/openzfs/config/user-dracut.m4          |   1 +
+ sys/contrib/openzfs/config/user-gettext.m4         |   1 +
+ sys/contrib/openzfs/config/user-libaio.m4          |   1 +
+ sys/contrib/openzfs/config/user-libatomic.m4       |   1 +
+ sys/contrib/openzfs/config/user-libblkid.m4        |   1 +
+ sys/contrib/openzfs/config/user-libcrypto.m4       |   1 +
+ sys/contrib/openzfs/config/user-libexec.m4         |   1 +
+ sys/contrib/openzfs/config/user-libfetch.m4        |   1 +
+ sys/contrib/openzfs/config/user-libtirpc.m4        |   1 +
+ sys/contrib/openzfs/config/user-libudev.m4         |   1 +
+ sys/contrib/openzfs/config/user-libunwind.m4       |   1 +
+ sys/contrib/openzfs/config/user-libuuid.m4         |   1 +
+ sys/contrib/openzfs/config/user-makedev.m4         |   1 +
+ sys/contrib/openzfs/config/user-mount-setattr.m4   |  27 +
+ sys/contrib/openzfs/config/user-pam.m4             |   1 +
+ sys/contrib/openzfs/config/user-runstatedir.m4     |   1 +
+ sys/contrib/openzfs/config/user-statx.m4           |   2 +
+ sys/contrib/openzfs/config/user-systemd.m4         |   1 +
+ sys/contrib/openzfs/config/user-sysvinit.m4        |   1 +
+ sys/contrib/openzfs/config/user-udev.m4            |   1 +
+ sys/contrib/openzfs/config/user-zlib.m4            |   1 +
+ sys/contrib/openzfs/config/user.m4                 |   2 +
+ sys/contrib/openzfs/config/zfs-build.m4            |   4 +-
+ sys/contrib/openzfs/config/zfs-meta.m4             |   1 +
+ sys/contrib/openzfs/configure.ac                   |   2 +-
+ sys/contrib/openzfs/contrib/Makefile.am            |   1 +
+ .../openzfs/contrib/bash_completion.d/Makefile.am  |   1 +
+ sys/contrib/openzfs/contrib/bpftrace/Makefile.am   |   1 +
+ sys/contrib/openzfs/contrib/debian/Makefile.am     |   1 +
+ sys/contrib/openzfs/contrib/dracut/Makefile.am     |   1 +
+ sys/contrib/openzfs/contrib/initramfs/Makefile.am  |   1 +
+ sys/contrib/openzfs/contrib/initramfs/scripts/zfs  |   8 +-
+ .../openzfs/contrib/pam_zfs_key/Makefile.am        |   1 +
+ sys/contrib/openzfs/contrib/pyzfs/Makefile.am      |   1 +
+ sys/contrib/openzfs/contrib/zcp/Makefile.am        |   1 +
+ sys/contrib/openzfs/etc/Makefile.am                |   1 +
+ .../system-generators/zfs-mount-generator.c        |   5 +-
+ sys/contrib/openzfs/include/Makefile.am            |   1 +
+ sys/contrib/openzfs/include/os/freebsd/Makefile.am |   1 +
+ sys/contrib/openzfs/include/os/linux/Makefile.am   |   1 +
+ .../include/os/linux/kernel/linux/dcache_compat.h  |   2 +
+ .../include/os/linux/kernel/linux/xattr_compat.h   |  17 +
+ .../include/os/linux/zfs/sys/zfs_vfsops_os.h       |  14 +-
+ sys/contrib/openzfs/include/sys/dbuf.h             |   2 +
+ sys/contrib/openzfs/include/sys/dmu.h              |   2 +
+ sys/contrib/openzfs/include/sys/dnode.h            |  13 +
+ sys/contrib/openzfs/include/sys/spa.h              |   1 +
+ sys/contrib/openzfs/include/sys/vdev_raidz_impl.h  |   1 +
+ sys/contrib/openzfs/include/sys/vdev_rebuild.h     |   4 +-
+ sys/contrib/openzfs/lib/Makefile.am                |   1 +
+ sys/contrib/openzfs/lib/libavl/Makefile.am         |   1 +
+ sys/contrib/openzfs/lib/libefi/Makefile.am         |   1 +
+ sys/contrib/openzfs/lib/libicp/Makefile.am         |   1 +
+ sys/contrib/openzfs/lib/libnvpair/Makefile.am      |   1 +
+ sys/contrib/openzfs/lib/libspl/Makefile.am         |   1 +
+ sys/contrib/openzfs/lib/libspl/include/Makefile.am |   1 +
+ .../openzfs/lib/libspl/os/linux/getmntany.c        |   9 +-
+ sys/contrib/openzfs/lib/libuutil/uu_ident.c        |   2 +-
+ sys/contrib/openzfs/lib/libzdb/Makefile.am         |   1 +
+ sys/contrib/openzfs/lib/libzfs/Makefile.am         |   1 +
+ sys/contrib/openzfs/lib/libzfs/libzfs_dataset.c    |  49 +-
+ sys/contrib/openzfs/lib/libzfs/libzfs_diff.c       |   4 +-
+ sys/contrib/openzfs/lib/libzfs/libzfs_impl.h       |  17 +
+ sys/contrib/openzfs/lib/libzfs/libzfs_mount.c      |  43 +-
+ sys/contrib/openzfs/lib/libzfs/libzfs_pool.c       |   2 +-
+ sys/contrib/openzfs/lib/libzfs/libzfs_sendrecv.c   |   2 +-
+ .../openzfs/lib/libzfs/os/freebsd/libzfs_zmount.c  |  11 +
+ .../openzfs/lib/libzfs/os/linux/libzfs_mount_os.c  | 143 +++++
+ sys/contrib/openzfs/lib/libzfs_core/Makefile.am    |   1 +
+ sys/contrib/openzfs/lib/libzfsbootenv/Makefile.am  |   1 +
+ sys/contrib/openzfs/lib/libzpool/Makefile.am       |   1 +
+ sys/contrib/openzfs/lib/libzstd/Makefile.am        |   1 +
+ sys/contrib/openzfs/lib/libzutil/Makefile.am       |   1 +
+ .../lib/libzutil/os/linux/zutil_device_path_os.c   |  16 +-
+ sys/contrib/openzfs/man/Makefile.am                |   1 +
+ .../icp/asm-aarch64/blake3/b3_aarch64_sse2.S       |   4 +-
+ .../icp/asm-aarch64/blake3/b3_aarch64_sse41.S      |   4 +-
+ sys/contrib/openzfs/module/nvpair/nvpair.c         |   5 +-
+ .../openzfs/module/os/freebsd/spl/spl_cmn_err.c    |  10 +-
+ .../openzfs/module/os/freebsd/zfs/zfs_vnops_os.c   |   4 +-
+ .../openzfs/module/os/linux/zfs/vdev_disk.c        |   4 +
+ .../openzfs/module/os/linux/zfs/zfs_ctldir.c       |  35 +-
+ sys/contrib/openzfs/module/os/linux/zfs/zfs_uio.c  |  13 +-
+ .../openzfs/module/os/linux/zfs/zfs_vfsops.c       | 231 +------
+ sys/contrib/openzfs/module/os/linux/zfs/zpl_file.c |  44 +-
+ .../openzfs/module/os/linux/zfs/zpl_super.c        | 681 ++++++++++++++++++---
+ sys/contrib/openzfs/module/zfs/dbuf.c              |  78 ++-
+ sys/contrib/openzfs/module/zfs/dmu.c               |  39 +-
+ sys/contrib/openzfs/module/zfs/dmu_direct.c        |   8 +-
+ sys/contrib/openzfs/module/zfs/dmu_objset.c        |   2 +-
+ sys/contrib/openzfs/module/zfs/dnode.c             |   2 +
+ sys/contrib/openzfs/module/zfs/dnode_sync.c        | 105 ++--
+ sys/contrib/openzfs/module/zfs/dsl_bookmark.c      |  18 +-
+ sys/contrib/openzfs/module/zfs/dsl_dir.c           |   2 +-
+ sys/contrib/openzfs/module/zfs/range_tree.c        |   2 +-
+ sys/contrib/openzfs/module/zfs/spa.c               |   2 +-
+ sys/contrib/openzfs/module/zfs/spa_errlog.c        |   2 +-
+ sys/contrib/openzfs/module/zfs/spa_misc.c          |  48 +-
+ sys/contrib/openzfs/module/zfs/vdev.c              |  29 +-
+ sys/contrib/openzfs/module/zfs/vdev_draid.c        |  76 ++-
+ sys/contrib/openzfs/module/zfs/vdev_mirror.c       |  13 +-
+ sys/contrib/openzfs/module/zfs/vdev_raidz.c        |  44 +-
+ sys/contrib/openzfs/module/zfs/vdev_rebuild.c      |  56 +-
+ sys/contrib/openzfs/module/zfs/zfs_ioctl.c         |   1 +
+ sys/contrib/openzfs/module/zfs/zio.c               |   6 +-
+ sys/contrib/openzfs/rpm/Makefile.am                |   1 +
+ sys/contrib/openzfs/scripts/Makefile.am            |   1 +
+ sys/contrib/openzfs/scripts/spdxcheck.pl           |  35 +-
+ sys/contrib/openzfs/scripts/zfs-tests.sh           |  16 +-
+ sys/contrib/openzfs/tests/Makefile.am              |   1 +
+ sys/contrib/openzfs/tests/runfiles/common.run      |  15 +-
+ sys/contrib/openzfs/tests/runfiles/linux.run       |   4 +
+ .../openzfs/tests/test-runner/bin/zts-report.py.in |   3 +-
+ sys/contrib/openzfs/tests/zfs-tests/Makefile.am    |   1 +
+ sys/contrib/openzfs/tests/zfs-tests/cmd/.gitignore |   2 +
+ .../openzfs/tests/zfs-tests/cmd/Makefile.am        |   4 +
+ .../tests/zfs-tests/cmd/clone_after_trunc.c        | 117 ++++
+ sys/contrib/openzfs/tests/zfs-tests/cmd/setlease.c | 126 ++++
+ .../openzfs/tests/zfs-tests/cmd/threadsappend.c    |   8 +-
+ .../openzfs/tests/zfs-tests/include/commands.cfg   |   6 +-
+ .../openzfs/tests/zfs-tests/include/libtest.shlib  |  15 +
+ .../openzfs/tests/zfs-tests/tests/Makefile.am      |  11 +
+ .../block_cloning/block_cloning_after_trunc.ksh    |  31 +
+ .../tests/functional/cli_root/zfs_list/cleanup.ksh |  30 +
+ .../tests/functional/cli_root/zfs_list/setup.ksh   |  32 +
+ .../cli_root/zfs_list/zfs_list_009_pos.ksh         |  69 +++
+ .../tests/functional/fadvise/fadvise_dontneed.ksh  |  70 +++
+ .../zfs-tests/tests/functional/lease/cleanup.ksh   |  26 +
+ .../tests/functional/lease/lease_setlease.ksh      |  44 ++
+ .../zfs-tests/tests/functional/lease/setup.ksh     |  27 +
+ .../tests/functional/redundancy/redundancy.kshlib  |  71 ++-
+ .../functional/redundancy/redundancy_draid.ksh     |  12 +-
+ .../redundancy/redundancy_draid_damaged1.ksh       |   7 +-
+ .../redundancy/redundancy_draid_damaged2.ksh       |  14 +-
+ .../redundancy/redundancy_draid_degraded1.ksh      | 136 ++++
+ .../redundancy/redundancy_draid_degraded2.ksh      | 152 +++++
+ .../redundancy/redundancy_draid_spare1.ksh         |  13 +-
+ .../redundancy/redundancy_draid_spare2.ksh         |   8 +-
+ .../redundancy/redundancy_draid_spare3.ksh         |  28 +-
+ sys/contrib/openzfs/udev/Makefile.am               |   1 +
+ sys/modules/zfs/zfs_config.h                       |  29 +-
+ sys/modules/zfs/zfs_gitrev.h                       |   2 +-
+ 319 files changed, 3254 insertions(+), 837 deletions(-)
+
+[commit 3de8ca652d9308858a9504265c7c88a71f058859]
+Date: 2026-04-30
+Score: 5
+CollectedAt: 2026-05-19T18:12:34 UTC
+Sponsor: 
+Subject: krb5: import MIT 1.22.2
+Body:
+
+Merge commit '90c687295e2d62f9411fc5b571f5af4e8ee187a7'
+
+Approved by:	re (cperciva)
+
+(cherry picked from commit 736e411a737b9f57c1303e6d15c5afd4f63af0d3)
+(cherry picked from commit 919b10729753336ef16338295c61ebd085348fb9)
+
+
+ crypto/krb5/NOTICE                              |  2 +-
+ crypto/krb5/README                              | 24 +++++++++++++++-
+ crypto/krb5/src/configure                       | 20 ++++++-------
+ crypto/krb5/src/lib/gssapi/krb5/acquire_cred.c  |  1 +
+ crypto/krb5/src/lib/gssapi/krb5/iakerb.c        |  1 +
+ crypto/krb5/src/lib/gssapi/spnego/spnego_mech.c |  2 +-
+ crypto/krb5/src/lib/krad/packet.c               |  2 +-
+ crypto/krb5/src/lib/krb5/ccache/cc_file.c       |  8 ++++++
+ crypto/krb5/src/lib/krb5/ccache/cc_mslsa.c      | 37 ++++++++++---------------
+ crypto/krb5/src/man/k5identity.man              |  4 +--
+ crypto/krb5/src/man/k5login.man                 |  4 +--
+ crypto/krb5/src/man/k5srvutil.man               |  4 +--
+ crypto/krb5/src/man/kadm5.acl.man               |  4 +--
+ crypto/krb5/src/man/kadmin.man                  |  4 +--
+ crypto/krb5/src/man/kadmind.man                 |  4 +--
+ crypto/krb5/src/man/kdb5_ldap_util.man          |  4 +--
+ crypto/krb5/src/man/kdb5_util.man               |  4 +--
+ crypto/krb5/src/man/kdc.conf.man                |  4 +--
+ crypto/krb5/src/man/kdestroy.man                |  4 +--
+ crypto/krb5/src/man/kerberos.man                |  4 +--
+ crypto/krb5/src/man/kinit.man                   |  4 +--
+ crypto/krb5/src/man/klist.man                   |  4 +--
+ crypto/krb5/src/man/kpasswd.man                 |  4 +--
+ crypto/krb5/src/man/kprop.man                   |  4 +--
+ crypto/krb5/src/man/kpropd.man                  |  4 +--
+ crypto/krb5/src/man/kproplog.man                |  4 +--
+ crypto/krb5/src/man/krb5-config.man             |  4 +--
+ crypto/krb5/src/man/krb5.conf.man               |  4 +--
+ crypto/krb5/src/man/krb5kdc.man                 |  4 +--
+ crypto/krb5/src/man/ksu.man                     |  4 +--
+ crypto/krb5/src/man/kswitch.man                 |  4 +--
+ crypto/krb5/src/man/ktutil.man                  |  4 +--
+ crypto/krb5/src/man/kvno.man                    |  4 +--
+ crypto/krb5/src/man/sclient.man                 |  4 +--
+ crypto/krb5/src/man/sserver.man                 |  4 +--
+ crypto/krb5/src/patchlevel.h                    |  6 ++--
+ crypto/krb5/src/po/mit-krb5.pot                 |  4 +--
+ crypto/krb5/src/prototype/prototype.c           |  2 +-
+ crypto/krb5/src/prototype/prototype.h           |  2 +-
+ crypto/krb5/src/windows/version.rc              |  2 +-
+ 40 files changed, 120 insertions(+), 97 deletions(-)
+
+[commit a7bc1c0c353fc426ecfc98d42c807c74250c137d]
+Date: 2026-05-08
+Score: 5
+CollectedAt: 2026-05-19T18:12:34 UTC
+Sponsor: 
+Subject: fsck_msdosfs: fix FAT header correction not persisting in cache mode
+Body:
+
+When fsck_msdosfs runs with FAT32 cache mode (used for large
+filesystems that cannot be mmap'd), a detected FAT header correction
+was written into the in-memory buffer but the corresponding cache
+entry (fat32_cache_allentries[0]) was never marked dirty.  As a
+result, fat_flush_fat32_cache_entry() skipped it, the corrected
+bytes were never written to disk, and copyfat() propagated the
+uncorrected on-disk data to all backup FAT copies.  Every subsequent
+fsck run would repeat the same "FAT starts with odd byte sequence /
+FIXED" cycle indefinitely.
+
+Fix by marking fat32_cache_allentries[0].dirty = true after applying
+the in-memory correction, ensuring the chunk is flushed before
+copyfat() runs.
+
+Approved by:	re (cperciva)
+Obtained from:	https://android-review.googlesource.com/c/platform/external/fsck_msdos/+/4047981
+
+(cherry picked from commit 10e342c1ec78af5a0b97739c806b16a632118fa5)
+(cherry picked from commit ae32d61a2e3e47bed54d861893d8e2da90fb7c76)
+
+
+ sbin/fsck_msdosfs/fat.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
+

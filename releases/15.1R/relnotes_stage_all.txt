@@ -69373,3 +69373,1622 @@ Differential Revision: https://reviews.freebsd.org/D55977
  sys/modules/rtw89/Makefile              | 57 +++++++++++------------
  17 files changed, 300 insertions(+), 233 deletions(-)
 
+[commit 74f357256769e12c3a843c75d1def483234312f3]
+[commit a9b93531788cc125c928cc3488975f0330f75137]
+[commit e16f1bf3baa1e039b55eb583a4b5925c9c8e2383]
+[commit c20f5fd443228743fed3b071ee30216145940178]
+[commit 20294a77a8d40bb645efad4b365ddaa9e7a53db2]
+[commit 4c7357aaf5d2fbe85eb6d86b59efe11c6f0e8c9a]
+[commit 76cd2807fc3a686abf4f6e87705896a69315e943]
+[commit 865e0b20ca3cefce25d68bd355090d414c2dfb84]
+[commit 4bc40d5a624ec839d49d4c33c0a5a8c1fa60a1d7]
+[commit a50789d8b89bd32199c6a9bf75b48ed8dee1e70d]
+[commit 275c11b7ccffffb8faf31fb0fb98e99ea5b413da]
+[commit 104488641acaf2269d860d8abf142d80a340a5e8]
+[commit 992f994bb71ec61e893457bfc2ffc02dfd8c0b50]
+[commit 24ea81047de7c75fd57c54deda0b36c3225c367b]
+[commit 9657c50cdd7741404d99881fdd9243175086ede1]
+[commit c10317b0c455be506ae62b391e5491e1b75914aa]
+[commit 88c0ce38bc18acaf50188eda402384a0cb93890d]
+[commit 7f6f2139eef9f9fc263977c847c6dbf235a1b1b7]
+[commit 34196ce83f9c9cf0138ac792b522c22afc4384c6]
+[commit 23eaa98d6dc197321791fca49f5e31621ac41994]
+[commit 2702a3ac1ab6170e10044eebecaafc2ebcabff9d]
+[commit 1b5b7867b67fdbe412cc4136834f21dbeef26bea]
+[commit 1aa2b46a07075ea79d22e91a1325b88de4efd27e]
+[commit 109324d5e7ab893c15540fe97325b3eeaee88d20]
+[commit 906f2745bd842cba8c017ae2fe7e7f18a64f3c44]
+[commit 317c242462bb3c34452bf61eb7d99b741eb766a6]
+[commit ca1e0f9d60c9328164c7018592fa9de513e65b08]
+[commit 9b75d6ec6929e7e6723fbfeb52f60acfa63e5dbc]
+[commit d967f923caaaaf9a4efd74d1c442788377e2bc89]
+[commit d653f474e901b1d43657b8955247d1bbd1c3d248]
+[commit 4cc3056c563fe1eb3a0d461f13c1552639fa388d]
+[commit 74bb8b966381e5ada69ea188f73427334f0b3b7b]
+[commit d3902baca506ec48e2f8b1121c7744766a175516]
+[commit 72333f20d0e98860d1d3b27557cf5e30e9150b8a]
+[commit 4e3fbe5cc92ef4822877b08e6d40ff38433cf1de]
+[commit cdb05de1eccecd9e7e2fbe2328e48418f1b9c943]
+[commit 7cba27286364a77248234c305154afe53396f188]
+[commit 703c98dc6eeb2b36ec94e138269a221704e55f4c]
+[commit e487653fe43434768b533b1d7f360ec448c05b4c]
+[commit 29e3479f2d3068a2f3e2dbb578d3fabf6389e5a6]
+[commit e1f0baa546b0e2af3495fac51903b51f6a1d0b26]
+[commit 661b40ffdee25dd81d19fbbcd6cb09e3ec159342]
+[commit 0005bb76e2e707f5ed39ca67beddb8a5d629c72e]
+[commit e224f2c1b98ba065942c83d322cdb8e3987d0c81]
+[commit 3a64c667f16fbc3c1cedee081de895aa911be523]
+[commit be24d85ec78453b80effeb61dc8e5910a1caa3a8]
+[commit 92f169fe0f197e4b7bf89583ce3fcfb37c5721ba]
+[commit 469ab88d107c05ab533a15d4014d1a97b5a13c86]
+[commit 59ba7278499f0ee20fd9c43a34bb2b72ae57dcbb]
+[commit f935c0f66f75e882185ed8bc46f39054f2ced4e1]
+[commit 07b00bed83121043ffc88889edc15aad183227ba]
+[commit e2fcde7333a515907316cf1a4ee4858edc90419d]
+[commit eb4b66863bf32e96a837b908add7d90e18631d8b]
+[commit 976b2ebf43094076d52e34c8dbeabae032caa6ad]
+[commit 2d571264dac343d681f95c63bd4ef95f49e04657]
+[commit 6af32a9d37ad689a9a72c45bfeaa6f7e52a33a4f]
+[commit e0ae00f43186a518444e0f750b66d998085239df]
+[commit 0b94911946e96001963a4ef9222cf117e8d8d4bd]
+[commit 7176f76d2251331c4ec6fff8d7c699771717f1fa]
+[commit ff68a58546ee7d7270daf7c5d373de47a71161b9]
+[commit 5a35d505bf0c4d16ef94477bfcbc85b9a87b2c0c]
+[commit 2696698681a9150c8b3216cc36dab9bd911b5f8f]
+[commit 5b8ab97b3e4abd3df9cee11d61115479fe2fc4de]
+[commit 7748c00cccb1099107fae9910dd3f8e264be6e4f]
+[commit 74f357256769e12c3a843c75d1def483234312f3]
+[commit a9b93531788cc125c928cc3488975f0330f75137]
+[commit a6f17dd2430b92b88a98f10ed35936e7e80f636b]
+[commit 81d2c7d3e1025d05e9d0e24014e13c7953739755]
+[commit 317c242462bb3c34452bf61eb7d99b741eb766a6]
+[commit b4d8d9bde083b466bc0728c6400cf5e6439f44e3]
+[commit 3abef030d31a9837ac7ba45bd8ee17340fabd120]
+[commit 7fe98ee4d49ad4a7c5e994a999567aec4b34f84e]
+[commit 56401a9c3459f8f4151ac0da1f820863119c1749]
+[commit 897711b7bd4ba8f34bab9e0b79495ce107cfef35]
+[commit 9712b5e4b58bc3ff9402413ce7a149c956774263]
+[commit 1e0de6ef6334ac266b4b61eaa4c2ce0169d732de]
+[commit 564480f108e7019a8cc8443c615f7d2b5edfb092]
+[commit 8d5e8dfdc22c52bc944d80d5a8811373de001517]
+[commit a8dbd836b7856aa6f12cb2442a224fdb58d17f54]
+[commit 5cbfbd5cd0d53d2a396fb6cde8d68cdf62d9f0c1]
+[commit 56a6305557db0d545c4f358ea8e154a657d95dfc]
+[commit b0476eea5ef4ab2ccf2479652f486af3d4ab9cc0]
+[commit db80ff6133ab50f0aae9f392e3d64a88f6921deb]
+[commit 12eecb3bcc0be4d7fd35847252c40998806fc551]
+[commit 66aff324fa552f6f6f71d6b154718689a701186e]
+[commit f775385affefd7beac0d038d5cd9cbf01bfc4a06]
+[commit 0029027156f419fc60839ed87863eedccabfde5c]
+[commit 3b7db696d85a476b7735fecc7bf9a1d53d07ca02]
+[commit 5ae9aac0c7d819556a1cf2ec7bf61b78740d4917]
+[commit 9b2cba4a8a690bc6d4ac174cc2f2daddbc43a84d]
+[commit 2483216eecf34c8a19277ea37b322cd660183645]
+[commit 297d5bf8906776137aeac82e48ca2e87944d95b7]
+[commit ddefff3810c1b40801bd99f42533e0d414fa0236]
+[commit b6279be747facd85eb4490fc874148fede854d03]
+[commit 0c370a416b683287b3cb9e346446d203b2a57371]
+[commit a0350f61c451a1fe8e9ff2d004caa23a63c822db]
+[commit 8dec2d94b40d7b03af30f29b65258b7dcf097ffc]
+[commit d73fac00cdd413ebfe6f18907ea9ca4cb6051200]
+[commit 808a573e6e14ace5b8fe105bd9bce628bed3bc96]
+[commit f99ca315d5fe048f96a99505c852026973dbeb8a]
+[commit da4c7b4518ddc7c395ea476b1c543ee01034962c]
+[commit 89fc636ba2248ef476ed19c44525e6eb3681aaa1]
+[commit 4cc3056c563fe1eb3a0d461f13c1552639fa388d]
+[commit 6a9d7820e6ab677165c9c6444ed6929307d71250]
+[commit 144c1eda397330eeb79cd6fe312f80f5d3f1952f]
+[commit f43d0ac1b0e29bbd77d6b0b1c87dca075cd7b9bf]
+[commit 631ff522c3969809fd7f8c786cc908377ab168d9]
+[commit 4b89fb6af98e9783b0c51d1b2110bff613531574]
+[commit 5626e81f1a43f507023a8edd291f02547fe955de]
+[commit 5080b342dd63331150f5924320e3577d21099cdb]
+[commit 46a760e578f553d54c2e2ef6b295d3e9c71bd558]
+[commit e2e7269461e94c56792801a6447ddee18baab52f]
+[commit c22f46da9d10383d8b227db8dc305117df758967]
+[commit 605389e40b938088718bd8aa75f4919884789927]
+[commit df4e99bb884786eb0554e2a259795c44a5295154]
+[commit b9bf082d1f4816642ebc977d2769ca3f4069cb42]
+[commit ca5d4e7f63d0c30ea829dd68930431693e8253cd]
+[commit 2c5ea8f170eab8a5505f15a68bb403522ebd7a38]
+[commit b1281c67c5b47afd40d5acd3ea66ae72a51f2954]
+[commit da8c96fe3530a307c8a04a7b44d5080c4c4ea337]
+[commit 74bb8b966381e5ada69ea188f73427334f0b3b7b]
+[commit e5861dc2ea529527894b9be2df99f359c0d5b6ef]
+[commit 11aa32794394d3300b8a7f51ab00006a36987060]
+[commit 0c7eb49acd3666f1db868a5c05ebd91ef7c5499a]
+[commit f3092142f9ba0bccf33ca5a45e1cb186b579bae0]
+[commit 8c005f3da817456de3fc2f7d186b4898fcdff704]
+[commit e16e4cd25c1d83abcf8ec90c50d6dc146c8d74dc]
+[commit c25259a40e3f1e0e9fc85f44975ebcdeb6d0cdeb]
+[commit 9a5b64536743c9021affda5f912d1d2363d296b3]
+[commit 33c0bd25e5283404bbf7be0536ff52fa16f11b6a]
+[commit 9c0bedbb2064e9e02e2c20d1aa909360924033d7]
+[commit bc1740839883c36a05589e87b4cff42434bb1d7d]
+[commit 141cec051d142f329bd32e43d2e492aa6719d8f9]
+[commit e53890c477f53f12da721c48334a0330d07345c3]
+[commit cdb05de1eccecd9e7e2fbe2328e48418f1b9c943]
+[commit b59376c36de868c9846f0d6b8163b9b05b191b42]
+[commit 4e48e50ea5982387a1c9f164953315f7fe1f76a3]
+[commit 791fb098c9e84282b7d061c5708569757e6c65a3]
+[commit d673dda5af433b87a7240e4293452d5a464cd3f2]
+[commit 749293292aea9387de68dad931fe757209b66048]
+[commit 4fe8aa4a67ca3169b14f9cdf204412940af96488]
+[commit f6fb1f8cdd519fde87a79fd7961a78258a434d3a]
+[commit 121076ea954c2ef9dcc61d3df035678d0bfbd806]
+[commit 37e9b420b23a4d39400a5f8d1fe0c15bc1e04230]
+[commit fe9134294b22c232b60e666af2ec5d671ea053b3]
+[commit 7cba27286364a77248234c305154afe53396f188]
+[commit c439ae17b1b8dce71e36df45738c8430ec0c7a4e]
+[commit 17c0fbc240c323a2ddeb875d2a9fcbfc2960d378]
+[commit 1fa2a48dab667057068d0b5568954d842adebf84]
+[commit d988a0c1fc4cf75d5c4c9820fd2a5619d59ac608]
+[commit b94c971dd0cfe22c17639f18677eca92abdc5189]
+[commit d06ebddee40f4d8725b2b616720b988a9573fa78]
+[commit ee286907ad455f967233f715bd468f1d0ff01f6c]
+[commit 87fdc35e586930d9782efee4c0217d5e19b9274a]
+[commit e65e9bc1b4dd4503b77c311dafdfc77eabe3243c]
+[commit e37206a66db0bc359901435ecc09726fc6fe701d]
+[commit 9636482dd8afcb426a658a98760bccf882196b4e]
+[commit 839da868a5f9eb8bddd20d44f1cd0f293c5685cd]
+[commit b01f35a4e19d8e204daa37c378344772e339247b]
+[commit a48358d78e87380c8498739bc4c82061e6c39a47]
+[commit ff3c48a64fe2f9c1acf531e088dfb14e31404bae]
+[commit 9cafea4c44a7046ac2ac15b28471f9e09fceb6f9]
+[commit 155d5b8a19baa864ebe9d8346d932bd04ea23aca]
+[commit fc22812b66851523de41be79c9a0c1395d7a76c9]
+[commit ca36afaf671b776ee7b6c878c7b9c94852908dd1]
+[commit e224f2c1b98ba065942c83d322cdb8e3987d0c81]
+[commit 300a8977bcfd2f43bc6df81d9bdad6b79a740729]
+[commit 129cedd20bc61a4851d3699c8afeed321bb03ae1]
+[commit 0b5e4af65d0d3dfaa318b8e6adaaa4297f94af17]
+[commit 0a45aa9e954acc75484d59ad42ee440aa7f034c7]
+[commit aa2fe36f5e4b3b907af2ea94945ae9cab7263d0c]
+[commit 9b84a17c0adc85f32eb6a284011730f5d645fd2c]
+[commit 0d5ef734e91e6b03312b54ab3463ed5608ed27fa]
+[commit 57d1d2c49707d1d74cdae2946d89bbd427661dca]
+[commit 779e075df98da07468ec5dd13b44241110a2abf2]
+[commit 22382d9e706baddac193f66c3a48b086fc53e98c]
+[commit 76a0a5f91d2c8f30760cb223d732863761e268a9]
+[commit 772837c632ec9f3cb3ded33830a60a8b310c2e22]
+[commit 16517f949da6dbabd5abdab90b14953e36d7e806]
+[commit f6a81b18a4675b4f082bd4b4491bf5859e722ad9]
+[commit 7778507bf9344cef75f30c4089536d847da5d558]
+[commit dfc4a7c10cf5923f21699e2217c969181c733be7]
+[commit cbd8e3a0049aa300e0a92481d4f5a095765269bf]
+[commit 36224ed42708e5d917698261e6dfe4f128069da8]
+[commit f55001cc9f9185dca21d80c10922df4c1846ffb3]
+[commit e89beeee25c3d08805e19cfc085a6c5b2f762a21]
+[commit fc3c317b055cfd835e4b7720e708bf32738146d6]
+[commit 65629acb4a793416b128d932abf5c539315dec4e]
+[commit 0143f06b45dc3039bbefdd413d95f23e30a7a01c]
+[commit ce7e1f86a1810038f142c5c68b787c47252b39c5]
+[commit 0cc2448fc2a2e194473d04512c1a83db3913de72]
+[commit 7f42fc03d2a7119ff9cdf5fc7fc21a0239b42afb]
+[commit ff7a10d0e1d1498724c6a1e02a70926944a71590]
+[commit 3bd015a1a918d060dbef556ddfa6e236f5212330]
+[commit da457e5c856d26d41e9a30a08d0087937d28a41f]
+[commit 2efda1b8c0f9583f01273ee21902a08dda9cb8bb]
+[commit f0033878b92e1a00120fec4edf590715f7c4ecbc]
+[commit 25c6697b0b985228639cdeb5212a5f705731f69a]
+[commit 1a08326c6f503db5f0fb9201cdf55379bbe576e8]
+[commit ace0a38a9756748c225cdf7270858b3cc35a3154]
+[commit 04f744ce91efbb37f89b8e6d04f24af111e8bd8f]
+[commit cef2f7b440ffa67271690a6aba532e4c090772db]
+[commit a989b0fbc965b453d97e3d032efb4f9c7592734a]
+[commit bcef4427a470274ba1f0c5fa7affe41253a93633]
+[commit 8d584f064885495d47811c98027a8005ea5135c1]
+[commit 1e5aff8e5bc607f6bfaaf982b9c07ce365cd9bf4]
+[commit 0b97aba5c25be8a76cca6f77a40a972a7e70a98f]
+[commit 1f86a86b21fc4e2796d5d489ad0a8e6148328790]
+[commit f8162575f2114c26e52753ece0fac9738b97a79e]
+[commit b44a9bd37e605e5f9a06af5a39ac26eb6962239c]
+[commit 3541e09bbbcb65074b69bc66216de2c1c4aee7c2]
+[commit ae4ae80a27a348474f0be17168bd5f2d9dbdd960]
+[commit d17f7f9e911ad77ac14cb2974935c57931a7720b]
+[commit 63e4b5c5e92422abbb7f08f973d34ba7402b82d7]
+[commit 441beb326fbf62a36f129a0766fa6b8d4cf994a1]
+[commit c62cae9b53fe2c5e52a185d3ed37f55ef383f064]
+[commit 4f536daec8fbfc05ae0097a825386848056cbbbd]
+[commit 3c01c7df984019d3db1b7a1d5e4d61d8c366df28]
+[commit 4bbc38778316711e552ada29bf15c0f850351974]
+[commit cee4e16cb6fbaf1c5b9ed8daad69986886e96af7]
+[commit 8696cc8d0bbf4a87bc7c87186b0c5d35253b91ca]
+[commit 342a37387f313ae691190d69f11400620521a268]
+[commit 3548ab72de58a5351c78529a282c6ef56428eed1]
+[commit 5c8640e863a1366752a123441a5b686e7c8401eb]
+[commit 393c53fd219d7f4f00413d49943714623cd52b5d]
+[commit 26408151bb1d952e37ff25bfb9cc200332a5e13a]
+[commit e60d2d53ed838ac50d25080abc415e387b404f09]
+[commit 150ac95e4a56855e7ffaa1014d7a82e9eda89f65]
+[commit 901aec0a855b5c69b327e423558fbcc001781805]
+[commit 4d3670980878f20a4b3b53596d23bf1f7fd4e5a6]
+[commit 16719d34073444c50fcd57d337d0f1246c8e84c9]
+[commit f5f3c16d9256fb8bb2c38e1dd91ca420f240bfd6]
+[commit 7781f5e09ffc70e7b0618533b65838882a47c4ba]
+[commit bf5ca5ced57d615093056e7f8013497b0fe4068f]
+[commit 1aa2b46a07075ea79d22e91a1325b88de4efd27e]
+[commit 109324d5e7ab893c15540fe97325b3eeaee88d20]
+[commit b3f9be4f94379cd3d714139e2635183d7a01aa71]
+Date: 2026-05-08
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: OpenSats Initiative
+Subject: 15.1: Update to BETA2
+Body:
+
+Approved by:	re (implicit)
+Sponsored by:	OpenSats Initiative
+
+
+ sys/conf/newvers.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit df38b410cfedfc12250cb66fb7fd8b852fb21335]
+Date: 2026-04-28
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: build.7: Explain update-packages repo signing
+Body:
+
+Approved by:	re (cperciva)
+MFC after:		3 days
+Reported by:		kevans
+Reviewed by:		kevans, ngie
+Differential Revision:	https://reviews.freebsd.org/D56607
+
+(cherry picked from commit ab98fd3234304ea10db3dee70205828d372c443a)
+(cherry picked from commit dd926806a723b99c9184ce44ab68b83c03fdc173)
+
+
+ share/man/man7/build.7 | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
+
+[commit 519c687b64d5f6046241372eb9a5c4360fabd4d6]
+Date: 2026-05-03
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: nvram.8: Align option list and tag SPDX
+Body:
+
+Approved by:	re (cperciva)
+MFC after:	3 days
+
+(cherry picked from commit 33fbfceeb4d9daf1145089a10ce7b25110d8840f)
+(cherry picked from commit 8318c2f613bea98573aa4cd9ef7a4249d5010dd3)
+
+
+ usr.sbin/nvram/nvram.8 | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+[commit b3027c2e233f0dc36167bd363cd3bd42b308f49e]
+Date: 2026-05-03
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: ocs_fc.4: Cleanup
+Body:
+
++ more consistent document description
++ enumerate available options in synopsis in vt.4 style
++ tag spdx
++ tweak list rendering
++ cleanup HARDWARE
++ reflow excessively long lines silencing linter warnings
++ fix link macros
+
+Approved by:	re (cperciva)
+MFC after:		3 days
+Reported by:		michaelo (hardware notes)
+Differential Revision:	https://reviews.freebsd.org/D56753
+
+(cherry picked from commit dd97c3d83f9a92bbeb9740ceff4c1c74c451293e)
+(cherry picked from commit 4da464b1ec4669e658a9839c8ed33f11342b0296)
+
+
+ share/man/man4/ocs_fc.4 | 93 +++++++++++++++++++++++++++++--------------------
+ 1 file changed, 55 insertions(+), 38 deletions(-)
+
+[commit a9b681e4a5c7c9ff1ef7f67886b27a2dab541c17]
+Date: 2026-05-03
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: man: Kill off MANSUBDIRs
+Body:
+
+Three architecture dependent manuals are installed to MANSUBDIRs,
+creating at least two empty manual page directories on everyone's
+boxxen. Move those manuals to their canonical area, enhancing clarity,
+grepability, removing useless inodes, and increasing consistency with
+the rest of the architecture dependent manuals which are unconditionally
+installed, and noted at the top of the rendered manual.
+
+Approved by:	re (cperciva)
+MFC after: 3 days
+
+(cherry picked from commit 809504f331fd3588e36b54255196379bdb59890a)
+(cherry picked from commit 55709c8a46a470af78c0c818b36ac90615728c44)
+
+
+ ObsoleteFiles.inc       | 9 +++++++++
+ usr.sbin/apm/Makefile   | 1 -
+ usr.sbin/apmd/Makefile  | 1 -
+ usr.sbin/nvram/Makefile | 1 -
+ 4 files changed, 9 insertions(+), 3 deletions(-)
+
+[commit 5dca0c89c81e2c4c3596e968115ef2170b681a11]
+Date: 2026-04-17
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: tests/socket_afinet: Remove a conditional skip
+Body:
+
+The test runs without any unexpected results when mac_portacl is loaded.
+
+Approved by:	re (cperciva)
+PR:		238781
+MFC after:	1 week
+
+(cherry picked from commit 9f6041fb579106aa6fa358071a14eddabd581998)
+(cherry picked from commit ae6c11642b54f304490434ec5fe1eb2b470ff620)
+
+
+ tests/sys/netinet/socket_afinet.c | 3 ---
+ 1 file changed, 3 deletions(-)
+
+[commit 87054ce8fb0739cde2399e06af7ea083dc2a9c58]
+Date: 2026-04-24
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: tests/posixshm: Check for hardware support in largepage_pkru
+Body:
+
+Approved by:	re (cperciva)
+MFC after:	3 days
+Fixes:		ca87c0b8e396 ("pkru: Fix handling of 1GB largepage mappings")
+
+(cherry picked from commit 75c66218401c00f4728d5312e2b933b8d3aefde1)
+(cherry picked from commit 8988b4de4e3b85baa97fd76254e00da7d3304b35)
+
+
+ tests/sys/posixshm/posixshm_test.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+[commit fdd8f30b9f314d04698f864c4b2a80b43a71114a]
+Date: 2026-04-26
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: nullfs: Clear inotify flags during reclaim
+Body:
+
+The inotify flags are copied from the lower vnode into the nullfs vnode
+so that the INOTIFY() macro will invoke VOP_INOTIFY on the nullfs vnode;
+this is then bypassed to the lower vnode.  However, when a nullfs vnode
+is reclaimed we should clear these flags, as the vnode is now doomed and
+no longer forwards VOPs to the lower vnode.
+
+Add regression tests.  Remove a test in vn_inotify_revoke() which is no
+longer needed after this change.
+
+Approved by:	re (cperciva)
+PR:		292495
+Reviewed by:	kib
+Reported by:	Jed Laundry <jlaundry@jlaundry.com>
+Fixes:		f1f230439fa4 ("vfs: Initial revision of inotify")
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D56639
+
+(cherry picked from commit a02d794f5acd12ba3cf1de5c204a8dd56af47edd)
+(cherry picked from commit 10567c80b6845717306c5301d104e7440033c4f5)
+
+
+ sys/fs/nullfs/null_vnops.c    |  12 +++++
+ sys/kern/vfs_inotify.c        |   4 --
+ tests/sys/kern/inotify_test.c | 112 ++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 124 insertions(+), 4 deletions(-)
+
+[commit a096a97448cfc7e593bcf8873c0f0d3b94f219f1]
+Date: 2026-04-16
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: so_splice: Fix the KTLS check for the sink socket in so_splice()
+Body:
+
+Approved by:	re (cperciva)
+Reviewed by:	gallatin
+Reported by:	Claude Sonnet 4.6
+Fixes:		1000cc4a0d39 ("so_splice: Disallow splicing with KTLS-enabled sockets")
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D56385
+
+(cherry picked from commit d88a159da42a75dbd46ea4f6f9c8059975dab5e8)
+(cherry picked from commit 43b1de5970d1246aa54d8e34b0f211511cc2b103)
+
+
+ sys/kern/uipc_socket.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 88e12ccd9afc55d8e5f66e0fefb0ea71ccb91476]
+Date: 2026-04-20
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: tests/socket_afinet: Fix the bind_connected_port test
+Body:
+
+The test verifies that a socket can bind to a local address assigned by
+connect(2) to a different socket.  It was however trying to bind to the
+wrong address, and the check of the result was inverted, so this went
+unnoticed.  It also needs to set SO_REUSEADDR for this to succeed.
+
+Approved by:	re (cperciva)
+Reported by:	glebius
+MFC after:	1 week
+
+(cherry picked from commit d3d0466cae546254c50c80cf3e0c060bbbbba53c)
+(cherry picked from commit 9e8d7d83ecfbf8b34b785d7981a29dda567d0bc6)
+
+
+ tests/sys/netinet/socket_afinet.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
+
+[commit 38c5d60c367e788341e059ee3940183c293956ba]
+Date: 2026-05-06
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: jail: avoid leaking jail config fds to exec.* hooks
+Body:
+
+The jail(8) command must not leave parsed configuration files open
+since the file descriptors will be leaked to child processes
+including the untrusted exec.start or exec.stop hooks.
+
+While fopen() doesn't provide direct access to O_CLOEXEC, it does
+provide access to FD_CLOEXEC via "e" in the mode string which
+provides the desired defense in depth against leaking file descriptors
+into exec.* hooks since those always execve() into a shell.
+
+Jail configuration is potentially sensitive and some hooks execute from
+within the jail context, leaving some opening for the jail to exfiltrate
+information about the host environment.
+
+(Commit message wordsmithed by kevans)
+
+Approved by:	re (cperciva)
+PR:		295052
+Reviewed by:	kevans
+
+(cherry picked from commit 276d9b88a9e6fd6fd90e57c36444756ad297d2ab)
+(cherry picked from commit c35bb8ba898482920bf9b57967a9a11f98a89c81)
+
+
+ usr.sbin/jail/config.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+[commit 13c70ef568c35b974ff3c19a7b6834e8486a6b42]
+Date: 2025-09-29
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: rtadvd(8): Honor pltime/vltime in interface declarations
+Body:
+
+Currently rtadvd ignores interface pltime/vltime specifications
+unless the (static) address range is also included in the config file.
+This extends the validity of a pltime and/or vltime stanza in
+the config file for an interface to delegated addresses from
+an upstream provider.
+
+Approved by:	re (cperciva)
+Signed-off-by:	tickerguy <karl@denninger.net>
+PR:		288426
+Reviewed by:	pouria
+Pull Request:	https://github.com/freebsd/freebsd-src/pull/1863
+
+(cherry picked from commit 103f9883d1ed7431c432caa6ab9c61cd4d0831d0)
+(cherry picked from commit 18caefe847086a9e89812db600c852b225467090)
+
+
+ usr.sbin/rtadvd/config.c | 22 ++++++++++++++++++++--
+ 1 file changed, 20 insertions(+), 2 deletions(-)
+
+[commit cef90b4386354618126925716cbadff6b1961a2e]
+Date: 2026-05-06
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: certctl: Unstickify (un)trusted certificates
+Body:
+
+Ever since certctl was rewritten in C, the rehash command has reingested
+TRUSTDESTDIR / UNTRUSTDESTDIR in addition to TRUSTPATH / UNTRUSTPATH.
+This seemed like a good idea at the time but was, in retrospect, a
+mistake, as it means a (un)trusted certificate remains (un)trusted
+forever (or at least until it expires) even if it is removed from
+(UN)TRUSTPATH.  Among other issues, it causes ports QA to fail for any
+port that either installs certificates or depends on a port that does.
+
+Although this behavior was undocumented, the change may surprise users
+who have added certificates manually, so update the manual page to point
+it out and add prominent warnings to the trust and untrust commands.
+
+Approved by:	re (cperciva)
+PR:		290078
+MFC after:	1 week
+Reviewed by:	kevans, bcr
+Differential Revision:	https://reviews.freebsd.org/D56617
+
+(cherry picked from commit 2fef18ff594328a771b6aa659e8ffa5a7e076540)
+(cherry picked from commit c65e233a52c61bf24fb935d1971e38fbde10791d)
+
+
+ usr.sbin/certctl/certctl.8             | 15 ++++++-
+ usr.sbin/certctl/certctl.c             | 81 ++++++++++++++++++++++------------
+ usr.sbin/certctl/tests/certctl_test.sh |  3 +-
+ 3 files changed, 67 insertions(+), 32 deletions(-)
+
+[commit 9536a3a2de012bcb98c9a49eeb05dd1935131c84]
+Date: 2026-05-05
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: md5: Don't generate test cases just to skip them
+Body:
+
+Don't waste time generating Perl test cases for algorithms that are not
+supported in Perl mode only to skip them when they are run.
+
+Approved by:	re (cperciva)
+MFC after:	1 week
+Reviewed by:	ngie
+Differential Revision:	https://reviews.freebsd.org/D56687
+
+(cherry picked from commit fd386e76fa2b29d99525c246cbfc05768a1f4a76)
+(cherry picked from commit f9626b7e55e11322ad45da2201cd482b43eeabb6)
+
+
+ sbin/md5/tests/md5_test.sh | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+[commit 1981ce9f03dc6d92e4351b7a88e7df15f6d21fe1]
+Date: 2026-05-04
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: vis.3: Try to better describe VIS_SAFE
+Body:
+
+The current text fails to draw the reader's attention to the fact that
+VIS_SAFE essentially exempts certain characters from being encoded.
+
+While here, fix some markup nits.
+
+Approved by:	re (cperciva)
+MFC after:	1 week
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D56716
+
+(cherry picked from commit 8acc4c16c6635c3cd8871d0ee1221b62d48d71b9)
+(cherry picked from commit b21f08f97ba0c1e254b55e2ac66ec6853ad281f7)
+
+
+ contrib/libc-vis/vis.3 | 32 +++++++++++++++++++-------------
+ 1 file changed, 19 insertions(+), 13 deletions(-)
+
+[commit 60a521a8941c4b0386dff3a925bae431b3064fcb]
+Date: 2026-04-30
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: Klara, Inc. | Klara, Inc.
+Subject: stat: fix use of devname(3)
+Body:
+
+Besides being a little hard to parse through visually, this had its own
+bug of inspecting st->st_mode to determine what to pass to devname(3),
+which is only correct for st_rdev.
+
+For st_dev, you're likely to be looking at files or directories and
+attempting to assess what device they're located on, so the mode is
+meaningless- we just have to assume that our filesystems are on
+character devices and attempt to resolve st_dev as such.
+
+Approved by:	re (cperciva)
+Reviewed by:	des, kib (previous version)
+Differential Revision:	https://reviews.freebsd.org/D56565
+
+(cherry picked from commit 4d4acdbfc22c84081037f31cff4fb03d18373036)
+
+stat: The devname test case requires root
+
+Fixes:		4d4acdbfc22c ("stat: fix use of devname(3)")
+(cherry picked from commit 72b1aae09bf0bcc01c76df757699e27ad7cf7ecc)
+
+stat: Set the timezone before testing -t flag
+
+The test assumes UTC, which is what I use on my development systems and
+clearly what is used on our CI runners.
+
+MFC after:	1 week
+Sponsored by:	Klara, Inc.
+Reviewed by:	kevans
+Differential Revision:	https://reviews.freebsd.org/D56836
+
+(cherry picked from commit 49e496d2776870fb36ed8ea4c8139b5eb9f7f747)
+
+stat: Expand devname test case
+
+Test what happens when we ask for the rdev of a non-device.
+
+MFC after:	1 week
+Sponsored by:	Klara, Inc.
+Reviewed by:	kevans
+Differential Revision:	https://reviews.freebsd.org/D56838
+
+(cherry picked from commit 2c88636e0e7a0316d5e6d146874bdb2751f75c40)
+(cherry picked from commit 88f5520fa564ef1050bab6e091ead4040eb6d170)
+
+
+ usr.bin/stat/stat.c             | 14 +++++++++++---
+ usr.bin/stat/tests/stat_test.sh | 40 ++++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 49 insertions(+), 5 deletions(-)
+
+[commit 56a5d11dd69f726ca2455139c885146906c53de0]
+Date: 2026-04-09
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: nlsysevent: add manpage
+Body:
+
+Approved by:	re (cperciva)
+Reviewed by:	des
+
+(cherry picked from commit 72d701eb1d83cfb3479e4c839412325ff9efc97c)
+(cherry picked from commit ee2fc974e0716040622926c7c8ca8df09284e6f9)
+
+
+ share/man/man4/Makefile     |   1 +
+ share/man/man4/nlsysevent.4 | 132 ++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 133 insertions(+)
+
+[commit 78c1ba506b858a1702720ea7e51b6a05a4691787]
+Date: 2026-05-06
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: nuageinit: only parse user_data as yaml when necessary
+Body:
+
+This fixes a regression introduced in cae280931c9e which prevents
+user_data as a shell script to be used
+
+Approved by:	re (cperciva)
+PR:		295062
+Reported by:	Ross McKelvie <ross@exitzero.uk>
+MFC After:	1 day
+
+(cherry picked from commit c316ec259011e9e22e40eaa72d834f3bfac95c28)
+(cherry picked from commit 4211f280ba087c75dcd84f9b592238b2eae33af9)
+
+
+ libexec/nuageinit/nuageinit | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 123476ad84646c6b25f345840f753202312de464]
+Date: 2026-05-07
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: The FreeBSD Foundation
+Subject: linuxkpi: Implement `module_*()` APIs as static functions
+Body:
+
+This fixes an "unused variable" warning when building DRM drivers.
+
+Approved by:	re (cperciva)
+Reviewed by:	emaste
+Sponsored by:	The FreeBSD Foundation
+Differential Revision: https://reviews.freebsd.org/D56780
+
+(cherry picked from commit 658bb99db9c7872f92ccb86ed2674c72636436d2)
+(cherry picked from commit c81f516512111fa5ac8d5a9f3f7e64c2fb5ab5a3)
+
+
+ sys/compat/linuxkpi/common/include/linux/module.h | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+[commit ed0ef0322eb64d31dab03b6c975c8f9ad7c8c7ab]
+Date: 2026-04-15
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: arm64: Define the .iplt section placement.
+Body:
+
+Ensure that the .plt and .ipld sections are in the executable memory segment.
+
+Approved by:	re (cperciva)
+Reviewed by:    andrew
+Differential Revision: https://reviews.freebsd.org/D56403
+
+(cherry picked from commit 1dddb580f950a27fb9859b2879755dde114c9d8b)
+(cherry picked from commit 5169e95b7596b5a96cb50dee69ee8c20445a9a9e)
+
+
+ sys/conf/ldscript.arm64 | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+[commit 317817c9acaa63e439d748b645cc954e93c6cf88]
+Date: 2026-05-04
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: bsdinstall: Always use pkg.FreeBSD.org
+Body:
+
+The FreeBSD-base bits are accessible via pkg.FreeBSD.org, even for
+releases, so there is no need to point at pkgbase.FreeBSD.org.
+
+Approved by:	re (cperciva)
+MFC after:	3 days
+
+(cherry picked from commit 89b97931d6d415d7a2504d8ea2c99beafd77cf24)
+(cherry picked from commit dcdc1af669999aa3182c39ef9f162b625593785f)
+
+
+ usr.sbin/bsdinstall/FreeBSD-base.conf.in | 2 +-
+ usr.sbin/bsdinstall/Makefile             | 6 +-----
+ 2 files changed, 2 insertions(+), 6 deletions(-)
+
+[commit 0ae114f07f5a8d6048459f8dc37ed4132b02dcc9]
+Date: 2026-05-03
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: lockf: Test that lockf does not spin on fd
+Body:
+
+Approved by:	re (cperciva)
+PR:		294832
+MFC after:	1 week
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D56723
+
+(cherry picked from commit 0733afdb4dad58cfe7ad7f5994e26bf148d78199)
+(cherry picked from commit 8e5f92b6b22c82af1192575781788eb2c8fed448)
+
+
+ usr.bin/lockf/tests/lockf_test.sh | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
+
+[commit d0f618e7ae955af283cb03a805e130e6c03d0d38]
+Date: 2026-05-03
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: lockf: Avoid spinning when operating on an fd
+Body:
+
+When operating on a file descriptor, acquire_lock() would ignore the
+flags argument and always operate in non-blocking mode, resulting in
+unnecessary busy-looping.
+
+Approved by:	re (cperciva)
+PR:		294832
+MFC after:	1 week
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D56722
+
+(cherry picked from commit d90513ea85693da0ca5955173609f4e81e38ae16)
+(cherry picked from commit 651b82e64ef4f753d8f4c1793f359de39744526c)
+
+
+ usr.bin/lockf/lockf.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+[commit c4be32aabf91ec74d95296a3455bb7ed05b50ff5]
+Date: 2026-03-17
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: tail(1): Fix -r (reverse) to work on pseudo filesystems
+Body:
+
+Pseudo filesystems (e.g., procfs) advertise a zero file size.
+Fix reverse() to handle such a case similarly as forward() so
+that '-r' works on pseudo filesystems.
+
+Approved by:	re (cperciva)
+Signed-off-by:	Aaron LI <aly@aaronly.me>
+Reviewed by:	pouria, Ricardo Branco <rbranco@suse.de>, des
+Fixes:		1fb3caee7 ("tail: Do not trust st_size if it equals zero.")
+Pull-Request:	https://github.com/freebsd/freebsd-src/pull/2080
+
+(cherry picked from commit 4feeca3193c316c18472cd40f215446fda3bd739)
+(cherry picked from commit 771a65210018c68198ea413df10225e87a0ea909)
+
+
+ usr.bin/tail/reverse.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 6a3966f363d3c6d1e84205e93a50d5746570976b]
+Date: 2026-05-03
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: vt_core: don't draw the splash if a panic occurred
+Body:
+
+The shutdown splash draws over all the useful info if ddb(4) is
+disabled. Don't draw the splash screen if we're rebooting because of a
+panic.
+
+Approved by:	re (cperciva)
+MFC after:	3 days
+
+(cherry picked from commit bc83f414583ccaf337ef3b7c019df7727d6a3aae)
+(cherry picked from commit 3aabec5c8c6a74a4e50640b399a825d9f7adca9a)
+
+
+ sys/dev/vt/vt_core.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+[commit 5f901e157aafa6ed4550fe39dbc121f7668459b7]
+Date: 2026-04-29
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: https://www.patreon.com/bsdivy
+Subject: libifconfig: Skip bridge VLAN config for span members
+Body:
+
+bridge(4) doesn't support BRDGGIFVLANSET for span members, which
+means if a span interface is configured, libifconfig will fail to
+fetch bridge members.  Skip this for IFBIF_SPAN members.
+
+PR:	292634
+MFC after:	3 days
+Reported by:	Emrion <kmachine@free.fr>
+Reviewed by:	pouria, zlei
+Approved by:	re (cperciva)
+Sponsored by:	https://www.patreon.com/bsdivy
+Differential Revision:	https://reviews.freebsd.org/D56694
+
+(cherry picked from commit 454322c08b8aa181939c8d920472f03cfd591032)
+(cherry picked from commit 0a919e2a9265b5cdaeb2c5d51c29791b4eb7335c)
+
+
+ lib/libifconfig/libifconfig_bridge.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+[commit 58777180c5b0f239c78fa9298aeb22c867e2cd00]
+Date: 2026-04-30
+Score: 5
+CollectedAt: 2026-05-09T09:17:19 UTC
+Sponsor: 
+Subject: Revert "release: Ship firmware from kmods repo on DVD"
+Body:
+
+As we did in 14.4, this needs to be backed out of 15.1 to fix the
+build.  We're going to ship kmods built on 15.0 instead of 15.1 on
+the DVD but hopefully those will work.
+
+This reverts commit b0fbed20ceb9b899e7e20bf785e9d303608bc7a0.
+
+Approved by: 	re (cperciva)
+
+
+ release/pkg_repos/release-dvd.conf |  7 -------
+ release/scripts/pkg-stage.sh       | 25 +++++++------------------
+ 2 files changed, 7 insertions(+), 25 deletions(-)
+
+[commit 74f357256769e12c3a843c75d1def483234312f3]
+[commit a9b93531788cc125c928cc3488975f0330f75137]
+[commit e16f1bf3baa1e039b55eb583a4b5925c9c8e2383]
+[commit c20f5fd443228743fed3b071ee30216145940178]
+[commit 20294a77a8d40bb645efad4b365ddaa9e7a53db2]
+[commit 4c7357aaf5d2fbe85eb6d86b59efe11c6f0e8c9a]
+[commit 76cd2807fc3a686abf4f6e87705896a69315e943]
+[commit 865e0b20ca3cefce25d68bd355090d414c2dfb84]
+[commit 4bc40d5a624ec839d49d4c33c0a5a8c1fa60a1d7]
+[commit a50789d8b89bd32199c6a9bf75b48ed8dee1e70d]
+[commit 275c11b7ccffffb8faf31fb0fb98e99ea5b413da]
+[commit 104488641acaf2269d860d8abf142d80a340a5e8]
+[commit 992f994bb71ec61e893457bfc2ffc02dfd8c0b50]
+[commit 24ea81047de7c75fd57c54deda0b36c3225c367b]
+[commit 9657c50cdd7741404d99881fdd9243175086ede1]
+[commit c10317b0c455be506ae62b391e5491e1b75914aa]
+[commit 88c0ce38bc18acaf50188eda402384a0cb93890d]
+[commit 7f6f2139eef9f9fc263977c847c6dbf235a1b1b7]
+[commit 34196ce83f9c9cf0138ac792b522c22afc4384c6]
+[commit 23eaa98d6dc197321791fca49f5e31621ac41994]
+[commit 2702a3ac1ab6170e10044eebecaafc2ebcabff9d]
+[commit 1b5b7867b67fdbe412cc4136834f21dbeef26bea]
+[commit 1aa2b46a07075ea79d22e91a1325b88de4efd27e]
+[commit 109324d5e7ab893c15540fe97325b3eeaee88d20]
+[commit 906f2745bd842cba8c017ae2fe7e7f18a64f3c44]
+[commit 317c242462bb3c34452bf61eb7d99b741eb766a6]
+[commit ca1e0f9d60c9328164c7018592fa9de513e65b08]
+[commit 9b75d6ec6929e7e6723fbfeb52f60acfa63e5dbc]
+[commit d967f923caaaaf9a4efd74d1c442788377e2bc89]
+[commit d653f474e901b1d43657b8955247d1bbd1c3d248]
+[commit 4cc3056c563fe1eb3a0d461f13c1552639fa388d]
+[commit 74bb8b966381e5ada69ea188f73427334f0b3b7b]
+[commit d3902baca506ec48e2f8b1121c7744766a175516]
+[commit 72333f20d0e98860d1d3b27557cf5e30e9150b8a]
+[commit 4e3fbe5cc92ef4822877b08e6d40ff38433cf1de]
+[commit cdb05de1eccecd9e7e2fbe2328e48418f1b9c943]
+[commit 7cba27286364a77248234c305154afe53396f188]
+[commit 703c98dc6eeb2b36ec94e138269a221704e55f4c]
+[commit e487653fe43434768b533b1d7f360ec448c05b4c]
+[commit 29e3479f2d3068a2f3e2dbb578d3fabf6389e5a6]
+[commit e1f0baa546b0e2af3495fac51903b51f6a1d0b26]
+[commit 661b40ffdee25dd81d19fbbcd6cb09e3ec159342]
+[commit 0005bb76e2e707f5ed39ca67beddb8a5d629c72e]
+[commit e224f2c1b98ba065942c83d322cdb8e3987d0c81]
+[commit 3a64c667f16fbc3c1cedee081de895aa911be523]
+[commit be24d85ec78453b80effeb61dc8e5910a1caa3a8]
+[commit 92f169fe0f197e4b7bf89583ce3fcfb37c5721ba]
+[commit 469ab88d107c05ab533a15d4014d1a97b5a13c86]
+[commit 59ba7278499f0ee20fd9c43a34bb2b72ae57dcbb]
+[commit f935c0f66f75e882185ed8bc46f39054f2ced4e1]
+[commit 07b00bed83121043ffc88889edc15aad183227ba]
+[commit e2fcde7333a515907316cf1a4ee4858edc90419d]
+[commit eb4b66863bf32e96a837b908add7d90e18631d8b]
+[commit 976b2ebf43094076d52e34c8dbeabae032caa6ad]
+[commit 2d571264dac343d681f95c63bd4ef95f49e04657]
+[commit 6af32a9d37ad689a9a72c45bfeaa6f7e52a33a4f]
+[commit e0ae00f43186a518444e0f750b66d998085239df]
+[commit 0b94911946e96001963a4ef9222cf117e8d8d4bd]
+[commit 7176f76d2251331c4ec6fff8d7c699771717f1fa]
+[commit ff68a58546ee7d7270daf7c5d373de47a71161b9]
+[commit 5a35d505bf0c4d16ef94477bfcbc85b9a87b2c0c]
+[commit 2696698681a9150c8b3216cc36dab9bd911b5f8f]
+[commit 5b8ab97b3e4abd3df9cee11d61115479fe2fc4de]
+[commit 7748c00cccb1099107fae9910dd3f8e264be6e4f]
+[commit 74f357256769e12c3a843c75d1def483234312f3]
+[commit a9b93531788cc125c928cc3488975f0330f75137]
+[commit a6f17dd2430b92b88a98f10ed35936e7e80f636b]
+[commit 81d2c7d3e1025d05e9d0e24014e13c7953739755]
+[commit 317c242462bb3c34452bf61eb7d99b741eb766a6]
+[commit b4d8d9bde083b466bc0728c6400cf5e6439f44e3]
+[commit 3abef030d31a9837ac7ba45bd8ee17340fabd120]
+[commit 7fe98ee4d49ad4a7c5e994a999567aec4b34f84e]
+[commit 56401a9c3459f8f4151ac0da1f820863119c1749]
+[commit 897711b7bd4ba8f34bab9e0b79495ce107cfef35]
+[commit 9712b5e4b58bc3ff9402413ce7a149c956774263]
+[commit 1e0de6ef6334ac266b4b61eaa4c2ce0169d732de]
+[commit 564480f108e7019a8cc8443c615f7d2b5edfb092]
+[commit 8d5e8dfdc22c52bc944d80d5a8811373de001517]
+[commit a8dbd836b7856aa6f12cb2442a224fdb58d17f54]
+[commit 5cbfbd5cd0d53d2a396fb6cde8d68cdf62d9f0c1]
+[commit 56a6305557db0d545c4f358ea8e154a657d95dfc]
+[commit b0476eea5ef4ab2ccf2479652f486af3d4ab9cc0]
+[commit db80ff6133ab50f0aae9f392e3d64a88f6921deb]
+[commit 12eecb3bcc0be4d7fd35847252c40998806fc551]
+[commit 66aff324fa552f6f6f71d6b154718689a701186e]
+[commit f775385affefd7beac0d038d5cd9cbf01bfc4a06]
+[commit 0029027156f419fc60839ed87863eedccabfde5c]
+[commit 3b7db696d85a476b7735fecc7bf9a1d53d07ca02]
+[commit 5ae9aac0c7d819556a1cf2ec7bf61b78740d4917]
+[commit 9b2cba4a8a690bc6d4ac174cc2f2daddbc43a84d]
+[commit 2483216eecf34c8a19277ea37b322cd660183645]
+[commit 297d5bf8906776137aeac82e48ca2e87944d95b7]
+[commit ddefff3810c1b40801bd99f42533e0d414fa0236]
+[commit b6279be747facd85eb4490fc874148fede854d03]
+[commit 0c370a416b683287b3cb9e346446d203b2a57371]
+[commit a0350f61c451a1fe8e9ff2d004caa23a63c822db]
+[commit 8dec2d94b40d7b03af30f29b65258b7dcf097ffc]
+[commit d73fac00cdd413ebfe6f18907ea9ca4cb6051200]
+[commit 808a573e6e14ace5b8fe105bd9bce628bed3bc96]
+[commit f99ca315d5fe048f96a99505c852026973dbeb8a]
+[commit da4c7b4518ddc7c395ea476b1c543ee01034962c]
+[commit 89fc636ba2248ef476ed19c44525e6eb3681aaa1]
+[commit 4cc3056c563fe1eb3a0d461f13c1552639fa388d]
+[commit 6a9d7820e6ab677165c9c6444ed6929307d71250]
+[commit 144c1eda397330eeb79cd6fe312f80f5d3f1952f]
+[commit f43d0ac1b0e29bbd77d6b0b1c87dca075cd7b9bf]
+[commit 631ff522c3969809fd7f8c786cc908377ab168d9]
+[commit 4b89fb6af98e9783b0c51d1b2110bff613531574]
+[commit 5626e81f1a43f507023a8edd291f02547fe955de]
+[commit 5080b342dd63331150f5924320e3577d21099cdb]
+[commit 46a760e578f553d54c2e2ef6b295d3e9c71bd558]
+[commit e2e7269461e94c56792801a6447ddee18baab52f]
+[commit c22f46da9d10383d8b227db8dc305117df758967]
+[commit 605389e40b938088718bd8aa75f4919884789927]
+[commit df4e99bb884786eb0554e2a259795c44a5295154]
+[commit b9bf082d1f4816642ebc977d2769ca3f4069cb42]
+[commit ca5d4e7f63d0c30ea829dd68930431693e8253cd]
+[commit 2c5ea8f170eab8a5505f15a68bb403522ebd7a38]
+[commit b1281c67c5b47afd40d5acd3ea66ae72a51f2954]
+[commit da8c96fe3530a307c8a04a7b44d5080c4c4ea337]
+[commit 74bb8b966381e5ada69ea188f73427334f0b3b7b]
+[commit e5861dc2ea529527894b9be2df99f359c0d5b6ef]
+[commit 11aa32794394d3300b8a7f51ab00006a36987060]
+[commit 0c7eb49acd3666f1db868a5c05ebd91ef7c5499a]
+[commit f3092142f9ba0bccf33ca5a45e1cb186b579bae0]
+[commit 8c005f3da817456de3fc2f7d186b4898fcdff704]
+[commit e16e4cd25c1d83abcf8ec90c50d6dc146c8d74dc]
+[commit c25259a40e3f1e0e9fc85f44975ebcdeb6d0cdeb]
+[commit 9a5b64536743c9021affda5f912d1d2363d296b3]
+[commit 33c0bd25e5283404bbf7be0536ff52fa16f11b6a]
+[commit 9c0bedbb2064e9e02e2c20d1aa909360924033d7]
+[commit bc1740839883c36a05589e87b4cff42434bb1d7d]
+[commit 141cec051d142f329bd32e43d2e492aa6719d8f9]
+[commit e53890c477f53f12da721c48334a0330d07345c3]
+[commit cdb05de1eccecd9e7e2fbe2328e48418f1b9c943]
+[commit b59376c36de868c9846f0d6b8163b9b05b191b42]
+[commit 4e48e50ea5982387a1c9f164953315f7fe1f76a3]
+[commit 791fb098c9e84282b7d061c5708569757e6c65a3]
+[commit d673dda5af433b87a7240e4293452d5a464cd3f2]
+[commit 749293292aea9387de68dad931fe757209b66048]
+[commit 4fe8aa4a67ca3169b14f9cdf204412940af96488]
+[commit f6fb1f8cdd519fde87a79fd7961a78258a434d3a]
+[commit 121076ea954c2ef9dcc61d3df035678d0bfbd806]
+[commit 37e9b420b23a4d39400a5f8d1fe0c15bc1e04230]
+[commit fe9134294b22c232b60e666af2ec5d671ea053b3]
+[commit 7cba27286364a77248234c305154afe53396f188]
+[commit c439ae17b1b8dce71e36df45738c8430ec0c7a4e]
+[commit 17c0fbc240c323a2ddeb875d2a9fcbfc2960d378]
+[commit 1fa2a48dab667057068d0b5568954d842adebf84]
+[commit d988a0c1fc4cf75d5c4c9820fd2a5619d59ac608]
+[commit b94c971dd0cfe22c17639f18677eca92abdc5189]
+[commit d06ebddee40f4d8725b2b616720b988a9573fa78]
+[commit ee286907ad455f967233f715bd468f1d0ff01f6c]
+[commit 87fdc35e586930d9782efee4c0217d5e19b9274a]
+[commit e65e9bc1b4dd4503b77c311dafdfc77eabe3243c]
+[commit e37206a66db0bc359901435ecc09726fc6fe701d]
+[commit 9636482dd8afcb426a658a98760bccf882196b4e]
+[commit 839da868a5f9eb8bddd20d44f1cd0f293c5685cd]
+[commit b01f35a4e19d8e204daa37c378344772e339247b]
+[commit a48358d78e87380c8498739bc4c82061e6c39a47]
+[commit ff3c48a64fe2f9c1acf531e088dfb14e31404bae]
+[commit 9cafea4c44a7046ac2ac15b28471f9e09fceb6f9]
+[commit 155d5b8a19baa864ebe9d8346d932bd04ea23aca]
+[commit fc22812b66851523de41be79c9a0c1395d7a76c9]
+[commit ca36afaf671b776ee7b6c878c7b9c94852908dd1]
+[commit e224f2c1b98ba065942c83d322cdb8e3987d0c81]
+[commit 300a8977bcfd2f43bc6df81d9bdad6b79a740729]
+[commit 129cedd20bc61a4851d3699c8afeed321bb03ae1]
+[commit 0b5e4af65d0d3dfaa318b8e6adaaa4297f94af17]
+[commit 0a45aa9e954acc75484d59ad42ee440aa7f034c7]
+[commit aa2fe36f5e4b3b907af2ea94945ae9cab7263d0c]
+[commit 9b84a17c0adc85f32eb6a284011730f5d645fd2c]
+[commit 0d5ef734e91e6b03312b54ab3463ed5608ed27fa]
+[commit 57d1d2c49707d1d74cdae2946d89bbd427661dca]
+[commit 779e075df98da07468ec5dd13b44241110a2abf2]
+[commit 22382d9e706baddac193f66c3a48b086fc53e98c]
+[commit 76a0a5f91d2c8f30760cb223d732863761e268a9]
+[commit 772837c632ec9f3cb3ded33830a60a8b310c2e22]
+[commit 16517f949da6dbabd5abdab90b14953e36d7e806]
+[commit f6a81b18a4675b4f082bd4b4491bf5859e722ad9]
+[commit 7778507bf9344cef75f30c4089536d847da5d558]
+[commit dfc4a7c10cf5923f21699e2217c969181c733be7]
+[commit cbd8e3a0049aa300e0a92481d4f5a095765269bf]
+[commit 36224ed42708e5d917698261e6dfe4f128069da8]
+[commit f55001cc9f9185dca21d80c10922df4c1846ffb3]
+[commit e89beeee25c3d08805e19cfc085a6c5b2f762a21]
+[commit fc3c317b055cfd835e4b7720e708bf32738146d6]
+[commit 65629acb4a793416b128d932abf5c539315dec4e]
+[commit 0143f06b45dc3039bbefdd413d95f23e30a7a01c]
+[commit ce7e1f86a1810038f142c5c68b787c47252b39c5]
+[commit 0cc2448fc2a2e194473d04512c1a83db3913de72]
+[commit 7f42fc03d2a7119ff9cdf5fc7fc21a0239b42afb]
+[commit ff7a10d0e1d1498724c6a1e02a70926944a71590]
+[commit 3bd015a1a918d060dbef556ddfa6e236f5212330]
+[commit da457e5c856d26d41e9a30a08d0087937d28a41f]
+[commit 2efda1b8c0f9583f01273ee21902a08dda9cb8bb]
+[commit f0033878b92e1a00120fec4edf590715f7c4ecbc]
+[commit 25c6697b0b985228639cdeb5212a5f705731f69a]
+[commit 1a08326c6f503db5f0fb9201cdf55379bbe576e8]
+[commit ace0a38a9756748c225cdf7270858b3cc35a3154]
+[commit 04f744ce91efbb37f89b8e6d04f24af111e8bd8f]
+[commit cef2f7b440ffa67271690a6aba532e4c090772db]
+[commit a989b0fbc965b453d97e3d032efb4f9c7592734a]
+[commit bcef4427a470274ba1f0c5fa7affe41253a93633]
+[commit 8d584f064885495d47811c98027a8005ea5135c1]
+[commit 1e5aff8e5bc607f6bfaaf982b9c07ce365cd9bf4]
+[commit 0b97aba5c25be8a76cca6f77a40a972a7e70a98f]
+[commit 1f86a86b21fc4e2796d5d489ad0a8e6148328790]
+[commit f8162575f2114c26e52753ece0fac9738b97a79e]
+[commit b44a9bd37e605e5f9a06af5a39ac26eb6962239c]
+[commit 3541e09bbbcb65074b69bc66216de2c1c4aee7c2]
+[commit ae4ae80a27a348474f0be17168bd5f2d9dbdd960]
+[commit d17f7f9e911ad77ac14cb2974935c57931a7720b]
+[commit 63e4b5c5e92422abbb7f08f973d34ba7402b82d7]
+[commit 441beb326fbf62a36f129a0766fa6b8d4cf994a1]
+[commit c62cae9b53fe2c5e52a185d3ed37f55ef383f064]
+[commit 4f536daec8fbfc05ae0097a825386848056cbbbd]
+[commit 3c01c7df984019d3db1b7a1d5e4d61d8c366df28]
+[commit 4bbc38778316711e552ada29bf15c0f850351974]
+[commit cee4e16cb6fbaf1c5b9ed8daad69986886e96af7]
+[commit 8696cc8d0bbf4a87bc7c87186b0c5d35253b91ca]
+[commit 342a37387f313ae691190d69f11400620521a268]
+[commit 3548ab72de58a5351c78529a282c6ef56428eed1]
+[commit 5c8640e863a1366752a123441a5b686e7c8401eb]
+[commit 393c53fd219d7f4f00413d49943714623cd52b5d]
+[commit 26408151bb1d952e37ff25bfb9cc200332a5e13a]
+[commit e60d2d53ed838ac50d25080abc415e387b404f09]
+[commit 150ac95e4a56855e7ffaa1014d7a82e9eda89f65]
+[commit 901aec0a855b5c69b327e423558fbcc001781805]
+[commit 4d3670980878f20a4b3b53596d23bf1f7fd4e5a6]
+[commit 16719d34073444c50fcd57d337d0f1246c8e84c9]
+[commit f5f3c16d9256fb8bb2c38e1dd91ca420f240bfd6]
+[commit 7781f5e09ffc70e7b0618533b65838882a47c4ba]
+[commit bf5ca5ced57d615093056e7f8013497b0fe4068f]
+[commit 1aa2b46a07075ea79d22e91a1325b88de4efd27e]
+[commit 109324d5e7ab893c15540fe97325b3eeaee88d20]
+[commit 409247a6cbd11e3510025e025f3b82184c3de17c]
+[commit 3de8ca652d9308858a9504265c7c88a71f058859]
+[commit a7bc1c0c353fc426ecfc98d42c807c74250c137d]
+[commit 73ec43ab702fb06bf870af161919ad9423cddd19]
+Date: 2026-05-14
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: 
+Subject: Cloud releases: More firstboot_pkg_upgrade
+Body:
+
+Update a couple more cloudware images which I forgot about earlier.
+
+Approved by:	re (cperciva)
+Reviewed by:	ziaee
+Fixes: 464a351267dc ("Cloud releases: Switch to firstboot_pkg_upgrade")
+Differential Revision:	https://reviews.freebsd.org/D57006
+
+(cherry picked from commit 4080419d9a2d88d44d20baaf3ea01934561819c1)
+(cherry picked from commit 1ae97c95d025277fb542936b0a2686180dd4a7b7)
+
+
+ release/tools/basic-cloudinit.conf | 7 ++++---
+ release/tools/ec2-small.conf       | 9 ++++++---
+ 2 files changed, 10 insertions(+), 6 deletions(-)
+
+[commit 10c4498f93d29b1f2b672299c5bf8c0ee6ee3774]
+Date: 2026-05-14
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: Google Cloud
+Subject: Cloud releases: Switch to firstboot_pkg_upgrade
+Body:
+
+Cloud images are deployed with base system packages. Introduce a
+firstboot package auto updater to patch the base system on first boot.
+
+Approved by:	re (cperciva)
+MFC after:		1 hour
+MFC to:			stable/15
+Reviewed by:		cperciva
+Sponsored by:		Google Cloud
+Differential Revision:	https://reviews.freebsd.org/D56890
+
+(cherry picked from commit 464a351267dc0d1843b919dd72ad1c70c24815ce)
+(cherry picked from commit 0bb2b2a45f3c0c147d7c55e010be45e55af8df87)
+
+
+ release/tools/azure.conf    | 5 +++--
+ release/tools/ec2-base.conf | 9 ++++++---
+ release/tools/gce.conf      | 5 +++--
+ 3 files changed, 12 insertions(+), 7 deletions(-)
+
+[commit ac2daab5506280a2fa271c476a7f51ca8d9f13c0]
+Date: 2026-05-14
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: OpenSats Initiative
+Subject: 15.1: Update to BETA3
+Body:
+
+Approved by:	re (implicit)
+Sponsored by:	OpenSats Initiative
+
+
+ sys/conf/newvers.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit a02091d590aaf35000a6c6dafdfe076d33f2b291]
+Date: 2026-05-06
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: 
+Subject: freebsd-base.7: Document adding a local repo
+Body:
+
+Approved by:	re (cperciva)
+MFC after:		1 day
+Discussed with:		bcr, ivy, kevans, ngie
+Differential Revision:	https://reviews.freebsd.org/D56608
+
+(cherry picked from commit c4af3f13a4e9932968d92872aaf22312a6e79e4e)
+(cherry picked from commit 635743c6ec35f11434339f79222fb0a259ed8bfb)
+
+
+ share/man/man7/freebsd-base.7 | 23 ++++++++++++++++++++++-
+ 1 file changed, 22 insertions(+), 1 deletion(-)
+
+[commit 2ebec3c7ead5f5b477a5ab47136562777f2bb495]
+Date: 2026-05-07
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: 
+Subject: nuageinit: fix command injection and related issues
+Body:
+
+- Add shell_escape() helper to safely escape shell arguments
+- Apply shell_escape to all user-controlled values in shell commands:
+  adduser (usershow, useradd, lock, primary_group, groups)
+  addgroup (groupshow, groupadd, members)
+  exec_change_password (usermod)
+  settimezone (tzsetup root and timezone)
+  install_package (pkg package names)
+- Escape double quotes in hostname when writing rc.conf.d/hostname
+- Add missing 'local' declaration for resolvconf_command in nameservers()
+- Escape interface name in resolvconf -a command
+- Change open_resolvconf_conf() from 'w' to 'a' mode to prevent
+  data loss when nameservers() is called multiple times
+- Clean up stale resolvconf.conf at the start of each boot
+  (skip on postnet to preserve config written by first call)
+
+Approved by:	re (cperciva)
+MFC After: 1 day
+
+(cherry picked from commit 8b70a203be10411c560ed303ab25713d70b316e9)
+(cherry picked from commit 87b18b611ec9a70347fdd239345fa23977bcb2d0)
+
+
+ libexec/nuageinit/nuage.lua          | 43 +++++++++++++++++++++++-------------
+ libexec/nuageinit/nuageinit          | 17 ++++++++++++--
+ libexec/nuageinit/tests/nuageinit.sh |  6 ++---
+ 3 files changed, 46 insertions(+), 20 deletions(-)
+
+[commit 09a53a56b7a6892935509e2cda1954fff8078c3f]
+Date: 2026-05-07
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: ConnectWise
+Subject: Make "make update-packages" idempotent
+Body:
+
+If the user runs "make update-packages" without bumping BRANCH, then it
+isn't possible to copy packages from the old location to the new one
+(because the two locations are the same).  So just skip that step.
+
+Approved by:	re (cperciva)
+Sponsored by:		ConnectWise
+PR:			295085
+Reviewed by:		ivy, emaste
+Differential Revision:	https://reviews.freebsd.org/D56872
+
+(cherry picked from commit bd1e789b8452a8c2f166a3b4defb95330c71dadd)
+(cherry picked from commit 89a0148521aefe0a190d4b62749186c705962d32)
+
+
+ Makefile.inc1 | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+[commit 39fcfcc64bbae6ff8792c8598c6147e3c63b60c1]
+Date: 2026-04-27
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: ConnectWise
+Subject: Fix LOCAL_PEERCRED in 32-bit compat mode
+Body:
+
+Previously the cr_pid field would be incorrectly copied to userland, due
+to a size mismatch between the structure as defined in 32-bit vs 64-bit
+builds.  Fix it by converting the structure before copying it to
+userland.
+
+Approved by:	re (cperciva)
+PR:		294833
+Sponsored by:	ConnectWise
+Reviewed by:	emaste
+Differential Revision: https://reviews.freebsd.org/D56675
+
+(cherry picked from commit 1d24638d3e8875e4b99a4b5e39f4241e37221b3d)
+(cherry picked from commit 3298d82ea34059354dc1ff1a60d8b7d3e495c2cd)
+
+
+ sys/kern/uipc_usrreq.c | 21 +++++++++++++++++++--
+ sys/sys/ucred.h        | 11 +++++++++++
+ 2 files changed, 30 insertions(+), 2 deletions(-)
+
+[commit 8c8ec2cdc9a9cfa44ecb98a387f426faa1c9f055]
+Date: 2026-02-21
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: 
+Subject: pkg-stage.sh: Add ext2 and ntfs
+Body:
+
+Having these packages available on release media may help users who
+need to sneakernet other packages (e.g. firmware) from systems running
+Linux or Windows.
+
+Approved by:	re (cperciva)
+Suggested by:	vladlen, ziaee
+MFC after:	3 days
+
+(cherry picked from commit 6881fd278d80ac63b4d511fc130a79ff16d1bb48)
+(cherry picked from commit 01d5910b8766671afdbd9e274fd62b397aca9e1a)
+
+
+ release/scripts/pkg-stage.sh | 2 ++
+ 1 file changed, 2 insertions(+)
+
+[commit 5457f05b201f6f5aa0bf9a8739096a3c0ac037d4]
+Date: 2026-01-27
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: SkunkWerks, GmbH
+Subject: release/tools: use same pkg settings in containers as in /etc/pkg/FreeBSD.conf
+Body:
+
+Instructions in /etc/pkg/FreeBSD.conf and elsewhere recommend putting
+changes in /usr/local/etc/pkg/repos/FreeBSD.conf so bring OCI containers
+into line as well.
+
+Reviewed by:	dfr, ivy
+Differential Revision:	https://reviews.freebsd.org/D54090
+
+Approved by:	re (cperciva)
+MFC after:	5 days
+Sponsored by:	SkunkWerks, GmbH
+
+(cherry picked from commit c73ae67348998a0056145e88debbea9ff6860c4f)
+(cherry picked from commit d889f6c466d4cec73c34bc71093d08b25e321071)
+
+
+ release/tools/oci-image-static.conf | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+[commit 8484cb490a7dafe3f5509c40fbb4d660665ac8b9]
+Date: 2026-05-03
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: 
+Subject: fdescfs: do not change vnode type on VOP_GETATTR()
+Body:
+
+Approved by:	re (cperciva)
+PR:	294768
+
+(cherry picked from commit fbecfc4aa028964f972a0457809aa041d415f61b)
+(cherry picked from commit 5af938fb03d004ef97621f4c9319446f2fb8f77c)
+
+
+ sys/fs/fdescfs/fdesc_vnops.c | 1 -
+ 1 file changed, 1 deletion(-)
+
+[commit cb7880bb09009c977d3fb70a66b0f57f9fbe83ed]
+Date: 2026-04-28
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: ConnectWise
+Subject: bsdinstall: do pkgbase installations with the "script" command
+Body:
+
+"bsdinstall script" will now do a pkgbase installation by default.  The
+system components to install can be specified in the COMPONENTS
+variable, and have the same names as those used in the interactive
+installer.  bsdinstall will still do a legacy distset installation if
+DISTRIBUTIONS is defined in the installerconfig file.
+
+Approved by:	re (cperciva)
+PR:		290375
+Sponsored by:	ConnectWise
+Reviewed by:	ziaee, ivy, jduran
+Differential Revision: https://reviews.freebsd.org/D56717
+
+(cherry picked from commit dc14ae4217a0babb1240f813b642edc2d7b955a6)
+(cherry picked from commit 1f5869130f6ebd299e65a627eff23a8c3d360afb)
+
+
+ UPDATING                               |  5 +++
+ usr.sbin/bsdinstall/bsdinstall.8       | 45 ++++++++++++++++-----
+ usr.sbin/bsdinstall/scripts/pkgbase.in | 15 ++++++-
+ usr.sbin/bsdinstall/scripts/script     | 71 ++++++++++++++++++++--------------
+ 4 files changed, 95 insertions(+), 41 deletions(-)
+
+[commit 628c42a28e76e281045c7b3225fbe6b9bb4f1e3b]
+Date: 2026-04-20
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: 
+Subject: bsdinstall.8: Document DISTRIBUTIONS defaults correctly
+Body:
+
+Some targets override the default value of DISTRIBUTIONS.
+Document that in the manual page.
+
+Approved by:	re (cperciva)
+Reported by:	Nia Alarie <nia@NetBSD.org>
+Reviewed by:	jlduran
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D56528
+
+(cherry picked from commit 4029e765436ff1633139c1afe1bc25185a0f4ef1)
+(cherry picked from commit f4678f7613538c63567e2e44cd5aceaee4b4a383)
+
+
+ usr.sbin/bsdinstall/bsdinstall.8 | 24 ++++++++++++++++++++++--
+ 1 file changed, 22 insertions(+), 2 deletions(-)
+
+[commit 684cb0d678d233c08fdc008a2b95e64be04d5dab]
+Date: 2026-05-01
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: 
+Subject: krb5: Adjust additional version strings
+Body:
+
+Approved by:	re (cperciva)
+Fixes:		736e411a737b
+
+(cherry picked from commit c64ee36e5d09ecee4ce4951047014c8461734fb5)
+(cherry picked from commit e3fc367366319466dd91fe0217a06c0655e35a8a)
+
+
+ krb5/include/autoconf.h              | 4 ++--
+ krb5/util/build-tools/Makefile       | 1 +
+ krb5/util/build-tools/krb5-config.sh | 2 +-
+ 3 files changed, 4 insertions(+), 3 deletions(-)
+
+[commit 3ee9a0f8924d58ccf460ae1894557245b06fe5e2]
+Date: 2026-04-30
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: 
+Subject: krb5: Adjust version to 1.22.2
+Body:
+
+Approved by:	re (cperciva)
+Fixes:		736e411a737b
+(cherry picked from commit 8f46ba065143d9d89968a20b23844287d54c04a2)
+(cherry picked from commit ea93554de436e84d27200d12f3a3b6dc1670fac9)
+
+
+ krb5/Makefile.inc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 92eeed88a416ec63d4fb1ad88df8d76fd70a528c]
+Date: 2026-04-30
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: 
+Subject: krb5: Fix two NegoEx parsing vulnerabilities
+Body:
+
+Bring in upstream commit 2e75f0d93 fixing two CVEs. Upstream commit
+log is:
+
+ In parse_nego_message(), check the result of the second call to
+ vector_base() before dereferencing it.  In parse_message(), check for
+ a short header_len to prevent an integer underflow when calculating
+ the remaining message length.
+
+ Reported by Cem Onat Karagun.
+
+ CVE-2026-40355:
+
+ In MIT krb5 release 1.18 and later, if an application calls
+ gss_accept_sec_context() on a system with a NegoEx mechanism
+ registered in /etc/gss/mech, an unauthenticated remote attacker can
+ trigger a null pointer dereference, causing the process to terminate.
+
+ CVE-2026-40356:
+
+ In MIT krb5 release 1.18 and later, if an application calls
+ gss_accept_sec_context() on a system with a NegoEx mechanism
+ registered in /etc/gss/mech, an unauthenticated remote attacker can
+ trigger a read overrun of up to 52 bytes, possibly causing the process
+ to terminate.  Exfiltration of the bytes read does not appear
+ possible.
+
+Approved by:	re (cperciva)
+
+(cherry picked from commit c9dd7bffa58c50b2f7ed9e66ace39197c468d8e6)
+(cherry picked from commit a22ad16deb2ce23050c949b43210f5c6feb5afa8)
+
+
+ crypto/krb5/src/lib/gssapi/spnego/negoex_util.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+[commit b66538ca983ce71043797e3b717c963ac1d308c5]
+Date: 2026-05-09
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: 
+Subject: BSD.root.dist: Correct tag for /etc/sysctl.kld.d
+Body:
+
+This is only used by rc.subr and belongs in rc, not runtime.
+
+Approved by:	re (cperciva)
+Fixes:		fa6d67cd16b5 ("BSD.root.dist: Add package tag for all directories")
+MFC after:	3 days
+Reviewed by:	ivy
+Differential Revision:	https://reviews.freebsd.org/D56900
+
+(cherry picked from commit 44338ccd12685621c4b1c57e692a4f27f5a655d3)
+(cherry picked from commit 714f6ac0003482d3270a9d0026e59909cff73c3f)
+
+
+ etc/mtree/BSD.root.dist | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 379805b29732c4160fbbd6d109e9a5a1585d8e6f]
+Date: 2026-04-24
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: ConnectWise
+Subject: ctld: normalize iSCSI TargetName on login
+Body:
+
+Case-insensitive TargetName matching on logins was accidentally removed,
+let's fix that by normalizing TargetName again according to RFC 3722.
+
+Approved by:	re (cperciva)
+PR: 			294522
+Fixes: 			4b1aac931465f39c5c26bfa1d5539a428d340f20
+Sponsored by: 		ConnectWise
+Reviewed by:		asomers, jhb
+Approved by:		asomers (mentor)
+Differential Revision:	https://reviews.freebsd.org/D56469
+
+(cherry picked from commit eb837cb8b2073c09bafaf3318f5bb103827b2bca)
+(cherry picked from commit 0baae6223a6350215d7b11264e59408362b15a19)
+
+
+ usr.sbin/ctld/login.cc | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
+
+[commit b333b8799af00b2b95681219a6b222403c3bfdc9]
+Date: 2026-04-28
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: 
+Subject: uipc_shm.c: make large page allocation interruptible
+Body:
+
+Approved by:	re (cperciva)
+
+(cherry picked from commit 839d3266d8c6f6471cb92a3c0ae32eb16d117427)
+(cherry picked from commit c335dafd77363b67493d37ab260bc82e70c8cfa7)
+
+
+ sys/kern/uipc_shm.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+[commit 037b285b80e5cb35c8e9cec4e85966b20f03d91a]
+Date: 2026-05-03
+Score: 5
+CollectedAt: 2026-05-19T18:16:11 UTC
+Sponsor: 
+Subject: unix: Make sure we signal EOF on the write side when disconnecting
+Body:
+
+Add a regression test.
+
+Approved by:	re (cperciva)
+PR:		294014
+Reported by:	diizzy
+Reviewed by:	glebius
+MFC after:	1 week
+Fixes:		d15792780760 ("unix: new implementation of unix/stream & unix/seqpacket")
+Differential Revision:	https://reviews.freebsd.org/D56764
+
+(cherry picked from commit 476805133f5736c2c8638e41d2b5d8dd2c597f3a)
+(cherry picked from commit f06697907f360b02682594c6179a7361644d3c87)
+
+
+ sys/kern/uipc_usrreq.c       |  2 ++
+ tests/sys/kern/unix_stream.c | 77 ++++++++++++++++++++++++++++++++++----------
+ 2 files changed, 62 insertions(+), 17 deletions(-)
+

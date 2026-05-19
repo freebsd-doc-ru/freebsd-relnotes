@@ -3,7 +3,7 @@ Date: 2026-03-13
 Score: 5
 Status: added(include=yes,score=90)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.contrib
 Subject: MFC: MFV: zlib 1.3.2.
 Review: man:zlib[3] has been updated updated to version 1.3.2.
@@ -103,7 +103,7 @@ Date: 2026-01-04
 Score: 5
 Status: added(include=yes,score=35)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: Drivers.device
 Subject: asmc(4): pull 32-bit support for the driver
 Review: The man:asmc[4] driver no longer supports 32-bit Intel-based Macs, making it clear that use on i386 hardware is not supported.
@@ -137,7 +137,7 @@ Date: 2026-02-09
 Score: 5
 Status: added(include=yes,score=10)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: Docs.manpages
 Subject: ifconfig.8: Start new sentence on new line
 Review: The man:ifconfig[8] manual page formatting has been corrected to improve readability.
@@ -165,7 +165,7 @@ Date: 2026-02-07
 Score: 5
 Status: rejected(include=no,score=5)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: netinet6: Fix my style issues
 Review: The commit fixes style issues in man:ifconfig[8] and the IPv6 interface attachment code. These changes do not introduce user-visible functional changes, improvements, or regressions.
@@ -194,7 +194,7 @@ Date: 2025-10-03
 Score: 5
 Status: rejected(include=no,score=20)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: undecided
 Subject: sys/netinet6: Use atomic(9) for dad_failures counter
 Review: The IPv6 SLAAC address generation code now uses atomic operations for the dad_failures counter, which may affect address stability in rare duplicate address detection failure scenarios.
@@ -236,7 +236,7 @@ Date: 2025-09-22
 Score: 5
 Status: rejected(include=yes,score=85)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: Network.general
 Subject: sys/netinet6: Fix ABI breakage introduced with RFC 7217 support
 Review: The networking ABI has been restored by moving a variable from a public structure to a private one, preventing binary compatibility issues for modules or programs using the previous kernel interface. (ABI was broken and fixed only in non-release branches in stable/15)
@@ -279,7 +279,7 @@ Date: 2025-09-20
 Score: 5
 Status: added(include=yes,score=85)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: Network.general
 Subject: sys/netinet6: Implement RFC 7217
 Review: The support for RFC 7217 stable IPv6 address generation via a new ifconfig 'stableaddr' flag and associated sysctls has been added. The feature is disabled by default, preserving existing behavior. The man:ifconfig[8] manual page is updated with documentation.
@@ -342,7 +342,7 @@ Date: 2026-01-28
 Score: 5
 Status: added(include=yes,score=75)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.programs
 Subject: daemon: Add option for output file mode
 Review: The man:daemon[8] utility now supports specifying the output file mode via a new option, allowing non-root log collectors to access log files and improving compatibility with log rotation tools.
@@ -374,7 +374,7 @@ Date: 2026-01-03
 Score: 5
 Status: added(include=yes,score=85)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: Kernel.general
 Subject: powerpc: put the isync inside the TD_LOCK() checking loop
 Review: A race condition in the powerpc thread switching code that could cause system hangs during boot on multi-CPU power9 pseries guests  has been resolved.
@@ -409,7 +409,7 @@ Date: 2025-11-18
 Score: 5
 Status: added(include=yes,score=85)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.libraries
 Subject: libc: implement C23 <stdbit.h> functions
 Review: Adds C23 `<stdbit.h>` header with bit manipulation functions like `stdc_bit_ceil()`, `stdc_bit_width()`, and `stdc_count_ones()`. This provides standard bit operations for C programs.
@@ -456,7 +456,7 @@ Date: 2025-11-17
 Score: 5
 Status: added(include=yes,score=70)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.libraries
 Subject: msun: expose the C23 functions we already support in <math.h>
 Review: The C23 trigonometric functions from the `*pi` family (acospi, acospif etc.) have beed exposed in <math.h>. This provides standard-conforming APIs for applications using these functions.
@@ -499,7 +499,7 @@ Date: 2025-12-18
 Score: 5
 Status: added(include=yes,score=60)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: Docs.manpages
 Subject: librt/mq_getfd_np.3: Initial manual page
 Review: Adds a manual page for the undocumented man:mq_getfd_np[3] function from man:librt[3]. This provides documentation for a function that has been present since FreeBSD 11.
@@ -525,7 +525,7 @@ Date: 2025-11-10
 Score: 5
 Status: added(include=yes,score=60)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.libraries
 Subject: lib/libc: implement C23 memalignment()
 Review: The C23 `memalignment()` function has been added to libc, allowing programs to compute pointer alignment. A man page has been included.
@@ -596,7 +596,7 @@ Date: 2025-10-23
 Score: 5
 Status: added(include=yes,score=70)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.programs
 Subject: sockstat: add support for UDP-Lite endpoints
 Review: The man:sockstat[1] utility now displays UDP-Lite endpoints by default.
@@ -657,7 +657,7 @@ Date: 2025-10-12
 Score: 5
 Status: added(include=yes,score=85)
 CollectedAt: 2026-04-03T13:00:19 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.contrib
 Subject: blocklist: Rename blacklist to blocklist
 Review: The blacklist subsystem has been renamed to blocklist (man:blocklistd[8]) throughout the system. Old names in rc scripts, firewall rules, and configuration knobs remain functional but emit warnings. This change follows upstream terminology updates.
@@ -752,7 +752,7 @@ Date: 2026-04-17
 Score: 5
 Status: added(include=yes,score=40)
 CollectedAt: 2026-04-18T11:47:27 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.config
 Subject: us.intl.acc.kbd: add it to Makefile
 Review: The `us.intl.acc.kbd` keyboard layout has been installed and available for use with the man:vt[4] console.
@@ -777,7 +777,7 @@ Date: 2026-04-17
 Score: 5
 Status: added(include=yes,score=30)
 CollectedAt: 2026-04-18T11:47:27 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.config
 Subject: br.lenovo.kdb: add it to Makefile
 Review: The Lenovo laptop keyboard keymap has been installed and available for use with man:vt[4].
@@ -837,9 +837,9 @@ MFC after:	3 days
 [commit 1b5b7867b67fdbe412cc4136834f21dbeef26bea]
 Date: 2026-05-03
 Score: 5
-Status: accepted(include=yes,score=25)
+Status: added(include=yes,score=25)
 CollectedAt: 2026-05-09T08:57:23 UTC
-Sponsor:
+Sponsor: 
 Section: Docs.manpages
 Subject: ports.7/FILES: Expand and refactor into 3 tables
 Review: The man:ports[7] manual page's FILES section has been expanded and refactored into three tables, improving documentation of ports-related files.
@@ -866,9 +866,9 @@ Differential Revision:	https://reviews.freebsd.org/D55441
 [commit 1aa2b46a07075ea79d22e91a1325b88de4efd27e]
 Date: 2026-05-06
 Score: 5
-Status: accepted(include=yes,score=70)
+Status: added(include=yes,score=70)
 CollectedAt: 2026-05-09T08:57:23 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.contrib
 Subject: MFV: zstd 1.5.7.
 Review: zstd has been updated to version 1.5.7.
@@ -1080,9 +1080,9 @@ Relnotes:	yes
 [commit 109324d5e7ab893c15540fe97325b3eeaee88d20]
 Date: 2026-05-06
 Score: 5
-Status: accepted(include=yes,score=70)
+Status: added(include=yes,score=70)
 CollectedAt: 2026-05-09T08:57:23 UTC
-Sponsor:
+Sponsor: 
 Section: Userland.contrib
 Subject: MFV less v691
 Review: less has been updated to version 692.
