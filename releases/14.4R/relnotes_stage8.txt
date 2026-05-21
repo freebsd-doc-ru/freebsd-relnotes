@@ -2,7 +2,7 @@
 Date: 2025-10-09
 Score: 5
 Status: proposed(include=yes,score=70)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: mount_nullfs.8: document unixbypass and nounixbypass
 Review: The man:mount_nullfs[8] manual page now documents the unixbypass and nounixbypass mount options, which control whether Unix domain socket credentials are bypassed for nullfs mounts.
@@ -18,7 +18,7 @@ Body:
 Date: 2025-05-21
 Score: 5
 Status: proposed(include=yes,score=65)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: build.7: PORTS_MODULES incompatible with pkgbase
 Review: The man:build[7] manual page now includes a note that PORTS_MODULES is incompatible with pkgbase. This informs users of a known limitation when building the system.
@@ -105,7 +105,7 @@ Body:
 Date: 2025-05-11
 Score: 5
 Status: proposed(include=yes,score=65)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: e6000sw.4: Initial manual page
 Review: Adds the man:e6000sw[4] manual page for the e6000sw Ethernet switch driver.
@@ -159,7 +159,7 @@ Body:
 Date: 2025-11-09
 Score: 5
 Status: proposed(include=yes,score=60)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: geom_zero.4: Document
 Review: The commit adds a new man page for the GEOM ZERO class, documenting its features and usage.
@@ -185,7 +185,7 @@ Body:
 Date: 2025-06-16
 Score: 5
 Status: proposed(include=yes,score=60)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: nuageinit: write a documentation
 Review: The man:nuageinit[7] manual page is added, documenting the nuageinit utility.
@@ -205,7 +205,7 @@ Body:
 Date: 2025-05-19
 Score: 5
 Status: proposed(include=yes,score=60)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: mtkswitch.4: Initial manual page
 Review: The commit adds a manual page for the mtkswitch driver, which documents the driver's purpose, how to include it, and supported hardware. This provides users with official documentation for the driver.
@@ -232,7 +232,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=45)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: libc: fix description issues in mac_text(3)/mac_free(3)
 Review: The commit corrects documentation errors in man:mac_text[3] and man:mac_free[3] regarding the freeing of mac_t objects. This clarifies that mac_t should not be freed with free(3), preventing potential misuse.
@@ -258,7 +258,7 @@ Body:
 Date: 2025-07-25
 Score: 5
 Status: added(include=yes,score=45)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: crash.8: update a little
 Review: The man:crash[8] manual page is updated to reflect current system behavior, removing references to obsolete panic messages and updating guidance on recovery media.
@@ -310,7 +310,7 @@ Body:
 Date: 2024-11-07
 Score: 5
 Status: added(include=yes,score=45)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: pf.conf.5: additional quoting for ranges in lists
 Review: The man:pf.conf[5] man page now documents that network address ranges used as items in list macros must be quoted with additional single quotes.
@@ -345,7 +345,7 @@ Body:
 Date: 2025-05-29
 Score: 5
 Status: proposed(include=yes,score=45)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: uftdi.4: Makeover!
 Review: The man:uftdi[4] manual page receives a comprehensive update with improved formatting, complete sysctl documentation, and clearer usage instructions.
@@ -378,7 +378,7 @@ Body:
 Date: 2025-05-06
 Score: 5
 Status: proposed(include=yes,score=45)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: rc.conf.5: document precious_machine
 Review: The man:rc.conf[5] manual page now documents the precious_machine variable, which affects how rc.conf(5) variables are handled during upgrades.
@@ -394,7 +394,7 @@ Body:
 Date: 2025-12-19
 Score: 5
 Status: proposed(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: printf.9: Support more than 32 bits in %b
 Review: The man:printf[9] manual page is updated to document support for more than 32 bits in the %b format specifier, which will be usable once clang supports length modifiers for %b in kernel code.
@@ -418,7 +418,7 @@ Body:
 Date: 2025-12-29
 Score: 5
 Status: added(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: MFC: ipfw.8: document how to delete nat configuration instance
 Review: The man:ipfw[8] manual page now documents how to delete a NAT configuration instance.
@@ -434,7 +434,7 @@ Body:
 Date: 2025-11-21
 Score: 5
 Status: proposed(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: vt.4: Document increasing scrollback size
 Review: The man:vt[4] man page now documents how to increase the scrollback buffer size for the virtual terminal driver.
@@ -454,7 +454,7 @@ Body:
 Date: 2025-11-10
 Score: 5
 Status: proposed(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ix.4: Add E610 to HARDWARE section
 Review: The man:ix[4] manual page now includes the Intel Ethernet E610 family in the HARDWARE section.
@@ -474,7 +474,7 @@ Body:
 Date: 2025-11-03
 Score: 5
 Status: proposed(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: dtrace_vfs.4: Document the DTrace vfs provider
 Review: The commit adds a new manual page man:dtrace_vfs[4] documenting the DTrace vfs provider.
@@ -497,7 +497,7 @@ Body:
 Date: 2025-07-14
 Score: 5
 Status: proposed(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: dtrace.1: Document evaltime
 Review: The man:dtrace[1] manual page now documents the evaltime option.
@@ -517,7 +517,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: added(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: write.2: explain the atomicity guarantees of the writes
 Review: The man:write[2] manual page now includes a new section describing the atomicity guarantees of write operations.
@@ -533,7 +533,7 @@ Body:
 Date: 2025-03-27
 Score: 5
 Status: proposed(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: Remove mentions of ENOSYS added in d97e44784bb5
 Review: The commit removes mentions of ENOSYS from man:aiocancel[2], man:aioerror[2], man:aiofsync[2], man:aiomlock[2], man:aioread[2], man:aioreturn[2], man:aiosuspend[2], man:aiowaitcomplete[2], and man:aiowrite[2] because aio(4) is now a hard kernel requirement, making the ENOSYS error scenario impossible.
@@ -592,7 +592,7 @@ Body:
 Date: 2025-08-25
 Score: 5
 Status: proposed(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: exports.5: Add a paragraph clarifying the use of "V4:"
 Review: The man:exports[5] man page now includes a paragraph clarifying the use of "V4:" lines to define the NFSv4 export subtree root.
@@ -640,7 +640,7 @@ Body:
 Date: 2025-06-25
 Score: 5
 Status: proposed(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: pf.4/pfsync.4: Separate sysctl/tunables >> SYNOPSIS
 Review: The commit updates man pages for pf.4 and pfsync.4 to separate sysctl and tunable documentation, clarifying configuration options for users.
@@ -661,7 +661,7 @@ Body:
 Date: 2025-05-21
 Score: 5
 Status: proposed(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: make.conf.5: add CPUTYPE?= note from UPDATING
 Review: The man:make.conf[5] manual page now includes a note about setting CPUTYPE?= for cross-compilation, making this information more discoverable.
@@ -710,7 +710,7 @@ Body:
 Date: 2025-04-08
 Score: 5
 Status: proposed(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ure.4: add a HARDWARE section + add RTL8156BG as a compatible controller
 Review: The man:ure[4] page now includes a HARDWARE section and lists the RTL8156BG controller as compatible. It also standardizes the spelling of "Realtek".
@@ -732,7 +732,7 @@ Body:
 Date: 2025-04-13
 Score: 5
 Status: proposed(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: puc.4: Add a HARDWARE section based off device data from pucdata.c
 Review: The man: puc[4] manual page now includes a HARDWARE section listing supported devices, improving documentation for users of the puc driver.
@@ -758,7 +758,7 @@ Body:
 Date: 2025-05-11
 Score: 5
 Status: proposed(include=yes,score=40)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ar40xx.4: Initial manual page
 Review: Adds man:ar40xx[4] manual page for the Atheros AR40xx Ethernet switch driver, enabling documentation in apropos and hardware release notes. Also updates cross-references in man:etherswitch[4].
@@ -785,7 +785,7 @@ Body:
 Date: 2025-11-06
 Score: 5
 Status: proposed(include=yes,score=35)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: dtrace_pid.4: Document the DTrace PID provider
 Review: The DTrace PID provider man page is added, documenting its usage and options.
@@ -806,7 +806,7 @@ Body:
 Date: 2025-11-10
 Score: 5
 Status: proposed(include=yes,score=35)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ix.4: Document E610 debug dump
 Review: The commit documents how to collect E610 device debug dump data using sysctl for troubleshooting with Intel Customer Support.
@@ -830,7 +830,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=35)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: dtrace_io.4: Use bio_length instead of bio_bcount in examples
 Review: The commit updates man:dtrace_io[4] examples to use bio_length instead of bio_bcount for I/O tracing accuracy, affecting users who rely on DTrace for storage I/O analysis.
@@ -863,7 +863,7 @@ Body:
 Date: 2025-11-06
 Score: 5
 Status: proposed(include=yes,score=35)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ports.7: Add /var/db/ports to FILES
 Review: The man:ports[7] manual page now includes /var/db/ports in the list of directories used by the ports system, improving documentation of the ports infrastructure.
@@ -994,7 +994,7 @@ Body:
 Date: 2025-08-27
 Score: 5
 Status: proposed(include=yes,score=35)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: gif.4: Mention that gif(4) can tunnel Ethernet traffic
 Review: The man:gif[4] man page now mentions that gif(4) can tunnel Ethernet traffic and references if_bridge(4) for EtherIP setup examples.
@@ -1022,7 +1022,7 @@ Body:
 Date: 2025-07-29
 Score: 5
 Status: proposed(include=yes,score=35)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: vtnet.4: update description of loader tunables
 Review: The man:vtnet[4] manual page now includes updated descriptions for loader tunables, improving documentation for users configuring vtnet driver settings.
@@ -1091,7 +1091,7 @@ Body:
 Date: 2025-05-28
 Score: 5
 Status: proposed(include=yes,score=35)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: cdce.4: Improve HARDWARE
 Review: The cdce.4 man page now describes cdce as the main USB tethering driver, reflecting its support for Android, iPhone, and potentially 5G hotspots using USB NCM.
@@ -1198,7 +1198,7 @@ Body:
 Date: 2025-04-03
 Score: 5
 Status: proposed(include=yes,score=35)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: timeout(1): Document the reaper implementation and behaivor
 Review: The man:timeout[1] manual page now documents the reaper implementation and behavior, providing users with details on how the utility manages child processes.
@@ -1214,7 +1214,7 @@ Body:
 Date: 2025-05-11
 Score: 5
 Status: proposed(include=yes,score=35)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: e6060sw.4: Improve title and add HARDWARE
 Review: The commit updates the man page title and adds a HARDWARE section for the e6060sw driver, improving documentation visibility and hardware release notes inclusion.
@@ -1237,7 +1237,7 @@ Body:
 Date: 2025-09-24
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: blackhole.4: Describe even better
 Review: The commit updates the man:blackhole[4] manual page to correct the description, removing a reference to fictitious UDP connections.
@@ -1261,7 +1261,7 @@ Body:
 Date: 2025-05-25
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ata.4: Cleanup HARDWARE for HW Relnotes
 Review: The commit updates the ata.4 man page to clarify hardware compatibility notes, which may affect user understanding of supported IDE interfaces.
@@ -1280,7 +1280,7 @@ Body:
 Date: 2026-01-23
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: mkimg(1): Sync mkimg(1) and usage() with the implementation
 Review: The man:mkimg[1] manual page is updated to match the current implementation, improving documentation accuracy.
@@ -1301,7 +1301,7 @@ Body:
 Date: 2025-12-18
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: vtnet.4: put each sentence on its own line
 Review: The man:vtnet[4] manual page is updated to reflect the sysctl flags exposed by the driver.
@@ -1320,7 +1320,7 @@ Body:
 Date: 2025-11-04
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: makedev(9): drop an additional note about cdevpriv dtors
 Review: The man:make_dev[9] manual page now includes a note about a potential deadlock when calling destroy_dev(9) from a cdevpriv destructor, clarifying a previously safe scenario that now risks deadlock.
@@ -1343,7 +1343,7 @@ Body:
 Date: 2026-01-06
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: nuageinit(7): pert mandoc linter
 Review: The commit fixes formatting issues in the man:nuageinit[7] manual page to comply with mandoc linting rules. This improves the quality and correctness of the documentation.
@@ -1361,7 +1361,7 @@ Body:
 Date: 2026-01-03
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: nuageinit/man: clarify how to enable sudo and doas
 Review: The man:nuageinit[7] manual page clarifies that sudo and doas are not part of the base system and must be listed in the packages section to be enabled.
@@ -1384,7 +1384,7 @@ Body:
 Date: 2025-12-29
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ipfw.8: fix documentation bug for setmark
 Review: The man:ipfw[8] manual page is corrected to reflect that the setmark keyword does not currently implement a sticky mark, clarifying the actual behavior for users.
@@ -1410,7 +1410,7 @@ Body:
 Date: 2024-01-15
 Score: 5
 Status: added(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: vt.4: explain console fonts
 Review: The man:vt[4] manual page now includes a section explaining console fonts, covering conversion, support, and usage.
@@ -1432,7 +1432,7 @@ Body:
 Date: 2025-12-24
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: nfsd.8: Add a short paragraph w.r.t. NFSv3 vs NFSv4 setup
 Review: The man:rpc.nfsd[8] manual page now includes a paragraph explaining that NFSv3, NFSv4, or both can be configured.
@@ -1455,7 +1455,7 @@ Body:
 Date: 2025-12-26
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: bhyve: Document that MAC address has to be unicast
 Review: The man:bhyve[8] and man:bhyve_config[5] man pages now clarify that bhyve requires MAC addresses to be unicast.
@@ -1534,7 +1534,7 @@ Body:
 Date: 2025-11-12
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: Retire pccard(4)
 Review: The pccard(4) man page is removed, reflecting the long-obsolete status of pccard hardware support.
@@ -1566,7 +1566,7 @@ Body:
 Date: 2025-11-07
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: dtrace_priv.4: Document the DTrace priv provider
 Review: The DTrace priv provider is documented in man:dtrace_priv[4], describing static tracing for privilege checking.
@@ -1589,7 +1589,7 @@ Body:
 Date: 2025-11-04
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: dtrace_callout_execute.4: Document the DTrace callout_execute provider
 Review: Adds man:dtrace_callout_execute[4] manual page documenting the DTrace callout_execute provider.
@@ -1612,7 +1612,7 @@ Body:
 Date: 2025-09-26
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: atomic.9: provide fine details about CAS memory model MD semantic
 Review: The man:atomic[9] manual page now includes detailed information about the CAS (Compare-and-Swap) memory model semantics.
@@ -1628,7 +1628,7 @@ Body:
 Date: 2025-10-24
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: deadfs.9: Document
 Review: Adds man:deadfs[9] manual page documenting the dead filesystem.
@@ -1649,7 +1649,7 @@ Body:
 Date: 2025-11-06
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ciss.4: Add p440ar to HARDWARE
 Review: The man: ciss[4] man page now includes the p440ar controller in the hardware compatibility list.
@@ -1669,7 +1669,7 @@ Body:
 Date: 2025-11-06
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: dumpon(8): Add a SYSCTL VARIABLES section
 Review: The dumpon(8) manual page now includes a SYSCTL VARIABLES section documenting debug.minidump and machdep.dump_retry_count.
@@ -1692,7 +1692,7 @@ Body:
 Date: 2025-10-24
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: revoke.2: Remove mention of block special device files
 Review: The revoke(2) man page no longer mentions block special device files, reflecting that block devices are not used in FreeBSD.
@@ -1712,7 +1712,7 @@ Body:
 Date: 2025-08-10
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: bsd-family-tree: add End-of-Life (EOL) section
 Review: The bsd-family-tree file is updated to include an End-of-Life (EOL) section, which may be of interest to users tracking historical BSD lineage.
@@ -1728,7 +1728,7 @@ Body:
 Date: 2025-10-24
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: examples/mdoc: Remove text of BSD-2-Clause from mdoc examples
 Review: The commit updates mdoc example files to use SPDX license identifiers instead of full BSD-2-Clause license text, aligning with current documentation practices. This change affects users who reference these examples for creating manual pages.
@@ -1801,7 +1801,7 @@ Body:
 Date: 2025-10-17
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: manpages: Use canonical names for Linux filesystems
 Review: The commit updates man page references to use canonical names for Linux filesystems linprocfs and linsysfs, ensuring consistency with other filesystem documentation.
@@ -1826,7 +1826,7 @@ Body:
 Date: 2025-10-16
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: tools: Update sysctl to its new name
 Review: Updates documentation and tools to reflect the renaming of kern.ipc.somaxconn to kern.ipc.soacceptqueue, which occurred in FreeBSD 10.0.
@@ -1850,7 +1850,7 @@ Body:
 Date: 2024-05-09
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: arp.8: don't document a syntax that doesn't exist
 Review: The man:arp[8] manpage no longer documents the unsupported 'pub' flag for the 'arp -d' command.
@@ -1913,7 +1913,7 @@ Body:
 Date: 2025-03-25
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: aio_*(2): mention ENOSYS under ERRORS
 Review: The man:pages for aio_*(2) system calls now document ENOSYS when the aio(4) kernel module is not loaded, clarifying a possible error scenario for users.
@@ -1950,7 +1950,7 @@ Body:
 Date: 2025-06-06
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: atf-c(3): fill in prototypes for functions
 Review: The commit adds function prototypes to the atf-c(3) man page, which improves documentation for developers using the ATF C library.
@@ -2016,7 +2016,7 @@ Body:
 Date: 2025-07-29
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: mbuf.9: describe checksum offloading for SCTP
 Review: The commit updates the mbuf(9) man page to describe SCTP checksum offloading and provides more precise details on checksum computation timing. This improves documentation for developers and users working with network packet handling.
@@ -2039,7 +2039,7 @@ Body:
 Date: 2025-09-03
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: dtrace_lockstat.4: Fix description
 Review: The commit fixes a description in a man page, which is a user-visible documentation update.
@@ -2081,7 +2081,7 @@ Body:
 Date: 2025-08-23
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: UPDATING: Add an entry for commit 3f61ececacd8
 Review: The commit adds an entry to the UPDATING file, which is a user-visible documentation update for administrators regarding a previous change.
@@ -2117,7 +2117,7 @@ Body:
 Date: 2025-08-03
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: libutil: Document pidfile_signal()
 Review: The man:pidfile[3] manual page now includes documentation for the pidfile_signal() function.
@@ -2161,7 +2161,7 @@ Body:
 Date: 2025-07-03
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: write.2: Add EINVAL to ERRORS
 Review: The write(2) man page now documents that EINVAL can be returned when writing to a block device with a size not aligned to the sector block size.
@@ -2193,7 +2193,7 @@ Body:
 Date: 2025-05-21
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: UPDATING: Add an entry for the removal of in6_maxmtu
 Review: The commit adds a note to man:UPDATING[5] about the removal of the in6_maxmtu sysctl, informing users of a configuration change.
@@ -2209,7 +2209,7 @@ Body:
 Date: 2025-06-25
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ng_patch.4: Clarify relative_offset
 Review: The man:ng_patch[4] man page is updated to clarify the relative_offset option and fix a typo.
@@ -2231,7 +2231,7 @@ Body:
 Date: 2025-06-02
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: mlx.4: Improve specificity for apropos + hw notes
 Review: The commit updates man:mlx[4] to improve hardware note specificity and remove generalizations, which may affect users looking for hardware compatibility information.
@@ -2256,7 +2256,7 @@ Body:
 Date: 2025-05-28
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: rtsx.4: Improve hardware, add history and spdx
 Review: The man:rtsx[4] page is updated with improved hardware descriptions and a history note, and now includes SPDX license tagging.
@@ -2281,7 +2281,7 @@ Body:
 Date: 2025-05-28
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: axge.4: Create a HARDWARE section
 Review: The commit adds a HARDWARE section to the man:axge[4] manual page, providing hardware compatibility details for users.
@@ -2304,7 +2304,7 @@ Body:
 Date: 2025-05-28
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: pam_xdg.8: Improve usage and standards
 Review: The commit updates the man: pam_xdg[8] manual page to improve documentation of the directory created by the module, its usage, and standards information.
@@ -2328,7 +2328,7 @@ Body:
 Date: 2024-11-07
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: p9fs.5: rename to p9fs.4
 Review: The p9fs(4) man page is moved from section 5 to section 4 to correctly reflect that it documents a filesystem driver rather than a file format.
@@ -2393,7 +2393,7 @@ Body:
 Date: 2025-05-30
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: thr_new.2: document THR_C_RUNTIME
 Review: The man:thr_new[2] manual page now documents the THR_C_RUNTIME constant, providing users with information about this thread creation flag.
@@ -2409,7 +2409,7 @@ Body:
 Date: 2025-05-02
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: Fix incorrect version introduced in manual pages
 Review: Manual pages for man:psignal(3), man:rtld_get_var(3), man:getsockopt(2), and man:setcred(2) now correctly document the FreeBSD version where features were introduced.
@@ -2440,7 +2440,7 @@ Body:
 Date: 2025-05-25
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: open.2: add a note about conversion of a file descriptor into O_PATH
 Review: The man:open[2] manual page now includes a note about converting a file descriptor into O_PATH, clarifying behavior for users.
@@ -2456,7 +2456,7 @@ Body:
 Date: 2025-05-16
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: pthread_signals_block_np(3): document
 Review: Adds man: pthread_signals_block_np(3) manual page.
@@ -2474,7 +2474,7 @@ Body:
 Date: 2025-05-19
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ip17x.4: Initial manual page
 Review: Adds a new manual page for the ip17x driver, documenting its inclusion, supported hardware, and availability timeline.
@@ -2530,7 +2530,7 @@ Body:
 Date: 2024-01-09
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: xen: improve man (4) page
 Review: The man:xen[4] page is updated to reflect current support status.
@@ -2551,7 +2551,7 @@ Body:
 Date: 2025-05-12
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: build.7: Document pkgbase PKG_FORMAT variable
 Review: The man:build[7] manual page now documents the PKG_FORMAT variable used in pkgbase builds.
@@ -2573,7 +2573,7 @@ Body:
 Date: 2025-05-11
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: arswitch.4: Improve title and add HARDWARE
 Review: The man:arswitch[4] page title is improved for better visibility in apropos and inclusion in hardware release notes.
@@ -2595,7 +2595,7 @@ Body:
 Date: 2025-05-09
 Score: 5
 Status: added(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: cdboot.8: Initial manual page
 Review: The man:cdboot[8] manual page is added, documenting the previously undocumented cdboot utility.
@@ -2622,7 +2622,7 @@ Body:
 Date: 2025-03-29
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: stand/lua manuals: Describe better
 Review: The man pages for the lua boot loader modules are reworded to improve search clarity for terms like 'boot', 'loader', and 'FreeBSD'.
@@ -2680,7 +2680,7 @@ Body:
 Date: 2025-05-04
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: queue.3: document STAILQ_REVERSE
 Review: The man:queue[3] manual page now documents the STAILQ_REVERSE macro.
@@ -2733,7 +2733,7 @@ Body:
 Date: 2025-04-07
 Score: 5
 Status: proposed(include=yes,score=30)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: netstat(1): add description for option -o and -O.
 Review: The man:netstat[1] manual page now includes descriptions for the -o and -O options, which document route multipath and nexthop object display capabilities.
@@ -2775,7 +2775,7 @@ Body:
 Date: 2025-12-17
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: examples/mdoc: Remove document description quotes
 Review: Removes misleading quotes from mdoc example files to prevent confusion about roff quoting behavior.
@@ -2799,7 +2799,7 @@ Body:
 Date: 2025-07-14
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: nanobsd.8: Shorten title for apropos, tag SPDX
 Review: The man:nanobsd[8] manual page title is shortened for apropos display and includes an SPDX license tag.
@@ -2817,7 +2817,7 @@ Body:
 Date: 2026-01-23
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: loader.conf.5: "console" setting does not document multi-value possiblity
 Review: The man:loader.conf[5] documentation now mentions that the "console" setting can accept multiple values.
@@ -2839,7 +2839,7 @@ Body:
 Date: 2026-01-20
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: cron.8: clarify system crontab format
 Review: The man:crond[8] man page now clarifies the format of the system crontab file, improving documentation for users who need to understand or modify system cron jobs.
@@ -2857,7 +2857,7 @@ Body:
 Date: 2026-01-23
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: vt.4: Document that hw.vga.textmode does not apply for UEFI(8) boot
 Review: The man:vt[4] manual page now documents that the hw.vga.textmode sysctl does not apply when booting via UEFI.
@@ -2878,7 +2878,7 @@ Body:
 Date: 2025-06-25
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: uchcom.4: Add HARDWARE, makeover
 Review: The man:uchcom(4) manual page is updated with improved documentation, including hardware information, clearer usage description, and references to related sysctl and applications.
@@ -2903,7 +2903,7 @@ Body:
 Date: 2025-12-29
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ioctl.2: Mention EACCES
 Review: The man:ioctl[2] manual page now documents that ioctl operations can fail with EACCES.
@@ -2927,7 +2927,7 @@ Body:
 Date: 2025-12-09
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: trim.8: minor update for manual page
 Review: The man:trim[8] manual page now clarifies that the utility is not for trimming free blocks in populated file systems or ZFS pools.
@@ -2947,7 +2947,7 @@ Body:
 Date: 2025-11-21
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: dmesg.8: Index kern.msgbuf_show_timestamp
 Review: The man:page for dmesg(8) now marks the kern.msgbuf_show_timestamp sysctl with the Va macro, making it searchable via apropos Va=kern.msg.
@@ -2969,7 +2969,7 @@ Body:
 Date: 2025-11-06
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: dtrace.1: Document DTRACE_DEBUG
 Review: The man:dtrace[1] manual page now documents the DTRACE_DEBUG environment variable, which controls debug output from DTrace.
@@ -2989,7 +2989,7 @@ Body:
 Date: 2025-10-05
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: atomic.9: fix description of acquire and release
 Review: The commit updates the man:atomic[9] manual page to correct the description of atomic acquire and release operations, improving documentation accuracy for developers using atomic operations.
@@ -3062,7 +3062,7 @@ Body:
 Date: 2025-09-10
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ports.7: Fix example of passing variables on the command line
 Review: The man:ports.7 page now correctly describes how the make(1) -D flag works, clarifying that it does not set variable values but defines variables with a value of 1.
@@ -3092,7 +3092,7 @@ Body:
 Date: 2024-07-29
 Score: 5
 Status: added(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: pw: Clarify groupadd/groupmod memberlist formats
 Review: The man:pw[8] manual page now clarifies  the acceptable formats for member lists with the `-M`, `-m`, and `-d` flags of the `groupadd` and `groupmod` options.
@@ -3116,7 +3116,7 @@ Body:
 Date: 2025-08-31
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: date(1): Improve manpage around '-I'
 Review: The man:date[1] manpage is updated to clarify that the '-I' option outputs only the extended ISO 8601 format and that ISO 8601 uses timezone offsets, not Olson timezone names.
@@ -3141,7 +3141,7 @@ Body:
 Date: 2025-08-03
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: libutil: Add missing MLINKs
 Review: The commit adds missing manual page links (MLINKs) for libutil functions and fixes a broken link, ensuring that man:quota_check_path[3] is properly documented. This resolves manlint failures and improves documentation completeness.
@@ -3194,7 +3194,7 @@ Body:
 Date: 2025-07-22
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: extend description of net.inet.ip.fw.one_pass
 Review: The description of the net.inet.ip.fw.one_pass sysctl is updated to clarify that it applies to all divert-like packet actions, not just dummynet(4). This improves documentation accuracy for users configuring firewall and packet handling.
@@ -3216,7 +3216,7 @@ Body:
 Date: 2025-06-14
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: mlx.4: Improve HARDWARE
 Review: The man:mlx[4] manual page now lists the specific SCSI adapter models supported by the mlx driver.
@@ -3241,7 +3241,7 @@ Body:
 Date: 2025-06-03
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: if_bridge.4: clarify how if_bridge assigns a MAC address
 Review: The man:bridge[4] page now clarifies how the bridge interface assigns a MAC address, improving documentation for users configuring network bridges.
@@ -3260,7 +3260,7 @@ Body:
 Date: 2024-08-14
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ure.4: description consistencies + tag spdx
 Review: The commit updates the man:ure[4] manual page to improve description consistency, mention newly added adapters, and reference related drivers.
@@ -3286,7 +3286,7 @@ Body:
 Date: 2025-05-14
 Score: 5
 Status: proposed(include=yes,score=25)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: traceroute.8: improve the documentation of -P
 Review: The man:man:traceroute[8] documentation is improved to clarify the -P argument syntax and packet generation details for udplite, SCTP, and GRE.
@@ -3365,7 +3365,7 @@ Body:
 Date: 2025-09-24
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: kerneldocs: Update latex package
 Review: Updates the LaTeX package used by kerneldoc, affecting the formatting of generated kernel documentation.
@@ -3386,7 +3386,7 @@ Body:
 Date: 2025-09-27
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: mrsas.4: Cleaning
 Review: The commit updates the mrsas.4 man page with editorial improvements, hardware list updates, and mdoc grammar corrections, making sysctls aproposable and linking cross-references.
@@ -3412,7 +3412,7 @@ Body:
 Date: 2025-12-26
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: bhyve_config.5: Fix consistency and terms in manpage
 Review: Fixes consistency and spelling in the man:bhyve_config[5] man page.
@@ -3434,7 +3434,7 @@ Body:
 Date: 2025-12-21
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: bhyve.8: Fix consistency and terms in manpage
 Review: The commit fixes spelling and consistency issues in the man:bhyve[8] man page, improving documentation clarity.
@@ -3456,7 +3456,7 @@ Body:
 Date: 2025-11-12
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: pcic.4: Remove stale manual
 Review: The man:pcic[4] manual page is removed as it is obsolete. This change updates the documentation to reflect current hardware support.
@@ -3479,7 +3479,7 @@ Body:
 Date: 2024-11-21
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: hexdump.3: Add missing LIBRARY section
 Review: The commit adds a missing LIBRARY section to the man:hexdump[3] manual page, improving consistency with other libutil man pages.
@@ -3503,7 +3503,7 @@ Body:
 Date: 2025-11-12
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ministat: Clean up usage message, manual page, and chameleon
 Review: The ministat(1) manual page is updated with corrected synopsis, improved flag descriptions, and expanded examples. Usage message and chameleon file are also cleaned up.
@@ -3575,7 +3575,7 @@ Body:
 Date: 2025-07-16
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: md(4): Stop symlinking vn.4 to md.4
 Review: The man:md(4) manual page no longer symlinks to man:vn(4). This removes the outdated symlink and updates references to reflect that md(4) is the primary documentation for memory disks.
@@ -3602,7 +3602,7 @@ Body:
 Date: 2025-10-24
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: gpart.8: Document one of gpart destroy diagnostic message
 Review: The man:gpart[8] manual page now documents a diagnostic message from the gpart destroy command.
@@ -3622,7 +3622,7 @@ Body:
 Date: 2025-11-06
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: sysrc.8: Rewrite examples for mdoc conformance
 Review: The man:sysrc[8] manual page examples are rewritten for mdoc conformance, improving formatting and consistency.
@@ -3643,7 +3643,7 @@ Body:
 Date: 2025-10-28
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: getvfsbyname.3 mount.8: Reference lsvfs(1)
 Review: The man:getvfsbyname(3) and man:mount(8) man pages now reference the lsvfs(1) utility for listing virtual filesystems.
@@ -3737,7 +3737,7 @@ Body:
 Date: 2025-06-14
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: dtrace.1: Mention providers in SEE ALSO
 Review: The man:dtrace[1] manual page now includes references to DTrace providers in the SEE ALSO section.
@@ -3783,7 +3783,7 @@ Body:
 Date: 2025-07-11
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ifconfig.8: remove accept_rev_ethip_ver and send_rev_ethip_ver
 Review: The man:ifconfig[8] page no longer documents the obsolete accept_rev_ethip_ver and send_rev_ethip_ver options, which have been unavailable since FreeBSD 11.
@@ -3810,7 +3810,7 @@ Body:
 Date: 2025-06-13
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: bectl.8: Describe better
 Review: The commit improves man:bectl[8] documentation with better descriptions, examples, and formatting, enhancing user guidance.
@@ -3836,7 +3836,7 @@ Body:
 Date: 2024-10-17
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: builtin.1: streamlined rewrite + document keybinds
 Review: The man:builtin[1] manual page is updated with improved formatting, keybindings documentation, and a streamlined structure.
@@ -3867,7 +3867,7 @@ Body:
 Date: 2024-12-30
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: truncate.1: Polish title and examples
 Review: The commit improves the truncate.1 man page by polishing the title, updating examples to use human-readable sizes, fixing grammar, and adjusting formatting for better readability on standard consoles.
@@ -3899,7 +3899,7 @@ Body:
 Date: 2024-10-13
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: mdoc.7/MANUAL STRUCTURE: add HARDWARE
 Review: The mdoc.7 manual page now includes a HARDWARE section, documenting that FreeBSD's release infrastructure uses this section to generate Hardware Compatibility Notes.
@@ -3926,7 +3926,7 @@ Body:
 Date: 2024-11-13
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: pf.conf.5: use subsections and reword titles
 Review: The man:pf.conf[5] man page is reorganized to improve clarity and navigation by moving parameters into subsections and rewording titles.
@@ -3978,7 +3978,7 @@ Body:
 Date: 2025-05-03
 Score: 5
 Status: proposed(include=yes,score=20)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: UPDATING: Strengthen recommendations
 Review: The commit updates UPDATING with stronger recommendations for ports_modules and adds a note about backups, which is a user-visible documentation change.
@@ -4045,7 +4045,7 @@ Body:
 Date: 2025-09-18
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: stand/man: Fix mdoc typos for emails, tag spdx
 Review: Fixes typographical errors in man pages for boot loaders, improving documentation clarity.
@@ -4067,7 +4067,7 @@ Body:
 Date: 2025-09-23
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: blackhole.4: Describe better
 Review: The man:blackhole[4] description is updated to fit on one line, improving apropos output readability.
@@ -4090,7 +4090,7 @@ Body:
 Date: 2025-08-06
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: man bluetooth/fwdownloaders: Clarify descriptions
 Review: The commit updates man page descriptions for Bluetooth firmware download utilities to clarify their purpose and differentiate them from fwget. This improves apropos search results and documentation clarity.
@@ -4119,7 +4119,7 @@ Body:
 Date: 2025-08-19
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: iwlwifi.4: add link to bugzilla in the BUGS section
 Review: The commit adds a link to a Bugzilla meta-bug in the BUGS section of man:iwlwifi[4].
@@ -4171,7 +4171,7 @@ Body:
 Date: 2025-12-23
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: camcontrol.8: Descriptions before examples
 Review: The man:camcontrol[8] manual page is reorganized to place descriptions before examples, improving readability when navigating the documentation.
@@ -4197,7 +4197,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: ofw_bus_is_compatible.9: Fix a typo in the manual page
 Review: Fixes a typo in the man:ofw_bus_is_compatible[9] manual page.
@@ -4215,7 +4215,7 @@ Body:
 Date: 2025-08-10
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: bsd-family-tree: add End-of-life (EOL) section
 Review: The bsd-family-tree file in share/misc is updated to include an End-of-life (EOL) section, providing users with information about discontinued BSD variants.
@@ -4231,7 +4231,7 @@ Body:
 Date: 2025-10-28
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: tuning.7 stats.7: Cross-reference
 Review: The man:stats[7] and man:tuning[7] manual pages now cross-reference each other.
@@ -4250,7 +4250,7 @@ Body:
 Date: 2025-10-09
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: uio.9: Improve description of uio_rw flags
 Review: The man:uio[9] manual page now provides clearer documentation about the UIO_READ and UIO_WRITE flags, improving developer understanding of data transfer direction in the uio(9) subsystem.
@@ -4273,7 +4273,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: g_bio.9: Reference dtrace_io(4)
 Review: The commit adds a reference to man:dtrace_io[4] in the g_bio.9 man page, which improves documentation cross-referencing for users interested in tracing I/O operations.
@@ -4345,7 +4345,7 @@ Body:
 Date: 2025-10-01
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: trim.8: update the manual with references to zpool-trim and fsck_ffs -E
 Review: The man:trim[8] manual page now includes references to zpool-trim and fsck_ffs -E, improving documentation for users of the trim utility.
@@ -4361,7 +4361,7 @@ Body:
 Date: 2025-09-27
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: mktemp.1: Document TMPDIR in ENVIRONMENT
 Review: The man:page for man:mktemp[1] now documents the TMPDIR environment variable and uses consistent markup.
@@ -4382,7 +4382,7 @@ Body:
 Date: 2025-09-11
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: backlight(9): add cross-ref to backlight(8)
 Review: The commit adds a cross-reference from man:backlight[9] to man:backlight[8] in the manual page.
@@ -4485,7 +4485,7 @@ Body:
 Date: 2025-07-24
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: pom.6: add a more complete bibliography
 Review: The commit adds a more complete bibliography to the man: pom.6 man page, enhancing the documentation for users.
@@ -4504,7 +4504,7 @@ Body:
 Date: 2025-07-19
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: memchr.3: mention the len argument in the functions description
 Review: The man:memchr[3] manual page now mentions the len argument in the function description.
@@ -4520,7 +4520,7 @@ Body:
 Date: 2025-07-01
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: pf.4: Add pf_enable to SYNOPSIS
 Review: The pf.4 man page now documents the pf_enable tunable in the SYNOPSIS section.
@@ -4590,7 +4590,7 @@ Body:
 Date: 2025-05-30
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: cpu_machdep.9: update documentation for cpu_set_user_tls()
 Review: The man:man9 page for cpu_machdep.9 is updated to document the cpu_set_user_tls() function.
@@ -4606,7 +4606,7 @@ Body:
 Date: 2025-03-18
 Score: 5
 Status: proposed(include=yes,score=15)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: tty.4: see also: cross-reference pts(4)
 Review: Adds a cross-reference from man:tty[4] to man:pts[4] in the SEE ALSO section.
@@ -4651,7 +4651,7 @@ Body:
 Date: 2025-09-24
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: blackhole.4: Describe even better, take two
 Review: The man:blackhole[4] manual page is updated with improved wording.
@@ -4672,7 +4672,7 @@ Body:
 Date: 2025-08-15
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: hv_netvsc.4: Fix hn(4) mlink typo
 Review: The commit fixes a typo in the man:hn[4] mlink in the man:hv_netvsc[4] man page.
@@ -4691,7 +4691,7 @@ Body:
 Date: 2026-01-23
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: capsicum.4: Replace 'fi' ligature and smart quotation mark
 Review: Fixes typographical issues in man: capsicum[4] by replacing a ligature and smart quotes, and wraps lines to 80 characters.
@@ -4714,7 +4714,7 @@ Body:
 Date: 2026-01-07
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: mrsas.4: Fix devid hex style
 Review: The commit fixes a formatting issue in the man:mrSAS[4] man page, correcting the hexadecimal style of a device ID. This change improves documentation accuracy but does not affect functionality.
@@ -4730,7 +4730,7 @@ Body:
 Date: 2025-12-27
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: vt.4: Remove Xr to nonexistent vidcontrol(8)
 Review: Removes an incorrect cross-reference to the nonexistent vidcontrol(8) manual page from the vt.4 documentation.
@@ -4748,7 +4748,7 @@ Body:
 Date: 2025-12-29
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: linprocfs.5: Synchronize style and format with 15-STABLE
 Review: The commit updates the man:linprocfs[5] manual page to synchronize style and format with the 15-STABLE branch, improving consistency and readability.
@@ -4788,7 +4788,7 @@ Body:
 Date: 2025-11-22
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: loader.efi.8: Minor formatting nits
 Review: Minor formatting fixes in man:loader.efi[8] improve readability and prevent line wrapping on 80-column displays.
@@ -4812,7 +4812,7 @@ Body:
 Date: 2025-11-19
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: stand/lua: Fix two typos in the manual pages
 Review: Typographical errors in the man:lua[8] and man:loader.lua[8] manual pages are corrected.
@@ -4832,7 +4832,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: vn_fullpath.9: Fix two typos in the manual page
 Review: Fixes two typographical errors in the man:vn_fullpath[9] manual page.
@@ -4851,7 +4851,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: nvmem.9: Fix multiple typos in the manual page
 Review: Fixes typos in the man:nvmem[9] manual page.
@@ -4869,7 +4869,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: crypto_request.9: Fix a typo in the manual page
 Review: Fixes a typo in the man:crypto_request[9] manual page.
@@ -4887,7 +4887,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: bus_dma.9: Fix two typos in the manual page
 Review: Fixes two typographical errors in the man:bus_dma[9] manual page.
@@ -4906,7 +4906,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: atomic.9: Fix a typo in the manual page
 Review: Fixes a typo in the man:atomic[9] manual page.
@@ -4924,7 +4924,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: PCI_IOV_ADD_VF.9: Fix a typo in the manual page
 Review: Fixes a typographical error in the man:PCI_IOV_ADD_VF[9] manual page.
@@ -4942,7 +4942,7 @@ Body:
 Date: 2025-11-07
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: dtrace.1: Fix mdoc macros around -x
 Review: Fixes a formatting issue in the man:dtrace[1] manual page.
@@ -4962,7 +4962,7 @@ Body:
 Date: 2025-07-14
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: find.1: Correct HISTORY grammar typo
 Review: Corrects a grammar typo in the man:find[1] manual page.
@@ -4982,7 +4982,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: acpi_battery.4: Fix a typo in the manual page
 Review: Fixes a typo in the man:acpi_battery[4] manual page.
@@ -5046,7 +5046,7 @@ Body:
 Date: 2025-03-27
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: Bump .Dd for recently changed aio_*(2) manpages
 Review: Updates the date in the man:page[2] entries for aio_read, aio_waitcomplete, and aio_write to reflect recent changes.
@@ -5072,7 +5072,7 @@ Body:
 Date: 2025-08-22
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: nuageinit.7: grammar fixes
 Review: Grammar fixes in man:nuageinit[7].
@@ -5088,7 +5088,7 @@ Body:
 Date: 2025-06-27
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: mac_do(4): fix typo
 Review: Fixes a typographical error in the man:mac_do[4] manual page.
@@ -5106,7 +5106,7 @@ Body:
 Date: 2025-08-15
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: syslogd.8: Remove incorrect .Aq
 Review: Fixes a formatting issue in the man:syslogd[8] manual page by correcting the markup for angle brackets.
@@ -5153,7 +5153,7 @@ Body:
 Date: 2025-06-23
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: mididumpl.1: update link to Standard MIDI-File Format Spec. 1.1, updated
 Review: Updates the link to the Standard MIDI-File Format Specification 1.1 in the man:mididump[1] manual page.
@@ -5172,7 +5172,7 @@ Body:
 Date: 2025-06-17
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: nuageinit.7: language and grammar fixes mostly
 Review: The commit updates the man:nuageinit[7] manual page with language and grammar fixes.
@@ -5233,7 +5233,7 @@ Body:
 Date: 2025-01-27
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: seq.1: Reset option list alignment + tag spdx
 Review: The commit adjusts formatting in the man:seq[1] manual page to follow style guidelines, which may affect line breaks when viewing the man page at certain terminal widths.
@@ -5276,7 +5276,7 @@ Body:
 Date: 2025-05-07
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: rc.conf.5: add a missing word in the description of $ipv6_enable
 Review: Fixes a typo in the man:rc.conf[5] man page description of the ipv6_enable variable.
@@ -5296,7 +5296,7 @@ Body:
 Date: 2024-05-22
 Score: 5
 Status: proposed(include=yes,score=10)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: Fix "version introduced" in two manual pages
 Review: Corrects the 'version introduced' metadata in the man:exec[3] and man:posixmqcontrol[1] manual pages.
@@ -5316,7 +5316,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=5)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: efirt.9: Fix a typo in the manual page
 Review: Fixes a typo in the man:efirt[9] manual page.
@@ -5334,7 +5334,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=5)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: copy.9: Fix a typo in the manual page
 Review: Fixes a typographical error in the man:copy[9] manual page.
@@ -5352,7 +5352,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=5)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: pci.9: Fix a typo in the manual page
 Review: Fixes a typographical error in the man:pci[9] manual page.
@@ -5370,7 +5370,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=no,score=5)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: gone_in.9: Fix a typo in the manual page
 Review: Fixes a typo in the man:gone_in[9] manual page.
@@ -5388,7 +5388,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=5)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: domain.9: Fix a typo in the manual page
 Review: Fixes a typo in man:domain[9].
@@ -5406,7 +5406,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=no,score=5)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: mac_do.4: Fix a typo in the manual page
 Review: Fixes a typo in the man:mac_do[4] manual page.
@@ -5424,7 +5424,7 @@ Body:
 Date: 2025-10-26
 Score: 5
 Status: proposed(include=yes,score=5)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: iwlwifi.4: Fix a typo in the manual page
 Review: Fixes a typographical error in the man:iwlwifi[4] manual page.
@@ -5462,7 +5462,7 @@ Body:
 Date: 2025-08-17
 Score: 5
 Status: proposed(include=yes,score=5)
-Sponsor: 
+Sponsor:
 Section: Docs.manpages
 Subject: localedef.1: Fix a typo in the manual page
 Review: Fixes a typographical error in the man:localedef[1] manual page.

@@ -441,6 +441,16 @@ gitref:6197518ee905[repository=src].
 Adds man:strdupa[3] and man:strndupa[3] functions, which allocate memory for a copy of a string on the stack using man:alloca[3]. This provides a convenient alternative to man:strdup[3] and man:strndup[3] for temporary string copies that are automatically freed when the function returns.
 gitref:b2e649a0b98d[repository=src].
 
+The SONAME of libzfs and libzpool have been bumped to libzfs7 and libzpool7 due to ABI-breaking changes, requiring recompilation of dependent applications.
+gitref:5b2489caf266[repository=src].
+
+Adds libuvmem, a userland port of the man:vmem[9] kernel memory allocator, providing a similar interface for userland applications.
+gitref:3ae14e8f332f[repository=src].
+
+==== C23 Language Support
+
+Partial support for the C23 version of the C Programming language is now available. It will continue to evolve, with complete support anticipated for FreeBSD 16.
+
 Adds C23 `<stdbit.h>` header with bit manipulation functions like `stdc_bit_ceil()`, `stdc_bit_width()`, and `stdc_count_ones()`. This provides standard bit operations for C programs.
 gitref:275c11b7ccff[repository=src].
 
@@ -450,11 +460,20 @@ gitref:104488641aca[repository=src].
 The C23 `memalignment()` function has been added to libc, allowing programs to compute pointer alignment. A man page has been included.
 gitref:24ea81047de7[repository=src].
 
-The SONAME of libzfs and libzpool have been bumped to libzfs7 and libzpool7 due to ABI-breaking changes, requiring recompilation of dependent applications.
-gitref:5b2489caf266[repository=src].
+The commit updates stdbool.h to use built-in bool, true, and false when a C23 or higher compiler is detected, ensuring conformance with the C23 standard. This may affect developers compiling code with C23 features.
+gitref:5656d0f7453e[repository=src].
 
-Adds libuvmem, a userland port of the man:vmem[9] kernel memory allocator, providing a similar interface for userland applications.
-gitref:3ae14e8f332f[repository=src].
+Adds char8_t and atomic_char8_t types for C23 compliance, affecting developers using C23 features.
+gitref:72609bb2bb25[repository=src].
+
+Adds C23 _WIDTH macros to stdint.h headers, providing standardized integer width definitions for C23-compliant code.
+gitref:ff50ace5fe0e[repository=src].
+
+The commit adds C23 _WIDTH macros to sys/limits.h for compliance with ISO/IEC 9899:2024, affecting developers using these standard integer width definitions.
+gitref:cbad54ba46e6[repository=src].
+
+The commit updates man pages for sinpi, cospi, and tanpi functions to document that they follow the C23 standard.
+gitref:6fc280810ead[repository=src].
 
 [[cloud]]
 == Cloud Support

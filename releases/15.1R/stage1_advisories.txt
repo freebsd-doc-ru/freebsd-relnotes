@@ -53,7 +53,7 @@ relnotes.adoc SA
 
 | link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:12.dhclient.asc[FreeBSD-SA-26:12.dhclient]
 | 29 April 2026
-| Remote code execution via malicious DHCP options 
+| Remote code execution via malicious DHCP options
 
 | link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:13.exec.asc[FreeBSD-SA-26:13.exec]
 | 29 April 2026
@@ -74,6 +74,10 @@ relnotes.adoc SA
 | link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:17.libnv.asc[FreeBSD-SA-26:17.libnv]
 | 29 April 2026
 | Heap overflow in libnv
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:18.setcred.asc[FreeBSD-SA-26:18.setcred]
+| 20 May 2026
+| Stack buffer overflow via man:setcred[2]
 
 relnotes.adoc EN
 

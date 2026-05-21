@@ -3171,7 +3171,7 @@ Differential Revision:	https://reviews.freebsd.org/D53658
 [commit 6fc280810ead5f562b54c590a7e00d21c52b2449]
 Date: 2025-11-17
 Score: 5
-Status: proposed(include=yes,score=30)
+Status: added(include=yes,score=30)
 CollectedAt: 2026-04-18T13:06:17 UTC
 Sponsor: 
 Section: Docs.manpages

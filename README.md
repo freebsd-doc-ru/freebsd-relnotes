@@ -490,9 +490,15 @@ perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt
 ### generate the list of the Security Advisories and Errata Notices
 
 ```
-freebsd-relnotes % perl tools/relnotes/bin/relnotes_advisories.pl --repo ~/freebsd-src --branch releng/15.1 --advisories-dir advisories  --release-dir releases/15.1R --format-relnotes
+perl tools/relnotes/bin/relnotes_advisories.pl --repo ~/freebsd-src --branch releng/15.1 --advisories-dir advisories  --release-dir releases/15.1R --format-relnotes
 
 ```
+
+```
+perl tools/relnotes/bin/relnotes_advisories.pl --repo ~/freebsd-src --branch releng/15.1 --advisories-dir  ~/freebsd-doc/website/static/security/advisories  --release-dir releases/15.1R --format-relnotes
+
+```
+
 
 ### Running Tests
 

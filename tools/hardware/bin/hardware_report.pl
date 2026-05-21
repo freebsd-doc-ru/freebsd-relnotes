@@ -3,11 +3,11 @@ use strict;
 use warnings;
 use File::Find;
 
-my $base = "sys/dev";
-my $man4dir = "share/man/man4";
+my $base = "../freebsd-src/sys/dev";
+my $man4dir = "../freebsd-src/share/man/man4";
 
-my $hardware_file = "../freebsd-relnotes/releases/14.4R/hardware.adoc";
-
+#my $hardware_file = "../freebsd-relnotes/releases/14.4R/hardware.adoc";
+my $hardware_file = "../freebsd-doc/website/archetypes/release/hardware.adoc";
 # Take list of drivers from hardware.adoc
 my %hardware;
 if (-f $hardware_file) {
@@ -21,7 +21,7 @@ if (-f $hardware_file) {
     close($hf);
 }
 
-# Соберем список man4 файлов
+# list of man4 files
 my %man4;
 my %man4_hardware_section;
 
@@ -40,7 +40,7 @@ if (-d $man4dir) {
                 $nameman4 = ($nameman4 =~ s#^\Q$man4dir\E/?##r); # delete path to $man4dir
                 $man4{$nameman4} = 1;
 
-                # Проверка наличия секции HARDWARE
+                # section HARDWARE exiss?
                 #open(my $mf, "<", $File::Find::name) or return;
                 #print "Before open with $foundfile\n";
                 open(my $mf, "<", $foundfile) or return;
@@ -60,17 +60,6 @@ if (-d $man4dir) {
     );
 }
 
-# print join("\t",
-#     "Driver",
-#     "DRIVER_MODULE",
-#     "probe/attach",
-#     "ID_table",
-#     "man4",
-#     "HARDWARE_section",
-#     "hardware.adoc",
-#     "bus_types"
-# ), "\n";
-
 print join("\t",
     "Driver            ",
     "DRIVER_",
@@ -86,7 +75,7 @@ print join("\t",
     "                  ",
     "MODULE",
     "attach",
-    "table",
+    "tbl",
     "    ",
     "RE_sect",
     "re.adoc",
@@ -97,7 +86,7 @@ print join("\t",
 opendir(my $dh, $base) or die "Cannot open $base: $!";
 my @dirs = sort grep { -d "$base/$_" && !/^\./ } readdir($dh);
 closedir($dh);
-
+print STDERR join("\n",@dirs);
 foreach my $dir (@dirs) {
 
     my $path = "$base/$dir";
@@ -186,22 +175,22 @@ foreach my $dir (@dirs) {
         $path
     );
 
-    # man4 проверка
+    # man4 check
     my $has_man4 = $man4{$dir} ? 1 : 0;
     my $has_hw_section = $man4_hardware_section{$dir} ? 1 : 0;
-    # выводим если есть хоть один из критериев 1–4
+    # output it if at least 1 criteria from 1–4 is true
     if ($has_driver_module || $has_probe_attach || $has_id_table || $has_man4) {
 
         my $bus_string = join(",", sort keys %bus_types);
         my $in_hardware = $hardware{$dir} ? 1 : 0;
         print join("\t",
             substr($dir." "x20,0,20),
-            $has_driver_module ? "yes" : "   ",
-            $has_probe_attach  ? "yes" : "   ",
-            $has_id_table      ? "yes" : "   ",
-            $has_man4          ? "yes" : "   ",
-            $has_hw_section    ? "yes" : "   ",
-            $in_hardware       ? "yes" : "   ",
+            $has_driver_module ? "yes" : " - ",
+            $has_probe_attach  ? "yes"."   " : " - "."   ",
+            $has_id_table      ? "yes" : " - ",
+            $has_man4          ? "yes"." " : " - "." ",
+            $has_hw_section    ? "yes"."    " : " - "."    ",
+            $in_hardware       ? "yes"."    " : " - "."    ",
             $bus_string
         ), "\n";
         delete $hardware{$dir};
@@ -215,11 +204,11 @@ foreach my $drv (sort keys %hardware) {
     print join("\t",
         substr($drv." "x20,0,20),
         "NO ",   # DRIVER_MODULE
-        "DRV",   # probe/attach
+        "DRV"."   ",   # probe/attach
         "   ",   # ID_table
-        $has_man4          ? "yes" : "   ",,   # man4
-        $has_hw_section    ? "yes" : "   ",
-        "yes",   # hardware.adoc
+        $has_man4          ? "yes"." " : " - "." ",   # man4
+        $has_hw_section    ? "yes"."    " : " - "."    ",
+        "yes"."    ",   # hardware.adoc
         ""       # bus_types
     ), "\n";
     delete $man4{$drv};
@@ -231,10 +220,11 @@ foreach my $drv (sort keys %man4) {
     print join("\t",
         substr($drv." "x20,0,20),
         "NO ",   # DRIVER_MODULE
-        "DRV",   # probe/attach
+        "DRV"."   ",   # probe/attach
         "   ",   # ID_table
-        $has_man4          ? "yes" : "   ",,   # man4
-        "   ",   # hardware.adoc
+        $has_man4          ? "yes"." " : " - "." ",   # man4
+        $has_hw_section    ? "yes"."    " : " - "."    ",
+        " - "."    ",   # hardware.adoc
         ""       # bus_types
     ), "\n";
     delete $man4{$drv};

@@ -35105,7 +35105,7 @@ Differential Revision:	https://reviews.freebsd.org/D51012
 [commit 5656d0f7453e0c315e57a6ad28300dcabb04c2b3]
 Date: 2026-01-06
 Score: 5
-Status: proposed(include=yes,score=40)
+Status: added(include=yes,score=40)
 CollectedAt: 2026-04-18T13:06:17 UTC
 Sponsor: 
 Section: Userland.libraries
@@ -38489,7 +38489,7 @@ Differential Revision:	https://reviews.freebsd.org/D54026
 [commit ff50ace5fe0ec991ff2e72a80a6c9e90b7e7f709]
 Date: 2025-11-19
 Score: 5
-Status: proposed(include=yes,score=30)
+Status: added(include=yes,score=30)
 CollectedAt: 2026-04-18T13:06:17 UTC
 Sponsor: 
 Section: Userland.libraries
@@ -38523,7 +38523,7 @@ Differential Revision:	https://reviews.freebsd.org/D53830
 [commit cbad54ba46e6a4ad83d87d379fc3fcedb0cd7246]
 Date: 2025-11-19
 Score: 5
-Status: proposed(include=yes,score=35)
+Status: added(include=yes,score=35)
 CollectedAt: 2026-04-18T13:06:17 UTC
 Sponsor: 
 Section: Userland.libraries
@@ -38555,7 +38555,7 @@ Differential Revision:	https://reviews.freebsd.org/D53825
 [commit 2ff4e6ac0d9f3f4ef477d15c40da04a87f5b7578]
 Date: 2025-12-08
 Score: 5
-Status: proposed(include=no,score=10)
+Status: added(include=no,score=10)
 CollectedAt: 2026-04-18T13:06:17 UTC
 Sponsor: 
 Section: undecided
@@ -38583,7 +38583,7 @@ Differential Revision:	https://reviews.freebsd.org/D54124
 [commit 72609bb2bb25710871157792715213ef71a51521]
 Date: 2025-11-27
 Score: 5
-Status: proposed(include=yes,score=30)
+Status: added(include=yes,score=30)
 CollectedAt: 2026-04-18T13:06:17 UTC
 Sponsor: 
 Section: Userland.libraries
@@ -38611,7 +38611,7 @@ Differential Revision:	https://reviews.freebsd.org/D53952
 [commit 35787967e87679511c906fbcb7dbccb31fd1ef33]
 Date: 2025-11-27
 Score: 5
-Status: proposed(include=yes,score=30)
+Status: acceped(include=yes,score=30)
 CollectedAt: 2026-04-18T13:06:17 UTC
 Sponsor: 
 Section: Userland.libraries
@@ -38637,7 +38637,7 @@ Differential Revision:	https://reviews.freebsd.org/D53951
 [commit 6fc280810ead5f562b54c590a7e00d21c52b2449]
 Date: 2025-11-17
 Score: 5
-Status: proposed(include=yes,score=30)
+Status: added(include=yes,score=30)
 CollectedAt: 2026-04-18T13:06:17 UTC
 Sponsor: 
 Section: Docs.manpages
@@ -73280,7 +73280,7 @@ Body:
 [commit 16ed84d2b9a1c95b6e0aabd5b7976367b2997d00]
 Date: 2026-04-19
 Score: 5
-Status: proposed(include=no,score=30)
+Status: added(include=no,score=30)
 CollectedAt: 2026-05-01T04:56:20 UTC
 Sponsor: 
 Section: undecided
