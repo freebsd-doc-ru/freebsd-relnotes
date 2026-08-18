@@ -1,0 +1,445 @@
+[commit fc00e7a18cdec54cc29c522c5cb446c89ea68267]
+Date: 2026-07-06
+Score: 5
+Status: accepted(include=yes,score=75)
+CollectedAt: 2026-07-26T12:42:01 UTC
+Sponsor: 
+Section: Userland.libraries
+Subject: libc/resolv: Reimplement the sortlist parser
+Review: The sortlist parser in libc's resolver has been reimplemented, restoring the ability to configure address sort order in /etc/resolv.conf. Sorting of IPv4 and IPv6 addresses is now functional again, with updated documentation.
+Body:
+
+When we switched from the BIND4 resolver to the BIND9 resolver, the
+sortlist parser was inadvertently disabled due to a missing #define, and
+nobody seemed to notice.  The sorting code remained enabled in the
+resolver, but there was no way to set a sort order.
+
+Reimplement the sortlist parser, but correctly, and update the manual
+accordingly.  The new parser accepts IPv4 and IPv6 addresses with or
+without a mask or prefix length, just like the old one, except IPv6
+support was a bit wonky in the original code.
+
+Fixes:		5342d17f09a8 ("Update the resolver in libc to BIND9's one.")
+Relnotes:	yes
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D57925
+
+(cherry picked from commit fbe0257b5613f457af42f82efb2e3bc9395d0557)
+
+
+ lib/libc/resolv/Makefile.inc |   1 +
+ lib/libc/resolv/res_init.c   | 246 ++++++++++++++++++++++++-------------------
+ share/man/man5/resolver.5    |  36 ++++---
+ 3 files changed, 160 insertions(+), 123 deletions(-)
+
+[commit b52d95bf14945108be077fd621c194d24c1f3118]
+Date: 2026-07-06
+Score: 5
+Status: accepted(include=yes,score=70)
+CollectedAt: 2026-07-26T12:42:01 UTC
+Sponsor: 
+Section: Userland.libraries
+Subject: libc/resolv: Refactor the option parser
+Review: The libc resolver option parser now strictly validates option names and values, rejecting trailing garbage, negative values, and non-numeric arguments, which changes behavior for malformed resolv.conf options.
+Body:
+
+Start the loop by finding the end of the option name, the name-value
+separator (if any), and the end of the option.  Use those pointers to
+simplify matching the option name and parsing the option value, and
+validate option names and values more strictly.  This means that:
+
+* We no longer accept trailing garbage in an option name or value.  For
+  instance, we would previously interpret “edns0123” as “edns0” and
+  “timeout:3xyz” as “timeout:3”.  This was actually quite lucky because
+  we also failed to recognize the newline at the end of the option line
+  as a whitespace character.
+
+* For options that take a numerical argument, we would previously accept
+  negative values and treat non-numerical arguments as 0, while large
+  numerical arguments would be capped to the option's maximum permitted
+  value.  Now, any failure to parse the argument, including overflow,
+  results in the option being left unchanged.
+
+MFC after:	1 week
+Relnotes:	yes
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D57923
+
+(cherry picked from commit 9bfdfecd27359130aa4ef63fc0aa32f98f9e7b50)
+
+
+ lib/libc/resolv/res_init.c | 194 ++++++++++++++++++++++++---------------------
+ 1 file changed, 105 insertions(+), 89 deletions(-)
+
+[commit 10075baae2c1151945bc13a478560e4d4a1aacf1]
+Date: 2026-06-26
+Score: 5
+Status: accepted(include=yes,score=30)
+CollectedAt: 2026-07-26T12:42:01 UTC
+Sponsor: 
+Section: Userland.programs
+Subject: rc.firewall: Support on-disk lists
+Review: The rc.firewall script now supports reading IP addresses or subnets from on-disk files for the firewall_allowservices and firewall_trusted list variables. Elements that look like absolute paths are read line by line, skipping comments and blank lines, and the first word on each line is treated as an address or subnet.
+Body:
+
+For firewall_allowservices and firewall_trusted, if an element of the
+list looks like an absolute path, read the file, skipping comments and
+blank lines, and treat the first word on each line as an address or
+subnet to be added to the list.
+
+We should probably be using tables instead, but this is still an
+improvement over the status quo ante.
+
+MFC after:	1 week
+Relnotes:	yes
+Reviewed by:	allanjude
+Differential Revision:	https://reviews.freebsd.org/D57679
+
+(cherry picked from commit a71abf38e2b46c02965f3224c62bb6ef1971996e)
+
+
+ libexec/rc/rc.conf     | 11 +++++++----
+ libexec/rc/rc.firewall | 43 ++++++++++++++++++++++++++++++++-----------
+ 2 files changed, 39 insertions(+), 15 deletions(-)
+
+[commit e71ad3f7a6b1260ee5db3108e03b0e21fff40abf]
+Date: 2026-06-01
+Score: 5
+Status: accepted(include=yes,score=70)
+CollectedAt: 2026-07-26T12:42:01 UTC
+Sponsor: 
+Section: Storage.general
+Subject: fs/msdosfs: add support for file namws with surrogate pairs
+Review: The man:msdosfs[4] filesystem now supports file names containing Unicode surrogate pairs, enabling full access to files with emoji and other characters beyond the Basic Multilingual Plane on FAT32 volumes.
+Body:
+
+Long file names are using UTF-16 symbols to represent international or
+special characters. The implementation in FreeBSD did not support the
+"Supplementary Private Use Area-B" (PUA-B), which requires a surrogate
+pair to be represented in UTF-16 (Unicode code points beyond U+FFFF).
+
+The PUA-B is used to represent emoji characters, which are supported
+in file names on other common operating systems. The motivation for
+this change was that removable media written on another system were
+only partially readable on FreeBSD, since they contained emojis in
+file names.
+
+A test script that verifies correct operations on files names with
+emojis has been added to the tools/test/stress2/misc directory under
+the name msdos24.sh.
+
+Reported by:	Fabian Keil <fk@fabiankeil.de>
+Reviewed by:	ib
+Approved by:	mkcusick
+MFC after:	1 week
+Relnotes:	yes
+Differential Revision:	https://reviews.freebsd.org/D57313
+
+(cherry picked from commit f983cb362de77773efba8975eb0f4b247ce5e6f9)
+
+
+ sys/fs/msdosfs/direntry.h       |   9 ++-
+ sys/fs/msdosfs/msdosfs_conv.c   | 164 +++++++++++++++++++++++++++++++---------
+ sys/fs/msdosfs/msdosfs_lookup.c |   7 +-
+ 3 files changed, 139 insertions(+), 41 deletions(-)
+
+[commit 823889aaafa37ba63a6fb2c53b0dafe1373e221b]
+Date: 2026-04-17
+Score: 5
+Status: accepted(include=yes,score=20)
+CollectedAt: 2026-07-26T12:42:01 UTC
+Sponsor: 
+Section: Userland.config
+Subject: us.intl.acc.kbd: add it to Makefile
+Review: The US international keyboard layout with accented keys us.intl.acc.kbd is now installed by default and available in the system.
+Body:
+
+This keyboard was implemented but wasn't actually installed to the
+system.
+
+Fixes: a049678039e40bdf523230852f78887a12435def
+Discussed with: imp
+MFC after: 1 day
+Relnotes: yes
+
+(cherry picked from commit 3b373d484046a94d050a7901feadc001f35fa97f)
+
+
+ share/vt/keymaps/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+[commit ca42bd490891011556a9507b10ad205f6e7e5f30]
+Date: 2026-04-17
+Score: 5
+Status: accepted(include=yes,score=70)
+CollectedAt: 2026-07-26T12:42:01 UTC
+Sponsor: 
+Section: Drivers.device
+Subject: br.lenovo.kdb: add it to Makefile
+Review: The br.lenovo.kbd keyboard layout is now installed and available in the system.
+Body:
+
+This keyboard was implemented but wasn't actually installed to the
+system.
+
+Fixes: 9357c694e8dca627c25b15529e8435b2ab3dd48b
+MFC after: 1 day
+Relnotes: yes
+
+(cherry picked from commit 6fb5df548e4a581f958f60544b7fa8ba1716c4c6)
+
+
+ share/vt/keymaps/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+[commit 432c95c57bb5edba6593f48a17092577e293bc05]
+Date: 2026-01-04
+Score: 5
+Status: accepted(include=yes,score=40)
+CollectedAt: 2026-07-26T12:42:01 UTC
+Sponsor: 
+Section: Drivers.deprecated
+Subject: asmc(4): pull 32-bit support for the driver
+Review: The man:asmc[4] driver no longer supports 32-bit Intel-based Macs. Users of 32-bit hardware are affected by this removal.
+Body:
+
+The asmc(4) driver should work for 32-bit Intel-based Macs, in theory, if
+the model details were added to the detection list. That being said,
+32-bit Intel Macs were only released and available to the general public
+for 8 months [1], so the value in maintaining i386 support in the driver is
+reduced due to limited hardware access.
+
+Remove 32-bit support for the driver officially to make it clear its use is
+not supported.
+
+This should fix building `NOTES.i386` by proxy as well.
+
+Relnotes:	yes
+MFC after:	2 weeks
+Fixes:		f224591746b ("Add ASMC_DEBUG make option")
+Fixes:		8342d9f7b5f ("asmc(4): Stop building it on i386, as...")
+Differential Revision:	https://reviews.freebsd.org/D55544
+(cherry picked from commit 1f2f5eba24aa53e180a4eb46b772410e5a782469)
+
+
+ sys/x86/conf/NOTES | 2 --
+ 1 file changed, 2 deletions(-)
+
+[commit cc35db95eb9ed1c62bb2eb7251e4c2ab67907d62]
+Date: 2026-01-28
+Score: 5
+Status: accepted(include=yes,score=60)
+CollectedAt: 2026-07-26T12:42:01 UTC
+Sponsor: 
+Section: Userland.programs
+Subject: daemon: Add option for output file mode
+Review: The man:daemon[8] utility now supports the -m option to specify the output file mode, allowing non-root log collectors to access log files.
+Body:
+
+The daemon utility has always created its output file with a fixed mode
+of 0600. This causes issues for log collection setups where the collector
+does not run as root but instead relies on group access to the watched
+daemon’s log file.
+
+Introduce a new option that allows specifying the output file mode using
+install(1)-style semantics. This enables non-root log collectors to access
+the file as intended and improves compatibility with log rotation tools.
+
+Reviewed by:	kevans
+MFC after:	1 week
+Relnotes:	yes
+Differential Revision:	https://reviews.freebsd.org/D54930
+
+(cherry picked from commit a3b90a1f008365d9f62773998f89f9c872e2bed5)
+
+
+ usr.sbin/daemon/daemon.8 | 17 +++++++++++++++--
+ usr.sbin/daemon/daemon.c | 28 +++++++++++++++++++++-------
+ 2 files changed, 36 insertions(+), 9 deletions(-)
+
+[commit 11a0cf32a23259caff9f6a2c1489947170dfd8b2]
+Date: 2025-12-18
+Score: 5
+Status: accepted(include=yes,score=30)
+CollectedAt: 2026-07-26T12:42:01 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: librt/mq_getfd_np.3: Initial manual page
+Review: Manual page man:mq_getfd_np[3] documents the function that retrieves the file descriptor from a message queue descriptor.
+Body:
+
+The mq_getfd_np function appeared in FreeBSD 11 with no documentation.
+This function dereferences the mqd_t as a pointer to an int.
+
+Relnotes:		yes
+MFC after:		3 days
+Reviewed by:		kib (previous), markj, ziaee
+Differential Revision:	https://reviews.freebsd.org/D43947
+
+(cherry picked from commit ca2413d216197fd55f9363d6f65c641ff1aa3ec5)
+
+
+ lib/librt/Makefile      |  2 ++
+ lib/librt/mq_getfd_np.3 | 57 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 59 insertions(+)
+
+[commit c839c1566147cc2d255aab1f7a1f8ed3f86299a8]
+Date: 2026-06-22
+Score: 5
+Status: accepted(include=yes,score=75)
+CollectedAt: 2026-08-07T08:01:45 UTC
+Sponsor: 
+Section: Kernel.general
+Subject: kern: add a security knob to disable unprivileged access to kenv
+Review: A new security knob disables unprivileged access to the kernel environment (kenv), including jailed root, to protect sensitive data. System administrators can configure this via the documented sysctl/tunable. Manual pages updated to reflect the new behavior.
+Body:
+
+We sometimes store sensitive things in the kenv that get zapped, but we
+really shouldn't rely on that zapping to actually happen.  Most
+unprivileged processes don't really need to read from the kernel
+environment in the first place, so add a knob that allows it to be
+disabled.
+
+Note that we consider jailed root to be unprivileged from this
+perspective; they have their own meta/env concepts and we should
+encourage users to take advantage of those for passing information to
+jails.
+
+Relnotes:	yes (The capability to disable unpriv access exists)
+"Hey we should do something about that":	dch
+Reviewed by:	imp, ziaee, zlei (all slightly previous version)
+Differential Revision:	https://reviews.freebsd.org/D57697
+
+(cherry picked from commit 4fd518fcb2bbee4c8c41215d6993b923ef57a0e5)
+
+
+ bin/kenv/kenv.1             | 10 +++++++++-
+ lib/libc/sys/kenv.2         |  7 ++++++-
+ share/man/man7/security.7   |  4 +++-
+ sys/kern/kern_environment.c | 46 +++++++++++++++++++++++++++++++++++++++------
+ sys/sys/priv.h              |  1 +
+ 5 files changed, 59 insertions(+), 9 deletions(-)
+
+[commit 5e144321152815f476978b70c6749ff216579e29]
+Date: 2026-05-03
+Score: 5
+Status: accepted(include=yes,score=40)
+CollectedAt: 2026-08-07T08:01:45 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: ports.7/FILES: Expand and refactor into 3 tables
+Review: The man:ports[7] reference manual's FILES section has been expanded and reorganized into three tables, documenting additional files such as make.conf, CHANGES, CONTRIBUTING.md, UPDATING, and Tools/scripts.
+Body:
+
+Add make.conf, CHANGES, CONTRIBUTING.Md, UPDATING, and Tools/scripts.
+Refactor the FILES section of the ports reference manual into a bigger
+table with three sections separated by root directory. Remove preceeding
+article from all but "the big Kahuna", and root dirs where reasonable.
+
+MFC after:              3 days
+Relnotes:		yes
+Reported by:            adamw, arrowd, linimon
+Differential Revision:	https://reviews.freebsd.org/D55441
+
+(cherry picked from commit 28deec9b7e2b08b00160eb39de84ade6f27eb125)
+
+
+ share/man/man7/ports.7 | 47 +++++++++++++++++++++++++++++------------------
+ 1 file changed, 29 insertions(+), 18 deletions(-)
+
+[commit a1479a37fcf8d66fa0de5076449f64d6297d1e1f]
+Date: 2026-03-20
+Score: 5
+Status: accepted(include=no,score=30)
+CollectedAt: 2026-08-07T08:01:45 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: dwcotg.4: Initial manual page
+Review: The man:dwcotg[4] manual page has been added, documenting the DesignWare USB OTG controller driver and making it visible for future release notes.
+Body:
+
+Create visibility in apropos and the Hardware Release Notes.
+
+MFC after:		3 days
+Relnotes:		yes
+Reviewed by:		pauamma, ray
+Differential Revision:	https://reviews.freebsd.org/D53287
+
+(cherry picked from commit 8475cd93fb6db65a02afe435f16306bc18e96ec9)
+
+
+ share/man/man4/man4.arm/Makefile |  1 +
+ share/man/man4/man4.arm/dwcotg.4 | 29 +++++++++++++++++++++++++++++
+ 2 files changed, 30 insertions(+)
+
+[commit 3e05b2366af1fa56907390d540a97e29f0f191dd]
+Date: 2026-02-15
+Score: 5
+Status: accepted(include=yes,score=30)
+CollectedAt: 2026-08-07T08:01:45 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: libusb20: Add dev_open + be_device_foreach manuals
+Review: Manual pages for man:libusb20_open[3] and man:libusb20_be_device_foreach[3] have been added, documenting these library functions.
+Body:
+
+Manual pages for libusb20_open(3) and libusb20_be_device_foreach(3).
+
+PR:			291675
+Relnotes:		yes
+MFC after:		3 days
+Reviewed by:		adrian (usb), ziaee (manpages)
+Differential Revision:	https://reviews.freebsd.org/D54231
+
+(cherry picked from commit caf23c8e0b7981dd022c52feaf6edfef232f7e27)
+
+
+ lib/libusb/Makefile                     |  6 +--
+ lib/libusb/libusb20_be_device_foreach.3 | 56 ++++++++++++++++++++++++++
+ lib/libusb/libusb20_dev_open.3          | 69 +++++++++++++++++++++++++++++++++
+ 3 files changed, 127 insertions(+), 4 deletions(-)
+
+[commit 69b3aa35469a2df029a2faaa8c4022af72d8f418]
+Date: 2025-11-17
+Score: 5
+Status: accepted(include=yes,score=55)
+CollectedAt: 2026-08-07T08:01:45 UTC
+Sponsor: 
+Section: Userland.libraries
+Subject: msun: expose the C23 functions we already support in <math.h>
+Review: C23-standard trigonometric functions using the pi multiplier (such as sinpi, cospi, and related variants) are now exposed in <math.h>. This extends the available math library APIs to align with the C23 standard.
+Body:
+
+This is the *pi family of trigonometric functions. Quite a few C23
+functions are still missing.  These seem to be:
+acospi, acospif, acospil, asinpi, asinpif, asinpil, atan2pi, atan2pif,
+atan2pil, atanpi, atanpif, atanpil, canonicalize, canonicalizef,
+canonicalizel, compoundn, compoundnf, compoundnl, daddl, ddivl, dfmal,
+dmull, dsqrtl, dsubl, exp10, exp10f, exp10l, exp10m1, exp10m1f,
+exp10m1l, exp2m1, exp2m1f, exp2m1l, fadd, faddl, fdiv, fdivl, ffma,
+ffmal, fmaximum, fmaximum_mag, fmaximum_mag_num, fmaximum_mag_numf,
+fmaximum_mag_numl, fmaximum_magf, fmaximum_magl, fmaximum_num,
+fmaximum_numf, fmaximum_numl, fmaximumf, fmaximuml, fminimum,
+fminimum_mag, fminimum_mag_num, fminimum_mag_numf, fminimum_mag_numl,
+fminimum_magf, fminimum_magl, fminimum_num, fminimum_numf,
+fminimum_numl, fminimumf, fminimuml, fmul, fmull, fromfp, fromfpf,
+fromfpl, fromfpx, fromfpxf, fromfpxl, fsqrt, fsqrtl, fsub, fsubl,
+iscanonical, iseqsig, issignaling, issubnormal, iszero, nextdown,
+nextdownf, nextdownl, nextup, nextupf, nextupl, pown, pownf, pownl,
+powr, powrf, powrl, rootf, rootl, rootn, roundeven, roundevenf,
+roundevenl, rsqrt, rsqrtf, rsqrtl, ufromfp, ufromfpf, ufromfpl,
+ufromfpx, ufromfpxf, ufromfpxl.
+
+Reviewed by:	imp
+Approved by:	markj (mentor)
+MFC after:	1 month
+Relnotes:	yes
+Differential Revision:	https://reviews.freebsd.org/D53783
+
+(cherry picked from commit 37fa5b36abb15b322493aba20146709d48359507)
+(cherry picked from commit 104488641acaf2269d860d8abf142d80a340a5e8)
+
+
+ lib/msun/src/math.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+

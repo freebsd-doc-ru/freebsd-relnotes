@@ -1,0 +1,325 @@
+[commit 9f9f0d3d9e1c9c9416b12625d357dd6f80d5f9be]
+Date: 2026-06-05
+Score: 5
+Status: accepted(include=yes,score=40)
+CollectedAt: 2026-07-26T12:58:21 UTC
+Sponsor: 
+Section: Userland.config
+Subject: protocols: Update with IANA list
+Review: The /etc/protocols file has been updated with the latest IANA assignments, including documentation of unassigned and deprecated protocols.
+Body:
+
+- Update /etc/protocols with IANA list updated 2026-03-09.
+- Document that 240 (pfsync) is not assigned by IANA.
+- Document deprecated protocols.
+
+PR:		295739
+Reviewed by:	des
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D57445
+
+(cherry picked from commit e3fa020202d8e040242016bda275dde83c058549)
+
+
+ lib/libc/net/protocols | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
+
+[commit fc1ab22fb3b86093be00c010a57feb1fefceb0bb]
+Date: 2026-05-08
+Score: 5
+Status: rejected(include=yes,score=60)
+CollectedAt: 2026-07-26T12:58:21 UTC
+Sponsor: 
+Section: Userland.contrib
+Subject: Merge commit 871038759afb from llvm git (by Marco Elver):
+Review: Fix for a crash in clang's Thread Safety Analysis when processing deprecated attributes, preventing assertion failure during compilation of ports like net/openvswitch.
+Body:
+
+  Thread Safety Analysis: Fix pointer handling of variables with deprecated attributes (#148974)
+
+  de10e44b6fe7 ("Thread Safety Analysis: Support warning on
+  passing/returning pointers to guarded variables") added checks for
+  passing pointer to guarded variables. While new features do not
+  necessarily need to support the deprecated attributes (`guarded_var`,
+  and `pt_guarded_var`), we need to ensure that such features do not cause
+  the compiler to crash.
+
+  As such, code such as this:
+
+          struct {
+            int v __attribute__((guarded_var));
+          } p;
+
+          int *g() {
+            return &p.v;  // handleNoMutexHeld() with POK_ReturnPointer
+          }
+
+  Would crash in debug builds with the assertion in handleNoMutexHeld()
+  triggering. The assertion is meant to capture the fact that this helper
+  should only be used for warnings on variables (which the deprecated
+  attributes only applied to).
+
+  To fix, the function handleNoMutexHeld() should handle all POK cases
+  that apply to variables explicitly, and produce a best-effort warning.
+
+  We refrain from introducing new warnings to avoid unnecessary code bloat
+  for deprecated features.
+
+  Fixes: https://github.com/llvm/llvm-project/issues/140330
+
+This fixes an assertion while building the net/openvswitch port:
+"Assertion failed: ((POK == POK_VarAccess || POK == POK_VarDereference)
+&& "Only works for variables"), function handleNoMutexHeld, file
+/usr/src/contrib/llvm-project/clang/lib/Sema/AnalysisBasedWarnings.cpp,
+line 2120.'
+
+Reported by:	cy
+PR:		295101, 292067
+MFC after:	1 month
+
+(cherry picked from commit d9b272a19d39f71665b529860bfed731bcfd99f5)
+
+
+ .../clang/lib/Sema/AnalysisBasedWarnings.cpp       | 25 +++++++++++++++++-----
+ 1 file changed, 20 insertions(+), 5 deletions(-)
+
+[commit 5f10e369a13af824de5244c12f4e7216a9d0750e]
+Date: 2026-05-25
+Score: 5
+Status: accepted(include=yes,score=40)
+CollectedAt: 2026-07-26T12:58:21 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: lpd: Drop deprecated -p option
+Review: The deprecated -p option has been removed from man:lpd[8] and its manual page.
+Body:
+
+This alias for the -s option has been deprecated since 2002.  Time to
+drop it from the documentation.
+
+MFC after:	1 week
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D57183
+
+(cherry picked from commit 6047f6a21085ae3877228f8df19a0d4bce45905f)
+
+
+ usr.sbin/lpr/lpd/lpd.8 | 11 +----------
+ usr.sbin/lpr/lpd/lpd.c |  3 ---
+ 2 files changed, 1 insertion(+), 13 deletions(-)
+
+[commit b734006cafa1915922de2a6a3a0aee9969d28d04]
+Date: 2026-02-19
+Score: 5
+Status: accepted(include=yes,score=70)
+CollectedAt: 2026-07-26T12:58:21 UTC
+Sponsor: 
+Section: Userland.deprecated
+Subject: lpr: Add deprecation notice
+Review: The man:lpr[1] suite of programs has been deprecated and may be removed before FreeBSD 16.0. Better-maintained alternatives are available in the Ports Collection (print/cups, sysutils/LPRng).
+Body:
+
+These programs require elevated privileges to work and have not seen
+regular maintenance in decades.  Unless someone steps up and overhauls
+them, we will have to remove them before 16.0.  Better-maintained
+alternatives are available in ports (print/cups, sysutils/LPRng).
+
+MFC after:	3 days
+
+(cherry picked from commit d57dee7ab66f60537b557cb602be194e3eed253d)
+
+
+ usr.sbin/lpr/chkprintcap/chkprintcap.8 | 3 +++
+ usr.sbin/lpr/lp/lp.1                   | 3 +++
+ usr.sbin/lpr/lpc/lpc.8                 | 3 +++
+ usr.sbin/lpr/lpd/lpd.8                 | 3 +++
+ usr.sbin/lpr/lpq/lpq.1                 | 3 +++
+ usr.sbin/lpr/lpr/lpr.1                 | 3 +++
+ usr.sbin/lpr/lpr/printcap.5            | 3 +++
+ usr.sbin/lpr/lprm/lprm.1               | 3 +++
+ usr.sbin/lpr/lptest/lptest.1           | 3 +++
+ usr.sbin/lpr/pac/pac.8                 | 3 +++
+ 10 files changed, 30 insertions(+)
+
+[commit f956c425d4c6b93efefea357f34cd28a7d749db1]
+Date: 2026-05-03
+Score: 5
+Status: rejected(include=no,score=5)
+CollectedAt: 2026-07-26T12:58:21 UTC
+Sponsor: 
+Section: undecided
+Subject: tests/carp: Rework unicast_v4
+Review: Internal test maintenance and carp test rework; no user-visible impact.
+Body:
+
+For unicast tests, it is sufficient to use wait_for_carp() to verify
+the setup is sane. Additional sanity checks are not necessarily
+required but can serve purpose for redundancy.
+
+For some unclear reason routed(8) is advertising route to carp BACKUP.
+That makes the test flaky. Also routed(8) is marked deprecated and may
+be removed from base in the future. Let's just add static route entry
+manually for additional sanity checks.
+
+Other noticeable changes:
+  1. Add atf_check to configuration steps to prevent potential failure
+on setup. That helps diagnosing on failure.
+  2. Shorten the names of jails to improve readability.
+  3. Prefer `[ifconfig|route|sysctl] -j` over `jexec [ifconfig|route|sysctl]`
+to make the lines shorter.
+
+MFC note: At the time writing, routed(8) does not know carp addresses
+and does not distinguish carp addresses in MASTER|BACKUP|INIT state,
+hence insists advertising the wrong addresses.
+
+PR:		294817
+Reviewed by:	glebius (previous version), pouria, markj
+Fixes:		93fbdef51a13 tests: carp: Update test case unicast_v4 to catch PR 284872
+MFC after:	3 days
+Differential Revision:	https://reviews.freebsd.org/D56761
+
+(cherry picked from commit 9137c66c2ea6cc09e3a6f8a042ecdc5a62e0f39e)
+(cherry picked from commit 107ef0c29503e5be2b81d22930ec0c675efba140)
+
+
+ tests/sys/netinet/carp.sh | 80 ++++++++++++++++++++++++++---------------------
+ 1 file changed, 44 insertions(+), 36 deletions(-)
+
+[commit b0b6364eadf498c985f8312195e37eed5780347c]
+Date: 2026-03-13
+Score: 5
+Status: rejected(include=no,score=5)
+CollectedAt: 2026-07-26T12:58:21 UTC
+Sponsor: 
+Section: undecided
+Subject: tarfs: swap deprecated ZSTD_resetDStream() with ZSTD_DCtx_reset()
+Review: Internal API update: deprecation replacement in tarfs, not user-visible.
+Body:
+
+ZSTD_resetDStream() is deprecated since 1.5.4: https://github.com/facebook/zstd/commit/5d8cfa6b96a6442ab1251f9de3b47a0eb12561a0
+
+This change is needed to MFV zstd 1.5.7.
+
+Approved by:	emaste (mentor)
+MFC after:	3 days
+Differential Revision:	https://reviews.freebsd.org/D55835
+
+(cherry picked from commit 922d73540d2d9897e5e8160c445cefa13581564e)
+
+
+ sys/fs/tarfs/tarfs_io.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+[commit 9f80b89c5a4ee66c9428f0d240899d77f442079f]
+Date: 2026-01-05
+Score: 5
+Status: rejected(include=no,score=5)
+CollectedAt: 2026-07-26T12:58:21 UTC
+Sponsor: 
+Section: undecided
+Subject: Convert fully to Python 3.  Remove licence text, only keep SPDX.
+Review: test tool converted to Python 3, internal script change only
+Body:
+
+Update to use argparse rather than OptionParser (now deprecated).
+
+(cherry picked from commit eb1c0d74cbb99f329767b3d565ae57a3ec032bee)
+
+
+ tools/test/hwpmc/pmctest.py | 73 ++++++++++++---------------------------------
+ 1 file changed, 19 insertions(+), 54 deletions(-)
+
+[commit 4781aeb5b9cb564a53fee8128f6827402deaf9df]
+Date: 2026-02-07
+Score: 5
+Status: rejected(include=no,score=5)
+CollectedAt: 2026-07-26T12:58:21 UTC
+Sponsor: 
+Section: undecided
+Subject: libfetch: Check for failure to create SSL context
+Review: This change is a minor internal cleanup and bug fix that removes a deprecated SSL method call and adds a missing error check for SSL context creation in the fetch library. It has negligible user-visible impact and is not significant enough for release notes.
+Body:
+
+* Drop the ssl_meth member, there is no reason to hang on to it.
+
+* Replace deprecated SSLv23_client_method() with TLS_client_method().
+
+* Check the return value from SSL_CTX_new().
+
+MFC after:	1 week
+PR:		292903
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D55098
+
+(cherry picked from commit 4e160c6197f75fda3d5d5997ce893087058cf718)
+
+
+ lib/libfetch/common.c | 10 +++++++---
+ lib/libfetch/common.h |  1 -
+ 2 files changed, 7 insertions(+), 4 deletions(-)
+
+[commit 612a0fd7cddec87a4bb83a0327026b9e6b04d2b7]
+Date: 2026-03-02
+Score: 5
+Status: rejected(include=no,score=5)
+CollectedAt: 2026-08-07T08:02:54 UTC
+Sponsor: 
+Section: undecided
+Subject: style.mdoc: Li macro is undeprecated for some time
+Review: Documentation only; style guide change with no user-visible impact on system behavior.
+Body:
+
+Previously, the mdoc linter warned against using Li as it was deprecated
+upstream. However, upstream undeprecated it since last year. As usual
+when it comes to style, the best thing to do is to follow the existing
+style of the page. We have many manuals which prefer double quotes.
+
+MFC after:		3 days
+Citation:		https://cvsweb.bsd.lv/mandoc/mdoc.7?rev=1.297
+Differential Revision:	https://reviews.freebsd.org/D55297
+
+(cherry picked from commit fae551b76785d2357b09e2c022a92f410d871b9b)
+
+
+ share/man/man5/style.mdoc.5 | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
+
+[commit bdea6e971844ac2e0a3dfab47fc6e678a11e5d19]
+Date: 2026-08-04
+Score: 5
+Status: rejected(include=yes,score=40)
+CollectedAt: 2026-08-07T08:02:54 UTC
+Sponsor: 
+Section: Network.general
+Subject: nfs_commonkrpc.c: Get rid of NFSv4.0 delegation cruft
+Review: Removal of NFSv4.0 delegation handling code from the NFS client, which disables delegations for the deprecated NFSv4.0 protocol to avoid potential use-after-free issues.
+Body:
+
+Delegations in NFSv4.0 never worked well and, since
+the NFSv4.0 protocol is now deprecated, use of delegations
+for NFSv4.0 is disabled as far as the client can do so.
+
+It turns out that some Illumos NFSv4.0 server issues
+delegations anyhow (even when the callback path is
+specified as 0.0.0.0) and this can cause use after free
+problems.
+
+This patch deleted some cruft that did an nfsrpc_openrpc()
+call recursively when an NFSv4.0 server failed to issue
+a delegation when it had previously done so.
+This code was only meant to be an optimization and
+would have been rarely exercised.  Since this recursive
+call of nfsrpc_openrpc() is in some of the backtraces
+in the bugzilla PR, getting rid of the cruft makes sense.
+
+It is not known if this helps w.r.t. the use after free
+problems at this time.
+
+PR:	297233
+
+(cherry picked from commit 8f20299b473af6132e0f146d7f634640993aeb81)
+
+
+ sys/fs/nfsclient/nfs_clrpcops.c | 27 ---------------------------
+ 1 file changed, 27 deletions(-)
+

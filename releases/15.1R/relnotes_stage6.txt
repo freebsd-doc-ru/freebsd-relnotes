@@ -12112,3 +12112,387 @@ Obtained from:	https://android-review.googlesource.com/c/platform/external/fsck_
  sbin/fsck_msdosfs/fat.c | 11 +++++++++++
  1 file changed, 11 insertions(+)
 
+[commit 1b6c85cfac36259f28b5e1461b8450600726a3e2]
+Date: 2026-05-23
+Score: 5
+Status: proposed(include=yes,score=100)
+CollectedAt: 2026-06-03T13:25:01 UTC
+Sponsor: 
+Section: Userland.contrib
+Subject: unbound: Update to 1.25.1
+Review: Unbound has been updated to 1.25.1.
+Body:
+
+Release notes at
+	https://nlnetlabs.nl/news/2026/May/20/unbound-1.25.1-released/
+
+Merge commit '22e58f330a151944c24e010d23ec3881df6681b6'
+
+Approved by:	re (cperciva)
+Security:	CVE-2026-33278
+Security:	CVE-2026-42944
+Security:	CVE-2026-42959
+Security:	CVE-2026-32792
+Security:	CVE-2026-40622
+Security:	CVE-2026-41292
+Security:	CVE-2026-42534
+Security:	CVE-2026-42923
+Security:	CVE-2026-42960
+Security:	CVE-2026-44390
+Security:	CVE-2026-44608
+MFC after:	1 week
+
+(cherry picked from commit 50caa0ea0c16499c40e785b5aa37053b180b2830)
+(cherry picked from commit d2a10ff4cb84d7656146b1dea74dcff55a0e1413)
+
+
+ contrib/unbound/aclocal.m4                 |  857 +++++++-----
+ contrib/unbound/configure                  | 1929 +++++++++++++++++++---------
+ contrib/unbound/configure.ac               |    5 +-
+ contrib/unbound/dnscrypt/dnscrypt.c        |    2 +-
+ contrib/unbound/doc/Changelog              |   30 +
+ contrib/unbound/doc/README                 |    2 +-
+ contrib/unbound/doc/example.conf           |    2 +-
+ contrib/unbound/doc/example.conf.in        |    2 +-
+ contrib/unbound/doc/libunbound.3           |    4 +-
+ contrib/unbound/doc/libunbound.3.in        |    4 +-
+ contrib/unbound/doc/unbound-anchor.8       |    4 +-
+ contrib/unbound/doc/unbound-anchor.8.in    |    4 +-
+ contrib/unbound/doc/unbound-checkconf.8    |    4 +-
+ contrib/unbound/doc/unbound-checkconf.8.in |    4 +-
+ contrib/unbound/doc/unbound-control.8      |    4 +-
+ contrib/unbound/doc/unbound-control.8.in   |    4 +-
+ contrib/unbound/doc/unbound-host.1         |    4 +-
+ contrib/unbound/doc/unbound-host.1.in      |    4 +-
+ contrib/unbound/doc/unbound.8              |    4 +-
+ contrib/unbound/doc/unbound.8.in           |    4 +-
+ contrib/unbound/doc/unbound.conf.5         |    4 +-
+ contrib/unbound/doc/unbound.conf.5.in      |    4 +-
+ contrib/unbound/install-sh                 |  178 ++-
+ contrib/unbound/iterator/iter_scrub.c      |    8 +-
+ contrib/unbound/ltmain.sh                  | 1566 +++++++++++++---------
+ contrib/unbound/services/cache/dns.c       |    8 +-
+ contrib/unbound/services/cache/rrset.c     |   10 +
+ contrib/unbound/services/mesh.c            |   14 +-
+ contrib/unbound/services/mesh.h            |    6 +
+ contrib/unbound/services/rpz.c             |   10 +-
+ contrib/unbound/util/configparser.c        |  896 ++++++-------
+ contrib/unbound/util/configparser.h        |    4 +-
+ contrib/unbound/util/data/msgencode.c      |   38 +-
+ contrib/unbound/util/data/msgencode.h      |    4 +-
+ contrib/unbound/util/data/msgparse.c       |   19 +-
+ contrib/unbound/validator/val_neg.c        |   28 +-
+ contrib/unbound/validator/val_nsec3.c      |   76 +-
+ contrib/unbound/validator/val_nsec3.h      |    6 +
+ contrib/unbound/validator/val_utils.c      |    4 +-
+ lib/libunbound/config.h                    |    6 +-
+ 40 files changed, 3619 insertions(+), 2147 deletions(-)
+
+[commit 1c4ffeaa27e4cd223a643273c91fd935406e2433]
+Date: 2026-05-23
+Score: 5
+Status: proposed(include=yes,score=100)
+CollectedAt: 2026-06-03T13:25:01 UTC
+Sponsor: 
+Section: Userland.contrib
+Subject: unbound: Update to 1.25.0
+Review: Unbound has been updated to 1.25.0.
+Body:
+
+Release notes at
+	https://nlnetlabs.nl/news/2026/Apr/29/unbound-1.25.0-released/
+
+Merge commit '4dd0a17edce60370304a45f2c40251e09e193bd6'
+
+Approved by:	re (cperciva)
+MFC after:	1 week
+
+(cherry picked from commit 5fa84c6ec176d186ddad25d31f8760e50f48157f)
+(cherry picked from commit 64cdd794b53ee2b00dd312f235087056c0398e34)
+
+
+ contrib/unbound/README.md                          |   21 +-
+ contrib/unbound/aclocal.m4                         |  857 +-
+ contrib/unbound/acx_nlnetlabs.m4                   |   77 +-
+ contrib/unbound/cachedb/cachedb.c                  |  108 +-
+ contrib/unbound/cachedb/redis.c                    |    6 +
+ contrib/unbound/compat/arc4random.c                |    7 +
+ contrib/unbound/compat/chacha_private.h            |    4 +-
+ contrib/unbound/compat/getentropy_linux.c          |   20 +
+ contrib/unbound/compat/gmtime_r.c                  |    5 +-
+ contrib/unbound/config.h.in                        |  397 +-
+ contrib/unbound/configure                          | 6522 ++++++---------
+ contrib/unbound/configure.ac                       |  123 +-
+ contrib/unbound/contrib/README                     |    2 +
+ contrib/unbound/contrib/gost12.patch               |  325 +
+ contrib/unbound/contrib/ios/install_openssl.sh     |   12 +-
+ contrib/unbound/contrib/ios/setenv_ios.sh          |    5 +
+ contrib/unbound/contrib/unbound.service.in         |    2 +-
+ .../unbound/contrib/unbound_portable.service.in    |    2 +-
+ contrib/unbound/daemon/daemon.c                    |  326 +-
+ contrib/unbound/daemon/daemon.h                    |   41 +
+ contrib/unbound/daemon/remote.c                    |  315 +-
+ contrib/unbound/daemon/remote.h                    |    8 +
+ contrib/unbound/daemon/stats.c                     |    6 +
+ contrib/unbound/daemon/unbound.c                   |   51 +-
+ contrib/unbound/daemon/worker.c                    |  258 +-
+ contrib/unbound/dns64/dns64.c                      |   23 +-
+ contrib/unbound/dnstap/dtstream.c                  |   16 +-
+ contrib/unbound/dnstap/dtstream.h                  |    6 +
+ contrib/unbound/dnstap/unbound-dnstap-socket.c     |   28 +-
+ contrib/unbound/doc/Changelog                      |  484 ++
+ contrib/unbound/doc/README                         |    2 +-
+ contrib/unbound/doc/README.DNS64                   |    6 +-
+ contrib/unbound/doc/README.man                     |   11 +-
+ contrib/unbound/doc/example.conf                   |   75 +-
+ contrib/unbound/doc/example.conf.in                |   75 +-
+ contrib/unbound/doc/libunbound.3                   |    6 +-
+ contrib/unbound/doc/libunbound.3.in                |    6 +-
+ contrib/unbound/doc/unbound-anchor.8               |   21 +-
+ contrib/unbound/doc/unbound-anchor.8.in            |   21 +-
+ contrib/unbound/doc/unbound-anchor.rst             |   15 +-
+ contrib/unbound/doc/unbound-checkconf.8            |    6 +-
+ contrib/unbound/doc/unbound-checkconf.8.in         |    6 +-
+ contrib/unbound/doc/unbound-control.8              |   45 +-
+ contrib/unbound/doc/unbound-control.8.in           |   45 +-
+ contrib/unbound/doc/unbound-control.rst            |   34 +
+ contrib/unbound/doc/unbound-host.1                 |    6 +-
+ contrib/unbound/doc/unbound-host.1.in              |    6 +-
+ contrib/unbound/doc/unbound.8                      |    8 +-
+ contrib/unbound/doc/unbound.8.in                   |    8 +-
+ contrib/unbound/doc/unbound.conf.5                 |  558 +-
+ contrib/unbound/doc/unbound.conf.5.in              |  558 +-
+ contrib/unbound/doc/unbound.conf.rst               |  524 +-
+ contrib/unbound/doc/unbound.rst                    |    2 +-
+ contrib/unbound/edns-subnet/subnetmod.c            |  108 +-
+ contrib/unbound/edns-subnet/subnetmod.h            |   10 +
+ contrib/unbound/install-sh                         |  178 +-
+ contrib/unbound/ipsecmod/ipsecmod.c                |    2 +-
+ contrib/unbound/iterator/iter_fwd.c                |    5 +
+ contrib/unbound/iterator/iter_hints.c              |    5 +
+ contrib/unbound/iterator/iter_priv.c               |  168 +-
+ contrib/unbound/iterator/iter_scrub.c              |   70 +-
+ contrib/unbound/iterator/iter_utils.c              |   50 +-
+ contrib/unbound/iterator/iter_utils.h              |    1 +
+ contrib/unbound/iterator/iterator.c                |   43 +-
+ contrib/unbound/libunbound/unbound.h               |    4 +
+ contrib/unbound/ltmain.sh                          | 1566 ++--
+ contrib/unbound/pythonmod/interface.i              | 1857 -----
+ contrib/unbound/pythonmod/pythonmod_utils.c        |  201 -
+ contrib/unbound/respip/respip.c                    |    9 +-
+ contrib/unbound/services/authzone.c                |  150 +-
+ contrib/unbound/services/cache/dns.c               |  110 +-
+ contrib/unbound/services/cache/dns.h               |    2 +-
+ contrib/unbound/services/cache/infra.c             |    3 +-
+ contrib/unbound/services/cache/rrset.c             |   37 +-
+ contrib/unbound/services/listen_dnsport.c          |   40 +-
+ contrib/unbound/services/localzone.c               |  179 +-
+ contrib/unbound/services/localzone.h               |   12 +-
+ contrib/unbound/services/mesh.c                    |  130 +-
+ contrib/unbound/services/mesh.h                    |   13 +-
+ contrib/unbound/services/modstack.c                |    7 +-
+ contrib/unbound/services/outside_network.c         |   65 +-
+ contrib/unbound/services/outside_network.h         |    7 +
+ contrib/unbound/services/rpz.c                     |    1 +
+ contrib/unbound/sldns/rrdef.h                      |    4 +-
+ contrib/unbound/sldns/wire2str.c                   |    3 +
+ contrib/unbound/smallapp/unbound-anchor.c          |   12 +-
+ contrib/unbound/smallapp/unbound-checkconf.c       |   48 +-
+ contrib/unbound/smallapp/unbound-control.c         |   15 +-
+ contrib/unbound/smallapp/unbound-host.c            |   12 +-
+ contrib/unbound/testcode/checklocks.c              |  916 ---
+ contrib/unbound/testcode/do-tests.sh               |   76 -
+ contrib/unbound/testcode/doqclient.c               | 2764 -------
+ contrib/unbound/testcode/fake_event.c              | 2044 -----
+ contrib/unbound/testcode/testbound.c               |  788 --
+ contrib/unbound/testcode/unitdname.c               | 1314 ---
+ contrib/unbound/testcode/unitinfra.c               |  210 -
+ contrib/unbound/testcode/unitldns.c                |  284 -
+ contrib/unbound/testcode/unitmain.c                | 1401 ----
+ contrib/unbound/testcode/unitmain.h                |   92 -
+ contrib/unbound/testcode/unitneg.c                 |  545 --
+ contrib/unbound/testcode/unitverify.c              |  706 --
+ contrib/unbound/testcode/unitzonemd.c              |  542 --
+ contrib/unbound/util/alloc.c                       |    2 +-
+ contrib/unbound/util/config_file.c                 |  116 +
+ contrib/unbound/util/config_file.h                 |   32 +
+ contrib/unbound/util/configlexer.c                 | 8521 ++++++++++----------
+ contrib/unbound/util/configlexer.lex               |    4 +-
+ contrib/unbound/util/configparser.c                | 4650 +++++------
+ contrib/unbound/util/configparser.h                |  184 +-
+ contrib/unbound/util/configparser.y                |   53 +-
+ contrib/unbound/util/data/msgencode.c              |   58 +-
+ contrib/unbound/util/data/msgencode.h              |    4 +-
+ contrib/unbound/util/data/msgparse.c               |   12 +
+ contrib/unbound/util/data/msgparse.h               |   25 +
+ contrib/unbound/util/data/msgreply.c               |   72 +-
+ contrib/unbound/util/data/msgreply.h               |   28 +-
+ contrib/unbound/util/data/packed_rrset.c           |   36 +-
+ contrib/unbound/util/data/packed_rrset.h           |    3 +
+ contrib/unbound/util/fptr_wlist.c                  |    7 +-
+ contrib/unbound/util/fptr_wlist.h                  |    8 +-
+ contrib/unbound/util/iana_ports.inc                |    9 +-
+ contrib/unbound/util/locks.h                       |   27 +
+ contrib/unbound/util/log.c                         |   32 +-
+ contrib/unbound/util/module.h                      |   19 +-
+ contrib/unbound/util/net_help.c                    |   54 +-
+ contrib/unbound/util/net_help.h                    |   12 +-
+ contrib/unbound/util/netevent.c                    |   27 +-
+ contrib/unbound/util/shm_side/shm_main.c           |  219 +-
+ contrib/unbound/util/shm_side/shm_main.h           |   15 +
+ contrib/unbound/util/timehist.h                    |    4 +
+ contrib/unbound/validator/val_neg.c                |   14 +-
+ contrib/unbound/validator/val_sigcrypt.c           |   12 +
+ contrib/unbound/validator/val_sigcrypt.h           |    2 +-
+ contrib/unbound/validator/val_utils.c              |   25 +
+ contrib/unbound/validator/val_utils.h              |   11 +
+ contrib/unbound/validator/validator.c              |   95 +-
+ contrib/unbound/winrc/win_svc.c                    |    6 +-
+ lib/libunbound/config.h                            |  403 +-
+ 138 files changed, 16189 insertions(+), 27522 deletions(-)
+
+[commit bbb47002f5c98e19b1557db6b4acd37487f0f441]
+Date: 2026-05-22
+Score: 5
+Status: proposed(include=yes,score=80)
+CollectedAt: 2026-06-03T13:25:01 UTC
+Sponsor: 
+Section: Userland.contrib
+Subject: unbound: Update to 1.24.2
+Review: Unbound has been updated to version 1.24.2.
+Body:
+
+Merge commit 'ec5b94f552d7cb2a9d456c67e9941bcf5e3698bf'
+
+This is purely cosmetic as we already had the functional changes.
+
+Approved by:	re (cperciva)
+MFC after:	1 week
+
+(cherry picked from commit 22fa41b4e81ad91d11e28f1837764730d744d4e4)
+(cherry picked from commit 1c869f005d760131cf49b965e67d4655c237f945)
+
+
+ contrib/unbound/config.h.in                |   10 +-
+ contrib/unbound/configure                  | 4673 ++++++++++++++++------------
+ contrib/unbound/configure.ac               |    3 +-
+ contrib/unbound/doc/README                 |    2 +-
+ contrib/unbound/doc/example.conf           |    2 +-
+ contrib/unbound/doc/example.conf.in        |    2 +-
+ contrib/unbound/doc/libunbound.3           |    4 +-
+ contrib/unbound/doc/libunbound.3.in        |    4 +-
+ contrib/unbound/doc/unbound-anchor.8       |    4 +-
+ contrib/unbound/doc/unbound-anchor.8.in    |    4 +-
+ contrib/unbound/doc/unbound-checkconf.8    |    4 +-
+ contrib/unbound/doc/unbound-checkconf.8.in |    4 +-
+ contrib/unbound/doc/unbound-control.8      |    4 +-
+ contrib/unbound/doc/unbound-control.8.in   |    4 +-
+ contrib/unbound/doc/unbound-host.1         |    4 +-
+ contrib/unbound/doc/unbound-host.1.in      |    4 +-
+ contrib/unbound/doc/unbound.8              |    4 +-
+ contrib/unbound/doc/unbound.8.in           |    4 +-
+ contrib/unbound/doc/unbound.conf.5         |    4 +-
+ contrib/unbound/doc/unbound.conf.5.in      |    4 +-
+ lib/libunbound/config.h                    |   16 +-
+ 21 files changed, 2774 insertions(+), 1990 deletions(-)
+
+[commit 4168e282e55e7d9e2c1aeb1405c7a2801837bcf8]
+Date: 2026-05-22
+Score: 5
+Status: proposed(include=yes,score=80)
+CollectedAt: 2026-06-03T13:25:01 UTC
+Sponsor: 
+Section: Userland.contrib
+Subject: unbound: Regenerate for 1.24.1
+Review: unbound has been updated to 1.24.1.
+Body:
+
+No functional changes intended.
+
+Approved by:	re (cperciva)
+Fixes:		8b29c373e6ab ("unbound: Vendor import 1.24.1")
+(cherry picked from commit 290190b26c09c307a9cd70703fa20ad2b2b600a6)
+(cherry picked from commit d8a5915d22c894ca59c246394f2582185a2d61f8)
+
+
+ contrib/unbound/doc/example.conf        |   14 +-
+ contrib/unbound/doc/libunbound.3        |  675 ++-
+ contrib/unbound/doc/unbound-anchor.8    |  383 +-
+ contrib/unbound/doc/unbound-checkconf.8 |  121 +-
+ contrib/unbound/doc/unbound-control.8   | 2038 +++++---
+ contrib/unbound/doc/unbound-host.1      |  242 +-
+ contrib/unbound/doc/unbound.8           |  169 +-
+ contrib/unbound/doc/unbound.conf.5      | 8152 ++++++++++++++++++++-----------
+ lib/libunbound/config.h                 |   24 +-
+ 9 files changed, 7568 insertions(+), 4250 deletions(-)
+
+[commit 0ac3db8805525ea47d0b6a485378d2d88df95edc]
+Date: 2026-04-28
+Score: 5
+Status: proposed(include=yes,score=65)
+CollectedAt: 2026-06-03T13:25:01 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: groups.7: New manual page of standard group names
+Review: A new manual page groups(7) has been added, documenting standard group names sorted by GID.
+Body:
+
+Import groups(7) from NetBSD, with tweaks for our system. The group
+list is sorted by GID. All the group names from /usr/src/etc/group
+are described, except "uucp". The FILES section was added on top of
+the original manual page.
+
+Approved by:	re (cperciva)
+PR:			264966
+Relnotes:		yes
+MFC after:		3 days
+Obtained from:		NetBSD
+Reviewed by:		des, ziaee
+Differential Revision:	https://reviews.freebsd.org/D54114
+
+(cherry picked from commit e09104dfb76a36b65a64bd315bd1520941c4beed)
+(cherry picked from commit 2c4190609c78c532e0a667eba1ffb4b5c98ea532)
+
+
+ share/man/man5/group.5     |   3 +-
+ share/man/man5/passwd.5    |   3 +-
+ share/man/man7/Makefile    |   2 +
+ share/man/man7/groups.7    | 345 +++++++++++++++++++++++++++++++++++++++++++++
+ usr.bin/id/groups.1        |   5 +-
+ usr.bin/id/id.1            |   5 +-
+ usr.bin/newgrp/newgrp.1    |   5 +-
+ usr.sbin/adduser/adduser.8 |   3 +-
+ usr.sbin/chkgrp/chkgrp.8   |   5 +-
+ usr.sbin/chown/chgrp.1     |   3 +-
+ usr.sbin/chown/chown.8     |   3 +-
+ usr.sbin/pw/pw.8           |   3 +-
+ 12 files changed, 371 insertions(+), 14 deletions(-)
+
+[commit 55b1142a3642aadbd31b64b821a4660b41551950]
+Date: 2026-05-18
+Score: 5
+Status: proposed(include=yes,score=45)
+CollectedAt: 2026-06-03T13:25:01 UTC
+Sponsor: 
+Section: Userland.programs
+Subject: freebsd-update: Skip /etc/ssl/cert.pem
+Review: A line that previously forced manual merge of /etc/ssl/cert.pem during upgrades is now skipped because certctl rehash already handles the trust store automatically.
+Body:
+
+We already run `certctl rehash` at the end, there is no point in asking
+users upgrading from 15.0 to 15.1 to manually merge the trust store.
+
+Approved by:	re
+Approved by:	so
+Security:	FreeBSD-EN-26:13.freebsd-update
+MFC after:	3 days
+Reviewed by:	cperciva
+Differential Revision:	https://reviews.freebsd.org/D57028
+
+(cherry picked from commit 2509ddee9bdb2240ba2f622e3a55a98ebc2aa4ae)
+(cherry picked from commit b97f143b6ca97ea767383fc96cbf50d4f4394ddb)
+
+
+ usr.sbin/freebsd-update/freebsd-update.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+

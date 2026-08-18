@@ -86670,3 +86670,3018 @@ Differential Revision:	https://reviews.freebsd.org/D56764
  tests/sys/kern/unix_stream.c | 77 ++++++++++++++++++++++++++++++++++----------
  2 files changed, 62 insertions(+), 17 deletions(-)
 
+[commit 74f357256769e12c3a843c75d1def483234312f3]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit a9b93531788cc125c928cc3488975f0330f75137]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e16f1bf3baa1e039b55eb583a4b5925c9c8e2383]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit c20f5fd443228743fed3b071ee30216145940178]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 20294a77a8d40bb645efad4b365ddaa9e7a53db2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 4c7357aaf5d2fbe85eb6d86b59efe11c6f0e8c9a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 76cd2807fc3a686abf4f6e87705896a69315e943]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 865e0b20ca3cefce25d68bd355090d414c2dfb84]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 4bc40d5a624ec839d49d4c33c0a5a8c1fa60a1d7]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit a50789d8b89bd32199c6a9bf75b48ed8dee1e70d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 275c11b7ccffffb8faf31fb0fb98e99ea5b413da]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 104488641acaf2269d860d8abf142d80a340a5e8]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 992f994bb71ec61e893457bfc2ffc02dfd8c0b50]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 24ea81047de7c75fd57c54deda0b36c3225c367b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 9657c50cdd7741404d99881fdd9243175086ede1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit c10317b0c455be506ae62b391e5491e1b75914aa]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 88c0ce38bc18acaf50188eda402384a0cb93890d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 7f6f2139eef9f9fc263977c847c6dbf235a1b1b7]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 34196ce83f9c9cf0138ac792b522c22afc4384c6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 23eaa98d6dc197321791fca49f5e31621ac41994]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 2702a3ac1ab6170e10044eebecaafc2ebcabff9d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 1b5b7867b67fdbe412cc4136834f21dbeef26bea]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 1aa2b46a07075ea79d22e91a1325b88de4efd27e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 109324d5e7ab893c15540fe97325b3eeaee88d20]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 0ac3db8805525ea47d0b6a485378d2d88df95edc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit b9ee42d7712b809eedf2a70fef9e59139e51ef8c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 906f2745bd842cba8c017ae2fe7e7f18a64f3c44]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 317c242462bb3c34452bf61eb7d99b741eb766a6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit ca1e0f9d60c9328164c7018592fa9de513e65b08]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 9b75d6ec6929e7e6723fbfeb52f60acfa63e5dbc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit d967f923caaaaf9a4efd74d1c442788377e2bc89]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit d653f474e901b1d43657b8955247d1bbd1c3d248]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 4cc3056c563fe1eb3a0d461f13c1552639fa388d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 74bb8b966381e5ada69ea188f73427334f0b3b7b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit d3902baca506ec48e2f8b1121c7744766a175516]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 72333f20d0e98860d1d3b27557cf5e30e9150b8a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 4e3fbe5cc92ef4822877b08e6d40ff38433cf1de]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit cdb05de1eccecd9e7e2fbe2328e48418f1b9c943]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 7cba27286364a77248234c305154afe53396f188]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 703c98dc6eeb2b36ec94e138269a221704e55f4c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e487653fe43434768b533b1d7f360ec448c05b4c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 29e3479f2d3068a2f3e2dbb578d3fabf6389e5a6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e1f0baa546b0e2af3495fac51903b51f6a1d0b26]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 661b40ffdee25dd81d19fbbcd6cb09e3ec159342]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 0005bb76e2e707f5ed39ca67beddb8a5d629c72e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e224f2c1b98ba065942c83d322cdb8e3987d0c81]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 3a64c667f16fbc3c1cedee081de895aa911be523]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit be24d85ec78453b80effeb61dc8e5910a1caa3a8]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 92f169fe0f197e4b7bf89583ce3fcfb37c5721ba]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 469ab88d107c05ab533a15d4014d1a97b5a13c86]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 59ba7278499f0ee20fd9c43a34bb2b72ae57dcbb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit f935c0f66f75e882185ed8bc46f39054f2ced4e1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 07b00bed83121043ffc88889edc15aad183227ba]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e2fcde7333a515907316cf1a4ee4858edc90419d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit eb4b66863bf32e96a837b908add7d90e18631d8b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 976b2ebf43094076d52e34c8dbeabae032caa6ad]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 2d571264dac343d681f95c63bd4ef95f49e04657]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 6af32a9d37ad689a9a72c45bfeaa6f7e52a33a4f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e0ae00f43186a518444e0f750b66d998085239df]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 0b94911946e96001963a4ef9222cf117e8d8d4bd]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 7176f76d2251331c4ec6fff8d7c699771717f1fa]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit ff68a58546ee7d7270daf7c5d373de47a71161b9]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 5a35d505bf0c4d16ef94477bfcbc85b9a87b2c0c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 2696698681a9150c8b3216cc36dab9bd911b5f8f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 5b8ab97b3e4abd3df9cee11d61115479fe2fc4de]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 7748c00cccb1099107fae9910dd3f8e264be6e4f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 74f357256769e12c3a843c75d1def483234312f3]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit a9b93531788cc125c928cc3488975f0330f75137]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit a6f17dd2430b92b88a98f10ed35936e7e80f636b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 81d2c7d3e1025d05e9d0e24014e13c7953739755]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 317c242462bb3c34452bf61eb7d99b741eb766a6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit b4d8d9bde083b466bc0728c6400cf5e6439f44e3]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 3abef030d31a9837ac7ba45bd8ee17340fabd120]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 7fe98ee4d49ad4a7c5e994a999567aec4b34f84e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 56401a9c3459f8f4151ac0da1f820863119c1749]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 897711b7bd4ba8f34bab9e0b79495ce107cfef35]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 9712b5e4b58bc3ff9402413ce7a149c956774263]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 1e0de6ef6334ac266b4b61eaa4c2ce0169d732de]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 564480f108e7019a8cc8443c615f7d2b5edfb092]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 8d5e8dfdc22c52bc944d80d5a8811373de001517]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit a8dbd836b7856aa6f12cb2442a224fdb58d17f54]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 5cbfbd5cd0d53d2a396fb6cde8d68cdf62d9f0c1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 56a6305557db0d545c4f358ea8e154a657d95dfc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit b0476eea5ef4ab2ccf2479652f486af3d4ab9cc0]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit db80ff6133ab50f0aae9f392e3d64a88f6921deb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 12eecb3bcc0be4d7fd35847252c40998806fc551]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 66aff324fa552f6f6f71d6b154718689a701186e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit f775385affefd7beac0d038d5cd9cbf01bfc4a06]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 0029027156f419fc60839ed87863eedccabfde5c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 3b7db696d85a476b7735fecc7bf9a1d53d07ca02]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 5ae9aac0c7d819556a1cf2ec7bf61b78740d4917]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 9b2cba4a8a690bc6d4ac174cc2f2daddbc43a84d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 2483216eecf34c8a19277ea37b322cd660183645]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 297d5bf8906776137aeac82e48ca2e87944d95b7]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit ddefff3810c1b40801bd99f42533e0d414fa0236]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit b6279be747facd85eb4490fc874148fede854d03]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 0c370a416b683287b3cb9e346446d203b2a57371]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit a0350f61c451a1fe8e9ff2d004caa23a63c822db]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 8dec2d94b40d7b03af30f29b65258b7dcf097ffc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit d73fac00cdd413ebfe6f18907ea9ca4cb6051200]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 808a573e6e14ace5b8fe105bd9bce628bed3bc96]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit f99ca315d5fe048f96a99505c852026973dbeb8a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit da4c7b4518ddc7c395ea476b1c543ee01034962c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 89fc636ba2248ef476ed19c44525e6eb3681aaa1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 4cc3056c563fe1eb3a0d461f13c1552639fa388d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 6a9d7820e6ab677165c9c6444ed6929307d71250]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 144c1eda397330eeb79cd6fe312f80f5d3f1952f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit f43d0ac1b0e29bbd77d6b0b1c87dca075cd7b9bf]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 631ff522c3969809fd7f8c786cc908377ab168d9]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 4b89fb6af98e9783b0c51d1b2110bff613531574]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 5626e81f1a43f507023a8edd291f02547fe955de]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 5080b342dd63331150f5924320e3577d21099cdb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 46a760e578f553d54c2e2ef6b295d3e9c71bd558]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e2e7269461e94c56792801a6447ddee18baab52f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit c22f46da9d10383d8b227db8dc305117df758967]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 605389e40b938088718bd8aa75f4919884789927]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit df4e99bb884786eb0554e2a259795c44a5295154]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit b9bf082d1f4816642ebc977d2769ca3f4069cb42]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit ca5d4e7f63d0c30ea829dd68930431693e8253cd]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 2c5ea8f170eab8a5505f15a68bb403522ebd7a38]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit b1281c67c5b47afd40d5acd3ea66ae72a51f2954]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit da8c96fe3530a307c8a04a7b44d5080c4c4ea337]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 74bb8b966381e5ada69ea188f73427334f0b3b7b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e5861dc2ea529527894b9be2df99f359c0d5b6ef]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 11aa32794394d3300b8a7f51ab00006a36987060]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 0c7eb49acd3666f1db868a5c05ebd91ef7c5499a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit f3092142f9ba0bccf33ca5a45e1cb186b579bae0]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 8c005f3da817456de3fc2f7d186b4898fcdff704]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e16e4cd25c1d83abcf8ec90c50d6dc146c8d74dc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit c25259a40e3f1e0e9fc85f44975ebcdeb6d0cdeb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 9a5b64536743c9021affda5f912d1d2363d296b3]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 33c0bd25e5283404bbf7be0536ff52fa16f11b6a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 9c0bedbb2064e9e02e2c20d1aa909360924033d7]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit bc1740839883c36a05589e87b4cff42434bb1d7d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 141cec051d142f329bd32e43d2e492aa6719d8f9]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e53890c477f53f12da721c48334a0330d07345c3]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit cdb05de1eccecd9e7e2fbe2328e48418f1b9c943]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit b59376c36de868c9846f0d6b8163b9b05b191b42]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 4e48e50ea5982387a1c9f164953315f7fe1f76a3]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 791fb098c9e84282b7d061c5708569757e6c65a3]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit d673dda5af433b87a7240e4293452d5a464cd3f2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 749293292aea9387de68dad931fe757209b66048]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 4fe8aa4a67ca3169b14f9cdf204412940af96488]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit f6fb1f8cdd519fde87a79fd7961a78258a434d3a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 121076ea954c2ef9dcc61d3df035678d0bfbd806]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 37e9b420b23a4d39400a5f8d1fe0c15bc1e04230]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit fe9134294b22c232b60e666af2ec5d671ea053b3]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 7cba27286364a77248234c305154afe53396f188]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit c439ae17b1b8dce71e36df45738c8430ec0c7a4e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 17c0fbc240c323a2ddeb875d2a9fcbfc2960d378]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 1fa2a48dab667057068d0b5568954d842adebf84]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit d988a0c1fc4cf75d5c4c9820fd2a5619d59ac608]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit b94c971dd0cfe22c17639f18677eca92abdc5189]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit d06ebddee40f4d8725b2b616720b988a9573fa78]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit ee286907ad455f967233f715bd468f1d0ff01f6c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 87fdc35e586930d9782efee4c0217d5e19b9274a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e65e9bc1b4dd4503b77c311dafdfc77eabe3243c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e37206a66db0bc359901435ecc09726fc6fe701d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 9636482dd8afcb426a658a98760bccf882196b4e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 839da868a5f9eb8bddd20d44f1cd0f293c5685cd]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit b01f35a4e19d8e204daa37c378344772e339247b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit a48358d78e87380c8498739bc4c82061e6c39a47]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit ff3c48a64fe2f9c1acf531e088dfb14e31404bae]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 9cafea4c44a7046ac2ac15b28471f9e09fceb6f9]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 155d5b8a19baa864ebe9d8346d932bd04ea23aca]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit fc22812b66851523de41be79c9a0c1395d7a76c9]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit ca36afaf671b776ee7b6c878c7b9c94852908dd1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e224f2c1b98ba065942c83d322cdb8e3987d0c81]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 300a8977bcfd2f43bc6df81d9bdad6b79a740729]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 129cedd20bc61a4851d3699c8afeed321bb03ae1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 0b5e4af65d0d3dfaa318b8e6adaaa4297f94af17]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 0a45aa9e954acc75484d59ad42ee440aa7f034c7]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit aa2fe36f5e4b3b907af2ea94945ae9cab7263d0c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 9b84a17c0adc85f32eb6a284011730f5d645fd2c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 0d5ef734e91e6b03312b54ab3463ed5608ed27fa]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 57d1d2c49707d1d74cdae2946d89bbd427661dca]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 779e075df98da07468ec5dd13b44241110a2abf2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 22382d9e706baddac193f66c3a48b086fc53e98c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 76a0a5f91d2c8f30760cb223d732863761e268a9]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 772837c632ec9f3cb3ded33830a60a8b310c2e22]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 16517f949da6dbabd5abdab90b14953e36d7e806]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit f6a81b18a4675b4f082bd4b4491bf5859e722ad9]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 7778507bf9344cef75f30c4089536d847da5d558]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit dfc4a7c10cf5923f21699e2217c969181c733be7]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit cbd8e3a0049aa300e0a92481d4f5a095765269bf]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 36224ed42708e5d917698261e6dfe4f128069da8]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit f55001cc9f9185dca21d80c10922df4c1846ffb3]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e89beeee25c3d08805e19cfc085a6c5b2f762a21]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit fc3c317b055cfd835e4b7720e708bf32738146d6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 65629acb4a793416b128d932abf5c539315dec4e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 0143f06b45dc3039bbefdd413d95f23e30a7a01c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit ce7e1f86a1810038f142c5c68b787c47252b39c5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 0cc2448fc2a2e194473d04512c1a83db3913de72]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 7f42fc03d2a7119ff9cdf5fc7fc21a0239b42afb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit ff7a10d0e1d1498724c6a1e02a70926944a71590]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 3bd015a1a918d060dbef556ddfa6e236f5212330]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit da457e5c856d26d41e9a30a08d0087937d28a41f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 2efda1b8c0f9583f01273ee21902a08dda9cb8bb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit f0033878b92e1a00120fec4edf590715f7c4ecbc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 25c6697b0b985228639cdeb5212a5f705731f69a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 1a08326c6f503db5f0fb9201cdf55379bbe576e8]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit ace0a38a9756748c225cdf7270858b3cc35a3154]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 04f744ce91efbb37f89b8e6d04f24af111e8bd8f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit cef2f7b440ffa67271690a6aba532e4c090772db]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit a989b0fbc965b453d97e3d032efb4f9c7592734a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit bcef4427a470274ba1f0c5fa7affe41253a93633]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 8d584f064885495d47811c98027a8005ea5135c1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 1e5aff8e5bc607f6bfaaf982b9c07ce365cd9bf4]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 0b97aba5c25be8a76cca6f77a40a972a7e70a98f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 1f86a86b21fc4e2796d5d489ad0a8e6148328790]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit f8162575f2114c26e52753ece0fac9738b97a79e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit b44a9bd37e605e5f9a06af5a39ac26eb6962239c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 3541e09bbbcb65074b69bc66216de2c1c4aee7c2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit ae4ae80a27a348474f0be17168bd5f2d9dbdd960]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit d17f7f9e911ad77ac14cb2974935c57931a7720b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 63e4b5c5e92422abbb7f08f973d34ba7402b82d7]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 441beb326fbf62a36f129a0766fa6b8d4cf994a1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit c62cae9b53fe2c5e52a185d3ed37f55ef383f064]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 4f536daec8fbfc05ae0097a825386848056cbbbd]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 3c01c7df984019d3db1b7a1d5e4d61d8c366df28]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 4bbc38778316711e552ada29bf15c0f850351974]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit cee4e16cb6fbaf1c5b9ed8daad69986886e96af7]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 8696cc8d0bbf4a87bc7c87186b0c5d35253b91ca]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 342a37387f313ae691190d69f11400620521a268]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 3548ab72de58a5351c78529a282c6ef56428eed1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 5c8640e863a1366752a123441a5b686e7c8401eb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 393c53fd219d7f4f00413d49943714623cd52b5d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 26408151bb1d952e37ff25bfb9cc200332a5e13a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit e60d2d53ed838ac50d25080abc415e387b404f09]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 150ac95e4a56855e7ffaa1014d7a82e9eda89f65]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 901aec0a855b5c69b327e423558fbcc001781805]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 4d3670980878f20a4b3b53596d23bf1f7fd4e5a6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 16719d34073444c50fcd57d337d0f1246c8e84c9]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit f5f3c16d9256fb8bb2c38e1dd91ca420f240bfd6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 7781f5e09ffc70e7b0618533b65838882a47c4ba]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit bf5ca5ced57d615093056e7f8013497b0fe4068f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 1aa2b46a07075ea79d22e91a1325b88de4efd27e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 109324d5e7ab893c15540fe97325b3eeaee88d20]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 409247a6cbd11e3510025e025f3b82184c3de17c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 3de8ca652d9308858a9504265c7c88a71f058859]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit a7bc1c0c353fc426ecfc98d42c807c74250c137d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 1b6c85cfac36259f28b5e1461b8450600726a3e2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 1c4ffeaa27e4cd223a643273c91fd935406e2433]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit bbb47002f5c98e19b1557db6b4acd37487f0f441]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 4168e282e55e7d9e2c1aeb1405c7a2801837bcf8]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 0ac3db8805525ea47d0b6a485378d2d88df95edc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit 55b1142a3642aadbd31b64b821a4660b41551950]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
+[commit f841f71deaded8a869ba228d3e011630570d59f7]
+Date: 2026-05-29
+Score: 5
+Status: proposed(include=yes,score=70)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: OpenSats Initiative
+Section: Userland.config
+Subject: 15.1: Update to RC2
+Review: releng/15.1 version updated to RC2.
+Body:
+
+Approved by:	re (implicit)
+Sponsored by:	OpenSats Initiative
+
+
+ sys/conf/newvers.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 191573ce0bfd44189ef6f34f22108e59da1cc65a]
+Date: 2026-05-23
+Score: 5
+Status: added(include=yes,score=60)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Drivers.device
+Subject: padlock: Restore padlock_rng to the amd64 build
+Review: The padlock_rng driver is now built on amd64 as well as i386, enabling hardware random number generation on 64-bit Via Nano, Nano X2, and some Zhaoxin CPUs.
+Body:
+
+Revert 88a53301e19 and d1ca01059d5 .  They removed padlock_rng from the
+amd64 build under the mistaken belief that this device was available on
+32-bit processors only.  But it's also available on the 64-bit Via Nano,
+Nano X2, and some Zhaoxin CPUs.
+
+Approved by:	re (cperciva)
+PR:		295517
+Fixes:		88a53301e19 ("padlock.4: only install on i386")
+Fixes:		d1ca01059d5 ("padlock(4)/nehemiah: move i386-only entropy")
+Reviewed by:	kib
+Differential Revision: https://reviews.freebsd.org/D57215
+
+(cherry picked from commit 14b8531c4ccb836d755ce8a4f1b384164b5d9d94)
+(cherry picked from commit 71ec93ff69f0b724a1c51e9fa772b08a10506112)
+
+
+ share/man/man4/Makefile | 5 +----
+ sys/amd64/conf/GENERIC  | 1 +
+ sys/amd64/conf/MINIMAL  | 1 +
+ sys/conf/files.i386     | 1 -
+ sys/conf/files.x86      | 1 +
+ sys/i386/conf/NOTES     | 7 -------
+ sys/modules/Makefile    | 4 +---
+ sys/x86/conf/NOTES      | 1 +
+ 8 files changed, 6 insertions(+), 15 deletions(-)
+
+[commit 54b4041a72205d85f6b02c7b3acab7a6af6b380e]
+Date: 2026-01-14
+Score: 5
+Status: proposed(include=no,score=10)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: undecided
+Subject: mtree: usr: Add missing pkg/triggers entry
+Review: This is an mtree fix for a packaging change, not a user-visible feature or update.
+Body:
+
+Approved by:	re (cperciva)
+Reviewed by:	ivy
+Fixes:		ea5e50c2985b ("packages: Add a mandoc package")
+Differential Revision:	https://reviews.freebsd.org/D54682
+
+(cherry picked from commit b8480379adcefaff0553aed1df67b249a0b194c8)
+(cherry picked from commit 7669a182c232fcb9e1e4b627df2f306e7b0d23ea)
+
+
+ etc/mtree/BSD.usr.dist | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+[commit 5efac4a9049a2a3a26e56cae19ab6acb1240d6dc]
+Date: 2026-05-22
+Score: 5
+Status: proposed(include=no,score=15)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: undecided
+Subject: amd64/vmm: Fix ppt_unmap_mmio() after commit 36b855f18925
+Review: Fix for PCI passthrough MMIO unmapping regression introduced in a prior commit.
+Body:
+
+Approved by:	re (cperciva)
+Fixes:		36b855f18925 ("amd64/vmm: Lock global PCI passthrough structures")
+MFC after:	3 days
+Reported by:	bz
+
+(cherry picked from commit b133353310920aa823b1b5f83a308d0762f3bba3)
+(cherry picked from commit deea28af8dced91b7aa50dadc28ec47ca3f1d478)
+
+
+ sys/amd64/vmm/io/ppt.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit d51d91b07f5bd1066652eb3d09fc5db07790824b]
+Date: 2026-05-22
+Score: 5
+Status: proposed(include=yes,score=65)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Userland.programs
+Subject: syslogd: fix memory leak in casper_ttymsg()
+Review: A memory leak in syslogd's casper_ttymsg() handling has been fixed, preventing unbounded memory growth on systems with high error-rate syslog traffic to /dev/console.
+Body:
+
+nvlist_take_string_array(9) takes ownership of the array and its
+strings. casper_ttymsg() freed neither, leaking memory on every
+F_CONSOLE and F_TTY message. On long-running systems with high
+error-rate syslog traffic routed to /dev/console, syslogd.casper grew
+to hundreds of MB.
+
+Use nvlist_get_string_array(9) to borrow the array instead. Update
+casper_wallmsg() similarly.
+
+Approved by:	re (cperciva)
+Approved by:    src (des)
+Closes:         https://github.com/freebsd/freebsd-src/pull/2222
+Fixes:          61a29eca550b ("syslogd: Log messages using libcasper")
+MFC after:      3 days
+MFC to:         stable/15
+PR:             295488
+Reported by:    Pat Maddox <pat@patmaddox.com>
+Reviewed by:    markj
+Tested by:      dch
+
+(cherry picked from commit c783d7181d6a71cb2453f06e40c08c892510c2f2)
+(cherry picked from commit be03b0fb2241260ec94db431cf4f2954161f227e)
+
+
+ usr.sbin/syslogd/syslogd_cap_log.c | 14 ++++++--------
+ 1 file changed, 6 insertions(+), 8 deletions(-)
+
+[commit 56fb2f6daa47022c55458b4dcd11c48fdeed8158]
+Date: 2026-04-28
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: intro.7: Reference groups.7
+Review: Man page intro.7 now references groups.7, improving discoverability of group-related documentation.
+Body:
+
+Approved by:	re (cperciva)
+PR:		264966
+MFC after:	3 days
+
+(cherry picked from commit 0f91468c040eb2129618e5ac251afc2529edb462)
+(cherry picked from commit ef42bf7126ef3926a0e3d955e118d556825a556e)
+
+
+ share/man/man7/intro.7 | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+[commit 2bf6b6559810732be35648e70200509b0562aa08]
+Date: 2026-05-22
+Score: 5
+Status: proposed(include=yes,score=100)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: OpenSats Initiative
+Section: Userland.programs
+Subject: 15.1: Update to RC1
+Review: FreeBSD version identifier updated to release candidate 1 for the 15.1 branch.
+Body:
+
+Approved by:	re (implicit)
+Sponsored by:	OpenSats Initiative
+
+
+ sys/conf/newvers.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit ac8fe88442ab59a9ce6306974279a611a61ddbc5]
+Date: 2026-05-21
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: OpenSats Initiative
+Section: Ports.packaging
+Subject: Switch from "quarterly" to "release" pkgs on DVD
+Review: The package repository used in the release DVD has been changed from quarterly to release packages, ensuring that the DVD ships with the same package versions as the official release.
+Body:
+
+Approved by:	re (implicit)
+Sponsored by:	OpenSats Initiative
+
+
+ release/pkg_repos/release-dvd.conf | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit bc7f35940777c0b815f3493f0a215a4eb89317b7]
+Date: 2026-05-16
+Score: 5
+Status: proposed(include=no,score=5)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: undecided
+Subject: mtree: Remove unused MANSUBDIRs
+Review: Removal of unused MANSUBDIRs from mtree, a cleanup with no user-visible impact.
+Body:
+
+Approved by:	re (cperciva)
+MFC after:	3 days
+Fixes:		809504f331fd ("man: Kill off MANSUBDIRs")
+Reviewed by:	ziaee
+Differential Revision:	https://reviews.freebsd.org/D57029
+
+(cherry picked from commit 1dc1b95163b9e5cf5cbd52c2b979568724746eac)
+(cherry picked from commit 6146c5962e5cea6dbcd49f5992cf4e6192a513b9)
+
+
+ ObsoleteFiles.inc      | 1 +
+ etc/mtree/BSD.usr.dist | 8 --------
+ 2 files changed, 1 insertion(+), 8 deletions(-)
+
+[commit df9f5d3ec2afce419f69a65db54a95ceecdca694]
+Date: 2026-05-14
+Score: 5
+Status: proposed(include=yes,score=15)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: libc/timespec_get*.3: expose STANDARDS section
+Review: The STANDARDS section is now exposed in the timespec_get and timespec_getres man pages, documenting their conformance to ISO C 2023.
+Body:
+
+We now have .St -isoC-2023, so the STANDARDS section can go live.
+
+Approved by:	re (cperciva)
+Fixes:		9b5d724cad10087e34165199e55f15f2df744ed5
+MFC after:	1 week
+
+(cherry picked from commit aa92784fcb8a375231058d67f7ccaeaa3e42ed33)
+(cherry picked from commit e2fb604d4ddd34207f08d1e1b17c554b6f967927)
+
+
+ lib/libc/gen/timespec_get.3    | 10 +++++-----
+ lib/libc/gen/timespec_getres.3 | 12 ++++++------
+ 2 files changed, 11 insertions(+), 11 deletions(-)
+
+[commit ae2840e094edcf8c4ca86b893e704cd7380f8a85]
+Date: 2026-05-14
+Score: 5
+Status: proposed(include=yes,score=20)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: libc/ctime.3: timegm() is in C23.
+Review: The manual page ctime.3 now documents that timegm() conforms to the C23 standard, which helps developers using this function know its standard conformance status.
+Body:
+
+Approved by:	re (cperciva)
+See also:	D53951, https://wiki.freebsd.org/C23
+MFC after:	1 week
+
+(cherry picked from commit 68251761c77b2f5ff927cf19bba7d4efa88799de)
+(cherry picked from commit e4bca1be11c5edad947d50ce86388bba73489f89)
+
+
+ lib/libc/stdtime/ctime.3 | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+[commit 78de09e1412e2e720a2391457f65717248bad4f4]
+Date: 2026-05-21
+Score: 5
+Status: proposed(include=yes,score=70)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Network.general
+Subject: ipfw: fix checksum after NAT
+Review: IPFW now correctly fixes checksums after NAT for packets using checksum offloading through epair interfaces, not only those without a receiving interface.
+Body:
+
+When checksum offloading is used, IPFW needs to fix the checksum
+after libalias has done NAT. The ipfw_nat() function does so, but
+only for mbufs without a receiving interface. However, if, for example,
+the packet was sent inside a jail that used checksum offloading over
+an epair, ipfw still needs to fix the checksum even though the mbuf
+has set a receiving interface (epair).
+This patch just removes the check whether a receiving interface is set.
+
+Approved by:	re (cperciva)
+PR:			295057
+Reviewed by:		tuexen
+Differential Revision:	https://reviews.freebsd.org/D57091
+
+(cherry picked from commit 81b47a7c604f1d563283759572fa7a1f9d4dc56f)
+(cherry picked from commit 198379d2c29fae7300b650a96199e51a66b87364)
+
+
+ sys/netpfil/ipfw/ip_fw_nat.c | 15 +++++++--------
+ 1 file changed, 7 insertions(+), 8 deletions(-)
+
+[commit 7e92fb354fc0e65347ad4df783a7db163a196134]
+Date: 2026-05-21
+Score: 5
+Status: proposed(include=no,score=1)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: The FreeBSD Foundation
+Section: undecided
+Subject: mac_do.4: Jail parameter takes 'new', not 'enable'; uid_t/gid_t are 32-bit
+Review: Minor documentation correction for a MAC policy man page; no user-visible behavior change.
+Body:
+
+Approved by:	re (cperciva)
+MFC after:	1 minute
+Sponsored by:   The FreeBSD Foundation
+
+(cherry picked from commit 21df76d01fce35b0398cf38c31928c6f47111d55)
+
+
+ share/man/man4/mac_do.4 | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+[commit 4eb969321cefdc878de8be81abd30d09732db7c9]
+Date: 2026-05-16
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Kernel.general
+Subject: linuxulator: fix SO_PEERCRED emulation after 1d24638d3e8
+Review: Fix for SO_PEERCRED emulation in Linux binary compatibility, preventing a potential crash or incorrect behavior when sopt->sopt_td is null.
+Body:
+
+For Linux binaries, sopt->sopt_td may be null.  And there's also no
+need to check it, since struct l_ucred has the same layout on 32-bit
+systems as on 64-bit ones.
+
+Approved by:	re (cperciva)
+PR:		295333
+Reported by:	Miguel Gomes <miguel.dias.gomes@protonmail.com>
+Fixes:		1d24638d3e8 ("Fix LOCAL_PEERCRED in 32-bit compat mode")
+Reviewed by:	emaste
+Differential Revision: https://reviews.freebsd.org/D57032
+
+(cherry picked from commit 4cee16d471d47f4673e4d2c66f7a96d4e6d86ee9)
+(cherry picked from commit 57fb48f8e2fca5f069e9bc3cf080608f602919a9)
+
+
+ sys/kern/uipc_usrreq.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+[commit 8562c67273436b04ec966e9d8a5a872ea507af2d]
+Date: 2026-02-20
+Score: 5
+Status: proposed(include=yes,score=70)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: Netflix, Inc.
+Section: Network.general
+Subject: tcp: improve validation of received TCP over UDP packets
+Review: TCP validation for packets received over UDP has been improved, enhancing security and robustness for TCP-over-UDP tunneling scenarios.
+Body:
+
+Approved by:	re (cperciva)
+Reviewed by:		glebius, pouria
+Sponsored by:		Netflix, Inc.
+Differential Revision:	https://reviews.freebsd.org/D55410
+
+(cherry picked from commit e1886559ea477add82a0a86cddf728f6778f1603)
+(cherry picked from commit ede0f15e03e0a172493cd20d1dd2d88b1711156f)
+
+
+ sys/netinet/tcp_subr.c | 22 +++++++++++++++++-----
+ 1 file changed, 17 insertions(+), 5 deletions(-)
+
+[commit fee67650e0f5d2e1fe2f14ab0d8a1b96c7a7cc61]
+Date: 2026-02-27
+Score: 5
+Status: proposed(include=no,score=5)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: undecided
+Subject: sctp: fix NOINET build
+Review: Internal build fix for SCTP when compiled without INET support. No user-visible impact.
+Body:
+
+Approved by:	re (cperciva)
+Reported by:		ngie
+Fixes:			454212b9718b ("sctp: fix so_proto when peeling off a socket")
+
+(cherry picked from commit 6bd97e9e01ff159eef49b2521fdbe67d5db10d95)
+(cherry picked from commit 9c440e552c4cc252fe150b5f0edef9b8cd75a72f)
+
+
+ sys/netinet/sctp_syscalls.c | 21 ++++++++++++++++++++-
+ 1 file changed, 20 insertions(+), 1 deletion(-)
+
+[commit 19114e85b14a5abfdbd9824e4fee250abe13df0f]
+Date: 2026-05-17
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: The FreeBSD Foundation
+Section: Drivers.device
+Subject: fwget: update realtek and intel pci entries
+Review: Firmware download tool (fwget) PCI entries for Realtek and Intel network devices updated. New IDs added for Realtek. Intel list simplified, dropping redundant specific entries covered by wildcards, while retaining a few for older driver versions.
+Body:
+
+For Realtek we only add new entries.
+
+For Intel the old way of extracting IDs from the driver no longer
+works.  The new list is shortened as we drop more specific entries
+which were already covered by wildcard entries.  The new lists are
+also sorted within the groups.
+There are 4 entries the new driver no longer carries but are still
+present in older versions, so we keep them manually.
+
+Approved by:	re (cperciva)
+Sponsored by:	The FreeBSD Foundation
+
+(cherry picked from commit ca67cfa5237f7ac537ca8611054b5af2098e2d86)
+(cherry picked from commit 3f702b299aa1d7625ee0e520c827e73e355775c9)
+
+
+ usr.sbin/fwget/pci/pci_network_intel   | 246 ++++++++++-----------------------
+ usr.sbin/fwget/pci/pci_network_realtek |   5 +-
+ 2 files changed, 75 insertions(+), 176 deletions(-)
+
+[commit 7ea10e9b3875280f8ed5a579ce9a42e2ce9d833e]
+Date: 2026-05-15
+Score: 5
+Status: proposed(include=yes,score=70)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: The FreeBSD Foundation
+Section: Docs.manpages
+Subject: man: iwlwifi/rtw88/rtw89: update man pages for Linux v7.0 based updates
+Review: Man pages for iwlwifi(4), rtw88(4), and rtw89(4) have been updated to reflect support for Linux v7.0 based drivers, including updated chipset lists and documentation of known issues.
+Body:
+
+For all:
+- harmonize Copyright/license section according to style.9 and used
+  SPDX only.
+- mention that the current generation of the driver is based on
+  Linux version 7.0.
+- make linuxkpi.4 and linuxkpi_wlan.4 .Xr as the man pages do exist
+  these days.
+
+iwlwifi: update the card/chipset names supported (while we still can)
+iwlwififw: leave a comment only that we can no longer update the
+  man page and it will be removed in the future.
+rtw88: update supported chipsets and add note to BUGS sections
+rtw89: update supported chipsets and add note to BUGS sections
+
+Approved by:	re (cperciva)
+Sponsored by:	The FreeBSD Foundation
+Reviewed by:	ziaee
+Differential Revision: https://reviews.freebsd.org/D57019
+
+(cherry picked from commit 0a2f7683bf0cbd57d7cdba0713a3e30b24cbf9b4)
+(cherry picked from commit 6adb27eec8a6ba07aedb3c0fd9a52116f37d3e07)
+
+
+ share/man/man4/iwlwifi.4   | 154 +++++++++++++++++++++------------------------
+ share/man/man4/iwlwififw.4 |  28 ++-------
+ share/man/man4/rtw88.4     |  27 +++++---
+ share/man/man4/rtw89.4     |  26 +++++---
+ 4 files changed, 116 insertions(+), 119 deletions(-)
+
+[commit d6bbb597049cafced800585b72a155473b93331c]
+Date: 2026-05-11
+Score: 5
+Status: proposed(include=no,score=25)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: undecided
+Subject: ptrace: clear TDP_USERWR after transparent attach only on attach
+Review: A bug fix in ptrace(2) where the TDP_USERWR flag is now cleared appropriately during transparent attach, resolving a potential issue with process tracing.
+Body:
+
+Approved by:	re (cperciva)
+
+(cherry picked from commit cb31a266167c8bde3488fbdd6bf24c38b6f59977)
+(cherry picked from commit bce6e0e903288aa128bdd8ec45005d1416c4c764)
+
+
+ sys/kern/sys_process.c | 19 +++++++++----------
+ 1 file changed, 9 insertions(+), 10 deletions(-)
+
+[commit 8759a34fe16a2271b575d04396394b92cb480655]
+Date: 2026-05-20
+Score: 5
+Status: proposed(include=no,score=1)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: undecided
+Subject: 15.1: Bump version to BETA3-p1
+Review: Internal version bump during release cycle; no user-visible change.
+Body:
+
+Since we had a conveniently timed batch of security issues, I'm going
+to use this opportunity to test pkgbase update tooling.
+
+Approved by:	re (cperciva)
+
+
+ sys/conf/newvers.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 5a135f8b45a1dc5ce8803c8a2a56e13dedc4bded]
+Date: 2026-05-12
+Score: 5
+Status: proposed(include=yes,score=90)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Kernel.general
+Subject: cap_net: do not allow new limits to drop keys from the old ones
+Review: A security vulnerability in cap_net service allows a process with a capability to silently extend its network access limits. The fix ensures that new capability limits must preserve any family, hosts, or sockaddr restrictions specified in the old limits.
+Body:
+
+If the old limit had family/hosts/sockaddr set, the new limit must
+have them too. Before, a missing key in the new limit was treated as
+"allow any", which let a caller silently extend their limits.
+
+Approved by:	re
+Approved by:	so
+Security:	FreeBSD-SA-26:24.cap_net
+Security:	CVE-2026-45254
+Reported by:	Joshua Rogers of AISLE Research Team
+Reviewed by:	markj
+MFC after:	1 day
+Differential Revision:	https://reviews.freebsd.org/D56991
+
+(cherry picked from commit d705a519525f2acae3c1efba11436ec6ee8aea0a)
+(cherry picked from commit 7eb3fd691d64dd42f9d32e04cb9b5811fd7c8e55)
+
+
+ lib/libcasper/services/cap_net/cap_net.c | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
+
+[commit ccfb260ac15c5fba7ee62702a5048a2c83bcb39d]
+Date: 2026-05-12
+Score: 5
+Status: proposed(include=yes,score=95)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Userland.programs
+Subject: bsdconfig: Make sure that SSID names are properly escaped
+Review: SSID names are now properly escaped in bsdconfig to prevent shell injection vulnerabilities. Untrusted network names discovered by scanning are sanitized before evaluation, protecting against attacks involving single quotes or command substitution.
+Body:
+
+The f_menu_wpa_scan_results() function returns a list of networks
+discovered by a scan.  The untrusted network names are evaluated in
+f_dialog_menu_wireless_edit.  The quoting applied in
+f_menu_wpa_scan_results() protects against evaluation of something like
+"$(whoami)" but one can add single quotes to defeat that.
+
+Pass the SSID names through f_shell_escape to work around this.  Escape
+single quotes in f_dialog_wireless_edit() and f_menu_wireless_configs()
+too for consistency.
+
+I note that this module doesn't seem to actually work, see e.g.,
+bugzilla PR 229883.
+
+Approved by:	re
+Approved by:	so
+Security:	FreeBSD-SA-26:23.bsdinstall
+Security:	CVE-2026-45255
+Reported by:	Austin Ralls
+Reviewed by:	dteske, des
+Differential Revision:	https://reviews.freebsd.org/D56974
+
+
+ usr.sbin/bsdconfig/share/media/wlan.subr | 3 +++
+ 1 file changed, 3 insertions(+)
+
+[commit 7a2a3a32e0d0e94ddeddb2cce47fea940209beaa]
+Date: 2026-05-12
+Score: 5
+Status: proposed(include=yes,score=75)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Userland.programs
+Subject: bsdinstall: Avoid invoking eval on the wlan SSID list
+Review: bsdinstall's wlanconfig script now handles SSID names containing shell metacharacters safely, preventing command injection during network selection.
+Body:
+
+The wlanconfig utility is not careful about handling untrusted network
+names, which can contain shell metacharacters.  Factor network selection
+into a subroutine and use the `set -- "$@"` trick to build up a list of
+positional parameters for bsddialog without evaluating them.
+
+Approved by:	re
+Approved by:	so
+Security:	FreeBSD-SA-26:23.bsdinstall
+Security:	CVE-2026-45255
+Reported by:	Austin Ralls
+Reviewed by:	dteske, des, asiciliano
+Differential Revision:	https://reviews.freebsd.org/D56973
+
+
+ usr.sbin/bsdinstall/scripts/wlanconfig | 47 ++++++++++++++++++++++------------
+ 1 file changed, 31 insertions(+), 16 deletions(-)
+
+[commit 08115d3004e1249652fc786976e40edcde25348a]
+Date: 2026-05-18
+Score: 5
+Status: proposed(include=yes,score=90)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Userland.libraries
+Subject: libcasper: switch from select(2) to poll(2)
+Review: libcasper has been updated to use poll(2) instead of select(2), fixing a buffer overflow when the socket file descriptor is 1024 or greater.
+Body:
+
+The previous implementation used FD_SET() on a stack-allocated fd_set,
+which is an out-of-bounds write whenever the socket fd is >= FD_SETSIZE
+(1024).
+
+poll(2) takes an array indexed by slot rather than by fd value, so it
+has no FD_SETSIZE limit.
+
+Approved by:	re
+Approved by:	so
+Security:	FreeBSD-SA-26:22.libcasper
+Security:	CVE-2026-39461
+Reported by:    Joshua Rogers
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D56695
+
+
+ lib/libcasper/libcasper/libcasper_impl.h    |   6 +-
+ lib/libcasper/libcasper/libcasper_service.c |  57 +--------
+ lib/libcasper/libcasper/service.c           | 187 ++++++++++++++++------------
+ lib/libcasper/tests/Makefile                |  11 +-
+ lib/libcasper/tests/cap_main_test.c         | 142 +++++++++++++++++++++
+ 5 files changed, 262 insertions(+), 141 deletions(-)
+
+[commit 7291cbf77d6c6a8bf535940332ee8243c529c501]
+Date: 2026-05-12
+Score: 5
+Status: proposed(include=yes,score=90)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Kernel.general
+Subject: ptrace: Fix validation of PT_SC_REMOTE arguments
+Review: Fix off-by-one and argument validation errors in PT_SC_REMOTE ptrace request. This addresses a security vulnerability (FreeBSD-SA-26:21.ptrace) that could lead to incorrect system call number validation.
+Body:
+
+- Fix an off-by-one in the system call number check.  A value of
+  SYS_MAXSYSCALL was permitted.
+- Validate the system call number after we've dealt with
+  syscall(2)/__syscall(2), since they pass the syscall number as an
+  argument.
+- When the syscall number is for syscall(2) or __syscall(2), we must
+  make sure that nargs > 0 to avoid an underflow when shifting arguments
+  down.
+
+Add regression tests.
+
+Approved by:	re
+Approved by:	so
+Security:	FreeBSD-SA-26:21.ptrace
+Security:	CVE-2026-45253
+Fixes:		140ceb5d956b ("ptrace(2): add PT_SC_REMOTE remote syscall request")
+Reported by:	Yuxiang Yang, Yizhou Zhao, Ao Wang, Xuewei Feng, Qi Li, and Ke Xu from Tsinghua University using GLM-5.1 from Z.ai
+Reviewed by:	kib, emaste
+Differential Revision:	https://reviews.freebsd.org/D56978
+
+
+ sys/kern/kern_sig.c          | 17 +++++----
+ tests/sys/kern/ptrace_test.c | 85 ++++++++++++++++++++++++++++++++++----------
+ 2 files changed, 76 insertions(+), 26 deletions(-)
+
+[commit 290fd77a0a1454ce051ebb290f8d2abd34d3a736]
+Date: 2026-05-04
+Score: 5
+Status: proposed(include=yes,score=100)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: ConnectWise
+Section: Storage.general
+Subject: fusefs: Handle buggy servers' LISTXATTR response
+Review: Fusefs now returns an error for buggy servers that return non-NUL-terminated LISTXATTR responses, eliminating a memory safety vulnerability.
+Body:
+
+The fuse protocol requires server to respond to LISTXATTR with a
+NUL-terminated string.  If they don't, report an error rather than
+attempt to scan through uninitialized memory for a NUL.
+
+Approved by:	re
+Approved by:	so
+Security:	FreeBSD-SA-26:20.fusefs
+Security:	CVE-2026-45252
+admbugs:	1039
+Reported by:	Joshua Rogers
+Sponsored by:	ConnectWise
+
+
+ sys/fs/fuse/fuse_ipc.h       |  1 +
+ sys/fs/fuse/fuse_vnops.c     | 18 +++++++----
+ tests/sys/fs/fusefs/xattr.cc | 73 ++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 86 insertions(+), 6 deletions(-)
+
+[commit 43cbaf0c9104186c2b708209e8204197762ab112]
+Date: 2026-05-19
+Score: 5
+Status: proposed(include=yes,score=85)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Network.general
+Subject: netmap: Drain selinfo sleepers in nm_os_selinfo_uninit()
+Review: A potential issue in netmap's selector notification handling is fixed, preventing resource leaks or use-after-free conditions when netmap interfaces are destroyed.
+Body:
+
+Approved by:	re
+Approved by:	so
+Security:	FreeBSD-SA-26:19.file
+Security:	CVE-2026-45251
+
+
+ sys/dev/netmap/netmap_freebsd.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+[commit 87aaf37666434b88d66e15a244d43fee5f9eaee3]
+Date: 2026-05-10
+Score: 5
+Status: proposed(include=yes,score=100)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Kernel.general
+Subject: jaildesc: Make sure to drain selinfo sleepers in jaildesc_close()
+Review: Security fix for jaildesc(2): a use-after-free vulnerability in jail descriptor select notification is fixed, preventing privilege escalation.
+Body:
+
+Otherwise they may be left on a freed selinfo list after the
+corresponding jaildesc struct is freed.  This can be exploited to
+elevate privileges.
+
+Remove the JDF_SELECTED micro-optimization.  doselwakeup() is a no-op if
+no one ever called selrecord() on the file description, so I see no
+reason to complicate the code to avoid the call.
+
+Add some regression tests.
+
+Approved by:	re
+Approved by:	so
+Security:	FreeBSD-SA-26:19.file
+Security:	CVE-2026-45251
+Fixes:		66d8ffe3046d ("jaildesc: add kevent support")
+Reviewed by:	kib, jamie
+Differential Revision:	https://reviews.freebsd.org/D56945
+
+
+ sys/kern/kern_jaildesc.c  |  10 +--
+ sys/sys/jaildesc.h        |   1 -
+ tests/sys/kern/Makefile   |   2 +
+ tests/sys/kern/jaildesc.c | 201 ++++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 206 insertions(+), 8 deletions(-)
+
+[commit 96d1f78670d42984dd136c163e2f3cebc8194103]
+Date: 2026-05-08
+Score: 5
+Status: proposed(include=yes,score=100)
+CollectedAt: 2026-06-03T13:28:18 UTC
+Sponsor: 
+Section: Kernel.general
+Subject: procdesc: Make sure to drain selinfo sleepers in procdesc_free()
+Review: A security vulnerability in process descriptors (procdesc) has been fixed where selinfo sleepers were not properly drained in procdesc_free(), potentially allowing privilege escalation.
+Body:
+
+Otherwise they are left on a freed list after procdesc_free() is called.
+This can be exploited to elevate privileges.
+
+Remove the PDF_SELECTED micro-optimization.  doselwakeup() is a no-op if
+no one ever called selrecord() on the file description, so I see no
+reason to complicate the code to avoid the call.
+
+Add some regression tests.
+
+Approved by:	re
+Approved by:	so
+Security:	FreeBSD-SA-26:19.file
+Security:	CVE-2026-45251
+Reported by:	75Acol, Lexpl0it, fcgboy, and robinzeng2015
+Reviewed by:	kib, oshogbo
+Fixes:		cfb5f7686588 ("Add experimental support for process descriptors")
+Differential Revision:	https://reviews.freebsd.org/D56887
+
+
+ sys/kern/sys_procdesc.c   | 10 ++----
+ sys/sys/procdesc.h        |  1 -
+ tests/sys/kern/Makefile   |  1 +
+ tests/sys/kern/procdesc.c | 86 ++++++++++++++++++++++++++++++++++++++++++++++-
+ 4 files changed, 89 insertions(+), 9 deletions(-)
+

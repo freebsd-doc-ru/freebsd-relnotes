@@ -4,6 +4,8 @@ use warnings;
 use File::Find;
 
 my $base = "../freebsd-src/sys/dev";
+my @allbases = split /\n/, "sys/dev"
+;
 my $man4dir = "../freebsd-src/share/man/man4";
 
 #my $hardware_file = "../freebsd-relnotes/releases/14.4R/hardware.adoc";
@@ -82,119 +84,122 @@ print join("\t",
     ""
 ), "\n";
 
+foreach $base (@allbases) {
+    $base = "../freebsd-src/".$base;
+    opendir(my $dh, $base) or die "Cannot open $base: $!";
+    my @dirs = sort grep { -d "$base/$_" && !/^\./ } readdir($dh);
+    closedir($dh);
+    print STDERR "Base %base\n";
+    print STDERR join("\n",@dirs);
+    foreach my $dir (@dirs) {
 
-opendir(my $dh, $base) or die "Cannot open $base: $!";
-my @dirs = sort grep { -d "$base/$_" && !/^\./ } readdir($dh);
-closedir($dh);
-print STDERR join("\n",@dirs);
-foreach my $dir (@dirs) {
+        my $path = "$base/$dir";
 
-    my $path = "$base/$dir";
+        my $has_driver_module = 0;
+        my $has_probe_attach  = 0;
+        my $has_id_table      = 0;
+        my %bus_types;
 
-    my $has_driver_module = 0;
-    my $has_probe_attach  = 0;
-    my $has_id_table      = 0;
-    my %bus_types;
+        find(
+            {
+                wanted => sub {
+                    return unless -f $_;
+                    return unless /\.(c|h)$/;
 
-    find(
-        {
-            wanted => sub {
-                return unless -f $_;
-                return unless /\.(c|h)$/;
+                    open(my $fh, "<", $_) or return;
+                    while (my $line = <$fh>) {
 
-                open(my $fh, "<", $_) or return;
-                while (my $line = <$fh>) {
+                        $has_driver_module = 1 if $line =~ /\bDRIVER_MODULE\s*\(/;
 
-                    $has_driver_module = 1 if $line =~ /\bDRIVER_MODULE\s*\(/;
+                        if ($line =~ /\bprobe\s*\(/) {
+                            $has_probe_attach = 1;
+                        }
+                        if ($line =~ /\battach\s*\(/) {
+                            $has_probe_attach = 1;
+                        }
 
-                    if ($line =~ /\bprobe\s*\(/) {
-                        $has_probe_attach = 1;
+                        # PCI ID table
+                        if ($line =~ /\bPCI_DEVICE\b/ ||
+                            $line =~ /pci_device_id/ ||
+                            $line =~ /struct\s+pci_device_id/) {
+                            $has_id_table = 1;
+                            $bus_types{pci} = 1;
+                        }
+
+                        # USB ID table
+                        if ($line =~ /\bUSB_VPI\b/ ||
+                            $line =~ /usb_device_id/ ||
+                            $line =~ /struct\s+usb_device_id/) {
+                            $has_id_table = 1;
+                            $bus_types{usb} = 1;
+                        }
+
+                        # ACPI
+                        if ($line =~ /acpi_/i) {
+                            $bus_types{acpi} = 1;
+                        }
+
+                        # ISA
+                        if ($line =~ /\bisa_/i) {
+                            $bus_types{isa} = 1;
+                        }
+
+                        # I2C / IIC
+                        if ($line =~ /\biic_/i) {
+                            $bus_types{iic} = 1;
+                        }
+
+                        # OFW / FDT
+                        if ($line =~ /ofw_|fdt_/i) {
+                            $bus_types{ofw} = 1;
+                        }
+
+                        # MMC
+                        if ($line =~ /\bmmc_/i) {
+                            $bus_types{mmc} = 1;
+                        }
+
+                        # SPI
+                        if ($line =~ /\bspi_|spibus_/i) {
+                            $bus_types{spi} = 1;
+                        }
+
+                        # PCI/USB driver framework style (как ты упоминал)
+                        if ($line =~ /\bpci_driver\b/) {
+                            $bus_types{pci} = 1;
+                        }
+                        if ($line =~ /\busb_driver\b/) {
+                            $bus_types{usb} = 1;
+                        }
                     }
-                    if ($line =~ /\battach\s*\(/) {
-                        $has_probe_attach = 1;
-                    }
-
-                    # PCI ID table
-                    if ($line =~ /\bPCI_DEVICE\b/ ||
-                        $line =~ /pci_device_id/ ||
-                        $line =~ /struct\s+pci_device_id/) {
-                        $has_id_table = 1;
-                        $bus_types{pci} = 1;
-                    }
-
-                    # USB ID table
-                    if ($line =~ /\bUSB_VPI\b/ ||
-                        $line =~ /usb_device_id/ ||
-                        $line =~ /struct\s+usb_device_id/) {
-                        $has_id_table = 1;
-                        $bus_types{usb} = 1;
-                    }
-
-                    # ACPI
-                    if ($line =~ /acpi_/i) {
-                        $bus_types{acpi} = 1;
-                    }
-
-                    # ISA
-                    if ($line =~ /\bisa_/i) {
-                        $bus_types{isa} = 1;
-                    }
-
-                    # I2C / IIC
-                    if ($line =~ /\biic_/i) {
-                        $bus_types{iic} = 1;
-                    }
-
-                    # OFW / FDT
-                    if ($line =~ /ofw_|fdt_/i) {
-                        $bus_types{ofw} = 1;
-                    }
-
-                    # MMC
-                    if ($line =~ /\bmmc_/i) {
-                        $bus_types{mmc} = 1;
-                    }
-
-                    # SPI
-                    if ($line =~ /\bspi_|spibus_/i) {
-                        $bus_types{spi} = 1;
-                    }
-
-                    # PCI/USB driver framework style (как ты упоминал)
-                    if ($line =~ /\bpci_driver\b/) {
-                        $bus_types{pci} = 1;
-                    }
-                    if ($line =~ /\busb_driver\b/) {
-                        $bus_types{usb} = 1;
-                    }
-                }
-                close($fh);
+                    close($fh);
+                },
+                no_chdir => 1
             },
-            no_chdir => 1
-        },
-        $path
-    );
+            $path
+        );
 
-    # man4 check
-    my $has_man4 = $man4{$dir} ? 1 : 0;
-    my $has_hw_section = $man4_hardware_section{$dir} ? 1 : 0;
-    # output it if at least 1 criteria from 1–4 is true
-    if ($has_driver_module || $has_probe_attach || $has_id_table || $has_man4) {
+        # man4 check
+        my $has_man4 = $man4{$dir} ? 1 : 0;
+        my $has_hw_section = $man4_hardware_section{$dir} ? 1 : 0;
+        # output it if at least 1 criteria from 1–4 is true
+        if ($has_driver_module || $has_probe_attach || $has_id_table || $has_man4) {
 
-        my $bus_string = join(",", sort keys %bus_types);
-        my $in_hardware = $hardware{$dir} ? 1 : 0;
-        print join("\t",
-            substr($dir." "x20,0,20),
-            $has_driver_module ? "yes" : " - ",
-            $has_probe_attach  ? "yes"."   " : " - "."   ",
-            $has_id_table      ? "yes" : " - ",
-            $has_man4          ? "yes"." " : " - "." ",
-            $has_hw_section    ? "yes"."    " : " - "."    ",
-            $in_hardware       ? "yes"."    " : " - "."    ",
-            $bus_string
-        ), "\n";
-        delete $hardware{$dir};
-        delete $man4{$dir};
+            my $bus_string = join(",", sort keys %bus_types);
+            my $in_hardware = $hardware{$dir} ? 1 : 0;
+            print join("\t",
+                substr($dir." "x20,0,20),
+                $has_driver_module ? "yes" : " - ",
+                $has_probe_attach  ? "yes"."   " : " - "."   ",
+                $has_id_table      ? "yes" : " - ",
+                $has_man4          ? "yes"." " : " - "." ",
+                $has_hw_section    ? "yes"."    " : " - "."    ",
+                $in_hardware       ? "yes"."    " : " - "."    ",
+                $bus_string
+            ), "\n";
+            delete $hardware{$dir};
+            delete $man4{$dir};
+        }
     }
 }
 

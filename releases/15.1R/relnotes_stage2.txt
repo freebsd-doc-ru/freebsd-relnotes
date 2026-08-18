@@ -1165,3 +1165,80 @@ MFV: less v692.
  usr.bin/less/defines.h       |  116 ++--
  64 files changed, 2852 insertions(+), 1451 deletions(-)
 
+[commit 0ac3db8805525ea47d0b6a485378d2d88df95edc]
+Date: 2026-04-28
+Score: 5
+Status: added(include=yes,score=15)
+CollectedAt: 2026-06-03T13:16:30 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: groups.7: New manual page of standard group names
+Review: A new manual page groups(7) has been added describing standard group names.
+Body:
+
+Import groups(7) from NetBSD, with tweaks for our system. The group
+list is sorted by GID. All the group names from /usr/src/etc/group
+are described, except "uucp". The FILES section was added on top of
+the original manual page.
+
+Approved by:	re (cperciva)
+PR:			264966
+Relnotes:		yes
+MFC after:		3 days
+Obtained from:		NetBSD
+Reviewed by:		des, ziaee
+Differential Revision:	https://reviews.freebsd.org/D54114
+
+(cherry picked from commit e09104dfb76a36b65a64bd315bd1520941c4beed)
+(cherry picked from commit 2c4190609c78c532e0a667eba1ffb4b5c98ea532)
+
+
+ share/man/man5/group.5     |   3 +-
+ share/man/man5/passwd.5    |   3 +-
+ share/man/man7/Makefile    |   2 +
+ share/man/man7/groups.7    | 345 +++++++++++++++++++++++++++++++++++++++++++++
+ usr.bin/id/groups.1        |   5 +-
+ usr.bin/id/id.1            |   5 +-
+ usr.bin/newgrp/newgrp.1    |   5 +-
+ usr.sbin/adduser/adduser.8 |   3 +-
+ usr.sbin/chkgrp/chkgrp.8   |   5 +-
+ usr.sbin/chown/chgrp.1     |   3 +-
+ usr.sbin/chown/chown.8     |   3 +-
+ usr.sbin/pw/pw.8           |   3 +-
+ 12 files changed, 371 insertions(+), 14 deletions(-)
+
+[commit b9ee42d7712b809eedf2a70fef9e59139e51ef8c]
+Date: 2026-05-16
+Score: 5
+Status: added(include=yes,score=30)
+CollectedAt: 2026-06-03T13:16:30 UTC
+Sponsor: Amazon
+Section: Ports.packaging
+Subject: EC2: Don't enable firstboot_pkgs in small flavour
+Review: EC2 "small" images now have `firstboot_pkgs_enable="NO"` by default. Users who want automatic package installation must explicitly enable it via [.filename]#rc.conf#.
+Body:
+
+The EC2 "base" flavour installs the devel/py-awscli package at boot
+time by default; we don't do this in the "small" flavour, so the
+default behaviour was to update the FreeBSD-ports repository and
+then do nothing with it.
+
+Turn off firstboot_pkgs by default; if someone is using the "small"
+flavour of AMIs and wants to install packages at instance launch
+time, they simply need to add 'firstboot_pkgs_enable="YES"' to
+/etc/rc.conf (which they must already be editing via user-data, in
+order to provide the list of packages they want installed).
+
+Approved by:	re (cperciva)
+Sponsored by:	Amazon
+MFC after:	3 days
+MFC to:		stable/15
+Relnotes:	EC2 "small" images now have firstboot_pkgs_enable="NO".
+
+(cherry picked from commit 61df4be487cfbfd27b0959e1eb66ef0d8f84562f)
+(cherry picked from commit a9e71a2e1ade6f0ce4a59f3a1a2153e1c0eb29b0)
+
+
+ release/tools/ec2-small.conf | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
