@@ -27984,3 +27984,363 @@ Approved by:	re (cperciva)
  release/scripts/pkg-stage.sh       | 25 +++++++------------------
  2 files changed, 7 insertions(+), 25 deletions(-)
 
+[commit fc00e7a18cdec54cc29c522c5cb446c89ea68267]
+[commit b52d95bf14945108be077fd621c194d24c1f3118]
+[commit 10075baae2c1151945bc13a478560e4d4a1aacf1]
+[commit e71ad3f7a6b1260ee5db3108e03b0e21fff40abf]
+[commit 823889aaafa37ba63a6fb2c53b0dafe1373e221b]
+[commit ca42bd490891011556a9507b10ad205f6e7e5f30]
+[commit 432c95c57bb5edba6593f48a17092577e293bc05]
+[commit cc35db95eb9ed1c62bb2eb7251e4c2ab67907d62]
+[commit 11a0cf32a23259caff9f6a2c1489947170dfd8b2]
+[commit c839c1566147cc2d255aab1f7a1f8ed3f86299a8]
+[commit 5e144321152815f476978b70c6749ff216579e29]
+[commit a1479a37fcf8d66fa0de5076449f64d6297d1e1f]
+[commit 3e05b2366af1fa56907390d540a97e29f0f191dd]
+[commit 69b3aa35469a2df029a2faaa8c4022af72d8f418]
+[commit 3a1396af294dc0f97655f9a8726c845ec04283a1]
+[commit 9f9f0d3d9e1c9c9416b12625d357dd6f80d5f9be]
+[commit fc1ab22fb3b86093be00c010a57feb1fefceb0bb]
+[commit 5f10e369a13af824de5244c12f4e7216a9d0750e]
+[commit b734006cafa1915922de2a6a3a0aee9969d28d04]
+[commit f956c425d4c6b93efefea357f34cd28a7d749db1]
+[commit b0b6364eadf498c985f8312195e37eed5780347c]
+[commit 9f80b89c5a4ee66c9428f0d240899d77f442079f]
+[commit 4781aeb5b9cb564a53fee8128f6827402deaf9df]
+[commit 612a0fd7cddec87a4bb83a0327026b9e6b04d2b7]
+[commit bdea6e971844ac2e0a3dfab47fc6e678a11e5d19]
+[commit 90f53c300ac9ddce9a10f9f67e1c22660148fce6]
+[commit 819af80de8e8854f5767c20d03cb7362624b0085]
+[commit aad298c8f9cabe53379bea59ce075f2eb0c93898]
+[commit 266022bf0b6092a0d052c3faa10130755be21ad5]
+[commit 12b941265ebb01bc6f4683d84551a16580bb5cc6]
+[commit a90616ce34c4f19903ce04160b0d11ce25721bd5]
+[commit 1ae396e2adaebb4fc71d29628789804ac9b0be44]
+[commit 222648172b80e27e06ea83d60f50f9d9ed75dfbc]
+[commit a878e7b4985f0c178b9d49a6cd80c2eade9b77e3]
+[commit d58218761eeb4e7a2a375b7d2ed80c31a311f3fd]
+[commit f81c82a9db12685f98421bfe9c368ff9a214c844]
+[commit 33c8e68d3237af2f0540ff39eed8439a67b3f90a]
+[commit fd420ecc7e068ca22c71f1b7aafad3b0c8e84525]
+[commit ca66129a2c8ace5af1b76b24f48e27ba5c9eac8b]
+[commit ec6bfa889b839645961113344186b85ed8477f48]
+[commit a8e709c667693508a31e2e3a9857a1b8f0587c3e]
+[commit 47f4f76074a48cdaa743f05929725c84f71d502b]
+[commit fc1ab22fb3b86093be00c010a57feb1fefceb0bb]
+[commit ec6797818bf2f35c95422a4be398ca903ce27657]
+[commit 0c6a058ca265b334c88473dd2685e105d42db95f]
+[commit 2e97bf202703413b4d6e5bce080f9d511886fc97]
+[commit 2e6734ed19598028da58b2f47fbb2dd5eaf7f485]
+[commit 4a5ad04af821659fe3f4112815f363c2cf3a0e81]
+[commit dbb1534461bfb325f1b9dbfa1edf9befa25dbd8a]
+[commit 179029b4d82e709f348a6bec2d8e7221664358d9]
+[commit bdeece20378ef7976fbd61b1a4f1cfaec0ccbf69]
+[commit 502fd5427dc8c9225f5b4f543bd56964816b6510]
+[commit df67e880e278d6b6d35c254d92bba71d77e8ca8b]
+[commit 3e455586033833d25699dfa61ab863e11ca3c110]
+[commit 6a0e4d513abc6c4143815e7509ffcc46862a4c23]
+[commit e2b73bf961910f7bf21e6599cb78b053c8077789]
+[commit 9d99cbbb284fb88c44b05241e73790f429d086dc]
+[commit de9d7a2ab8f59f07b5fa1e81295d1c431bb2f548]
+[commit a2679283778cd547b9aba1161254550e26616851]
+[commit f3a50f7cee24e0835f25fbc66201a1ba1c2b4b8d]
+[commit d61b19b6907acbdc68202b2e62f740b42a0455e0]
+[commit f8ad4df7241d1db626b8ca425bd85be9ca109dc6]
+[commit c81fa81aab339d6a2d11019e0768bd463131f87a]
+[commit 944bd28f088282407e2c63ee023f150bb6f0fc1c]
+[commit 84f7ee30767b874eb24f5e29f2947a9331d645fc]
+[commit 51fcd5ddf016835619c94f4dbdc5b29150fc2e48]
+[commit 7d9c1d3895b307085131f922d7e46a4812f04675]
+[commit f62ab5c293f64cf492c2a20ee99ded008e9a1457]
+[commit 302545bcbc1c81076123cb69a12a5514661972df]
+[commit 81df9a1045c3e1778c551fcd62125e0b5d2b76f2]
+[commit f7145eff8172cbcaffb36c1d13aae0e438759a7c]
+[commit bc73c7f6191211b254f8cc87aab71d5ff853e24d]
+[commit fca6c9e8f7474132f30bf836f1c2b8d289bdc14d]
+[commit 487eeda542a774ba9237d8bda58c9fcb99b2afba]
+[commit 30eb33424e74f467346319876e20a83ff71e00cd]
+[commit 7be895e5003534e51efe37cc63a359219099bf4a]
+[commit ee828a44e8d16e7bf74c0761bd088024821f1eb6]
+[commit 33030906cdd373b92e4a263b2ce0d5d9fe02fade]
+[commit 78e9708c98aa7b1362cdb909f3530592c97ee904]
+[commit eb55ca209aa21bc2b274f129bef954d0931ab23c]
+[commit 2dddbb67c6a15317df549538be286e908d11de98]
+[commit e27255a7f9e45dab9935b916d759498a093e36e5]
+[commit 26b162dd829885701e75b7196ef380d998faeef0]
+[commit f5e1bc1ca1b1b8d6c096ac65c64f69586d501200]
+[commit d51d91780b61180fbeae406a29e9a02ec74d56df]
+[commit 3bc0114674a590bcec90f74b20115085ff914c8d]
+[commit 8de7c76ee02fcc7a405d47cc4b816c27de0dc2e4]
+[commit 27ac9d336f715b4ce91bf447f73d5c3621d099ce]
+[commit e324486b9b562f9a1d4a214492766d83299dbb0d]
+[commit 7320170ff210cc1da1f36e73130de7e2e62a867b]
+[commit 8a0d626219f1863c79808bdda2175cc136250b07]
+[commit 09db15067248b297bf2d419fa77a3b2e39184a64]
+[commit 1ac7c32807e5da50b8c61c3ffe93f668eac4ba5f]
+[commit e32e126c136de28783ac732fe3cd8a5224559ac5]
+[commit c5e1dde24dacdeb9d47684d981e17178fd7e8acf]
+[commit 71ca167e36915865d1bdbb672652491a6934b1cc]
+[commit b0b6364eadf498c985f8312195e37eed5780347c]
+[commit 5f55c59cbab5b06a2fcb272b345ce94c48c01c1c]
+[commit b9c0e0c77036a83b2d1b6993224370b686446d6a]
+[commit 7fd8a2028034968b8dc7984e83046f4b7c1696ff]
+[commit 4830cb713ed8ae377f7143c4be204b5994c178c2]
+[commit aabd5243fb97979d33a7eece4f7cca18ffd82a95]
+[commit 8df05ce54e12860111445e4ad98a791d4235be9e]
+[commit 227baf32d26360137492b108aba06c6a54c0949b]
+[commit 175920c9d0f71bf9b7beb4854836e340c0c563da]
+[commit 2f866e0547bd85e4fc66cf5468e8349931e365be]
+[commit b28b6c6d33ac7a015c55184b162e060cedeed4f6]
+[commit 354cc5e142634afbc967ede56572b939fbdb5d38]
+[commit 17da2d24b7af843739be6b3d9ce244f511cde2ee]
+[commit 8accd4d99f813f0a1e37f14dd0a9f9deb47e5fe7]
+[commit c92c3852a9741a04d84a205eb457dd2af6b4a203]
+[commit 8e02e1c37d8464816f807efd73d4c9284118bdee]
+[commit 625ed651833e76a439a7010aa28c93bc83013168]
+[commit f763f12ed5eba2c95385dd2f93fc47a66dfa927c]
+[commit 0d066d21668172aa7fc9bc38f9a0725ae31f0deb]
+[commit a1f4ccd6c79470eb0180f4d9a012b24c267d2574]
+[commit b2e845c577de15e29d9a635dea839da3c1687276]
+[commit 0b35f51766877e7b8cfd5933911fbc3da620fbb4]
+[commit 1f62c6f0fc4a46b028d26765b632da9c4ac651a9]
+[commit aa3b76871e9644c86b5dc16c3a42215447a29853]
+[commit f89b8493d7b2f8b4f98273669e607fbeecb73f50]
+[commit 2705320b7c820f77ca1f6afabadbb5d3ef9a1e90]
+[commit 6454c6e825902039c8083626ef728d2deea7992f]
+[commit b60835acb9841cdc1df9921bca3f4e1f904680b5]
+[commit 2b0f4a74e2a1f4eea062d651fe6759c807646ffc]
+[commit 6bfcca26efbc250998cec5c1109d9a4d1a1b0b6f]
+[commit a0f27dcaf9a14c9c6ebbde41e0b82a481b87e77d]
+[commit c8af571bf1f88e6445c8e9a449f600c6fef25252]
+[commit 81004ee18aa4a2fa31b9834f9e80a9fe7cf10b95]
+[commit ce59deaf3540a44f0414bf6deb2288b23f10d02b]
+[commit 25e66327126deb92f95fc2d65c8c7d51c4862e2b]
+[commit 28c3d544db285c1c198661e6d932cf76c9d68102]
+[commit bb8c5e484f5278535154cf93f1f7a8d8c51983f0]
+[commit c555236ec76f8943cde1be109a75bf29d8b2671e]
+[commit a9a5c96f55a4b9bb9779a4fcfe198f9b694327cd]
+[commit 9c5f81332bdc4e4a55ee54bd39e4d4d505097411]
+[commit 7cc6a5d46484ef5e8f5d70c7e6170dcd90981b96]
+[commit 3a1396af294dc0f97655f9a8726c845ec04283a1]
+[commit 03c50e65734c584e8e139df4e28be53b6db8b9d4]
+Date: 2026-08-20
+Score: 5
+CollectedAt: 2026-08-23T11:13:54 UTC
+Sponsor: OpenSats Initiative
+Subject: 15.1: Update to BETA3
+Body:
+
+Approved by:	re (implicit)
+Sponsored by:	OpenSats Initiative
+
+
+ sys/conf/newvers.sh | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit bdfae0fed88ffb32f5686399bad9ec4bd443daf6]
+Date: 2026-07-08
+Score: 5
+CollectedAt: 2026-08-23T11:13:54 UTC
+Sponsor: 
+Subject: epoch: Fix epoch_drain_callbacks()
+Body:
+
+This function is supposed to wait until all pending callbacks have been
+executed.  This is useful in some contexts where we tear down some
+context (like a VNET jail and its associated UMA zones) synchronously,
+and we want to make sure that all pending asynchronous callbacks (which
+may free objects to said UMA zones) have run first.
+
+The implementation schedules a callback on each CPU and waits for them
+all to run.  This assumes that, on a given CPU, callbacks are executed
+in the order that they are pushed.  This assumption depends on the
+implementation of epoch_call_task() and ck_epoch_poll_deferred(), and it
+is not true in general.
+
+Callbacks are pushed onto a per-CPU stack in LIFO order.
+ck_epoch_poll_deferred() first pulls out the callbacks from epoch - 2,
+which are always safe to execute, and in so doing reorders them such
+that the oldest callback as at the top of the stack, so in this case,
+epoch_call_task() will execute them in order.  However,
+ck_epoch_poll_deferred() may determine that it is safe to execute
+callbacks from epoch - 1 (or even from the current epoch if there are
+no active readers), and in this case it will push those callbacks onto
+the returned stack.  This means that epoch_call_task() will invoke those
+newer destructors before the older ones, which means that
+epoch_drain_callbacks() may return early.
+
+Fix the correctness problem by simply doing all of this twice: once the
+first callback is invoked, we know that all of the callbacks that were
+pending at the time that epoch_drain_callbacks() was called are
+scheduled to be executed, so when the second callback is executed we
+know that they must be finished.  This is slow, but it is already slow,
+and the slowness is less noticeable after commit dce56594991.
+
+I note that in an ideal world, this function would not exist, and all of
+the teardown would happen asynchronously, rather than the current
+mismash of synchronous and asynchronous cleanup.
+
+Approved by:	re (cperciva)
+PR:		290201
+Reviewed by:	glebius
+MFC after:	1 month
+Differential Revision:	https://reviews.freebsd.org/D58030
+
+(cherry picked from commit 7bf11a2f0c9ad7af00996105fd34e61f1040402b)
+(cherry picked from commit 8eef4664327fcc2fe04eb74e03e2e793df90d5af)
+
+
+ sys/kern/subr_epoch.c | 50 ++++++++++++++++++++++++++++++--------------------
+ 1 file changed, 30 insertions(+), 20 deletions(-)
+
+[commit eddae793c88f1ade4700f9f70d7513eee38d8d02]
+Date: 2026-08-04
+Score: 5
+CollectedAt: 2026-08-23T11:13:54 UTC
+Sponsor: The FreeBSD Foundation
+Subject: ctl.4: Document the assumption that CTL HA runs only on trusted networks
+Body:
+
+The CTL High Availablity clustering feature allows a pair of hosts to
+implement transparent failover.  The implementation uses a TCP
+connection to exchange messages.  There is no authentication mechanism
+and the protocol itself embeds kernel pointers in the messages exchanged
+between HA hosts.  This property (of CTL_MSG_DATAMOVE messages
+specifically), as well as insufficient validation of inbound messages,
+mean that anyone able to access a CTL HA port is able to remotely
+execute code on that host.
+
+Provide a warning to this effect in the CTL man page.
+
+Approved by:	re (cperciva)
+Reported by:	Ryan of Calif.io
+Reviewed by:	ziaee, ken, mav
+MFC after:	3 days
+Sponsored by:	The FreeBSD Foundation
+Differential Revision:	https://reviews.freebsd.org/D58622
+
+(cherry picked from commit 3c8f8432b6f653128016c6aaf826e1efb7ee1cec)
+(cherry picked from commit 43a34002f6c607d5f120fc34b869bacbe3b061ca)
+
+
+ share/man/man4/ctl.4 | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+[commit 10dd09ca4c7794854339794e4a881ab21310bef3]
+Date: 2026-07-31
+Score: 5
+CollectedAt: 2026-08-23T11:13:54 UTC
+Sponsor: The FreeBSD Foundation
+Subject: ppp: Reject invalid endpoint discriminator options
+Body:
+
+Per RFC1717 section 5.1.3, the option length must be at least three.
+Processing an undersized option would trigger a large out-of-bounds
+write.
+
+Approved by:	re (cperciva)
+PR:		271910
+Reported by:	Robert Morris
+Reported by:	Décio Brandão (0xDBJ)
+Reviewed by:	emaste
+MFC after:	1 week
+Sponsored by:	The FreeBSD Foundation
+Differential Revision:	https://reviews.freebsd.org/D58554
+
+(cherry picked from commit b9d07a4308226b683b64827e0aaed1180e0da996)
+(cherry picked from commit 30b4bdd451ad4ec2470f9a378bd62e948a85ef81)
+
+
+ usr.sbin/ppp/lcp.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+[commit 281fb7d8a20bbdeb20241aeba2f4b44e261d5522]
+Date: 2026-08-03
+Score: 5
+CollectedAt: 2026-08-23T11:13:54 UTC
+Sponsor: The FreeBSD Foundation
+Subject: ppp: Avoid overflow when formatting endpoint discriminator options
+Body:
+
+Each byte of the address is represented by a pair of characters, so we
+should be multiplying len by 2 when figuring out how much buffer space
+we have.  Previously, a sufficiently large option could cause an
+overflow of the global "result" buffer.
+
+Approved by:	re (cperciva)
+Reported by:	Joshua Rogers <joshua@joshua.hu>
+Tested by:	Décio Brandão (0xDBJ)
+MFC after:	3 days
+Sponsored by:	The FreeBSD Foundation
+Differential Revision:	https://reviews.freebsd.org/D58555
+
+(cherry picked from commit e004ff15f87e6aa8f2aa13cd5600ae13457b95f1)
+(cherry picked from commit 607c41d8f869243db275a6b1bd6cc66bf58d0f36)
+
+
+ usr.sbin/ppp/mp.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+[commit 43bbea2cc83edb9ed6e498d919a03684bca72835]
+Date: 2026-07-27
+Score: 5
+CollectedAt: 2026-08-23T11:13:54 UTC
+Sponsor: The FreeBSD Foundation
+Subject: proc: Copy the p_reapsubtree field explicitly during fork
+Body:
+
+p_reapsubtree lives in the p_startcopy/p_endcopy block of struct proc,
+which is copied during fork without any synchronization.  However, the
+field is not stable except when the proctree lock is held, and indeed
+may change if p1's reaper exits or explicitly releases its reaper
+status.  This state change can race with fork() and leave the child with
+an incorrect p_reapsubtree field.
+
+Close the race: explicitly copy the field under the proctree lock during
+fork.
+
+Approved by:	re (cperciva)
+Reported by:	syzkaller
+Reviewed by:	kib
+MFC after:	2 weeks
+Sponsored by:	The FreeBSD Foundation
+Differential Revision:	https://reviews.freebsd.org/D58482
+
+(cherry picked from commit 8616b7dc3850758eb39a5b63f41f56c05403380b)
+(cherry picked from commit fb0af871db6820862a1a0bbfe56a43c0446e40b3)
+
+
+ sys/kern/kern_fork.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+[commit dde557209adc390e4f1bfd29db0c639ed162e379]
+Date: 2026-08-04
+Score: 5
+CollectedAt: 2026-08-23T11:13:54 UTC
+Sponsor: The FreeBSD Foundation
+Subject: rawip: Fix handling of checksums in rip6_input()
+Body:
+
+A v6 raw socket may ask the kernel to validate the checksum of an
+inbound packet.  If it does, and the validation fails, we discard the
+packet, but this isn't really right: other raw sockets may wish to
+receive a copy of the packet anyway.
+
+Rework checksum handling to address this problem, and use a flag to
+avoid computing the checksum more than once for a given packet.
+
+Approved by:	re (cperciva)
+Fixes:		de2d47842e880281 ("SMR protection for inpcbs")
+Reviewed by:	pouria, glebius
+Reported by:	Yunzhi Ke
+MFC after:	1 week
+Sponsored by:	The FreeBSD Foundation
+Differential Revision:	https://reviews.freebsd.org/D58559
+
+(cherry picked from commit 196874ce2e97e3e6425493b1d501e716b356bc36)
+(cherry picked from commit 1fe3a2897b4ad7a9b9128efd6ec0c24b371bf5bd)
+
+
+ sys/netinet6/raw_ip6.c | 26 +++++++++++++++-----------
+ 1 file changed, 15 insertions(+), 11 deletions(-)
+

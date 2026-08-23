@@ -1,0 +1,1351 @@
+[commit c60186322fa77ea119c0d015e343611bfa048dc2]
+Date: 2026-07-25
+Score: 5
+Status: propoacceptedsed(include=yes,score=70)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: igc(4): document adaptive interrupt moderation
+Review: Manual page update for man:igc[4] documenting adaptive interrupt moderation settings and their interrupt-rate tradeoffs.
+Body:
+
+Describe the disabled, adaptive, and low-latency settings and their
+interrupt-rate tradeoffs.
+
+(cherry picked from commit 297394e995e5ea1ea9bc85e609ca116255d51e97)
+
+
+ share/man/man4/igc.4 | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+[commit 84eec65ebb271fb820b217583a1e7aef30f7ea0d]
+Date: 2026-07-12
+Score: 5
+Status: added(include=yes,score=60)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: Add sbintime.9 manual page
+Review: A new manual page man:sbintime[9] documents the usage of sbintime_t and its helper functions for kernel developers.
+Body:
+
+sbintime.9 is a manual page that documents the usage of sbintime_t and
+its helper functions.
+
+MFC after:	1 week
+Reviewed by:	ziaee, markj
+Differential Revision:	https://reviews.freebsd.org/D57931
+
+(cherry picked from commit c3f6c655dd155f4c84ce743c86e07d9f0b6b348a)
+
+
+ share/man/man9/Makefile    |  14 ++++
+ share/man/man9/callout.9   |   5 +-
+ share/man/man9/microtime.9 |   3 +-
+ share/man/man9/sbintime.9  | 171 +++++++++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 190 insertions(+), 3 deletions(-)
+
+[commit f5b8309b9f634f1ca0aaeb69823470db93048208]
+Date: 2026-03-19
+Score: 5
+Status: added(include=yes,score=60)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: Klara, Inc.
+Section: Docs.manpages
+Subject: realpath: Improve manual page
+Review: Manual page for man:realpath[3] has been updated: RETURN VALUES section improved, SEE ALSO section expanded with basename(3), dirname(3), and free(3), and obsolete CAVEATS section removed.
+Body:
+
+* Try to make the RETURN VALUES section flow better.
+
+* Add basename(3), dirname(3), free(3) to the SEE ALSO section.
+
+* Drop the CAVEATS section, which was obsolete the moment realpath(3)
+  was added to the Single Unix Specification in 1994.
+
+MFC after:      1 week
+Sponsored by:   Klara, Inc.
+Reviewed by:	kevans
+Differential Revision:	https://reviews.freebsd.org/D55928
+
+(cherry picked from commit 1aecb32021ce46d812db36b9037cdc6f423575f9)
+
+
+ lib/libc/stdlib/realpath.3 | 36 ++++++++++++------------------------
+ 1 file changed, 12 insertions(+), 24 deletions(-)
+
+[commit f1fe71222acab989f7a49c0f66a2fb2455b8d0d0]
+Date: 2025-11-28
+Score: 5
+Status: added(include=yes,score=60)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: Netflix
+Section: Docs.manpages
+Subject: umass(4): Update to include pointers to quirks
+Review: The man page for man:umass[4] now includes references to the man:usb_quirk[4] and man:usbconfig[8] pages, helping users troubleshoot device-specific workarounds.
+Body:
+
+umass(4), while much improved, still sometimes need quirks. Add a
+pointer to usb_quirk(4) and usbconfig(8).
+
+Sponsored by:		Netflix
+
+(cherry picked from commit 687ab0dc54a926092548310d71afdbe386150838)
+
+
+ share/man/man4/umass.4 | 25 +++++++++++++++++++++++--
+ 1 file changed, 23 insertions(+), 2 deletions(-)
+
+[commit 30c821ac04c1facc5bfcd59c5f4effc741ab6f96]
+Date: 2026-04-20
+Score: 5
+Status: added(include=yes,score=60)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: geom manuals: Clarify units
+Review: Manual pages for GEOM and related tools (man:gcache[8],man:geli[8],man:gpart[8],man:ggatec[8], and man:ggated[8]) now consistently clarify that sizes are specified in binary units (bytes) unless an SI unit suffix is provided, and use non-breaking spaces between numbers and units.
+Body:
+
+The gpart manual says that sizes are specified in blocks, unless an SI
+unit suffix is provided. This confuses new operators because GEOM uses
+binary bytes, a large difference at modern storage pool sizes. Rewrite
+suffixes in all GEOM manuals to consistently clarify this, matching what
+we and the rest of the industry have been doing in other documentation.
+While here, use non-breaking spaces between numbers and units, unless
+they are already written with a hyphen.
+
+MFC after:		3 days
+Reviewed by:		fuz
+Reported by:		bbaovanc <bbaovanc@bbaovanc.com>
+Differential Revision:	https://reviews.freebsd.org/D56534
+
+(cherry picked from commit 975e3605ebb15cbaf5a25c1c9d1f51aed41291d0)
+
+
+ lib/geom/cache/gcache.8    |  4 ++--
+ lib/geom/eli/geli.8        |  8 +++----
+ lib/geom/part/gpart.8      | 52 ++++++++++++++++++++++++++--------------------
+ sbin/ggate/ggatec/ggatec.8 |  8 +++----
+ sbin/ggate/ggated/ggated.8 |  4 ++--
+ 5 files changed, 41 insertions(+), 35 deletions(-)
+
+[commit 37bd9f15e37ed608fd910dfce4b0755cee49d2f2]
+Date: 2026-03-30
+Score: 5
+Status: proposed(include=yes,score=60)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: vmgenc.4: Add VM Generation ID Counter manual
+Review: New manual page documents the man:vmgenc[4] ACPI driver that detects virtual machine cloning and snapshot restoration, reseeding the kernel entropy pool on generation changes.
+Body:
+
+Document the vmgenc(4) ACPI driver which detects virtual machine
+cloning and snapshot restoration via the VM Generation ID
+specification. The driver reseeds the kernel entropy pool when
+a generation change is detected.
+
+MFC after:		3 days
+Reviewed by:		cem (previous), ziaee
+Signed-off-by:		Christos Longros <chris.longros@gmail.com>
+Differential Revision:	https://reviews.freebsd.org/D56011
+
+(cherry picked from commit 59cb18f35617d3a53f7d7e142b4f91ad7951f5e0)
+
+
+ share/man/man4/Makefile |  1 +
+ share/man/man4/vmgenc.4 | 62 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 63 insertions(+)
+
+[commit aefac9f392a48489feb71a33be61296c1cd06f31]
+Date: 2026-01-03
+Score: 5
+Status: proposed(include=yes,score=50)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: The FreeBSD Foundation
+Section: Docs.manpages
+Subject: ichwd: Add manual for i6300esb watchdog
+Review: A new manual page for the i6300esb watchdog driver man:ichwd[4] has been added.
+Body:
+
+Reviewed by:    ziaee, mhorne
+Approved by:    lwhsu (mentor)
+MFC after:      2 weeks
+Sponsored by:   The FreeBSD Foundation
+Differential Revision: https://reviews.freebsd.org/D54466
+
+(cherry picked from commit 546d925cb44f1da7efee76bfebb42df8fdbc83a8)
+
+
+ share/man/man4/ichwd.4 | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+[commit 790a67645afdef843c11e54d9df467333ad766e1]
+Date: 2026-06-14
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: loader.efi(8): document the ia32 loader
+Review: The loader.efi(8) manual page has been updated to document the ia32 loader.
+Body:
+
+Reviewed by:	kib
+MFC after:	3 days
+Differential Revision:	https://reviews.freebsd.org/D57569
+
+(cherry picked from commit 2e1f5b78976ad09bee41e602e75e79a0c3892e59)
+
+
+ stand/man/loader.efi.8 | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+[commit 0de1f3a8aa7f5e99aa63bcd76dfa3fd7e017d295]
+Date: 2026-04-30
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: fexecve(2): call out a scenario where you want !O_EXEC
+Review: Documentation for fexecve(2) updated with notes about interpreted programs and the !O_EXEC flag.
+Body:
+
+We note a reason why you might need it, but there's an equally important
+reason you may need to omit it: interpreted programs.  Add a note
+accordingly, along with the workaround configuration if there's reason
+you can't help it.
+
+PR:		294780
+Reviewed by:	Jan Bramkamp <crest_freebsd_rlwinm.de>, kib
+
+(cherry picked from commit 9c18d55a768a3e60ecaba1325e9a3e00a25dee26)
+
+
+ lib/libc/sys/execve.2 | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+[commit 131a3e980004152a7c9748abe2235bbb7e07901b]
+Date: 2026-04-06
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: ciss.4: List all devices supported by ciss(4)
+Review: The ciss(4) manual page now lists all supported devices, improving user documentation.
+Body:
+
+PR:		285744
+Reviewed by:	ziaee
+MFC after:	3 days
+Differential Revision:	https://reviews.freebsd.org/D56285
+
+(cherry picked from commit 54f5d20492d231b5c2ddc6f1d94dbffa1707d820)
+
+
+ share/man/man4/ciss.4 | 46 +++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 45 insertions(+), 1 deletion(-)
+
+[commit dc61491025091d9e61048cc3cfb18d25ed354a8b]
+Date: 2026-04-02
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: The FreeBSD Foundation
+Section: Docs.manpages
+Subject: fmax.3: Add caveat for going beyond C std requirements
+Review: A caveat has been added to the fmax.3 man page documenting that the FreeBSD implementation treats +0.0 as greater than -0.0, which is not required by the C standard and may be affected by compiler optimization.
+Body:
+
+libm's fmax and fmin family of functions treat +0.0 as greater than
+-0.0.  This is not required by the C standard, so the user may not see
+this behaviour due to compiler optimization.
+
+PR:		294214
+Reviewed by:	fuz
+Sponsored by:	The FreeBSD Foundation
+Differential Revision: https://reviews.freebsd.org/D56230
+
+(cherry picked from commit 7764e9ca28a9702aed4ba7391e055ec2fcf35c41)
+(cherry picked from commit 855507463e0d3903d31aa7c084efbf4f819b5d63)
+
+
+ lib/msun/man/fmax.3 | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+[commit 7812565e2ceb1a0337ceeb2322ae122563fa8334]
+Date: 2025-11-14
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: loader.8: Document module commands
+Review: loader(8) man page now documents module loader commands, including their availability in individual loader implementations.
+Body:
+
+Begin documenting module loader commands in loader(8), where the reader
+would look for them. Segregate them by their availability in individual
+loader implementations, like build(7) targets.
+These details were graciously donated by kevans.
+
+MFC after:		3 days
+Reviewed by:		kevans
+Co-authored-by:		Kyle Evans <kevans@freebsd.org>
+Differential Revision:	https://reviews.freebsd.org/D50727
+
+(cherry picked from commit 6fb0d67819f730e8def56e139f780eff3c0cab0f)
+
+
+ stand/man/loader.8 | 48 +++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 47 insertions(+), 1 deletion(-)
+
+[commit 9f0e2b6e318304b2dd6ded00d2f0d0f70f32ee7c]
+Date: 2025-11-14
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: loader manuals: Clarify console and boot_serial
+Review: The loader.conf.5 man page clarifies the difference between the console=comconsole setting (affects the loader) and the boot_serial setting (affects the kernel), improving documentation for boot configuration.
+Body:
+
+console=comconsole is for the loader and boot_serial is for the kernel.
+
+I think we should centralize documentation on the loader settings in one
+manual, such a loader.8. The current proliferation is not obvious where
+to find the documentation. To the user, these are all set in loader.conf
+or at the loader prompt.
+
+MFC after:		3 days
+Differential Revision:	https://reviews.freebsd.org/D53695
+
+(cherry picked from commit 09ffaa4e07d749c83cc1db13829505f21b025f29)
+
+
+ stand/defaults/loader.conf.5 | 3 +++
+ stand/man/loader_simp.8      | 4 ++--
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+[commit f08af2491ffd603f571b2cd5c7f1fe0cab603a10]
+Date: 2026-06-20
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: adjtime(2): document that delta can be NULL
+Review: Documentation update for adjtime(2) clarifying that the delta argument can be NULL.
+Body:
+
+The current verbiage somewhat indicates that always adjusts the time,
+which hasn't been true as far back as I had the energy to `git blame`.
+
+Reviewed by:	imp
+
+(cherry picked from commit 8ed580b1d3811e73e25db3d8a9fd235156c65387)
+
+
+ lib/libc/sys/adjtime.2 | 14 ++++++++++++--
+ 1 file changed, 12 insertions(+), 2 deletions(-)
+
+[commit f31df6513b17e0a22757aedcbdc2b2a515d46f43]
+Date: 2026-03-06
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: ports.7: Document DEFAULT_VERSIONS
+Review: Documentation update for the FreeBSD ports(7) man page, adding information about DEFAULT_VERSIONS.
+Body:
+
+MFC after:		3 days
+Co-authored-by:		Adam Weinberger <adamw@FreeBSD.org>
+Differential Revision:	https://reviews.freebsd.org/D55443
+
+(cherry picked from commit 74aec9f02d9d8fbde250da1ecc881729c8baf489)
+
+
+ share/man/man7/ports.7 | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+[commit b8f42658ddd2984846a538c0e2a79f5971bb50b1]
+Date: 2026-02-26
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: style.mdoc: Add example manuals to FILES
+Review: The documentation style guide now includes an additional example manual reference.
+Body:
+
+This is the OG meat and potatoes.
+
+MFC after:		3 days
+Reviewed by:		0mp, carlavilla
+Differential Revision:	https://reviews.freebsd.org/D55301
+
+(cherry picked from commit 2abdbe9d796419e8149705ffb4c81f0c0cdea05f)
+
+
+ share/man/man5/style.mdoc.5 | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+[commit bad1b88e0978c0929939a465e6b220d7cccb5795]
+Date: 2026-02-17
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: trimdomain.3: Explain DISPLAY a bit more
+Review: Documentation update for trimdomain(3) man page.
+Body:
+
+MFC after:		3 days
+Reported by:		jrtc27
+Reviewed by:		des
+Differential Revision:	https://reviews.freebsd.org/D54629
+
+(cherry picked from commit 960719762f0a1f6689ec58bc6d8ce21c4daa9096)
+
+
+ lib/libutil/trimdomain.3 | 12 +++++-------
+ 1 file changed, 5 insertions(+), 7 deletions(-)
+
+[commit e8a09797dd1955a8888c378a6e8ebb92075cf646]
+Date: 2025-07-28
+Score: 5
+Status: added(include=yes,score=30)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: Chelsio Communications
+Section: Docs.manpages
+Subject: style.9: Add a C++ section
+Review: Added a C++ style guide section to man:style[9].
+Body:
+
+This section adds several style guidelines for C++ in FreeBSD's base
+system both enumerating some differences relative to the C KNF style
+and addressing some unique C++ idioms not addressed by the existing
+KNF style.
+
+This section is not exhaustive but does include an initial set of
+guidelines.
+
+Reviewed by:	ivy, emaste
+Sponsored by:	Chelsio Communications
+Differential Revision:	https://reviews.freebsd.org/D50983
+
+(cherry picked from commit 4b02ad9d506342ae47f722b830e603f5adc86b48)
+
+
+ share/man/man9/style.9 | 160 ++++++++++++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 157 insertions(+), 3 deletions(-)
+
+[commit c83d4ed2b855f379c1af1846b76161fcf83109d9]
+Date: 2026-07-13
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: libfetch: Document fetchTimeout
+Review: The man page for libfetch now documents the fetchTimeout variable, improving user awareness of timeout configuration.
+Body:
+
+Document the global fetchTimeout variable, now that it works reliably.
+
+MFC after:	1 week
+Reviewed by:	op
+Differential Revision:	https://reviews.freebsd.org/D57910
+
+(cherry picked from commit 27b411734c75a7a5abe641d7fbb99dfc622e9aba)
+
+
+ lib/libfetch/fetch.3 | 18 ++++++++++++++++--
+ 1 file changed, 16 insertions(+), 2 deletions(-)
+
+[commit 2bab563336e07e266acc8ae4f399f4bafb5f8896]
+Date: 2026-07-06
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: resolver(5): Overhaul
+Review: The resolver(5) manual page has been overhauled with updated markup, corrected option names, and improved documentation of comment syntax and environment.
+Body:
+
+* Modernize the markup
+
+* Describe the comment syntax
+
+* Drop obsolete advice
+
+* Capitalize sentences
+
+* Improve the language
+
+* Replace no_tld_query with no-tld-query; both are supported, but all the
+  other multi-word options use hyphens rather than underscores.
+
+* Add missing ENVIRONMENT section
+
+* Redo the example
+
+MFC after:	1 week
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D57921
+
+(cherry picked from commit 4319e4bf42f2f5a71ac32cb18cef8f7677fdf7f7)
+
+
+ share/man/man5/resolver.5 | 227 +++++++++++++++++++++++-----------------------
+ 1 file changed, 116 insertions(+), 111 deletions(-)
+
+[commit 3052e1525ceb52fa1a8f0e036815b1281c60667b]
+Date: 2026-03-15
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: resolver.5: document six previously undocumented options
+Review: The resolver(5) man page now documents the edns0, inet6, insecure1, insecure2, no-check-names, and rotate options.
+Body:
+
+Document the edns0, inet6, insecure1, insecure2, no-check-names,
+and rotate options which are parsed by res_init(3) but were not
+described in the resolver(5) man page.
+
+MFC after:	1 week
+Signed-off-by:	Christos Longros <chris.longros@gmail.com>
+Reviewed by:	des
+Differential Revision:	https://reviews.freebsd.org/D55864
+
+(cherry picked from commit 462a1f6197fa3de63e0eca2835b1d5b0bc6a3bbb)
+
+
+ share/man/man5/resolver.5 | 40 +++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 39 insertions(+), 1 deletion(-)
+
+[commit f6e0e0dab369f346ad825ffbb86ee68cb70b5402]
+Date: 2026-07-17
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: man: Fix RFC 1918 network prefix lengths
+Review: Corrected the prefix lengths of RFC 1918 private network ranges in several manual pages.
+Body:
+
+According to RFC 1918, the following IP prefixes are reserved for
+private internets:
+
+    10.0.0.0/8
+    172.16.0.0/12
+    192.168.0.0/16
+
+This PR fixes the prefix lengths in references to private networks
+("RFC 1918 networks", "the standard private IP address ranges").
+The changes are limited to man pages.
+
+Signed-off-by:	Yusuke Ichiki <public@yusuke.pub>
+Pull Request:	https://github.com/freebsd/freebsd-src/pull/2328
+
+(cherry picked from commit 1403ca10189c47ad1de3915eeb030deddc114685)
+
+
+ sbin/ipf/ippool/ippool.5        | 2 +-
+ sys/netinet/libalias/libalias.3 | 6 +++---
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+[commit e16857e08feaf2c59f0f6cf83ac8f1d6eddb0b4d]
+Date: 2026-07-02
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: src.conf(5): Suggest using ccache4
+Review: User-facing documentation change: src.conf(5) now suggests both ccache3 and ccache4 ports, instead of only ccache3.
+Body:
+
+We have separate ports for Ccache 3 and 4.  Suggest both, rather than
+only the Ccache 3 port.  Rearrange the text somewhat to avoid an
+excessively ragged edge on a standard 80-column terminal.
+
+MFC after:	1 week
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D58005
+
+(cherry picked from commit a2545f68f64b4cfcc13ca2d372c8b9fef1c6331e)
+
+
+ share/man/man5/src.conf.5             | 16 ++++++++++------
+ tools/build/options/WITH_CCACHE_BUILD | 17 +++++++----------
+ 2 files changed, 17 insertions(+), 16 deletions(-)
+
+[commit 78381cdaf50fabbcda520f6c163880f2deab0740]
+Date: 2026-05-27
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: login.conf(5): Add missing resource limits
+Review: The login.conf(5) man page now documents missing resource limits.
+Body:
+
+While here, reorder the table.
+
+PR:		295618
+MFC after:	1 week
+Reviewed by:	olce
+Differential Revision:	https://reviews.freebsd.org/D57258
+
+(cherry picked from commit e9346d1d1383e8c1dced50a3aceb28edd5a4a5e2)
+
+
+ lib/libutil/login.conf.5 | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+[commit e3009524178c73831495bb97b4c284b69b0916e8]
+Date: 2023-09-07
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: uuidgen(1): Add EXAMPLES to manual page
+Review: Adds examples to uuidgen(1) manual page.
+Body:
+
+Approved by:		manpages@ (gbe@)
+Reviewed by:		gbe@, pauamma
+Differential Revision:	https://reviews.freebsd.org/D43494
+
+(cherry picked from commit 6e74b603fc021761c0a20e08f58b674f45ad5f04)
+
+
+ bin/uuidgen/uuidgen.1 | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
+
+[commit 2abf4ce4d799d84112402867229c7d5bb4f81a90]
+Date: 2026-06-23
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: iostat.8: Expand -w description
+Review: Manual page update for iostat, expanding the description of the -w option for clarity.
+Body:
+
+PR:		194781
+MFC after:	3 days
+Reviewed by:	ziaee
+Event:          Halifax Hackathon 202606
+
+(cherry picked from commit 4d299a767acce2841ded288e789a9c36620b57d7)
+
+
+ usr.sbin/iostat/iostat.8 | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+[commit 4f3662233a0c7a4ed328a008b913e87ec0421295]
+Date: 2026-05-22
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: mdoc.7: Revert upstream changes to Lb/LIBRARY
+Review: Documentation-only change to the mdoc.7 manual page, reverting upstream Lb/LIBRARY changes; no user-visible impact beyond documentation wording.
+Body:
+
+Since this manual describes the mdoc syntax throughout the ecosystem,
+I had to blend what we had before with what upstream is doing now.
+
+Thanks:		adrian
+MFC after:	3 days (we shipped this doc in 15.0/14.4)
+Reviewed by:	ivy, mhorne, des, adrian
+Discussed with:	arch@
+Differential Revision:	https://reviews.freebsd.org/D56153
+
+(cherry picked from commit 4e2bf6e90a65bee317e4dd379e098ba2eb5d8c0d)
+
+
+ contrib/mandoc/mdoc.7 | 37 +++++++++++++++++++++++++++++++++----
+ 1 file changed, 33 insertions(+), 4 deletions(-)
+
+[commit a716cf6d56043823cebe9b5eb5d0804c8d0f7888]
+Date: 2026-04-12
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: timeout.1: Document non-POSIX options
+Review: Documentation change to improve the manual page for timeout.
+Body:
+
+MFC after:		3 days
+Reviewed by:		Aaron Li <aly@aaronly.me>, ziaee
+Differential Revision:	https://reviews.freebsd.org/D56090
+
+(cherry picked from commit b1bc748430b5ee79ae103c464dbf5ebc8802f782)
+
+
+ bin/timeout/timeout.1 | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+[commit 01c8bd31ff3b9518e32d9f27429d5cff6648af01]
+Date: 2025-12-16
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: libpathconv: Document library in the man pages
+Review: Man pages for the libpathconv library functions have been updated.
+Body:
+
+Reviewed by:		ziaee, imp
+Differential Revision:	https://reviews.freebsd.org/D54213
+
+(cherry picked from commit 2c75ac14d7e9d1d57d70bbf26716868607f0d1fe)
+
+
+ lib/libpathconv/abs2rel.3 | 3 ++-
+ lib/libpathconv/rel2abs.3 | 3 ++-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+[commit cf16565eb92924e213fae3fa393ef8b7cb1c3dd7]
+Date: 2025-11-07
+Score: 5
+Status: added(include=yes,score=30)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: jail.8: Add creating a jail from distribution set
+Review: Manual page documentation updated for man:jail[8], describing how to create a jail from a distribution set.
+Body:
+
+PR:			200803
+MFC after:		3 days
+Reviewed by:		jamie
+Differential Revision:	https://reviews.freebsd.org/D53631
+
+(cherry picked from commit d59903481dbaef9ef7e91ea4945d2355ae17c53a)
+
+
+ usr.sbin/jail/jail.8 | 20 +++++++++++++++++---
+ 1 file changed, 17 insertions(+), 3 deletions(-)
+
+[commit 936bb5c85c33a79824e6baadf7c7bf49faa8c499]
+Date: 2025-09-16
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: vnet.9: Rename vnet.9/vimage.9 to VNET.9/VIMAGE.9
+Review: Manual pages vnet.9 and vimage.9 renamed to VNET.9 and VIMAGE.9, with updated cross-references.
+Body:
+
+Fix crossreferences to VNET(9) by correcting it's capitalization.
+
+MFC after:	3 days
+Reviewed by:	enji, ziaee
+Closes:		https://github.com/freebsd/freebsd-src/pull/1848
+
+(cherry picked from commit 3049b2f5115b3b4aed202274e866f360fa2560d1)
+(cherry picked from commit 8f7a4d7949d83c13a7451cba7626950d182dfc5d)
+(cherry picked from commit 08d41d8803d9dd49b709518e8f2ce292b59e9828)
+
+
+ ObsoleteFiles.inc                 | 4 ++++
+ contrib/kyua/doc/kyuafile.5.in    | 2 +-
+ share/man/man9/Makefile           | 4 ++--
+ share/man/man9/{vnet.9 => VNET.9} | 0
+ 4 files changed, 7 insertions(+), 3 deletions(-)
+
+[commit ddd842ec2a123fa6918f39514c0660d867a5b91f]
+Date: 2025-07-17
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: snd_uaudio.4: Rework SYNOPSIS, add HARDWARE, SPDX
+Review: Documentation update for the snd_uaudio man page, adding hardware information and sysctl details.
+Body:
+
++ Rework synopsis for consistency, adding sysctls
++ Add a HARDWARE section for HW relnotes
++ tag SPDX
+
+MFC after:		3 days
+Reviewed by:		christos, pauamma
+Differential Revision:	https://reviews.freebsd.org/D51240
+
+(cherry picked from commit 701072154af0881ef395736a06d09ffa47cfc096)
+
+
+ share/man/man4/snd_uaudio.4 | 36 +++++++++++++++++++++---------------
+ 1 file changed, 21 insertions(+), 15 deletions(-)
+
+[commit 2e5f492fe30b329900dd64c8bbb52cf3d14c37f9]
+Date: 2025-07-03
+Score: 5
+Status: proposed(include=yes,score=30)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: Klara, Inc.
+Section: Docs.manpages
+Subject: inotify: Add man pages for the new syscalls and for VOP_INOTIFY
+Review: Man pages added for inotify(2) syscalls and VOP_INOTIFY, documenting new user-visible interfaces in the base system.
+Body:
+
+Reviewed by:	kib
+MFC after:	3 months
+Sponsored by:	Klara, Inc.
+Differential Revision:	https://reviews.freebsd.org/D50315
+
+(cherry picked from commit 5202cfcf93b19b39f3d2bf80e73a8ca94d7fffd1)
+
+
+ lib/libc/sys/Makefile.inc    |   6 +
+ lib/libc/sys/inotify.2       | 379 +++++++++++++++++++++++++++++++++++++++++++
+ share/man/man9/Makefile      |   2 +
+ share/man/man9/VOP_INOTIFY.9 |  60 +++++++
+ 4 files changed, 447 insertions(+)
+
+[commit d7356667931edf880d80ea9a0cbd2fd3604077db]
+Date: 2026-05-29
+Score: 5
+Status: proposed(include=yes,score=25)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: The FreeBSD Foundation
+Section: Docs.manpages
+Subject: netlink: Indicate that ifinfomsg uses IFT_* types
+Review: The rtnetlink(4) man page and interface header are updated to clarify that struct ifinfomsg uses IFT_* types (RFC 1573) instead of ARPHRD_* values used on Linux.
+Body:
+
+On Linux struct ifinfomsg uses ARPHRD_* values, while we used IFT_*
+types (which derive from SNMP ifType definitions in RFC 1573).
+Update the header to reflect this.
+
+PR:		272144
+Reviewed by:	pouria
+Sponsored by:	The FreeBSD Foundation
+Differential Revision: https://reviews.freebsd.org/D57334
+
+(cherry picked from commit 21a75a85f0e0cc328b6e9b437d783ef0c25dc52e)
+(cherry picked from commit 76f29211f0dde8907250b77def3e58082e03afe1)
+
+
+ share/man/man4/rtnetlink.4    | 19 ++++++++++++++++---
+ sys/netlink/route/interface.h |  4 ++--
+ 2 files changed, 18 insertions(+), 5 deletions(-)
+
+[commit d3c855f40fc294874c93e25d89af096aef04c6e5]
+Date: 2026-05-29
+Score: 5
+Status: proposed(include=yes,score=25)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: Klara, Inc.
+Section: Docs.manpages
+Subject: fts: Improve the description of FTS_NOSTAT
+Review: The documentation of the FTS_NOSTAT flag in the fts(3) man page has been clarified. A note has been added that directories and the fts root are still always stat(2)ed, even when FTS_NOSTAT is set.
+Body:
+
+Note that we still need to stat directories and the roots.
+
+MFC after:	1 week
+Sponsored by:	Klara, Inc.
+Reviewed by:	kevans
+Differential Revision:	https://reviews.freebsd.org/D57325
+
+(cherry picked from commit dce6aff90b13f30fcb4c1fa263868607ccda8041)
+
+
+ lib/libc/gen/fts.3 | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+[commit 50832522ecc039e8bf2f9167b261391276e6e027]
+Date: 2026-05-18
+Score: 5
+Status: proposed(include=yes,score=20)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: The FreeBSD Foundation
+Section: Docs.manpages
+Subject: nlist.3: Clarify which symbol table is used
+Review: Documentation clarification for nlist(3) symbol table behavior.
+Body:
+
+nlist() requires section headers, and currently fetches symbol names
+only from SHT_SYMTAB,
+
+Reviewed by:	kib
+Sponsored by:	The FreeBSD Foundation
+Differential Revision: https://reviews.freebsd.org/D57065
+
+(cherry picked from commit cd6bf930eafe850dc631feeaf8332832601f4225)
+(cherry picked from commit e25366d46bf5cdd840d2827524f9ed29e2fcbc66)
+
+
+ lib/libc/gen/nlist.3 | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+[commit 9f1e693804dc04f5f5f2762cdebfc6fe7a4ee219]
+Date: 2026-05-23
+Score: 5
+Status: proposed(include=yes,score=20)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: mfiutil.8/mrsasutil.8: Use Broadcom/LSI consistently
+Review: Updated man pages for mfiutil and mrsasutil to consistently refer to "Broadcom/LSI" instead of only LSI, reflecting support for controllers from both companies.
+Body:
+
+Both tools support controllers from both companies, so document it.
+
+Reviewed by:	ziaee (via IRC)
+MFC after:	immediately
+Differential Revision:	https://reviews.freebsd.org/D57212
+
+(cherry picked from commit c74645b0c8df1307cb6f13d835012f88883dff3a)
+
+
+ usr.sbin/mfiutil/mfiutil.8 | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+[commit 55243172c19047530f9377505e8b759caff17925]
+Date: 2026-04-09
+Score: 5
+Status: proposed(include=yes,score=20)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: loader.efi.8/efibootmgr.8: Don't use contradicting term 'EFI BIOS'
+Review: Documentation updates to man pages loader.efi.8 and efibootmgr.8 correct terminology by replacing 'EFI BIOS' with more precise language, avoiding the misleading combined term.
+Body:
+
+Both (U)EFI and BIOS are completely different things, be precise and don't use
+them together.
+
+Reviewed by:	imp
+MFC after:	3 days
+Differential Revision:	https://reviews.freebsd.org/D56329
+
+(cherry picked from commit 4f684e929de1275b1099b17b2a2cff0d3f4af223)
+
+
+ stand/efi/loader/main.c          |  4 ++--
+ stand/man/loader.efi.8           | 12 ++++++------
+ usr.sbin/efibootmgr/efibootmgr.8 |  6 +++---
+ 3 files changed, 11 insertions(+), 11 deletions(-)
+
+[commit b971d4a17a9525362c51602b0c4a6cf4b5013b24]
+Date: 2025-12-15
+Score: 5
+Status: proposed(include=yes,score=20)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: src.conf.5: regen documenting WITH_IPFILTER_IPFS
+Review: Documentation updated to reflect the new WITH_IPFILTER_IPFS build option.
+Body:
+
+(cherry picked from commit b9b1262a8ef95857101e538145703894e3b880b7)
+(cherry picked from commit 5d6dfa5110488605c25d97f3513fc1ace30a32e5)
+
+
+ share/man/man5/src.conf.5 | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+[commit 83280570ea1fdc288bacdbabf7580c50fcc39355]
+Date: 2026-02-25
+Score: 5
+Status: proposed(include=yes,score=20)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: Klara, Inc.
+Section: Docs.manpages
+Subject: system(3): Clarify return values
+Review: The man page for system(3) now clarifies the return value when the shell cannot be executed, matching the POSIX specification.
+Body:
+
+Our manual page currently states that system() will return 127 if it
+fails to execute the shell.  The actual return value is, to quote POSIX,
+“as if the command language interpreter had terminated using exit(127)
+or _exit(127)”.
+
+MFC after:	1 week
+Sponsored by:	Klara, Inc.
+Reviewed by:	bnovkov, kevans
+Differential Revision:	https://reviews.freebsd.org/D55483
+
+(cherry picked from commit 7305604b29d3db29c9bb5de6e7a25829fb541d1e)
+
+
+ lib/libc/stdlib/system.3 | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+[commit fadcbc631eea172e64328fb1a12b843e4d6eb821]
+Date: 2026-01-01
+Score: 5
+Status: proposed(include=yes,score=20)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: loader.efi(8): clarify UEFI boot path and boot1.efi usage
+Review: Documentation update for loader.efi(8) clarifying UEFI boot path and boot1.efi usage.
+Body:
+
+Reorganise and clarify the legacy role of boot1.efi in DESCRIPTION to
+improve clarity.
+
+Add a minor missing word in the BUGS section ["...caution is required*..."].
+
+See also - PR: 290794
+
+Signed-off-by: Aaditya Singh <aadityavksingh@gmail.com>
+Reviewed by: imp
+Pull Request: https://github.com/freebsd/freebsd-src/pull/1939
+(cherry picked from commit 7b3fb3caef9495cdfcc1c8ec39907defb65ce860)
+
+
+ stand/man/loader.efi.8 | 47 +++++++++++++++++++++++------------------------
+ 1 file changed, 23 insertions(+), 24 deletions(-)
+
+[commit 7cc574cefbcfda26044330cec58fd5130dbffd5b]
+Date: 2025-11-11
+Score: 5
+Status: proposed(include=yes,score=20)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: mx25l.4: Add n25q64 to hardware list
+Review: The manual page for mx25l(4) now lists n25q64 as supported hardware.
+Body:
+
+MFC after:	3 days
+Fixes:		76735c74398923a (flash: Add "n25q64" to mx25l driver)
+
+(cherry picked from commit 595fcd71a89e8c2d9039528d58b073f5ca712b68)
+
+
+ share/man/man4/mx25l.4 | 2 ++
+ 1 file changed, 2 insertions(+)
+
+[commit 21783b3b8a758dd3915d57b589670c0f53e5cd22]
+Date: 2026-04-14
+Score: 5
+Status: proposed(include=yes,score=20)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: Bourne shell -> POSIX shell
+Review: Documentation references to the Bourne shell have been updated to POSIX shell terminology.
+Body:
+
+The FreeBSD shell is a POSIX compatible shell. It evolved over several
+decades from the Almquist shell, which was preceeded a decade before
+that by the Bourne shell. Most readers today have never seen a Bourne
+shell. If someone wants to learn to use our shell, they need to look for
+tutorials on the POSIX shell. Align descriptions through out the tree
+with this reality, consistent with it's manual and common parlance.
+
+We made a similar change to the doc tree in b4d6eb01540fe.
+
+MFC after:		3 days
+Reviewed by:		carlavilla
+Differential Revision:	https://reviews.freebsd.org/D56382
+
+(cherry picked from commit dc140a9fc151f3717bce2157f49070daafa13ec0)
+
+
+ share/skel/dot.profile                | 2 +-
+ usr.bin/apply/apply.1                 | 2 +-
+ usr.bin/chpass/chpass.1               | 2 +-
+ usr.bin/fortune/datfiles/freebsd-tips | 4 ++--
+ usr.bin/script/script.1               | 4 ++--
+ usr.sbin/adduser/adduser.8            | 2 +-
+ 6 files changed, 8 insertions(+), 8 deletions(-)
+
+[commit b359e5031aa2b8d313cd84d7aa227cdd83dac639]
+Date: 2025-10-03
+Score: 5
+Status: proposed(include=yes,score=20)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: sdhci.4: Improve HARDWARE for HW Relnotes + SPDX
+Review: The sdhci(4) man page has been updated to improve the HARDWARE section and add SPDX license tags. This is a documentation-only change with no user-visible impact beyond documentation updates.
+Body:
+
+MFC after:		1 hr
+Discussed with:		ivy, olce
+Co-authored-by:		ziaee (typed up imps suggestion, tagged spdx)
+Differential Revision:	https://reviews.freebsd.org/D52860
+
+(cherry picked from commit bc433a0b7b046b0412777e0f3cc8f18a233af8ff)
+
+
+ share/man/man4/sdhci.4 | 44 ++++++++++++++++++++++++--------------------
+ 1 file changed, 24 insertions(+), 20 deletions(-)
+
+[commit f76adcd559e6cad4ad5e6e7d611aeacf03501bb4]
+Date: 2025-08-18
+Score: 5
+Status: proposed(include=yes,score=20)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: man4: Use arch specifier of Dt consistently
+Review: Man pages for architecture-specific drivers now use the architecture specifier in their titles, improving clarity for users.
+Body:
+
+Use the mdoc(7) arch specifier in the document title for all remaining
+manuals reflecting drivers which are only for one architecture. Most are
+in architecture specific folders, but amd64 only manuals are denoted in
+`man4/Makefile`.
+
+These display at the top of the manual [0] without taking up extra lines
+and are useful in any case, however I hope to use these in the Hardware
+Release Notes, where architecture specificity is difficult to maintain.
+
+[0] Example: https://man-dev.freebsd.org/boot
+
+MFC after:		3 days
+Reviewed by:		0mp
+Discussed with:		emaste, imp, mhorne
+Differential Revision:	https://reviews.freebsd.org/D51264
+
+(cherry picked from commit 8c9937df84e6cc7f1a98054fe34f01f2810f90a4)
+
+
+ share/man/man4/ioat.4                     | 2 +-
+ share/man/man4/man4.aarch64/armv8crypto.4 | 2 +-
+ share/man/man4/man4.aarch64/enetc.4       | 2 +-
+ share/man/man4/man4.aarch64/felix.4       | 2 +-
+ share/man/man4/man4.aarch64/rk_gpio.4     | 2 +-
+ share/man/man4/man4.aarch64/rk_grf.4      | 2 +-
+ share/man/man4/man4.aarch64/rk_i2c.4      | 2 +-
+ share/man/man4/man4.aarch64/rk_pinctrl.4  | 2 +-
+ share/man/man4/man4.arm/am335x_dmtpps.4   | 2 +-
+ share/man/man4/man4.arm/aw_gpio.4         | 2 +-
+ share/man/man4/man4.arm/aw_mmc.4          | 2 +-
+ share/man/man4/man4.arm/aw_rtc.4          | 2 +-
+ share/man/man4/man4.arm/aw_sid.4          | 2 +-
+ share/man/man4/man4.arm/aw_spi.4          | 2 +-
+ share/man/man4/man4.arm/aw_syscon.4       | 2 +-
+ share/man/man4/man4.arm/bcm283x_pwm.4     | 2 +-
+ share/man/man4/man4.arm/devcfg.4          | 2 +-
+ share/man/man4/man4.arm/imx6_ahci.4       | 2 +-
+ share/man/man4/man4.arm/imx6_snvs.4       | 2 +-
+ share/man/man4/man4.arm/imx_spi.4         | 2 +-
+ share/man/man4/man4.arm/imx_wdog.4        | 2 +-
+ share/man/man4/man4.arm/mge.4             | 2 +-
+ share/man/man4/man4.arm/ti_adc.4          | 2 +-
+ share/man/man4/man4.powerpc/abtn.4        | 2 +-
+ share/man/man4/man4.powerpc/adb.4         | 2 +-
+ share/man/man4/man4.powerpc/akbd.4        | 2 +-
+ share/man/man4/man4.powerpc/ams.4         | 2 +-
+ share/man/man4/man4.powerpc/cuda.4        | 2 +-
+ share/man/man4/man4.powerpc/dtsec.4       | 2 +-
+ share/man/man4/man4.powerpc/llan.4        | 2 +-
+ share/man/man4/man4.powerpc/pmu.4         | 2 +-
+ share/man/man4/man4.powerpc/smu.4         | 2 +-
+ share/man/man4/man4.powerpc/snd_ai2s.4    | 2 +-
+ share/man/man4/man4.powerpc/snd_davbus.4  | 2 +-
+ share/man/man4/man4.powerpc/tsec.4        | 2 +-
+ share/man/man4/nvdimm.4                   | 2 +-
+ share/man/man4/qlnxe.4                    | 2 +-
+ share/man/man4/qlxgb.4                    | 2 +-
+ share/man/man4/qlxgbe.4                   | 2 +-
+ share/man/man4/qlxge.4                    | 2 +-
+ share/man/man4/sfxge.4                    | 2 +-
+ share/man/man4/smartpqi.4                 | 2 +-
+ share/man/man4/sume.4                     | 2 +-
+ 43 files changed, 43 insertions(+), 43 deletions(-)
+
+[commit 94d944048226a5dac1585a791d9cb5ccb75ee5b4]
+Date: 2026-04-16
+Score: 5
+Status: proposed(include=yes,score=15)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: ippool(5): Correct example in man page
+Review: The ippool.5 man page has been corrected to show the correct syntax for file:// specification.
+Body:
+
+The example provided puts the semicolon in the wrong place. It must
+come after the file:// specification, not in it.
+
+(cherry picked from commit f5d0b30e4af1163bdc18a893b17236517b67790a)
+
+
+ sbin/ipf/ippool/ippool.5 | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit 51ffffe9be917a001dd61be91464aa4aad8f7d84]
+Date: 2026-03-04
+Score: 5
+Status: proposed(include=yes,score=15)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: me.4: MFC: link if_me kernel module to its manual page.
+Review: The manual page for the if_me kernel module is now linked in the build, making it accessible to users.
+Body:
+
+(cherry picked from commit 46ba263d6eeb1c6029841b4c42f54912ad61de5c)
+
+
+ share/man/man4/Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+[commit b8a7dd6ba5406d72bf2edda2d3663bf740a85029]
+Date: 2026-06-14
+Score: 5
+Status: proposed(include=yes,score=10)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: loader.efi(8): the amd64 loader doesn't do protected mode
+Review: This is a documentation fix for loader.efi, correcting a man page that incorrectly described the execution mode of the amd64 loader.
+Body:
+
+The amd64 UEFI loader executes in long mode, not protected mode.
+
+Reviewed by:	kib
+MFC after:	3 days
+Differential Revision:	https://reviews.freebsd.org/D57568
+
+(cherry picked from commit f771deb193d5743e74515614b7cec40d68ab02ca)
+
+
+ stand/man/loader.efi.8 | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+[commit 2fb72649b5e47f7d2bd4e32822a4b5b2c2f23130]
+Date: 2026-03-22
+Score: 5
+Status: proposed(include=yes,score=10)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: mdo.1: Cross-reference with security.7
+Review: This is a documentation change adding a cross-reference in the mdo.1 man page to security.7.
+Body:
+
+MFC after:	3 days
+Reviewed by:	olce
+Differential Revision:	https://reviews.freebsd.org/D56024
+
+(cherry picked from commit e23f0deceac4fb77c14066d4a76074548ee75fc4)
+
+
+ share/man/man7/security.7 | 3 ++-
+ usr.bin/mdo/mdo.1         | 5 +++--
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+
+[commit 3cdb401480a17618ac4bac5dd2281006efaf614e]
+Date: 2025-10-09
+Score: 5
+Status: proposed(include=yes,score=10)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: umass.4: Modernize driver loading instructions
+Review: Documentation for the umass(4) driver updated with modernized driver loading instructions, including kernel configuration in SYNOPSIS and autoloading explanation in DESCRIPTION.
+Body:
+
++ consolidate kernel configuration in SYNOPSIS
++ explain driver autoloading in DESCRIPTION
++ s/port/interface/ because of internal USBs
++ fix flow of remaining example
+
+MFC after:	1 day
+
+(cherry picked from commit d8a4843cb76ec1b7da8d5defafb7eef9a6cc1c21)
+
+
+ share/man/man4/umass.4 | 56 +++++++++++++++++++++-----------------------------
+ 1 file changed, 23 insertions(+), 33 deletions(-)
+
+[commit e71477916c62d65baf17200cfb3f85ec7de0aa65]
+Date: 2025-10-30
+Score: 5
+Status: proposed(include=yes,score=10)
+CollectedAt: 2026-07-26T13:03:16 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: ifconfig.8: Mention max name length
+Review: The man page for ifconfig now documents the maximum interface name length.
+Body:
+
+PR:		289113
+MFC after:	3 days
+
+(cherry picked from commit 832cd05905980d0f6547bf02745b054c1f4af1eb)
+
+
+ sbin/ifconfig/ifconfig.8 | 3 +++
+ 1 file changed, 3 insertions(+)
+
+[commit 8a9ae26afca3b69050b8464bebb79011eb76abe5]
+Date: 2026-07-23
+Score: 5
+Status: proposed(include=yes,score=10)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: cp: Correct description of SIGINFO
+Review: The manual page for cp(1) has been corrected to state that SIGINFO output is sent to stderr instead of stdout.
+Body:
+
+The manual page claimed that SIGINFO caused information to be printed to
+stdout, when in fact it is printed to stderr, as one would expect.  This
+has been true ever since the feature was first added in 2003.
+
+MFC after:	1 week
+Fixes:		00d321a2b395 ("Add a SIGINFO handler.")
+Reviewed by:	jilles
+Differential Revision:	https://reviews.freebsd.org/D58392
+
+(cherry picked from commit 5dc400ff452b0259f0c50474255ebe6e5e02edb9)
+
+
+ bin/cp/cp.1 | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+[commit 7f5315a47cd1419e0ac53c0b70ef86e08d4a32b1]
+Date: 2025-10-06
+Score: 5
+Status: proposed(include=yes,score=5)
+CollectedAt: 2026-08-07T08:04:41 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: iovctl.8: Fix missing xref section number
+Review: Documentation-only fix correcting a cross-reference section number in the iovctl(8) man page.
+Body:
+
+MFC after:	3 days
+
+(cherry picked from commit 17085d8eb1207aa925ca5eeda1d5ba132f1dd163)
+
+
+ usr.sbin/iovctl/iovctl.8 | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+

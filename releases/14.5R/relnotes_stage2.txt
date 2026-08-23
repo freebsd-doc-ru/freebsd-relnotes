@@ -443,3 +443,92 @@ Differential Revision:	https://reviews.freebsd.org/D53783
  lib/msun/src/math.h | 5 ++++-
  1 file changed, 4 insertions(+), 1 deletion(-)
 
+[commit 3a1396af294dc0f97655f9a8726c845ec04283a1]
+Date: 2026-05-06
+Score: 5
+Status: rejected(include=yes,score=70)
+CollectedAt: 2026-08-23T11:06:56 UTC
+Sponsor: 
+Section: Userland.contrib
+Subject: MFV less v691
+Review: man:less[1] has been updated to v692.
+Body:
+
+Relnotes:	yes
+
+(cherry picked from commit dafba19e42e78cd3d7c9264ece49ddd3d7d70da5)
+
+MFV: less v692.
+
+(cherry picked from commit e2abec625bf07c054f7ac2df2402d6c454113df8)
+(cherry picked from commit 6330c2f5fbbf1320d768fa55f267c114654d729b)
+
+Approved by:	re (cperciva)
+
+
+ contrib/less/LICENSE         |    2 +-
+ contrib/less/NEWS            |   83 +++
+ contrib/less/README          |   60 +-
+ contrib/less/brac.c          |    2 +-
+ contrib/less/ch.c            |   14 +-
+ contrib/less/charset.c       |   31 +-
+ contrib/less/charset.h       |    2 +-
+ contrib/less/cmd.h           |   26 +-
+ contrib/less/cmdbuf.c        |  138 ++--
+ contrib/less/command.c       |   87 +--
+ contrib/less/compose.uni     |   14 +-
+ contrib/less/cvt.c           |    2 +-
+ contrib/less/decode.c        |  107 ++-
+ contrib/less/edit.c          |   16 +-
+ contrib/less/evar.c          |    2 +-
+ contrib/less/filename.c      |   20 +-
+ contrib/less/fmt.uni         |    2 +-
+ contrib/less/forwback.c      |   37 +-
+ contrib/less/funcs.h         |   75 ++-
+ contrib/less/help.c          |    9 +-
+ contrib/less/ifile.c         |   12 +-
+ contrib/less/input.c         |    3 +-
+ contrib/less/jump.c          |   18 +-
+ contrib/less/lang.h          |    5 +-
+ contrib/less/less.h          |   19 +-
+ contrib/less/less.hlp        |    7 +-
+ contrib/less/less.nro        | 1495 ++++++++++++++++++++++++++++--------------
+ contrib/less/lessecho.c      |    2 +-
+ contrib/less/lessecho.nro    |   37 +-
+ contrib/less/lesskey.c       |    2 +-
+ contrib/less/lesskey.h       |    2 +-
+ contrib/less/lesskey.nro     |  389 +++++++----
+ contrib/less/lesskey_parse.c |   37 +-
+ contrib/less/lglob.h         |    2 +-
+ contrib/less/line.c          |   39 +-
+ contrib/less/linenum.c       |    2 +-
+ contrib/less/lsystem.c       |   22 +-
+ contrib/less/main.c          |   55 +-
+ contrib/less/mark.c          |  154 +++--
+ contrib/less/omit.uni        |    2 +-
+ contrib/less/optfunc.c       |  132 ++--
+ contrib/less/option.c        |  134 ++--
+ contrib/less/option.h        |    3 +-
+ contrib/less/opttbl.c        |   11 +-
+ contrib/less/os.c            |   65 +-
+ contrib/less/output.c        |   38 +-
+ contrib/less/pattern.c       |    2 +-
+ contrib/less/pattern.h       |    2 +-
+ contrib/less/pckeys.h        |   45 +-
+ contrib/less/position.c      |   16 +-
+ contrib/less/position.h      |    2 +-
+ contrib/less/prompt.c        |   38 +-
+ contrib/less/screen.c        |  527 ++++++++++-----
+ contrib/less/scrsize.c       |    2 +-
+ contrib/less/search.c        |   23 +-
+ contrib/less/signal.c        |   30 +-
+ contrib/less/tags.c          |    9 +-
+ contrib/less/ttyin.c         |    6 +-
+ contrib/less/ubin.uni        |    2 +-
+ contrib/less/version.c       |   21 +-
+ contrib/less/wide.uni        |   23 +-
+ contrib/less/xbuf.c          |   12 +-
+ contrib/less/xbuf.h          |   11 +-
+ usr.bin/less/defines.h       |  116 ++--
+ 64 files changed, 2852 insertions(+), 1451 deletions(-)
+

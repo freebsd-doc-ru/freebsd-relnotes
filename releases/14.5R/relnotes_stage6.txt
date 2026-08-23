@@ -19090,3 +19090,192 @@ Fixes:	d03be8cf ("crypto/openssl: make vendor imports easier/less error prone")
  crypto/openssl/exporters/openssl.pc   | 2 +-
  3 files changed, 3 insertions(+), 3 deletions(-)
 
+[commit 9c5f81332bdc4e4a55ee54bd39e4d4d505097411]
+Date: 2026-08-11
+Score: 5
+Status: proposed(include=yes,score=40)
+CollectedAt: 2026-08-23T11:10:07 UTC
+Sponsor: The FreeBSD Foundation
+Section: Kernel.general
+Subject: in_mcast: Fix uninitialized variable usage in inm_merge()
+Review: Fix for an uninitialized variable in multicast source filter rollback, preventing a potential crash when a source filter limit is reached.
+Body:
+
+When the first loop in inm_merge() hits an error, generally because it
+hit some limit on the number of source filters for a multicast group,
+inm_merge() tries to atomically roll back changes to the group source
+filter list.
+
+To roll back, it iterates over the global source filter list for the
+multicast group, starting at the last entry that we updated ("nims").
+But, if we have not yet updated any entries, this variable is
+uninitialized.  Initialize it to NULL, so that RB_FOREACH_REVERSE_FROM
+doesn't visit any source filters in this case.
+
+All of the above applies to the v6 case.
+
+Approved by:	re (cperciva)
+Reported by:	Daniel Birtwhistle
+MFC after:	1 week
+Sponsored by:	The FreeBSD Foundation
+
+(cherry picked from commit b9db5a5b16477863654f92ec653e8464528ef981)
+(cherry picked from commit 843ef8961512682f152266a6cec85de47c7b9396)
+
+
+ sys/netinet/in_mcast.c   | 1 +
+ sys/netinet6/in6_mcast.c | 1 +
+ 2 files changed, 2 insertions(+)
+
+[commit 7cc6a5d46484ef5e8f5d70c7e6170dcd90981b96]
+Date: 2026-08-14
+Score: 5
+Status: added(include=yes,score=70)
+CollectedAt: 2026-08-23T11:10:07 UTC
+Sponsor: 
+Section: Userland.contrib
+Subject: MFV: less v704.
+Review: man:less[1] has been updated to 704.
+Body:
+
+(cherry picked from commit fa0dc4f0f96a1b77d4be7bcdbf965897cda14521)
+(cherry picked from commit 86aea5b4db379327f02ca547575105788bfbe807)
+
+Approved by:	re (cperciva)
+
+
+ contrib/less/NEWS              | 126 ++++++++++++++++
+ contrib/less/README            |   8 -
+ contrib/less/ch.c              |  10 +-
+ contrib/less/charset.c         |  25 +--
+ contrib/less/charset.h         |   2 +
+ contrib/less/cmd.h             |   3 +
+ contrib/less/cmdbuf.c          |   6 +-
+ contrib/less/command.c         | 186 ++++++++++++++++-------
+ contrib/less/decode.c          | 334 ++++++++++++++++++++++++++++++-----------
+ contrib/less/edit.c            |  42 ++++--
+ contrib/less/filename.c        |  20 +--
+ contrib/less/forwback.c        |  53 +++++--
+ contrib/less/funcs.h           |  41 +++--
+ contrib/less/help.c            |  28 ++--
+ contrib/less/input.c           |  12 +-
+ contrib/less/jump.c            |  31 ++--
+ contrib/less/less-osc8-open.sh |  64 ++++++++
+ contrib/less/less.h            |  44 ++++--
+ contrib/less/less.hlp          |  26 ++--
+ contrib/less/less.nro          | 331 ++++++++++++++++++++++++++--------------
+ contrib/less/lessecho.nro      |   2 +-
+ contrib/less/lesskey.nro       |   3 +-
+ contrib/less/lesskey_parse.c   |   2 +
+ contrib/less/line.c            |  62 ++++----
+ contrib/less/lsystem.c         |   2 +-
+ contrib/less/main.c            |  73 ++-------
+ contrib/less/mark.c            |  50 ++++--
+ contrib/less/optfunc.c         | 200 ++++++++++++++++++++----
+ contrib/less/opttbl.c          |  60 ++++++--
+ contrib/less/os.c              |  45 +++---
+ contrib/less/output.c          |  68 +++++----
+ contrib/less/pattern.c         |   8 +-
+ contrib/less/pattern.h         |  10 +-
+ contrib/less/position.c        |  82 ++++++----
+ contrib/less/prompt.c          |  33 ++--
+ contrib/less/regexp.c          | 206 +++++++++++++++++--------
+ contrib/less/regexp.h          |   5 +-
+ contrib/less/screen.c          | 105 +++++++++----
+ contrib/less/search.c          | 140 ++++++++++-------
+ contrib/less/tags.c            |   8 +-
+ contrib/less/ttyin.c           |   2 +-
+ contrib/less/version.c         |  37 ++++-
+ usr.bin/less/Makefile          |   2 +-
+ usr.bin/less/defines.h         |  12 ++
+ 44 files changed, 1845 insertions(+), 764 deletions(-)
+
+[commit 3a1396af294dc0f97655f9a8726c845ec04283a1]
+Date: 2026-05-06
+Score: 5
+Status: proposed(include=yes,score=70)
+CollectedAt: 2026-08-23T11:10:07 UTC
+Sponsor: 
+Section: Userland.contrib
+Subject: MFV less v691
+Review: less has been updated to v692.
+Body:
+
+Relnotes:	yes
+
+(cherry picked from commit dafba19e42e78cd3d7c9264ece49ddd3d7d70da5)
+
+MFV: less v692.
+
+(cherry picked from commit e2abec625bf07c054f7ac2df2402d6c454113df8)
+(cherry picked from commit 6330c2f5fbbf1320d768fa55f267c114654d729b)
+
+Approved by:	re (cperciva)
+
+
+ contrib/less/LICENSE         |    2 +-
+ contrib/less/NEWS            |   83 +++
+ contrib/less/README          |   60 +-
+ contrib/less/brac.c          |    2 +-
+ contrib/less/ch.c            |   14 +-
+ contrib/less/charset.c       |   31 +-
+ contrib/less/charset.h       |    2 +-
+ contrib/less/cmd.h           |   26 +-
+ contrib/less/cmdbuf.c        |  138 ++--
+ contrib/less/command.c       |   87 +--
+ contrib/less/compose.uni     |   14 +-
+ contrib/less/cvt.c           |    2 +-
+ contrib/less/decode.c        |  107 ++-
+ contrib/less/edit.c          |   16 +-
+ contrib/less/evar.c          |    2 +-
+ contrib/less/filename.c      |   20 +-
+ contrib/less/fmt.uni         |    2 +-
+ contrib/less/forwback.c      |   37 +-
+ contrib/less/funcs.h         |   75 ++-
+ contrib/less/help.c          |    9 +-
+ contrib/less/ifile.c         |   12 +-
+ contrib/less/input.c         |    3 +-
+ contrib/less/jump.c          |   18 +-
+ contrib/less/lang.h          |    5 +-
+ contrib/less/less.h          |   19 +-
+ contrib/less/less.hlp        |    7 +-
+ contrib/less/less.nro        | 1495 ++++++++++++++++++++++++++++--------------
+ contrib/less/lessecho.c      |    2 +-
+ contrib/less/lessecho.nro    |   37 +-
+ contrib/less/lesskey.c       |    2 +-
+ contrib/less/lesskey.h       |    2 +-
+ contrib/less/lesskey.nro     |  389 +++++++----
+ contrib/less/lesskey_parse.c |   37 +-
+ contrib/less/lglob.h         |    2 +-
+ contrib/less/line.c          |   39 +-
+ contrib/less/linenum.c       |    2 +-
+ contrib/less/lsystem.c       |   22 +-
+ contrib/less/main.c          |   55 +-
+ contrib/less/mark.c          |  154 +++--
+ contrib/less/omit.uni        |    2 +-
+ contrib/less/optfunc.c       |  132 ++--
+ contrib/less/option.c        |  134 ++--
+ contrib/less/option.h        |    3 +-
+ contrib/less/opttbl.c        |   11 +-
+ contrib/less/os.c            |   65 +-
+ contrib/less/output.c        |   38 +-
+ contrib/less/pattern.c       |    2 +-
+ contrib/less/pattern.h       |    2 +-
+ contrib/less/pckeys.h        |   45 +-
+ contrib/less/position.c      |   16 +-
+ contrib/less/position.h      |    2 +-
+ contrib/less/prompt.c        |   38 +-
+ contrib/less/screen.c        |  527 ++++++++++-----
+ contrib/less/scrsize.c       |    2 +-
+ contrib/less/search.c        |   23 +-
+ contrib/less/signal.c        |   30 +-
+ contrib/less/tags.c          |    9 +-
+ contrib/less/ttyin.c         |    6 +-
+ contrib/less/ubin.uni        |    2 +-
+ contrib/less/version.c       |   21 +-
+ contrib/less/wide.uni        |   23 +-
+ contrib/less/xbuf.c          |   12 +-
+ contrib/less/xbuf.h          |   11 +-
+ usr.bin/less/defines.h       |  116 ++--
+ 64 files changed, 2852 insertions(+), 1451 deletions(-)
+

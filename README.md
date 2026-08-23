@@ -501,7 +501,7 @@ perl tools/relnotes/bin/relnotes_stage_copy.pl --select "Commit, StatusScore, Su
 
 perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
 
-perl tools/relnotes/bin/relnotes_stage_copy.pl --into relnotes_stage8.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
+perl tools/relnotes/bin/relnotes_stage_copy.pl --into relnotes_stage8.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/14.5R
 
 
 ```
