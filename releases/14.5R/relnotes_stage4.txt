@@ -1,7 +1,7 @@
 [commit 9f9f0d3d9e1c9c9416b12625d357dd6f80d5f9be]
 Date: 2026-06-05
 Score: 5
-Status: accepted(include=yes,score=40)
+Status: added(include=yes,score=40)
 CollectedAt: 2026-07-26T12:58:21 UTC
 Sponsor: 
 Section: Userland.config
@@ -86,7 +86,7 @@ MFC after:	1 month
 [commit 5f10e369a13af824de5244c12f4e7216a9d0750e]
 Date: 2026-05-25
 Score: 5
-Status: accepted(include=yes,score=40)
+Status: added(include=yes,score=40)
 CollectedAt: 2026-07-26T12:58:21 UTC
 Sponsor: 
 Section: Docs.manpages
@@ -111,7 +111,7 @@ Differential Revision:	https://reviews.freebsd.org/D57183
 [commit b734006cafa1915922de2a6a3a0aee9969d28d04]
 Date: 2026-02-19
 Score: 5
-Status: accepted(include=yes,score=70)
+Status: added(include=yes,score=70)
 CollectedAt: 2026-07-26T12:58:21 UTC
 Sponsor: 
 Section: Userland.deprecated

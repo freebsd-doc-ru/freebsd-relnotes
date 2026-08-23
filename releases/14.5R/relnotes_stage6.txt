@@ -51,7 +51,7 @@ Differential Revision:  https://reviews.freebsd.org/D52885
 [commit 819af80de8e8854f5767c20d03cb7362624b0085]
 Date: 2026-07-09
 Score: 5
-Status: accepted(include=yes,score=80)
+Status: added(include=yes,score=80)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -83,7 +83,7 @@ Changes: https://github.com/eggert/tz/blob/2026c/NEWS
 [commit aad298c8f9cabe53379bea59ce075f2eb0c93898]
 Date: 2026-06-27
 Score: 5
-Status: accepted(include=yes,score=40)
+Status: added(include=yes,score=40)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -105,7 +105,7 @@ MFC after:	1 week
 [commit 266022bf0b6092a0d052c3faa10130755be21ad5]
 Date: 2026-04-28
 Score: 5
-Status: accepted(include=yes,score=65)
+Status: added(include=yes,score=65)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -267,7 +267,7 @@ Differential Revision:	https://reviews.freebsd.org/D57405
 [commit 222648172b80e27e06ea83d60f50f9d9ed75dfbc]
 Date: 2026-06-19
 Score: 5
-Status: accepted(include=yes,score=65)
+Status: added(include=yes,score=65)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -315,7 +315,7 @@ Merge commit '026e5b88eb0cde54d9fc22b9a1ebc79ea0f67aec'
 [commit d58218761eeb4e7a2a375b7d2ed80c31a311f3fd]
 Date: 2026-06-02
 Score: 5
-Status: accepted(include=yes,score=70)
+Status: added(include=yes,score=70)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -426,7 +426,7 @@ Fixes:		e949ce9dc0e6fff26e83904f1008b76d36ba0a37
 [commit f81c82a9db12685f98421bfe9c368ff9a214c844]
 Date: 2026-06-13
 Score: 5
-Status: accepted(include=yes,score=65)
+Status: added(include=yes,score=65)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -522,7 +522,7 @@ MFC after:	3 days
 [commit ca66129a2c8ace5af1b76b24f48e27ba5c9eac8b]
 Date: 2026-06-10
 Score: 5
-Status: accepted(include=yes,score=100)
+Status: added(include=yes,score=100)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -1883,7 +1883,7 @@ MFC after:	1 month
 [commit 502fd5427dc8c9225f5b4f543bd56964816b6510]
 Date: 2026-01-10
 Score: 5
-Status: accepted(include=yes,score=65)
+Status: added(include=yes,score=65)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -13182,7 +13182,7 @@ ldns: Mark these commits as merged
 [commit 84f7ee30767b874eb24f5e29f2947a9331d645fc]
 Date: 2026-05-13
 Score: 5
-Status: accepted(include=yes,score=100)
+Status: added(include=yes,score=100)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -13502,7 +13502,7 @@ Security:	CVE-2026-41080
 [commit 487eeda542a774ba9237d8bda58c9fcb99b2afba]
 Date: 2025-07-27
 Score: 5
-Status: accepted(include=yes,score=60)
+Status: added(include=yes,score=60)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Drivers.device
@@ -13699,7 +13699,7 @@ Differential Revision:	https://reviews.freebsd.org/D56328
 [commit 2dddbb67c6a15317df549538be286e908d11de98]
 Date: 2026-04-13
 Score: 5
-Status: accepted(include=yes,score=90)
+Status: added(include=yes,score=90)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -13995,7 +13995,7 @@ Differential Revision:  https://reviews.freebsd.org/D55283
 [commit 8de7c76ee02fcc7a405d47cc4b816c27de0dc2e4]
 Date: 2026-01-14
 Score: 5
-Status: accepted(include=yes,score=75)
+Status: added(include=yes,score=75)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -17254,7 +17254,7 @@ Differential revision:	https://reviews.freebsd.org/D55135
 [commit 8a0d626219f1863c79808bdda2175cc136250b07]
 Date: 2026-03-15
 Score: 5
-Status: accepted(include=yes,score=70)
+Status: added(include=yes,score=70)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: The FreeBSD Foundation
 Section: Userland.contrib
@@ -17345,7 +17345,7 @@ Differential Revision:	https://reviews.freebsd.org/D55871
 [commit 09db15067248b297bf2d419fa77a3b2e39184a64]
 Date: 2026-03-14
 Score: 5
-Status: accepted(include=yes,score=70)
+Status: added(include=yes,score=70)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: The FreeBSD Foundation
 Section: Userland.contrib
@@ -17501,7 +17501,7 @@ Security:	CVE-2026-25210
 [commit e32e126c136de28783ac732fe3cd8a5224559ac5]
 Date: 2026-03-31
 Score: 5
-Status: accepted(include=no,score=65)
+Status: added(include=no,score=65)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -17608,7 +17608,7 @@ Differential Revision:	https://reviews.freebsd.org/D55835
 [commit 5f55c59cbab5b06a2fcb272b345ce94c48c01c1c]
 Date: 2026-03-02
 Score: 5
-Status: accepted(include=yes,score=60)
+Status: added(include=yes,score=60)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: Spectra Logic
 Section: Userland.programs
@@ -17946,7 +17946,7 @@ MFC after:	1 week
 [commit 2f866e0547bd85e4fc66cf5468e8349931e365be]
 Date: 2026-02-10
 Score: 5
-Status: accepted(include=yes,score=45)
+Status: added(include=yes,score=45)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -17963,7 +17963,7 @@ Body:
 [commit b28b6c6d33ac7a015c55184b162e060cedeed4f6]
 Date: 2026-02-10
 Score: 5
-Status: accepted(include=yes,score=70)
+Status: added(include=yes,score=70)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -18038,7 +18038,7 @@ Differential Revision:	https://reviews.freebsd.org/D55122
 [commit 8accd4d99f813f0a1e37f14dd0a9f9deb47e5fe7]
 Date: 2026-02-02
 Score: 5
-Status: accepted(include=yes,score=95)
+Status: added(include=yes,score=95)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: Microchip Technology Inc.
 Section: Drivers.device
@@ -18110,7 +18110,7 @@ Differential Revision:	https://reviews.freebsd.org/D54787
 [commit c92c3852a9741a04d84a205eb457dd2af6b4a203]
 Date: 2025-10-30
 Score: 5
-Status: accepted(include=yes,score=15)
+Status: added(include=yes,score=15)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Docs.manpages
@@ -18199,7 +18199,7 @@ MFC after:	2 days
 [commit f763f12ed5eba2c95385dd2f93fc47a66dfa927c]
 Date: 2025-09-29
 Score: 5
-Status: accepted(include=yes,score=75)
+Status: added(include=yes,score=75)
 CollectedAt: 2026-07-26T12:59:38 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -18928,7 +18928,7 @@ Differential Revision:	https://reviews.freebsd.org/D58150
 [commit c555236ec76f8943cde1be109a75bf29d8b2671e]
 Date: 2026-08-04
 Score: 5
-Status: accepted(include=yes,score=85)
+Status: added(include=yes,score=85)
 CollectedAt: 2026-08-18T16:26:28 UTC
 Sponsor: 
 Section: Userland.contrib

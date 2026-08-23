@@ -441,6 +441,11 @@ perl tools/relnotes/bin/relnotes_stage2_to_adoc.pl \
   --release-dir releases/15.1R \
   --dry-run
 ```
+```
+perl tools/relnotes/bin/relnotes_stage2_to_adoc.pl \
+  --release-dir releases/14.5R \
+  --dry-run
+```
 
 
 ### Stage 3: Write changes into relnotes.adoc
@@ -462,6 +467,12 @@ Behavior:
 ```
 perl tools/relnotes/bin/relnotes_stage2_to_adoc.pl \
   --release-dir releases/15.1R \
+  --write
+```
+
+```
+perl tools/relnotes/bin/relnotes_stage2_to_adoc.pl \
+  --release-dir releases/14.5R \
   --write
 ```
 
@@ -519,6 +530,10 @@ perl tools/relnotes/bin/relnotes_advisories.pl --repo ~/freebsd-src --branch rel
 
 ```
 
+```
+perl tools/relnotes/bin/relnotes_advisories.pl --repo ~/freebsd-src --branch releng/14.5 --advisories-dir  ~/freebsd-doc/website/static/security/advisories  --release-dir releases/14.5R --format-relnotes
+
+```
 
 ### Running Tests
 

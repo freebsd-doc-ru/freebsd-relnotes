@@ -1,7 +1,7 @@
 [commit fc00e7a18cdec54cc29c522c5cb446c89ea68267]
 Date: 2026-07-06
 Score: 5
-Status: accepted(include=yes,score=75)
+Status: added(include=yes,score=75)
 CollectedAt: 2026-07-26T12:42:01 UTC
 Sponsor: 
 Section: Userland.libraries
@@ -35,7 +35,7 @@ Differential Revision:	https://reviews.freebsd.org/D57925
 [commit b52d95bf14945108be077fd621c194d24c1f3118]
 Date: 2026-07-06
 Score: 5
-Status: accepted(include=yes,score=70)
+Status: added(include=yes,score=70)
 CollectedAt: 2026-07-26T12:42:01 UTC
 Sponsor: 
 Section: Userland.libraries
@@ -74,7 +74,7 @@ Differential Revision:	https://reviews.freebsd.org/D57923
 [commit 10075baae2c1151945bc13a478560e4d4a1aacf1]
 Date: 2026-06-26
 Score: 5
-Status: accepted(include=yes,score=30)
+Status: added(include=yes,score=30)
 CollectedAt: 2026-07-26T12:42:01 UTC
 Sponsor: 
 Section: Userland.programs
@@ -105,7 +105,7 @@ Differential Revision:	https://reviews.freebsd.org/D57679
 [commit e71ad3f7a6b1260ee5db3108e03b0e21fff40abf]
 Date: 2026-06-01
 Score: 5
-Status: accepted(include=yes,score=70)
+Status: added(include=yes,score=70)
 CollectedAt: 2026-07-26T12:42:01 UTC
 Sponsor: 
 Section: Storage.general
@@ -146,7 +146,7 @@ Differential Revision:	https://reviews.freebsd.org/D57313
 [commit 823889aaafa37ba63a6fb2c53b0dafe1373e221b]
 Date: 2026-04-17
 Score: 5
-Status: accepted(include=yes,score=20)
+Status: added(include=yes,score=20)
 CollectedAt: 2026-07-26T12:42:01 UTC
 Sponsor: 
 Section: Userland.config
@@ -171,7 +171,7 @@ Relnotes: yes
 [commit ca42bd490891011556a9507b10ad205f6e7e5f30]
 Date: 2026-04-17
 Score: 5
-Status: accepted(include=yes,score=70)
+Status: added(include=yes,score=70)
 CollectedAt: 2026-07-26T12:42:01 UTC
 Sponsor: 
 Section: Drivers.device
@@ -195,7 +195,7 @@ Relnotes: yes
 [commit 432c95c57bb5edba6593f48a17092577e293bc05]
 Date: 2026-01-04
 Score: 5
-Status: accepted(include=yes,score=40)
+Status: added(include=yes,score=40)
 CollectedAt: 2026-07-26T12:42:01 UTC
 Sponsor: 
 Section: Drivers.deprecated
@@ -228,7 +228,7 @@ Differential Revision:	https://reviews.freebsd.org/D55544
 [commit cc35db95eb9ed1c62bb2eb7251e4c2ab67907d62]
 Date: 2026-01-28
 Score: 5
-Status: accepted(include=yes,score=60)
+Status: added(include=yes,score=60)
 CollectedAt: 2026-07-26T12:42:01 UTC
 Sponsor: 
 Section: Userland.programs
@@ -260,7 +260,7 @@ Differential Revision:	https://reviews.freebsd.org/D54930
 [commit 11a0cf32a23259caff9f6a2c1489947170dfd8b2]
 Date: 2025-12-18
 Score: 5
-Status: accepted(include=yes,score=30)
+Status: added(include=yes,score=30)
 CollectedAt: 2026-07-26T12:42:01 UTC
 Sponsor: 
 Section: Docs.manpages
@@ -286,7 +286,7 @@ Differential Revision:	https://reviews.freebsd.org/D43947
 [commit c839c1566147cc2d255aab1f7a1f8ed3f86299a8]
 Date: 2026-06-22
 Score: 5
-Status: accepted(include=yes,score=75)
+Status: added(include=yes,score=75)
 CollectedAt: 2026-08-07T08:01:45 UTC
 Sponsor: 
 Section: Kernel.general
@@ -323,7 +323,7 @@ Differential Revision:	https://reviews.freebsd.org/D57697
 [commit 5e144321152815f476978b70c6749ff216579e29]
 Date: 2026-05-03
 Score: 5
-Status: accepted(include=yes,score=40)
+Status: added(include=yes,score=40)
 CollectedAt: 2026-08-07T08:01:45 UTC
 Sponsor: 
 Section: Docs.manpages
@@ -350,7 +350,7 @@ Differential Revision:	https://reviews.freebsd.org/D55441
 [commit a1479a37fcf8d66fa0de5076449f64d6297d1e1f]
 Date: 2026-03-20
 Score: 5
-Status: accepted(include=no,score=30)
+Status: added(include=no,score=30)
 CollectedAt: 2026-08-07T08:01:45 UTC
 Sponsor: 
 Section: Docs.manpages
@@ -375,7 +375,7 @@ Differential Revision:	https://reviews.freebsd.org/D53287
 [commit 3e05b2366af1fa56907390d540a97e29f0f191dd]
 Date: 2026-02-15
 Score: 5
-Status: accepted(include=yes,score=30)
+Status: added(include=yes,score=30)
 CollectedAt: 2026-08-07T08:01:45 UTC
 Sponsor: 
 Section: Docs.manpages
@@ -402,7 +402,7 @@ Differential Revision:	https://reviews.freebsd.org/D54231
 [commit 69b3aa35469a2df029a2faaa8c4022af72d8f418]
 Date: 2025-11-17
 Score: 5
-Status: accepted(include=yes,score=55)
+Status: added(include=yes,score=55)
 CollectedAt: 2026-08-07T08:01:45 UTC
 Sponsor: 
 Section: Userland.libraries

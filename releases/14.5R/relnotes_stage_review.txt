@@ -1,111 +1,975 @@
 [commit fc00e7a18cdec54cc29c522c5cb446c89ea68267]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b52d95bf14945108be077fd621c194d24c1f3118]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 10075baae2c1151945bc13a478560e4d4a1aacf1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e71ad3f7a6b1260ee5db3108e03b0e21fff40abf]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 823889aaafa37ba63a6fb2c53b0dafe1373e221b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ca42bd490891011556a9507b10ad205f6e7e5f30]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 432c95c57bb5edba6593f48a17092577e293bc05]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit cc35db95eb9ed1c62bb2eb7251e4c2ab67907d62]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 11a0cf32a23259caff9f6a2c1489947170dfd8b2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 9f9f0d3d9e1c9c9416b12625d357dd6f80d5f9be]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit fc1ab22fb3b86093be00c010a57feb1fefceb0bb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 5f10e369a13af824de5244c12f4e7216a9d0750e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b734006cafa1915922de2a6a3a0aee9969d28d04]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f956c425d4c6b93efefea357f34cd28a7d749db1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b0b6364eadf498c985f8312195e37eed5780347c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 9f80b89c5a4ee66c9428f0d240899d77f442079f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 4781aeb5b9cb564a53fee8128f6827402deaf9df]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 90f53c300ac9ddce9a10f9f67e1c22660148fce6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 819af80de8e8854f5767c20d03cb7362624b0085]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit aad298c8f9cabe53379bea59ce075f2eb0c93898]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 266022bf0b6092a0d052c3faa10130755be21ad5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 12b941265ebb01bc6f4683d84551a16580bb5cc6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a90616ce34c4f19903ce04160b0d11ce25721bd5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 1ae396e2adaebb4fc71d29628789804ac9b0be44]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 222648172b80e27e06ea83d60f50f9d9ed75dfbc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a878e7b4985f0c178b9d49a6cd80c2eade9b77e3]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit d58218761eeb4e7a2a375b7d2ed80c31a311f3fd]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f81c82a9db12685f98421bfe9c368ff9a214c844]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 33c8e68d3237af2f0540ff39eed8439a67b3f90a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit fd420ecc7e068ca22c71f1b7aafad3b0c8e84525]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ca66129a2c8ace5af1b76b24f48e27ba5c9eac8b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ec6bfa889b839645961113344186b85ed8477f48]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a8e709c667693508a31e2e3a9857a1b8f0587c3e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 47f4f76074a48cdaa743f05929725c84f71d502b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit fc1ab22fb3b86093be00c010a57feb1fefceb0bb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ec6797818bf2f35c95422a4be398ca903ce27657]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 0c6a058ca265b334c88473dd2685e105d42db95f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2e97bf202703413b4d6e5bce080f9d511886fc97]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2e6734ed19598028da58b2f47fbb2dd5eaf7f485]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 4a5ad04af821659fe3f4112815f363c2cf3a0e81]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit dbb1534461bfb325f1b9dbfa1edf9befa25dbd8a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 179029b4d82e709f348a6bec2d8e7221664358d9]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit bdeece20378ef7976fbd61b1a4f1cfaec0ccbf69]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 502fd5427dc8c9225f5b4f543bd56964816b6510]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit df67e880e278d6b6d35c254d92bba71d77e8ca8b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 3e455586033833d25699dfa61ab863e11ca3c110]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 6a0e4d513abc6c4143815e7509ffcc46862a4c23]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e2b73bf961910f7bf21e6599cb78b053c8077789]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 9d99cbbb284fb88c44b05241e73790f429d086dc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit de9d7a2ab8f59f07b5fa1e81295d1c431bb2f548]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a2679283778cd547b9aba1161254550e26616851]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f3a50f7cee24e0835f25fbc66201a1ba1c2b4b8d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit d61b19b6907acbdc68202b2e62f740b42a0455e0]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f8ad4df7241d1db626b8ca425bd85be9ca109dc6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c81fa81aab339d6a2d11019e0768bd463131f87a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 944bd28f088282407e2c63ee023f150bb6f0fc1c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 84f7ee30767b874eb24f5e29f2947a9331d645fc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 51fcd5ddf016835619c94f4dbdc5b29150fc2e48]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 7d9c1d3895b307085131f922d7e46a4812f04675]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f62ab5c293f64cf492c2a20ee99ded008e9a1457]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 302545bcbc1c81076123cb69a12a5514661972df]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 81df9a1045c3e1778c551fcd62125e0b5d2b76f2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f7145eff8172cbcaffb36c1d13aae0e438759a7c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit bc73c7f6191211b254f8cc87aab71d5ff853e24d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit fca6c9e8f7474132f30bf836f1c2b8d289bdc14d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 487eeda542a774ba9237d8bda58c9fcb99b2afba]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 30eb33424e74f467346319876e20a83ff71e00cd]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 7be895e5003534e51efe37cc63a359219099bf4a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ee828a44e8d16e7bf74c0761bd088024821f1eb6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 33030906cdd373b92e4a263b2ce0d5d9fe02fade]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 78e9708c98aa7b1362cdb909f3530592c97ee904]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit eb55ca209aa21bc2b274f129bef954d0931ab23c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2dddbb67c6a15317df549538be286e908d11de98]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e27255a7f9e45dab9935b916d759498a093e36e5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 26b162dd829885701e75b7196ef380d998faeef0]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f5e1bc1ca1b1b8d6c096ac65c64f69586d501200]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit d51d91780b61180fbeae406a29e9a02ec74d56df]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 3bc0114674a590bcec90f74b20115085ff914c8d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8de7c76ee02fcc7a405d47cc4b816c27de0dc2e4]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 27ac9d336f715b4ce91bf447f73d5c3621d099ce]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e324486b9b562f9a1d4a214492766d83299dbb0d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 7320170ff210cc1da1f36e73130de7e2e62a867b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8a0d626219f1863c79808bdda2175cc136250b07]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 09db15067248b297bf2d419fa77a3b2e39184a64]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 1ac7c32807e5da50b8c61c3ffe93f668eac4ba5f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e32e126c136de28783ac732fe3cd8a5224559ac5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c5e1dde24dacdeb9d47684d981e17178fd7e8acf]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 71ca167e36915865d1bdbb672652491a6934b1cc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b0b6364eadf498c985f8312195e37eed5780347c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 5f55c59cbab5b06a2fcb272b345ce94c48c01c1c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b9c0e0c77036a83b2d1b6993224370b686446d6a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 7fd8a2028034968b8dc7984e83046f4b7c1696ff]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 4830cb713ed8ae377f7143c4be204b5994c178c2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit aabd5243fb97979d33a7eece4f7cca18ffd82a95]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8df05ce54e12860111445e4ad98a791d4235be9e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 227baf32d26360137492b108aba06c6a54c0949b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 175920c9d0f71bf9b7beb4854836e340c0c563da]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2f866e0547bd85e4fc66cf5468e8349931e365be]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b28b6c6d33ac7a015c55184b162e060cedeed4f6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 354cc5e142634afbc967ede56572b939fbdb5d38]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 17da2d24b7af843739be6b3d9ce244f511cde2ee]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8accd4d99f813f0a1e37f14dd0a9f9deb47e5fe7]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c92c3852a9741a04d84a205eb457dd2af6b4a203]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8e02e1c37d8464816f807efd73d4c9284118bdee]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 625ed651833e76a439a7010aa28c93bc83013168]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f763f12ed5eba2c95385dd2f93fc47a66dfa927c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 0d066d21668172aa7fc9bc38f9a0725ae31f0deb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a1f4ccd6c79470eb0180f4d9a012b24c267d2574]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2d39931b5ed3ed1843e04c3afc815109a4532c2d]
 Date: 2026-04-29
 Score: 5
@@ -165,7 +1029,7 @@ Differential Revision:	https://reviews.freebsd.org/D58192
 [commit 3ab59366fed8106db57e94ecdb69b6e65741d1c4]
 Date: 2026-07-09
 Score: 5
-Status: accepted(include=yes,score=75)
+Status: added(include=yes,score=75)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -3657,7 +4521,7 @@ Differential Revision:	https://reviews.freebsd.org/D57763
 [commit 973d1f2b12aba78d153095640820e865c1d112e1]
 Date: 2026-06-26
 Score: 5
-Status: accepted(include=yes,score=75)
+Status: added(include=yes,score=75)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Userland.config
@@ -6281,7 +7145,7 @@ Body:
 [commit 1841091eaa0b2e1f71600c892d3ce041a57bae3c]
 Date: 2026-03-09
 Score: 5
-Status: accepted(include=yes,score=60)
+Status: added(include=yes,score=60)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Bootloader.general
@@ -6918,7 +7782,7 @@ Sponsored by:	Rubicon Communications, LLC ("Netgate")
 [commit bddfcbd9bbc68fe11ce53954b7f82584cd5ee40b]
 Date: 2026-06-04
 Score: 5
-Status: accepted(include=yes,score=60)
+Status: added(include=yes,score=60)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Bootloader.general
@@ -7776,7 +8640,7 @@ Reported by:	Shawn Webb <shawn.webb@hardenedbsd.org>
 [commit 8dca7fccfa6514b0a48a290683572fadbb4e2a68]
 Date: 2026-06-04
 Score: 5
-Status: accepted(include=yes,score=85)
+Status: added(include=yes,score=85)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: Netflix
 Section: Bootloader.general
@@ -9741,7 +10605,7 @@ Differential Revision:	https://reviews.freebsd.org/D56470
 [commit 5d2b9a17b9c6885179f7b32c2e82e182268f9517]
 Date: 2025-12-27
 Score: 5
-Status: accepted(include=yes,score=80)
+Status: added(include=yes,score=80)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: Netflix
 Section: Bootloader.general
@@ -10433,7 +11297,7 @@ Differential Revision:	https://reviews.freebsd.org/D57182
 [commit 85852fe5e4a9dc48e328c7f33c3be770412de5ef]
 Date: 2026-05-25
 Score: 5
-Status: accepted(include=yes,score=90)
+Status: added(include=yes,score=90)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Userland.config
@@ -13293,7 +14157,7 @@ Differential Revision:	https://reviews.freebsd.org/D56431
 [commit 09bb6a62d00f041079453f5e17a7387e3c0f3503]
 Date: 2026-04-27
 Score: 5
-Status: accepted(include=yes,score=80)
+Status: added(include=yes,score=80)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -17052,7 +17916,7 @@ Reviewed by:	kib, markj
 [commit 9ef671ef0c6c50e85a35d867ef1c7890f9de91af]
 Date: 2026-04-08
 Score: 5
-Status: accepted(include=yes,score=60)
+Status: added(include=yes,score=60)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Bootloader.general
@@ -17616,7 +18480,7 @@ Reviewed by:	imp, kevans
 [commit b39cac4b834cee6ab76ebab8ad180a99b1249970]
 Date: 2026-02-02
 Score: 5
-Status: accepted(include=yes,score=65)
+Status: added(include=yes,score=65)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Bootloader.general
@@ -17898,7 +18762,7 @@ Reviewed by:	imp
 [commit 14c8e003318b3c29f1b9a7a61092c9e3df5f2bc1]
 Date: 2025-08-21
 Score: 5
-Status: accepted(include=yes,score=40)
+Status: added(include=yes,score=40)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Bootloader.general
@@ -18082,7 +18946,7 @@ for non`-o` we'll flush generally after every line.
 [commit 7db1376bd1519d5ec48153d8c19a5a343fa59019]
 Date: 2025-07-30
 Score: 5
-Status: accepted(include=yes,score=65)
+Status: added(include=yes,score=65)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Bootloader.general
@@ -19868,7 +20732,7 @@ MFC after:	1 week
 [commit a4a3825d3e1dff1fea1d81443e0d92af6671a0c3]
 Date: 2026-03-19
 Score: 5
-Status: accepted(include=yes,score=95)
+Status: added(include=yes,score=95)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: Chelsio Communications
 Section: Bootloader.general
@@ -20147,7 +21011,7 @@ Differential Revision:	https://reviews.freebsd.org/D54511
 [commit 9ac7e0362a2490f5de0e23507cc5159cc03a3334]
 Date: 2025-05-29
 Score: 5
-Status: accepted(include=yes,score=60)
+Status: added(include=yes,score=60)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: PANS Jarosław
 Section: Bootloader.general
@@ -21226,7 +22090,7 @@ Differential Revision:	https://reviews.freebsd.org/D55311
 [commit cfdd90abab51581120da75b45018a79237228b33]
 Date: 2026-02-24
 Score: 5
-Status: accepted(include=yes,score=80)
+Status: added(include=yes,score=80)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Bootloader.general
@@ -22053,7 +22917,7 @@ Requested by:	kib
 [commit 964c97aa80ec301478dead9b67f0a1fe18d5479b]
 Date: 2026-02-02
 Score: 5
-Status: accepted(include=yes,score=80)
+Status: added(include=yes,score=80)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Drivers.device
@@ -23471,7 +24335,7 @@ Differential Revision:	https://reviews.freebsd.org/D55153
 [commit ae75d4bdc12bcdd30099bf35ce72f3452972b59f]
 Date: 2026-02-10
 Score: 5
-Status: accepted(include=yes,score=80)
+Status: added(include=yes,score=80)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Userland.programs
@@ -24279,7 +25143,7 @@ Differential Revision:	https://reviews.freebsd.org/D55110
 [commit 704ec5e68c44f08d83f3b0daa315c6143338863f]
 Date: 2026-02-10
 Score: 5
-Status: accepted(include=yes,score=75)
+Status: added(include=yes,score=75)
 CollectedAt: 2026-07-26T13:03:16 UTC
 Sponsor: 
 Section: Userland.programs
@@ -25173,137 +26037,1193 @@ Sponsored by:	OpenSats Initiative
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 [commit fc00e7a18cdec54cc29c522c5cb446c89ea68267]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b52d95bf14945108be077fd621c194d24c1f3118]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 10075baae2c1151945bc13a478560e4d4a1aacf1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e71ad3f7a6b1260ee5db3108e03b0e21fff40abf]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 823889aaafa37ba63a6fb2c53b0dafe1373e221b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ca42bd490891011556a9507b10ad205f6e7e5f30]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 432c95c57bb5edba6593f48a17092577e293bc05]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit cc35db95eb9ed1c62bb2eb7251e4c2ab67907d62]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 11a0cf32a23259caff9f6a2c1489947170dfd8b2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c839c1566147cc2d255aab1f7a1f8ed3f86299a8]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 5e144321152815f476978b70c6749ff216579e29]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a1479a37fcf8d66fa0de5076449f64d6297d1e1f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 3e05b2366af1fa56907390d540a97e29f0f191dd]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 69b3aa35469a2df029a2faaa8c4022af72d8f418]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 9f9f0d3d9e1c9c9416b12625d357dd6f80d5f9be]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit fc1ab22fb3b86093be00c010a57feb1fefceb0bb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 5f10e369a13af824de5244c12f4e7216a9d0750e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b734006cafa1915922de2a6a3a0aee9969d28d04]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f956c425d4c6b93efefea357f34cd28a7d749db1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b0b6364eadf498c985f8312195e37eed5780347c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 9f80b89c5a4ee66c9428f0d240899d77f442079f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 4781aeb5b9cb564a53fee8128f6827402deaf9df]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 612a0fd7cddec87a4bb83a0327026b9e6b04d2b7]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit bdea6e971844ac2e0a3dfab47fc6e678a11e5d19]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 90f53c300ac9ddce9a10f9f67e1c22660148fce6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 819af80de8e8854f5767c20d03cb7362624b0085]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit aad298c8f9cabe53379bea59ce075f2eb0c93898]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 266022bf0b6092a0d052c3faa10130755be21ad5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 12b941265ebb01bc6f4683d84551a16580bb5cc6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a90616ce34c4f19903ce04160b0d11ce25721bd5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 1ae396e2adaebb4fc71d29628789804ac9b0be44]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 222648172b80e27e06ea83d60f50f9d9ed75dfbc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a878e7b4985f0c178b9d49a6cd80c2eade9b77e3]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit d58218761eeb4e7a2a375b7d2ed80c31a311f3fd]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f81c82a9db12685f98421bfe9c368ff9a214c844]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 33c8e68d3237af2f0540ff39eed8439a67b3f90a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit fd420ecc7e068ca22c71f1b7aafad3b0c8e84525]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ca66129a2c8ace5af1b76b24f48e27ba5c9eac8b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ec6bfa889b839645961113344186b85ed8477f48]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a8e709c667693508a31e2e3a9857a1b8f0587c3e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 47f4f76074a48cdaa743f05929725c84f71d502b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit fc1ab22fb3b86093be00c010a57feb1fefceb0bb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ec6797818bf2f35c95422a4be398ca903ce27657]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 0c6a058ca265b334c88473dd2685e105d42db95f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2e97bf202703413b4d6e5bce080f9d511886fc97]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2e6734ed19598028da58b2f47fbb2dd5eaf7f485]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 4a5ad04af821659fe3f4112815f363c2cf3a0e81]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit dbb1534461bfb325f1b9dbfa1edf9befa25dbd8a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 179029b4d82e709f348a6bec2d8e7221664358d9]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit bdeece20378ef7976fbd61b1a4f1cfaec0ccbf69]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 502fd5427dc8c9225f5b4f543bd56964816b6510]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit df67e880e278d6b6d35c254d92bba71d77e8ca8b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 3e455586033833d25699dfa61ab863e11ca3c110]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 6a0e4d513abc6c4143815e7509ffcc46862a4c23]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e2b73bf961910f7bf21e6599cb78b053c8077789]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 9d99cbbb284fb88c44b05241e73790f429d086dc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit de9d7a2ab8f59f07b5fa1e81295d1c431bb2f548]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a2679283778cd547b9aba1161254550e26616851]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f3a50f7cee24e0835f25fbc66201a1ba1c2b4b8d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit d61b19b6907acbdc68202b2e62f740b42a0455e0]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f8ad4df7241d1db626b8ca425bd85be9ca109dc6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c81fa81aab339d6a2d11019e0768bd463131f87a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 944bd28f088282407e2c63ee023f150bb6f0fc1c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 84f7ee30767b874eb24f5e29f2947a9331d645fc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 51fcd5ddf016835619c94f4dbdc5b29150fc2e48]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 7d9c1d3895b307085131f922d7e46a4812f04675]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f62ab5c293f64cf492c2a20ee99ded008e9a1457]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 302545bcbc1c81076123cb69a12a5514661972df]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 81df9a1045c3e1778c551fcd62125e0b5d2b76f2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f7145eff8172cbcaffb36c1d13aae0e438759a7c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit bc73c7f6191211b254f8cc87aab71d5ff853e24d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit fca6c9e8f7474132f30bf836f1c2b8d289bdc14d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 487eeda542a774ba9237d8bda58c9fcb99b2afba]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 30eb33424e74f467346319876e20a83ff71e00cd]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 7be895e5003534e51efe37cc63a359219099bf4a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ee828a44e8d16e7bf74c0761bd088024821f1eb6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 33030906cdd373b92e4a263b2ce0d5d9fe02fade]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 78e9708c98aa7b1362cdb909f3530592c97ee904]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit eb55ca209aa21bc2b274f129bef954d0931ab23c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2dddbb67c6a15317df549538be286e908d11de98]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e27255a7f9e45dab9935b916d759498a093e36e5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 26b162dd829885701e75b7196ef380d998faeef0]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f5e1bc1ca1b1b8d6c096ac65c64f69586d501200]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit d51d91780b61180fbeae406a29e9a02ec74d56df]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 3bc0114674a590bcec90f74b20115085ff914c8d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8de7c76ee02fcc7a405d47cc4b816c27de0dc2e4]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 27ac9d336f715b4ce91bf447f73d5c3621d099ce]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e324486b9b562f9a1d4a214492766d83299dbb0d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 7320170ff210cc1da1f36e73130de7e2e62a867b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8a0d626219f1863c79808bdda2175cc136250b07]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 09db15067248b297bf2d419fa77a3b2e39184a64]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 1ac7c32807e5da50b8c61c3ffe93f668eac4ba5f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e32e126c136de28783ac732fe3cd8a5224559ac5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c5e1dde24dacdeb9d47684d981e17178fd7e8acf]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 71ca167e36915865d1bdbb672652491a6934b1cc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b0b6364eadf498c985f8312195e37eed5780347c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 5f55c59cbab5b06a2fcb272b345ce94c48c01c1c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b9c0e0c77036a83b2d1b6993224370b686446d6a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 7fd8a2028034968b8dc7984e83046f4b7c1696ff]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 4830cb713ed8ae377f7143c4be204b5994c178c2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit aabd5243fb97979d33a7eece4f7cca18ffd82a95]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8df05ce54e12860111445e4ad98a791d4235be9e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 227baf32d26360137492b108aba06c6a54c0949b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 175920c9d0f71bf9b7beb4854836e340c0c563da]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2f866e0547bd85e4fc66cf5468e8349931e365be]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b28b6c6d33ac7a015c55184b162e060cedeed4f6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 354cc5e142634afbc967ede56572b939fbdb5d38]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 17da2d24b7af843739be6b3d9ce244f511cde2ee]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8accd4d99f813f0a1e37f14dd0a9f9deb47e5fe7]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c92c3852a9741a04d84a205eb457dd2af6b4a203]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8e02e1c37d8464816f807efd73d4c9284118bdee]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 625ed651833e76a439a7010aa28c93bc83013168]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f763f12ed5eba2c95385dd2f93fc47a66dfa927c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 0d066d21668172aa7fc9bc38f9a0725ae31f0deb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a1f4ccd6c79470eb0180f4d9a012b24c267d2574]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b2e845c577de15e29d9a635dea839da3c1687276]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 0b35f51766877e7b8cfd5933911fbc3da620fbb4]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 1f62c6f0fc4a46b028d26765b632da9c4ac651a9]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit aa3b76871e9644c86b5dc16c3a42215447a29853]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f89b8493d7b2f8b4f98273669e607fbeecb73f50]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2705320b7c820f77ca1f6afabadbb5d3ef9a1e90]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 6454c6e825902039c8083626ef728d2deea7992f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b60835acb9841cdc1df9921bca3f4e1f904680b5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2b0f4a74e2a1f4eea062d651fe6759c807646ffc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 6bfcca26efbc250998cec5c1109d9a4d1a1b0b6f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a0f27dcaf9a14c9c6ebbde41e0b82a481b87e77d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c8af571bf1f88e6445c8e9a449f600c6fef25252]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 81004ee18aa4a2fa31b9834f9e80a9fe7cf10b95]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ce59deaf3540a44f0414bf6deb2288b23f10d02b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 25e66327126deb92f95fc2d65c8c7d51c4862e2b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 28c3d544db285c1c198661e6d932cf76c9d68102]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit bb8c5e484f5278535154cf93f1f7a8d8c51983f0]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 187da1388dc1cc27c2a7d5ec5e9ff75fbdbebf06]
 Date: 2026-08-07
 Score: 5
@@ -25789,7 +27709,7 @@ Differential Revision:	https://reviews.freebsd.org/D56382
 [commit 9bc3d8e002b96d8afd9a5f04f5d45500244f1e1b]
 Date: 2026-03-24
 Score: 5
-Status: accepted(include=yes,score=85)
+Status: added(include=yes,score=85)
 CollectedAt: 2026-08-07T08:04:41 UTC
 Sponsor: 
 Section: Userland.programs
@@ -28112,7 +30032,7 @@ Differential Revision:	https://reviews.freebsd.org/D50315
 [commit e61884183ed4bbe84dfcc242fecd2bffb943af96]
 Date: 2025-07-03
 Score: 5
-Status: accepted(include=yes,score=80)
+Status: added(include=yes,score=80)
 CollectedAt: 2026-08-07T08:04:41 UTC
 Sponsor: Klara, Inc.
 Section: Userland.libraries
@@ -28166,7 +30086,7 @@ This is a direct commit to stable/14.
 [commit 296d7f95aab8d3c948fd6a421eb49513aa48435b]
 Date: 2025-07-03
 Score: 5
-Status: accepted(include=yes,score=90)
+Status: added(include=yes,score=90)
 CollectedAt: 2026-08-07T08:04:41 UTC
 Sponsor: Klara, Inc.
 Section: Kernel.general
@@ -30849,139 +32769,1211 @@ Differential Revision:	https://reviews.freebsd.org/D58198
  3 files changed, 3 insertions(+)
 
 [commit fc00e7a18cdec54cc29c522c5cb446c89ea68267]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b52d95bf14945108be077fd621c194d24c1f3118]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 10075baae2c1151945bc13a478560e4d4a1aacf1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e71ad3f7a6b1260ee5db3108e03b0e21fff40abf]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 823889aaafa37ba63a6fb2c53b0dafe1373e221b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ca42bd490891011556a9507b10ad205f6e7e5f30]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 432c95c57bb5edba6593f48a17092577e293bc05]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit cc35db95eb9ed1c62bb2eb7251e4c2ab67907d62]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 11a0cf32a23259caff9f6a2c1489947170dfd8b2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c839c1566147cc2d255aab1f7a1f8ed3f86299a8]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 5e144321152815f476978b70c6749ff216579e29]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a1479a37fcf8d66fa0de5076449f64d6297d1e1f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 3e05b2366af1fa56907390d540a97e29f0f191dd]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 69b3aa35469a2df029a2faaa8c4022af72d8f418]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 9f9f0d3d9e1c9c9416b12625d357dd6f80d5f9be]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit fc1ab22fb3b86093be00c010a57feb1fefceb0bb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 5f10e369a13af824de5244c12f4e7216a9d0750e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b734006cafa1915922de2a6a3a0aee9969d28d04]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f956c425d4c6b93efefea357f34cd28a7d749db1]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b0b6364eadf498c985f8312195e37eed5780347c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 9f80b89c5a4ee66c9428f0d240899d77f442079f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 4781aeb5b9cb564a53fee8128f6827402deaf9df]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 612a0fd7cddec87a4bb83a0327026b9e6b04d2b7]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit bdea6e971844ac2e0a3dfab47fc6e678a11e5d19]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 90f53c300ac9ddce9a10f9f67e1c22660148fce6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 819af80de8e8854f5767c20d03cb7362624b0085]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit aad298c8f9cabe53379bea59ce075f2eb0c93898]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 266022bf0b6092a0d052c3faa10130755be21ad5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 12b941265ebb01bc6f4683d84551a16580bb5cc6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a90616ce34c4f19903ce04160b0d11ce25721bd5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 1ae396e2adaebb4fc71d29628789804ac9b0be44]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 222648172b80e27e06ea83d60f50f9d9ed75dfbc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a878e7b4985f0c178b9d49a6cd80c2eade9b77e3]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit d58218761eeb4e7a2a375b7d2ed80c31a311f3fd]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f81c82a9db12685f98421bfe9c368ff9a214c844]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 33c8e68d3237af2f0540ff39eed8439a67b3f90a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit fd420ecc7e068ca22c71f1b7aafad3b0c8e84525]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ca66129a2c8ace5af1b76b24f48e27ba5c9eac8b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ec6bfa889b839645961113344186b85ed8477f48]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a8e709c667693508a31e2e3a9857a1b8f0587c3e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 47f4f76074a48cdaa743f05929725c84f71d502b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit fc1ab22fb3b86093be00c010a57feb1fefceb0bb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ec6797818bf2f35c95422a4be398ca903ce27657]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 0c6a058ca265b334c88473dd2685e105d42db95f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2e97bf202703413b4d6e5bce080f9d511886fc97]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2e6734ed19598028da58b2f47fbb2dd5eaf7f485]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 4a5ad04af821659fe3f4112815f363c2cf3a0e81]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit dbb1534461bfb325f1b9dbfa1edf9befa25dbd8a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 179029b4d82e709f348a6bec2d8e7221664358d9]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit bdeece20378ef7976fbd61b1a4f1cfaec0ccbf69]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 502fd5427dc8c9225f5b4f543bd56964816b6510]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit df67e880e278d6b6d35c254d92bba71d77e8ca8b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 3e455586033833d25699dfa61ab863e11ca3c110]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 6a0e4d513abc6c4143815e7509ffcc46862a4c23]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e2b73bf961910f7bf21e6599cb78b053c8077789]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 9d99cbbb284fb88c44b05241e73790f429d086dc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit de9d7a2ab8f59f07b5fa1e81295d1c431bb2f548]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a2679283778cd547b9aba1161254550e26616851]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f3a50f7cee24e0835f25fbc66201a1ba1c2b4b8d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit d61b19b6907acbdc68202b2e62f740b42a0455e0]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f8ad4df7241d1db626b8ca425bd85be9ca109dc6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c81fa81aab339d6a2d11019e0768bd463131f87a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 944bd28f088282407e2c63ee023f150bb6f0fc1c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 84f7ee30767b874eb24f5e29f2947a9331d645fc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 51fcd5ddf016835619c94f4dbdc5b29150fc2e48]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 7d9c1d3895b307085131f922d7e46a4812f04675]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f62ab5c293f64cf492c2a20ee99ded008e9a1457]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 302545bcbc1c81076123cb69a12a5514661972df]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 81df9a1045c3e1778c551fcd62125e0b5d2b76f2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f7145eff8172cbcaffb36c1d13aae0e438759a7c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit bc73c7f6191211b254f8cc87aab71d5ff853e24d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit fca6c9e8f7474132f30bf836f1c2b8d289bdc14d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 487eeda542a774ba9237d8bda58c9fcb99b2afba]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 30eb33424e74f467346319876e20a83ff71e00cd]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 7be895e5003534e51efe37cc63a359219099bf4a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ee828a44e8d16e7bf74c0761bd088024821f1eb6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 33030906cdd373b92e4a263b2ce0d5d9fe02fade]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 78e9708c98aa7b1362cdb909f3530592c97ee904]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit eb55ca209aa21bc2b274f129bef954d0931ab23c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2dddbb67c6a15317df549538be286e908d11de98]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e27255a7f9e45dab9935b916d759498a093e36e5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 26b162dd829885701e75b7196ef380d998faeef0]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f5e1bc1ca1b1b8d6c096ac65c64f69586d501200]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit d51d91780b61180fbeae406a29e9a02ec74d56df]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 3bc0114674a590bcec90f74b20115085ff914c8d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8de7c76ee02fcc7a405d47cc4b816c27de0dc2e4]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 27ac9d336f715b4ce91bf447f73d5c3621d099ce]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e324486b9b562f9a1d4a214492766d83299dbb0d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 7320170ff210cc1da1f36e73130de7e2e62a867b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8a0d626219f1863c79808bdda2175cc136250b07]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 09db15067248b297bf2d419fa77a3b2e39184a64]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 1ac7c32807e5da50b8c61c3ffe93f668eac4ba5f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit e32e126c136de28783ac732fe3cd8a5224559ac5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c5e1dde24dacdeb9d47684d981e17178fd7e8acf]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 71ca167e36915865d1bdbb672652491a6934b1cc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b0b6364eadf498c985f8312195e37eed5780347c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 5f55c59cbab5b06a2fcb272b345ce94c48c01c1c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b9c0e0c77036a83b2d1b6993224370b686446d6a]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 7fd8a2028034968b8dc7984e83046f4b7c1696ff]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 4830cb713ed8ae377f7143c4be204b5994c178c2]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit aabd5243fb97979d33a7eece4f7cca18ffd82a95]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8df05ce54e12860111445e4ad98a791d4235be9e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 227baf32d26360137492b108aba06c6a54c0949b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 175920c9d0f71bf9b7beb4854836e340c0c563da]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2f866e0547bd85e4fc66cf5468e8349931e365be]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b28b6c6d33ac7a015c55184b162e060cedeed4f6]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 354cc5e142634afbc967ede56572b939fbdb5d38]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 17da2d24b7af843739be6b3d9ce244f511cde2ee]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8accd4d99f813f0a1e37f14dd0a9f9deb47e5fe7]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c92c3852a9741a04d84a205eb457dd2af6b4a203]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 8e02e1c37d8464816f807efd73d4c9284118bdee]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 625ed651833e76a439a7010aa28c93bc83013168]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f763f12ed5eba2c95385dd2f93fc47a66dfa927c]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 0d066d21668172aa7fc9bc38f9a0725ae31f0deb]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a1f4ccd6c79470eb0180f4d9a012b24c267d2574]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b2e845c577de15e29d9a635dea839da3c1687276]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 0b35f51766877e7b8cfd5933911fbc3da620fbb4]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 1f62c6f0fc4a46b028d26765b632da9c4ac651a9]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit aa3b76871e9644c86b5dc16c3a42215447a29853]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit f89b8493d7b2f8b4f98273669e607fbeecb73f50]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2705320b7c820f77ca1f6afabadbb5d3ef9a1e90]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 6454c6e825902039c8083626ef728d2deea7992f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit b60835acb9841cdc1df9921bca3f4e1f904680b5]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 2b0f4a74e2a1f4eea062d651fe6759c807646ffc]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 6bfcca26efbc250998cec5c1109d9a4d1a1b0b6f]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a0f27dcaf9a14c9c6ebbde41e0b82a481b87e77d]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c8af571bf1f88e6445c8e9a449f600c6fef25252]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 81004ee18aa4a2fa31b9834f9e80a9fe7cf10b95]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit ce59deaf3540a44f0414bf6deb2288b23f10d02b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 25e66327126deb92f95fc2d65c8c7d51c4862e2b]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 28c3d544db285c1c198661e6d932cf76c9d68102]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit bb8c5e484f5278535154cf93f1f7a8d8c51983f0]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit c555236ec76f8943cde1be109a75bf29d8b2671e]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit a9a5c96f55a4b9bb9779a4fcfe198f9b694327cd]
+Date: 1970-01-01
+Score: 5
+Status: proposed
+Sponsor: 
+Section: 
+Subject: 
+Review: 
+
 [commit 31c2290fc1098248600a444c85194943eb08ee9e]
 Date: 2025-10-04
 Score: 5
