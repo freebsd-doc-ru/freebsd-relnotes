@@ -1,0 +1,907 @@
+[commit 179dfe41bcfe65a98b4cd4aa970764f95c6a0bd8]
+Date: 2026-10-06
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: 
+Subject: lib80211: fix build with eXpat 2.9.0
+Body:
+
+eXpat 2.9.0 deprecates XML_GetCurrentLineNumber() in favour of
+XML_GetCurrentLineNumber64().  The new function behaves the same
+as the old one but is not prone to 32 bit integer wrap-around.
+
+(cherry picked from commit 657c089950a0388811c7ba3f6d3e7127c297864e)
+
+
+ lib/lib80211/lib80211_regdomain.c | 53 ++++++++++++++++++++-------------------
+ 1 file changed, 27 insertions(+), 26 deletions(-)
+
+[commit 687a0d4a6b2391cd045951e4e431dd585d131575]
+Date: 2026-05-12
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: The FreeBSD Foundation
+Subject: OpenSSH: Update to 10.1p1
+Body:
+
+Full release notes are available at
+https://www.openssh.com/txt/release-10.1
+
+Selected highlights from the release notes:
+
+Potentially-incompatible changes
+
+ * ssh(1): add a warning when the connection negotiates a non-post
+   quantum key agreement algorithm.
+
+ * ssh(1), sshd(8): major changes to handling of DSCP marking/IPQoS
+
+ * ssh(1), sshd(8): deprecate support for IPv4 type-of-service (ToS)
+   keywords in the IPQoS configuration directive.
+
+ * ssh-add(1): when adding certificates to an agent, set the expiry
+   to the certificate expiry time plus a short (5 min) grace period.
+
+ * ssh-agent(1), sshd(8): move agent listener sockets from /tmp to
+   under ~/.ssh/agent for both ssh-agent(1) and forwarded sockets
+   in sshd(8).
+
+Security
+
+ * ssh(1): disallow control characters in usernames passed via the
+   commandline or expanded using %-sequences from the configuration
+   file, and disallow \0 characters in ssh:// URIs.
+
+New features
+
+ * ssh(1), sshd(8): add SIGINFO handlers to log active channel and
+   session information.
+
+Sponsored by:	The FreeBSD Foundation
+
+(cherry picked from commit 644b4646c7acab87dc20d4e5dd53d2d9da152989)
+
+
+ crypto/openssh/.depend                             |    25 +-
+ crypto/openssh/.github/ci-status.md                |    22 +-
+ crypto/openssh/.github/configs                     |    13 +-
+ crypto/openssh/.github/install_libcrypto.sh        |    75 +
+ crypto/openssh/.github/install_putty.sh            |    37 +
+ crypto/openssh/.github/run_test.sh                 |    23 +-
+ crypto/openssh/.github/setup_ci.sh                 |    73 +-
+ crypto/openssh/.github/workflows/c-cpp.yml         |    89 +-
+ crypto/openssh/.github/workflows/selfhosted.yml    |    15 +-
+ crypto/openssh/.github/workflows/upstream.yml      |    11 +-
+ crypto/openssh/.github/workflows/vm.yml            |   371 +
+ crypto/openssh/.gitignore                          |     1 +
+ crypto/openssh/.skipped-commit-ids                 |     7 +
+ crypto/openssh/ChangeLog                           | 11611 +++++++++++--------
+ crypto/openssh/INSTALL                             |     2 +-
+ crypto/openssh/Makefile.in                         |    70 +-
+ crypto/openssh/PROTOCOL                            |   126 +-
+ crypto/openssh/PROTOCOL.agent                      |    13 +-
+ crypto/openssh/PROTOCOL.certkeys                   |   326 -
+ crypto/openssh/PROTOCOL.chacha20poly1305           |   107 -
+ crypto/openssh/README                              |     2 +-
+ crypto/openssh/TODO                                |     2 +-
+ crypto/openssh/atomicio.c                          |     6 -
+ crypto/openssh/audit-bsm.c                         |     2 +-
+ crypto/openssh/audit-linux.c                       |     4 +-
+ crypto/openssh/auth-krb5.c                         |     2 +-
+ crypto/openssh/auth-options.c                      |     7 +-
+ crypto/openssh/auth-pam.c                          |   127 +-
+ crypto/openssh/auth-passwd.c                       |     4 +-
+ crypto/openssh/auth-rhosts.c                       |     4 +-
+ crypto/openssh/auth-shadow.c                       |     4 +-
+ crypto/openssh/auth.c                              |     7 +-
+ crypto/openssh/auth2-chall.c                       |    10 +-
+ crypto/openssh/auth2-hostbased.c                   |    15 +-
+ crypto/openssh/auth2-pubkey.c                      |    16 +-
+ crypto/openssh/auth2-pubkeyfile.c                  |    23 +-
+ crypto/openssh/auth2.c                             |     2 +-
+ crypto/openssh/authfd.c                            |    27 +-
+ crypto/openssh/authfd.h                            |     8 +-
+ crypto/openssh/authfile.c                          |     8 +-
+ crypto/openssh/channels.c                          |   115 +-
+ crypto/openssh/channels.h                          |    13 +-
+ crypto/openssh/cipher.c                            |    17 +-
+ crypto/openssh/clientloop.c                        |    55 +-
+ crypto/openssh/config.h                            |    45 +-
+ crypto/openssh/configure.ac                        |   110 +-
+ crypto/openssh/contrib/Makefile                    |     7 +-
+ crypto/openssh/contrib/README                      |     8 +-
+ crypto/openssh/contrib/cygwin/ssh-user-config      |     3 +-
+ crypto/openssh/contrib/gnome-ssh-askpass4.c        |   249 +
+ crypto/openssh/contrib/redhat/openssh.spec         |    17 +-
+ crypto/openssh/contrib/redhat/sshd.init            |     2 +-
+ crypto/openssh/contrib/ssh-copy-id                 |    15 +-
+ crypto/openssh/contrib/suse/openssh.spec           |     3 +-
+ crypto/openssh/crypto_api.h                        |     4 +-
+ crypto/openssh/defines.h                           |    14 +
+ crypto/openssh/digest-libc.c                       |     3 +-
+ crypto/openssh/dispatch.c                          |     6 +-
+ crypto/openssh/dns.c                               |     8 +-
+ crypto/openssh/dns.h                               |     5 +-
+ crypto/openssh/groupaccess.c                       |    21 +-
+ crypto/openssh/gss-genr.c                          |     2 +-
+ crypto/openssh/gss-serv.c                          |     2 +-
+ crypto/openssh/hmac.c                              |     2 +-
+ crypto/openssh/hostfile.c                          |    62 +-
+ crypto/openssh/kex-names.c                         |    64 +-
+ crypto/openssh/kex.c                               |     9 +-
+ crypto/openssh/kex.h                               |     7 +-
+ crypto/openssh/kexdh.c                             |     3 +-
+ crypto/openssh/kexecdh.c                           |     3 +-
+ crypto/openssh/kexgen.c                            |     6 +-
+ crypto/openssh/kexgexc.c                           |     6 +-
+ crypto/openssh/kexgexs.c                           |     7 +-
+ crypto/openssh/kexmlkem768x25519.c                 |     6 +-
+ crypto/openssh/krb5_config.h                       |     1 +
+ crypto/openssh/krl.c                               |     5 +-
+ crypto/openssh/log.c                               |     4 +-
+ crypto/openssh/loginrec.c                          |    48 +-
+ crypto/openssh/logintest.c                         |     2 -
+ crypto/openssh/m4/openssh.m4                       |    42 +-
+ crypto/openssh/mac.c                               |    23 +-
+ crypto/openssh/misc-agent.c                        |   357 +
+ crypto/openssh/misc.c                              |   103 +-
+ crypto/openssh/misc.h                              |     9 +-
+ crypto/openssh/moduli                              |   859 +-
+ crypto/openssh/moduli.c                            |    59 +-
+ crypto/openssh/monitor.c                           |    86 +-
+ crypto/openssh/monitor_fdpass.c                    |    12 +-
+ crypto/openssh/monitor_wrap.c                      |    93 +-
+ crypto/openssh/monitor_wrap.h                      |     6 +-
+ crypto/openssh/mux.c                               |    23 +-
+ crypto/openssh/openbsd-compat/Makefile.in          |     5 +-
+ crypto/openssh/openbsd-compat/arc4random.c         |     2 -
+ crypto/openssh/openbsd-compat/arc4random_uniform.c |     4 +-
+ crypto/openssh/openbsd-compat/bsd-misc.c           |    55 +-
+ crypto/openssh/openbsd-compat/bsd-misc.h           |    14 +-
+ crypto/openssh/openbsd-compat/bsd-openpty.c        |     8 +-
+ crypto/openssh/openbsd-compat/bsd-poll.h           |     6 +-
+ crypto/openssh/openbsd-compat/daemon.c             |     4 +-
+ crypto/openssh/openbsd-compat/glob.c               |     2 -
+ crypto/openssh/openbsd-compat/include/netgroup.h   |     0
+ crypto/openssh/openbsd-compat/include/util.h       |     0
+ crypto/openssh/openbsd-compat/memmem.c             |     2 -
+ crypto/openssh/openbsd-compat/openssl-compat.c     |     9 +-
+ crypto/openssh/openbsd-compat/openssl-compat.h     |    19 +-
+ crypto/openssh/openbsd-compat/port-prngd.c         |     4 +-
+ crypto/openssh/openbsd-compat/reallocarray.c       |     2 -
+ crypto/openssh/openbsd-compat/recallocarray.c      |     2 -
+ .../openssh/openbsd-compat/regress/utimensattest.c |    12 +-
+ crypto/openssh/packet.c                            |   107 +-
+ crypto/openssh/packet.h                            |     8 +-
+ crypto/openssh/pathnames.h                         |    13 +-
+ crypto/openssh/pkcs11.h                            |  1502 ++-
+ crypto/openssh/platform.c                          |    15 +-
+ crypto/openssh/poly1305.c                          |     4 +-
+ crypto/openssh/progressmeter.c                     |    12 +-
+ crypto/openssh/readconf.c                          |    75 +-
+ crypto/openssh/readconf.h                          |     8 +-
+ crypto/openssh/readpass.c                          |     8 +-
+ crypto/openssh/regress/Makefile                    |    69 +-
+ crypto/openssh/regress/agent-pkcs11-cert.sh        |    57 +-
+ crypto/openssh/regress/agent-pkcs11-restrict.sh    |    31 +-
+ crypto/openssh/regress/agent-pkcs11.sh             |    72 +-
+ crypto/openssh/regress/agent-restrict.sh           |    17 +-
+ crypto/openssh/regress/agent.sh                    |     8 +-
+ crypto/openssh/regress/cert-hostkey.sh             |     4 +-
+ crypto/openssh/regress/cert-userkey.sh             |     6 +-
+ crypto/openssh/regress/cfgmatch.sh                 |     4 +-
+ crypto/openssh/regress/cfgparse.sh                 |    19 +-
+ crypto/openssh/regress/connect-bigconf.sh          |    17 +
+ crypto/openssh/regress/dropbear-server.sh          |    76 +
+ crypto/openssh/regress/dsa_ssh2.prv                |    14 -
+ crypto/openssh/regress/dsa_ssh2.pub                |    13 -
+ crypto/openssh/regress/dynamic-forward.sh          |     4 +-
+ crypto/openssh/regress/hostbased.sh                |     3 +-
+ crypto/openssh/regress/keygen-comment.sh           |     3 +-
+ crypto/openssh/regress/keytype.sh                  |     4 +-
+ crypto/openssh/regress/knownhosts-command.sh       |     3 +-
+ crypto/openssh/regress/krl.sh                      |     3 +-
+ crypto/openssh/regress/limit-keytype.sh            |     6 +-
+ crypto/openssh/regress/misc/fuzz-harness/Makefile  |    11 +-
+ .../regress/misc/fuzz-harness/agent_fuzz_helper.c  |     7 -
+ .../openssh/regress/misc/fuzz-harness/fixed-keys.h |    26 -
+ .../fuzz-harness/testdata/create-agent-corpus.sh   |     2 +-
+ .../misc/fuzz-harness/testdata/id_dsa-cert.pub     |     1 -
+ crypto/openssh/regress/misc/sk-dummy/sk-dummy.c    |     7 +-
+ .../regress/misc/ssh-verify-attestation/Makefile   |     4 +-
+ .../ssh-verify-attestation.c                       |     7 +-
+ crypto/openssh/regress/modpipe.c                   |     4 +-
+ crypto/openssh/regress/netcat.c                    |    36 +-
+ crypto/openssh/regress/password.sh                 |    60 +
+ crypto/openssh/regress/penalty-expire.sh           |     2 +-
+ crypto/openssh/regress/penalty.sh                  |     2 +-
+ crypto/openssh/regress/percent.sh                  |    45 +-
+ crypto/openssh/regress/rekey.sh                    |     2 +-
+ crypto/openssh/regress/ssh-com-client.sh           |    14 +-
+ crypto/openssh/regress/ssh-com.sh                  |    26 +-
+ crypto/openssh/regress/ssh2putty.sh                |     3 +-
+ crypto/openssh/regress/sshcfgparse.sh              |    27 +-
+ crypto/openssh/regress/sshsig.sh                   |     4 +-
+ crypto/openssh/regress/test-exec.sh                |    54 +-
+ crypto/openssh/regress/unittests/Makefile.inc      |    29 +-
+ crypto/openssh/regress/unittests/authopt/Makefile  |     8 +-
+ crypto/openssh/regress/unittests/authopt/tests.c   |    10 +-
+ crypto/openssh/regress/unittests/bitmap/Makefile   |     7 +-
+ crypto/openssh/regress/unittests/bitmap/tests.c    |    32 +-
+ .../openssh/regress/unittests/conversion/Makefile  |     4 +-
+ .../openssh/regress/unittests/conversion/tests.c   |    10 +-
+ crypto/openssh/regress/unittests/hostkeys/Makefile |     8 +-
+ .../regress/unittests/hostkeys/mktestdata.sh       |    13 +-
+ .../regress/unittests/hostkeys/test_iterate.c      |   214 +-
+ .../regress/unittests/hostkeys/testdata/dsa_1.pub  |     1 -
+ .../regress/unittests/hostkeys/testdata/dsa_2.pub  |     1 -
+ .../regress/unittests/hostkeys/testdata/dsa_3.pub  |     1 -
+ .../regress/unittests/hostkeys/testdata/dsa_4.pub  |     1 -
+ .../regress/unittests/hostkeys/testdata/dsa_5.pub  |     1 -
+ .../regress/unittests/hostkeys/testdata/dsa_6.pub  |     1 -
+ .../unittests/hostkeys/testdata/known_hosts        |    12 +-
+ crypto/openssh/regress/unittests/hostkeys/tests.c  |    13 +-
+ crypto/openssh/regress/unittests/kex/Makefile      |     8 +-
+ crypto/openssh/regress/unittests/kex/test_kex.c    |    79 +-
+ .../openssh/regress/unittests/kex/test_proposal.c  |     2 -
+ crypto/openssh/regress/unittests/kex/tests.c       |     9 +-
+ crypto/openssh/regress/unittests/match/Makefile    |     4 +-
+ crypto/openssh/regress/unittests/match/tests.c     |    10 +-
+ crypto/openssh/regress/unittests/misc/Makefile     |     6 +-
+ crypto/openssh/regress/unittests/misc/test_argv.c  |     2 -
+ .../openssh/regress/unittests/misc/test_convtime.c |     2 -
+ .../openssh/regress/unittests/misc/test_expand.c   |    31 +-
+ .../openssh/regress/unittests/misc/test_hpdelim.c  |     2 -
+ crypto/openssh/regress/unittests/misc/test_misc.c  |   436 +
+ crypto/openssh/regress/unittests/misc/test_parse.c |    10 +-
+ .../openssh/regress/unittests/misc/test_ptimeout.c |     8 +-
+ .../openssh/regress/unittests/misc/test_strdelim.c |     2 -
+ .../openssh/regress/unittests/misc/test_xextendf.c |    89 +
+ crypto/openssh/regress/unittests/misc/tests.c      |    14 +-
+ .../openssh/regress/unittests/sshbuf/test_sshbuf.c |     4 +-
+ .../regress/unittests/sshbuf/test_sshbuf_fixed.c   |     4 +-
+ .../regress/unittests/sshbuf/test_sshbuf_fuzz.c    |     4 +-
+ .../unittests/sshbuf/test_sshbuf_getput_basic.c    |    11 +-
+ .../unittests/sshbuf/test_sshbuf_getput_crypto.c   |    11 +-
+ .../unittests/sshbuf/test_sshbuf_getput_fuzz.c     |    18 +-
+ .../regress/unittests/sshbuf/test_sshbuf_misc.c    |   223 +-
+ crypto/openssh/regress/unittests/sshbuf/tests.c    |    12 +-
+ crypto/openssh/regress/unittests/sshkey/Makefile   |     6 +-
+ crypto/openssh/regress/unittests/sshkey/common.c   |    49 +-
+ crypto/openssh/regress/unittests/sshkey/common.h   |     5 +-
+ .../openssh/regress/unittests/sshkey/mktestdata.sh |    53 +-
+ .../openssh/regress/unittests/sshkey/test_file.c   |    98 +-
+ .../openssh/regress/unittests/sshkey/test_fuzz.c   |    77 +-
+ .../openssh/regress/unittests/sshkey/test_sshkey.c |   225 +-
+ .../regress/unittests/sshkey/testdata/dsa_1        |    12 -
+ .../unittests/sshkey/testdata/dsa_1-cert.fp        |     1 -
+ .../unittests/sshkey/testdata/dsa_1-cert.pub       |     1 -
+ .../regress/unittests/sshkey/testdata/dsa_1.fp     |     1 -
+ .../regress/unittests/sshkey/testdata/dsa_1.fp.bb  |     1 -
+ .../unittests/sshkey/testdata/dsa_1.param.g        |     1 -
+ .../unittests/sshkey/testdata/dsa_1.param.priv     |     1 -
+ .../unittests/sshkey/testdata/dsa_1.param.pub      |     1 -
+ .../regress/unittests/sshkey/testdata/dsa_1.pub    |     1 -
+ .../regress/unittests/sshkey/testdata/dsa_1_pw     |    15 -
+ .../regress/unittests/sshkey/testdata/dsa_2        |    12 -
+ .../regress/unittests/sshkey/testdata/dsa_2.fp     |     1 -
+ .../regress/unittests/sshkey/testdata/dsa_2.fp.bb  |     1 -
+ .../regress/unittests/sshkey/testdata/dsa_2.pub    |     1 -
+ .../regress/unittests/sshkey/testdata/dsa_n        |    21 -
+ .../regress/unittests/sshkey/testdata/dsa_n_pw     |    21 -
+ crypto/openssh/regress/unittests/sshkey/tests.c    |    10 +-
+ crypto/openssh/regress/unittests/sshsig/Makefile   |     6 +-
+ .../openssh/regress/unittests/sshsig/mktestdata.sh |     8 +-
+ .../openssh/regress/unittests/sshsig/testdata/dsa  |    12 -
+ .../regress/unittests/sshsig/testdata/dsa.pub      |     1 -
+ .../regress/unittests/sshsig/testdata/dsa.sig      |    13 -
+ crypto/openssh/regress/unittests/sshsig/tests.c    |    15 +-
+ .../openssh/regress/unittests/test_helper/fuzz.c   |     7 +-
+ .../regress/unittests/test_helper/test_helper.c    |   214 +-
+ .../regress/unittests/test_helper/test_helper.h    |    28 +-
+ crypto/openssh/regress/unittests/utf8/Makefile     |     7 +-
+ crypto/openssh/regress/unittests/utf8/tests.c      |     8 +-
+ crypto/openssh/sandbox-capsicum.c                  |     8 +-
+ crypto/openssh/sandbox-darwin.c                    |     6 +-
+ crypto/openssh/sandbox-seccomp-filter.c            |    66 +-
+ crypto/openssh/scp.1                               |    19 +-
+ crypto/openssh/scp.c                               |    48 +-
+ crypto/openssh/servconf.c                          |    93 +-
+ crypto/openssh/serverloop.c                        |    40 +-
+ crypto/openssh/session.c                           |    56 +-
+ crypto/openssh/sftp-client.c                       |    40 +-
+ crypto/openssh/sftp-client.h                       |     3 +-
+ crypto/openssh/sftp-common.c                       |     2 -
+ crypto/openssh/sftp-glob.c                         |     4 +-
+ crypto/openssh/sftp-server.c                       |    16 +-
+ crypto/openssh/sftp.c                              |    22 +-
+ crypto/openssh/sk-api.h                            |     2 -
+ crypto/openssh/sk-usbhid.c                         |    11 +-
+ crypto/openssh/srclimit.c                          |    16 +-
+ crypto/openssh/ssh-add.1                           |    13 +-
+ crypto/openssh/ssh-add.c                           |   224 +-
+ crypto/openssh/ssh-agent.1                         |    38 +-
+ crypto/openssh/ssh-agent.c                         |   141 +-
+ crypto/openssh/ssh-dss.c                           |   457 -
+ crypto/openssh/ssh-ecdsa.c                         |    35 +-
+ crypto/openssh/ssh-ed25519.c                       |    37 +-
+ crypto/openssh/ssh-keygen.1                        |    13 +-
+ crypto/openssh/ssh-keygen.c                        |   320 +-
+ crypto/openssh/ssh-keyscan.1                       |     6 +-
+ crypto/openssh/ssh-keyscan.c                       |    42 +-
+ crypto/openssh/ssh-keysign.c                       |    14 +-
+ crypto/openssh/ssh-pkcs11-client.c                 |   517 +-
+ crypto/openssh/ssh-pkcs11-helper.c                 |   221 +-
+ crypto/openssh/ssh-pkcs11.c                        |   862 +-
+ crypto/openssh/ssh-pkcs11.h                        |    14 +-
+ crypto/openssh/ssh-rsa.c                           |    50 +-
+ crypto/openssh/ssh-sk-helper.c                     |    19 +-
+ crypto/openssh/ssh-sk.c                            |     4 +-
+ crypto/openssh/ssh-xmss.c                          |   389 -
+ crypto/openssh/ssh.c                               |   117 +-
+ crypto/openssh/ssh_config                          |     3 +-
+ crypto/openssh/ssh_config.5                        |    50 +-
+ crypto/openssh/ssh_namespace.h                     |    44 +-
+ crypto/openssh/sshbuf-getput-basic.c               |     4 +-
+ crypto/openssh/sshbuf-misc.c                       |    63 +-
+ crypto/openssh/sshbuf.h                            |    18 +-
+ crypto/openssh/sshconnect.c                        |    39 +-
+ crypto/openssh/sshconnect2.c                       |     4 +-
+ crypto/openssh/sshd-auth.c                         |    35 +-
+ crypto/openssh/sshd-session.c                      |    38 +-
+ crypto/openssh/sshd.8                              |     6 +-
+ crypto/openssh/sshd.c                              |    60 +-
+ crypto/openssh/sshd_config                         |     2 +-
+ crypto/openssh/sshd_config.5                       |    27 +-
+ crypto/openssh/sshkey-xmss.c                       |  1113 --
+ crypto/openssh/sshkey-xmss.h                       |    56 -
+ crypto/openssh/sshkey.c                            |   233 +-
+ crypto/openssh/sshkey.h                            |    43 +-
+ crypto/openssh/sshlogin.c                          |     2 +-
+ crypto/openssh/sshpty.c                            |    10 +-
+ crypto/openssh/sshsig.c                            |     5 +-
+ crypto/openssh/uidswap.c                           |     8 +-
+ crypto/openssh/umac.c                              |     9 +-
+ crypto/openssh/version.h                           |     8 +-
+ crypto/openssh/xmalloc.c                           |     8 +-
+ crypto/openssh/xmss_commons.c                      |    36 -
+ crypto/openssh/xmss_commons.h                      |    21 -
+ crypto/openssh/xmss_fast.c                         |  1106 --
+ crypto/openssh/xmss_fast.h                         |   111 -
+ crypto/openssh/xmss_hash.c                         |   137 -
+ crypto/openssh/xmss_hash.h                         |    22 -
+ crypto/openssh/xmss_hash_address.c                 |    66 -
+ crypto/openssh/xmss_hash_address.h                 |    40 -
+ crypto/openssh/xmss_wots.c                         |   192 -
+ crypto/openssh/xmss_wots.h                         |    64 -
+ secure/lib/libssh/Makefile                         |     4 +-
+ secure/ssh.mk                                      |     2 +-
+ 314 files changed, 14462 insertions(+), 14120 deletions(-)
+
+[commit 8ba13711773628c6e78ab0904e1a41f700179ca2]
+Date: 2026-08-10
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: 
+Subject: iavf: Honor iflib transmit completion batching
+Body:
+
+iavf uses descriptor writeback by default.  Hardware writes completion
+status into a transmit descriptor only when it completes a descriptor
+marked RS.  iavf marked every packet RS even though its report-status
+queue recorded and inspected only descriptors selected by iflib.  The
+other completion writes could not help reclaim descriptors.
+
+iflib marks selected packets with IPI_TX_INTR as completion
+checkpoints.  It forces a checkpoint as deferred work or ring pressure
+grows.  Retain EOP on every packet, but set RS only at those
+checkpoints.
+
+The deprecated head-writeback option on 700-series VFs gets the same
+batching: each RS checkpoint permits hardware to publish the completed
+ring head.
+
+DPDK uses the same sparse RS design.  Let iflib choose the adaptive
+interval for FreeBSD.  This is a PCIe/memory bandwidth savings.
+
+(cherry picked from commit 8eb4403e9d4a35f33a0ce41067ccb1924c6960dd)
+
+
+ sys/dev/iavf/iavf_txrx_iflib.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+[commit d9031a262b3633378212cb0b12f6da57906ab52b]
+Date: 2026-08-06
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: 
+Subject: Make systemd-udev-settle optional for the import units
+Body:
+
+systemd-udev-settle.service has been deprecated for years, recent
+systemd releases warn about it at boot, and distributions have begun
+shipping without it, which turns the hard Requires= in
+zfs-import-cache and zfs-import-scan into a broken import: a
+Requires= on a masked or removed unit keeps the service from ever
+starting.  Issue #10891.
+
+Demote the dependency to Wants= and keep the After= ordering.  Where
+the settle unit exists and completes, the boot is what it always
+was: Wants= pulls settle in, the import waits for it, and the
+device-symlink guarantee it provided is intact.  Where it is masked
+or gone the wish is quietly dropped and the import runs anyway,
+which beats not importing at all.  One deliberate behavior change:
+if settle itself fails, on a system so large that enumeration
+overruns its timeout, the old Requires= cancelled the import while
+the new units go ahead at the timeout mark with whatever has been
+enumerated by then.
+
+Settle-less boots lose the wait for the udev queue, so the import
+units gain two ordering edges in its place.
+After=systemd-udev-trigger.service makes sure the coldplug events
+are at least queued.  After=systemd-modules-load.service closes a
+condition race the settle wait used to hide: both import units gate
+on ConditionPathIsDirectory=/sys/module/zfs, and without the
+multi-second settle delay that condition could be evaluated before
+modules-load.d had finished loading zfs.ko, silently skipping the
+import on an otherwise healthy boot.  Beyond that, a device whose
+symlink appears a moment too late is only covered by the short
+zfs_vdev_open_timeout_ms open-retry window; waiting for exactly the
+devices a pool needs is what the per-pool import work (#18486) is
+shaped to solve, and this stays the minimal step that keeps
+settle-less systems importing today.
+
+The stray After=systemd-udev-settle lines in zfs-mount, zfs-mount@
+and zfs-volume-wait were only ordering hints against a unit that may
+not exist, so they simply go away.
+
+Tests: on a systemd 259 VM with a cachefile pool, rebooted with the
+rendered unit: settle available, the boot pulls it in and the pool
+imports as before; settle masked, the boot comes up with no failed
+units and the pool still imports, where a masked settle previously
+kept zfs-import-cache from starting at all.
+
+Reviewed-by: Brian Behlendorf <behlendorf1@llnl.gov>
+Signed-off-by: MorganaFuture <103630661+MorganaFuture@users.noreply.github.com>
+Issue #10891
+Closes #18832
+
+ etc/systemd/system/zfs-import-cache.service.in | 4 +++-
+ etc/systemd/system/zfs-import-scan.service.in  | 4 +++-
+ etc/systemd/system/zfs-mount.service.in        | 1 -
+ etc/systemd/system/zfs-mount@.service.in       | 1 -
+ etc/systemd/system/zfs-volume-wait.service.in  | 1 -
+ 5 files changed, 6 insertions(+), 5 deletions(-)
+
+[commit 6154eec89acb3aa6561f2e8ba365115a8056591d]
+Date: 2026-08-04
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: 
+Subject: nfs_commonkrpc.c: Get rid of NFSv4.0 delegation cruft
+Body:
+
+Delegations in NFSv4.0 never worked well and, since
+the NFSv4.0 protocol is now deprecated, use of delegations
+for NFSv4.0 is disabled as far as the client can do so.
+
+It turns out that some Illumos NFSv4.0 server issues
+delegations anyhow (even when the callback path is
+specified as 0.0.0.0) and this can cause use after free
+problems.
+
+This patch deleted some cruft that did an nfsrpc_openrpc()
+call recursively when an NFSv4.0 server failed to issue
+a delegation when it had previously done so.
+This code was only meant to be an optimization and
+would have been rarely exercised.  Since this recursive
+call of nfsrpc_openrpc() is in some of the backtraces
+in the bugzilla PR, getting rid of the cruft makes sense.
+
+It is not known if this helps w.r.t. the use after free
+problems at this time.
+
+PR:	297233
+
+(cherry picked from commit 8f20299b473af6132e0f146d7f634640993aeb81)
+
+
+ sys/fs/nfsclient/nfs_clrpcops.c | 27 ---------------------------
+ 1 file changed, 27 deletions(-)
+
+[commit 13ba63a5f5b699a8ba1de8eccb878d527e3d5e10]
+Date: 2026-05-20
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: 
+Subject: libc: Suppress <stdalign.h> content for C23 and later
+Body:
+
+C23 deprecates <stdalign.h> and specifies that the header shall
+provide no content (§7.15.1).
+
+Signed-off-by:	Faraz Vahedi <kfv@kfv.io>
+Pull Request:	https://github.com/freebsd/freebsd-src/pull/2223
+MFC after:	1 month
+Reviewed by:	imp, fuz
+
+(cherry picked from commit 694baf88c2ae5957fdb24ed163993109987e1ef9)
+
+
+ include/stdalign.h | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+[commit d661121660a0862ef8cfe2949b0177f15ca77777]
+Date: 2026-06-05
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: 
+Subject: protocols: Update with IANA list
+Body:
+
+- Update /etc/protocols with IANA list updated 2026-03-09.
+- Document that 240 (pfsync) is not assigned by IANA.
+- Document deprecated protocols.
+
+PR:		295739
+Reviewed by:	des
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D57445
+
+(cherry picked from commit e3fa020202d8e040242016bda275dde83c058549)
+
+
+ lib/libc/net/protocols | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
+
+[commit 5ec4a7bb2cdfe387b4739425fc82d6399695bd2d]
+Date: 2026-06-13
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: The FreeBSD Foundation
+Subject: mixer(8): Retire deprecated control values
+Body:
+
+Sponsored by:	The FreeBSD Foundation
+MFC after:	1 week
+
+(cherry picked from commit de2a1366022d71c1d650832d378964c4cbe65ba7)
+
+
+ usr.sbin/mixer/mixer.c | 21 ---------------------
+ 1 file changed, 21 deletions(-)
+
+[commit 23b477a3dc22d811f8884fe2d5e0872647525374]
+Date: 2026-06-04
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: 
+Subject: CI: Update CodeQL actions to v4
+Body:
+
+CodeQL Action v3 has been deprecated and will be retired
+December 2026.  Update codeql.yml to use CodeQL Action v4
+and update the runner to ubuntu-24.04.
+
+Signed-off-by: Brian Behlendorf <behlendorf1@llnl.gov>
+Closes #18629
+
+ .github/workflows/codeql.yml | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+[commit b08803ed5c53dae680e7c2906a96d0b68bf8251b]
+Date: 2026-05-15
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: 
+Subject: CI: Remove deprecated Fedora 42
+Body:
+
+Fedora 42 was deprecated on May 13 2026.  Remove it from CI tests.
+
+Reviewed-by: Tony Hutter <hutter2@llnl.gov>
+Signed-off-by: Brian Behlendorf <behlendorf1@llnl.gov>
+Closes #18545
+
+ .github/workflows/scripts/qemu-2-start.sh    |  5 -----
+ .github/workflows/scripts/qemu-4-build-vm.sh |  2 +-
+ .github/workflows/zfs-qemu-packages.yml      |  2 +-
+ .github/workflows/zfs-qemu.yml               | 10 +++++-----
+ 4 files changed, 7 insertions(+), 12 deletions(-)
+
+[commit 6961a5999c7a7fea39312a62e569781cb108a8b5]
+Date: 2026-05-08
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: 
+Subject: Merge commit 871038759afb from llvm git (by Marco Elver):
+Body:
+
+  Thread Safety Analysis: Fix pointer handling of variables with deprecated attributes (#148974)
+
+  de10e44b6fe7 ("Thread Safety Analysis: Support warning on
+  passing/returning pointers to guarded variables") added checks for
+  passing pointer to guarded variables. While new features do not
+  necessarily need to support the deprecated attributes (`guarded_var`,
+  and `pt_guarded_var`), we need to ensure that such features do not cause
+  the compiler to crash.
+
+  As such, code such as this:
+
+          struct {
+            int v __attribute__((guarded_var));
+          } p;
+
+          int *g() {
+            return &p.v;  // handleNoMutexHeld() with POK_ReturnPointer
+          }
+
+  Would crash in debug builds with the assertion in handleNoMutexHeld()
+  triggering. The assertion is meant to capture the fact that this helper
+  should only be used for warnings on variables (which the deprecated
+  attributes only applied to).
+
+  To fix, the function handleNoMutexHeld() should handle all POK cases
+  that apply to variables explicitly, and produce a best-effort warning.
+
+  We refrain from introducing new warnings to avoid unnecessary code bloat
+  for deprecated features.
+
+  Fixes: https://github.com/llvm/llvm-project/issues/140330
+
+This fixes an assertion while building the net/openvswitch port:
+"Assertion failed: ((POK == POK_VarAccess || POK == POK_VarDereference)
+&& "Only works for variables"), function handleNoMutexHeld, file
+/usr/src/contrib/llvm-project/clang/lib/Sema/AnalysisBasedWarnings.cpp,
+line 2120.'
+
+Reported by:	cy
+PR:		295101, 292067
+MFC after:	1 month
+
+(cherry picked from commit d9b272a19d39f71665b529860bfed731bcfd99f5)
+
+
+ .../clang/lib/Sema/AnalysisBasedWarnings.cpp       | 25 +++++++++++++++++-----
+ 1 file changed, 20 insertions(+), 5 deletions(-)
+
+[commit a895394023597d063979c10b96a3a187f29dd7fc]
+Date: 2026-05-25
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: 
+Subject: lpd: Drop deprecated -p option
+Body:
+
+This alias for the -s option has been deprecated since 2002.  Time to
+drop it from the documentation.
+
+MFC after:	1 week
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D57183
+
+(cherry picked from commit 6047f6a21085ae3877228f8df19a0d4bce45905f)
+
+
+ usr.sbin/lpr/lpd/lpd.8 | 11 +----------
+ usr.sbin/lpr/lpd/lpd.c |  3 ---
+ 2 files changed, 1 insertion(+), 13 deletions(-)
+
+[commit 107ef0c29503e5be2b81d22930ec0c675efba140]
+Date: 2026-05-03
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: 
+Subject: tests/carp: Rework unicast_v4
+Body:
+
+For unicast tests, it is sufficient to use wait_for_carp() to verify
+the setup is sane. Additional sanity checks are not necessarily
+required but can serve purpose for redundancy.
+
+For some unclear reason routed(8) is advertising route to carp BACKUP.
+That makes the test flaky. Also routed(8) is marked deprecated and may
+be removed from base in the future. Let's just add static route entry
+manually for additional sanity checks.
+
+Other noticeable changes:
+  1. Add atf_check to configuration steps to prevent potential failure
+on setup. That helps diagnosing on failure.
+  2. Shorten the names of jails to improve readability.
+  3. Prefer `[ifconfig|route|sysctl] -j` over `jexec [ifconfig|route|sysctl]`
+to make the lines shorter.
+
+MFC note: At the time writing, routed(8) does not know carp addresses
+and does not distinguish carp addresses in MASTER|BACKUP|INIT state,
+hence insists advertising the wrong addresses.
+
+PR:		294817
+Reviewed by:	glebius (previous version), pouria, markj
+Fixes:		93fbdef51a13 tests: carp: Update test case unicast_v4 to catch PR 284872
+MFC after:	3 days
+Differential Revision:	https://reviews.freebsd.org/D56761
+
+(cherry picked from commit 9137c66c2ea6cc09e3a6f8a042ecdc5a62e0f39e)
+
+
+ tests/sys/netinet/carp.sh | 80 ++++++++++++++++++++++++++---------------------
+ 1 file changed, 44 insertions(+), 36 deletions(-)
+
+[commit 1b149c2a973526df6ba63f8521c4591aa7250d50]
+Date: 2026-04-23
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: The FreeBSD Foundation
+Subject: mixer(8): Deprecate some unintuitive control values
+Body:
+
+This is a follow-up to cc7479d7dc9b ("mixer(8): Improve mute and recsrc
+controls"). These deprecated values will be completely removed on
+2026-06-15.
+
+Sponsored by:	The FreeBSD Foundation
+MFC after:	1 week
+Reviewed by:	0mp
+Pull Request:	https://ron-dev.freebsd.org/FreeBSD/src/pulls/21
+
+(cherry picked from commit a28bb575c89c8de62684419ece1ff5e070e4ce24)
+(cherry picked from commit 54922e4ec8909829a7ca8d2158c2a514a06df094)
+
+
+ usr.sbin/mixer/mixer.8             | 20 +++++++---------
+ usr.sbin/mixer/mixer.c             | 48 ++++++++++++++++++++++++--------------
+ usr.sbin/mixer/tests/mixer_test.sh | 18 +-------------
+ 3 files changed, 41 insertions(+), 45 deletions(-)
+
+[commit e314721fc24a16f95c7ec636a88e96b2ad1c6b91]
+Date: 2026-04-16
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: 
+Subject: pkru.3: Remove a qualifier
+Body:
+
+Now that i386 kernels are deprecated, we don't really need to mention
+this limitation.  It's also a bit dated since PKRU is supported with
+5-level paging as well.
+
+Reviewed by:	alc, kib
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D56415
+
+(cherry picked from commit fe6bf738aaeb3d5fd74aabfcbf01eba827df6594)
+
+
+ lib/libsys/x86/pkru.3 | 3 ---
+ 1 file changed, 3 deletions(-)
+
+[commit 04daeffe7c4123da02ea1a166965f4e87f2c0d02]
+Date: 2026-02-25
+Score: 5
+CollectedAt: 2026-10-11T18:07:42 UTC
+Sponsor: 
+Subject: CI: Remove deprecated Fedora 41
+Body:
+
+Fedora 41 was deprecated on Dec 15 2025.  Remove it from CI tests.
+
+Reviewed-by: Rob Norris <robn@despairlabs.com>
+Reviewed-by: Brian Behlendorf <behlendorf1@llnl.gov>
+Reviewed-by: George Melikov <mail@gmelikov.ru>
+Signed-off-by: Tony Hutter <hutter2@llnl.gov>
+Closes #18261
+
+ .github/workflows/scripts/qemu-2-start.sh | 5 -----
+ .github/workflows/zfs-qemu-packages.yml   | 2 +-
+ .github/workflows/zfs-qemu.yml            | 2 +-
+ 3 files changed, 2 insertions(+), 7 deletions(-)
+
+[commit 637003d96f690687c6b5963aa81003bad18ce19a]
+Date: 2026-10-05
+Score: 5
+CollectedAt: 2026-10-24T06:52:23 UTC
+Sponsor: The FreeBSD Foundation
+Subject: netinet: Deprecate OSIOCAIFADDR and OSIOCAIFADDR_IN6
+Body:
+
+Requested by:	glebius
+Reviewed by:	pouria, glebius
+MFC after:	1 week
+Sponsored by:	The FreeBSD Foundation
+Differential Revision:	https://reviews.freebsd.org/D60247
+
+(cherry picked from commit 4bb60157646df86c77cea130c66f63f119947709)
+
+
+ sys/netinet/in.c   | 3 +++
+ sys/netinet6/in6.c | 2 ++
+ 2 files changed, 5 insertions(+)
+
+[commit 252500da3a45a89d91c276db88f9669314cc2dfa]
+Date: 2026-10-14
+Score: 5
+CollectedAt: 2026-10-24T06:52:23 UTC
+Sponsor: 
+Subject: machine/ieeefp.h: include <sys/cdefs.h>
+Body:
+
+The <machine/ieeefp.h> headers wrap their deprecated FPU control
+prototypes in __BEGIN_DECLS/__END_DECLS but rely on the includer to
+have pulled in <sys/cdefs.h>.  Including <floatingpoint.h> first on
+arm, arm64, powerpc and riscv (or amd64 <machine/ieeefp.h> with
+__IEEEFP_NOINLINES__) fails with "unknown type name '__BEGIN_DECLS'".
+This breaks e.g. devel/py-pyinstaller.
+
+Suggested by:	jhb
+Reviewed by:	jhb
+MFC after:	1 week
+Differential Revision:	https://reviews.freebsd.org/D59659
+
+(cherry picked from commit 9d50245a0f1333e10cc1c4dda16878cd79a7c42b)
+
+
+ sys/amd64/include/ieeefp.h   | 1 +
+ sys/arm/include/ieeefp.h     | 2 ++
+ sys/arm64/include/ieeefp.h   | 2 ++
+ sys/powerpc/include/ieeefp.h | 2 ++
+ sys/riscv/include/ieeefp.h   | 2 ++
+ 5 files changed, 9 insertions(+)
+
+[commit a5f3339c0be71df08c7d5b758d0b516f784719f8]
+Date: 2026-10-27
+Score: 5
+CollectedAt: 2026-11-03T21:07:57 UTC
+Sponsor: The FreeBSD Foundation
+Subject: tests/pf/igmp: fix attribute error with newer versions of scapy
+Body:
+
+This fixes the flaky testcase in CI[0].
+
+While here:
+* fix a typo in a comment
+* remove an unnecessary import
+* fix this deprecation warning:
+
+  /usr/local/lib/python3.12/site-packages/scapy/contrib/igmp.py:12:
+  DeprecationWarning: scapy.contrib.igmp is deprecated. Please use
+  scapy.layers.igmp instead !
+
+[0] https://ci.freebsd.org/job/FreeBSD-main-amd64-test/29813/testReport/junit/sys.netpfil.pf.igmp/py/TestIGMP__test_ip_opts/
+
+Reviewed by:	kp
+MFC after:	3 days
+Sponsored by:	The FreeBSD Foundation
+
+(cherry picked from commit d9d6e77965b32a8d2f9eeffd34e519a087e603e2)
+
+
+ tests/sys/netpfil/pf/igmp.py | 19 +++++++++----------
+ 1 file changed, 9 insertions(+), 10 deletions(-)
+
+[commit 54916e23699241d418f8c86b9bd8268e2aa2dd28]
+Date: 2026-05-01
+Score: 5
+CollectedAt: 2026-11-03T21:07:57 UTC
+Sponsor: 
+Subject: libc: Restrict ATOMIC_VAR_INIT for C23 conformance
+Body:
+
+Omit `ATOMIC_VAR_INIT` when targeting C23, where it has been removed.
+Retain it for earlier C standards and for C++ (as it still remains in
+C++23, albeit marked as deprecated since C17 and C++20.)
+
+Also separate `atomic_init` definitions from `ATOMIC_VAR_INIT` to
+avoid coupling with a deprecated initialisation mechanism.
+
+No functional change intended for `atomic_init`; this is purely a
+conformance and cleanup adjustment.
+
+Signed-off-by: Faraz Vahedi <kfv@kfv.io>
+Reviewed by: imp
+Pull Request: https://github.com/freebsd/freebsd-src/pull/2185
+(cherry picked from commit 28cecfe27964fdb67497800f5dcd5d3e1033727f)
+
+
+ sys/sys/stdatomic.h | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+

@@ -1,0 +1,1535 @@
+[commit 7fdc748c0c3d0f2f7c1c0725f9ff2a5085fc36ec]
+Date: 2026-08-27
+Score: 5
+Status: added(include=yes,score=70)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: BBOX.io
+Section: Drivers.device
+Subject: amd64, powerpc: Enable tpm(4) in supported kernels
+Review: The man:tpm[4] driver is re-enabled in amd64 GENERIC and MINIMAL kernels and in the MPC85XX and QORIQ64 PowerPC configurations, restoring TPM support and entropy harvesting after suspend/resume fixes for both TPM 1.2 and TPM 2.0.
+Body:
+
+tpm(4) was removed from amd64 GENERIC because it broke suspend and
+resume.  The preceding lifecycle, state-save, interrupt, locality, and
+teardown fixes address those failures for both TPM 1.2 and TPM 2.0.
+
+Restore the driver to amd64 GENERIC and MINIMAL, where TPM entropy
+harvesting remained enabled.  Enable the driver and entropy harvesting
+in the MPC85XX and QORIQ64 configurations, which already provide FDT,
+spibus, and the platform SPI controller required by FDT-attached TPMs.
+Leave the generic AIM and POWER configurations unchanged because they
+have no TPM attachment bus.
+
+The TPM 1.2 path completed repeated S3 cycles and command tests on
+ThinkPad T430 and T440p systems.  The TPM 2.0 path completed repeated
+device and full-system suspend/resume cycles on a ThinkPad P51.  The
+PowerPC configuration matrix was checked to retain tpm(4) only where its
+FDT SPI attachment path is present.
+
+PR:		291067
+Reviewed by:	kevans
+Tested by:	Marek Zarychta <zarychtam_plan-b.pwste.edu.pl> (tpm1.2)
+Fixes:		16f8ea6a81b5 ("amd64: Remove tpm(4) from GENERIC for now")
+Relnotes:	yes
+Sponsored by:	BBOX.io
+Differential Revision:	https://reviews.freebsd.org/D59247
+
+(cherry picked from commit cb2964f840e873d03a0739f41eed5921922f93a0)
+
+
+ sys/amd64/conf/GENERIC   | 2 +-
+ sys/amd64/conf/MINIMAL   | 2 +-
+ sys/powerpc/conf/MPC85XX | 2 ++
+ sys/powerpc/conf/QORIQ64 | 2 ++
+ 4 files changed, 6 insertions(+), 2 deletions(-)
+
+[commit 4d3f5d2ca43c7b00fe03276e85a51e215655bc6d]
+Date: 2026-06-30
+Score: 5
+Status: added(include=yes,score=75)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: Netflix | Chelsio Communications
+Section: Network.general
+Subject: ktls: Add a tunable to disable TLS receive
+Review: A new sysctl tunable allows disabling kTLS receive offload independently of transmit offload, providing a mitigation for TLS receive path security issues.
+Body:
+
+TLS receive offload is really only beneficial for in-kernel use cases
+(such as NFS over TLS) or when using a hardware offload.  In addition,
+several recent SAs have involved the TLS receive path, but the only
+current mitigation for those is to disable TLS offload entirely.
+
+Reviewed by:	ziaee, gallatin, markj
+Relnotes:	yes
+Sponsored by:	Netflix
+Sponsored by:	Chelsio Communications
+Co-authored-by:	John Baldwin <jhb@FreeBSD.org>
+Differential Revision:	https://reviews.freebsd.org/D57974
+
+(cherry picked from commit 08cda4bcd43cfcb2c0b1abd29bc7cd30896727bc)
+
+
+ share/man/man4/ktls.4      |  4 ++-
+ sys/kern/uipc_ktls.c       |  7 +++-
+ tests/sys/kern/ktls_test.c | 90 +++++++++++++++++++++++++++++-----------------
+ 3 files changed, 67 insertions(+), 34 deletions(-)
+
+[commit 80c5a04f88c64eda8f3602ebb3b67cc2da86ea56]
+Date: 2026-09-07
+Score: 5
+Status: added(include=yes,score=75)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: Amazon
+Section: Cloud.general
+Subject: EC2: Add desktop flavour
+Review: EC2 desktop AMIs now boot to a KDE desktop with xrdp enabled, provide a random password retrievable via the EC2 GetPasswordData API, and improve compatibility with EC2 Windows AMIs.
+Body:
+
+Desktop AMIs have xrdp enabled and boot to a KDE desktop; they are
+as compatible as possible with EC2 Windows AMIs, setting a random
+password and printing it to the console in encrypted format to be
+retrieved using the EC2 GetPasswordData API.
+
+Two rc.d scripts are included in this commit which will not exist
+in the long term: ec2_addpass will become part of the ec2-scripts
+package, and ec2_desktop_extras will go away once its functionality
+is included elsewhere.
+
+MFC After:	1 month
+Relnotes:	yes
+Sponsored by:	Amazon
+
+(cherry picked from commit a9710349513f4c6ccb8bcff34fa9ea186fae6114)
+
+
+ release/Makefile.vm              |  3 +-
+ release/tools/ec2-desktop.conf   | 73 ++++++++++++++++++++++++++++++++++++++++
+ release/tools/ec2_desktop_extras | 60 +++++++++++++++++++++++++++++++++
+ release/tools/ec2_setpass        | 58 +++++++++++++++++++++++++++++++
+ 4 files changed, 193 insertions(+), 1 deletion(-)
+
+[commit 11df1d931657e3eeee85b267d50ffea401cfc845]
+Date: 2026-08-21
+Score: 5
+Status: added(include=yes,score=45)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: The FreeBSD Foundation
+Section: Hardware.virtualization
+Subject: bhyve: fix byte order for manually set NVMe eui64
+Review: The bhyve NVMe emulation now stores a manually configured eui64 value in the correct byte order, so the identifier reported to the guest matches the value specified by the user. Previously the value was byte-swapped on little-endian hosts.
+Body:
+
+Manually specified eui64 value gets converted to big endian twice:
+first using htobe64() and then using be64enc(). On little-endian hosts
+that results in a little-endian value instead of a big-endian.
+
+Fix by removing htobe64() for a user submitted value.
+
+Fixes:		409a80e5a434 ("bhyve: Create EUI64 for NVMe namespaces")
+Reviewed by:	chuck
+Relnotes:	yes
+Sponsored by:	The FreeBSD Foundation
+MFC after:	3 weeks
+Differential Revision:	https://reviews.freebsd.org/D59080
+
+(cherry picked from commit 8bd30a72e7012126a1c8d52b3ba32f844a88f8dc)
+
+
+ UPDATING                  | 10 ++++++++++
+ usr.sbin/bhyve/pci_nvme.c |  2 +-
+ 2 files changed, 11 insertions(+), 1 deletion(-)
+
+[commit ba004afc874bb805410c292455a5ce3a32a7954d]
+Date: 2026-07-30
+Score: 5
+Status: added(include=yes,score=70)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: Amazon
+Section: Storage.general
+Subject: rc+devd: Add growfs_postboot
+Review: A new rc.d script and devd configuration allow automatic enlargement of the final partition and its UFS filesystem or ZFS pool when a disk grows at runtime. Enabled by setting growfs_postboot_enable=YES in /etc/rc.conf, it supports VM and cloud environments where virtual disks are expanded after boot.
+Body:
+
+In VM and cloud environments it is often possible to enlarge virtual
+disks; this can be useful, for example, if a system is launched with a
+small root disk and it later becomes clear that more space is needed.
+
+On kernels which support run-time resizing of disks (for NVMe, this was
+added in November 2025; some other disk types have supported this for
+longer) a SIZECHANGE notification is sent to userland via devd.
+
+Add a "nostart" rc.d script (runnable manually but not automatically at
+boot time) and a devd script which invokes it when a notification
+arrives.  The rc.d script enlarges the "final partition" on partitioned
+geoms, or the UFS filesystem or zpool device when triggered on a disk
+containing either of those.
+
+Reviewed by:	imp, ziaee
+MFC after:	2 weeks
+Relnotes:	Disk partitions and filesystems can be enlarged
+		automatically when disks grow by setting
+		growfs_postboot_enable=YES in /etc/rc.conf.
+Sponsored by:	Amazon
+Differential Revision:	https://reviews.freebsd.org/D58582
+
+(cherry picked from commit 5a31987d4c395ec4d3ed303cbc2e1d12ea54a039)
+
+
+ libexec/rc/rc.conf               |   3 +
+ libexec/rc/rc.d/Makefile         |   1 +
+ libexec/rc/rc.d/growfs_postboot  | 116 +++++++++++++++++++++++++++++++++++++++
+ sbin/devd/Makefile               |   1 +
+ sbin/devd/growfs_postboot.conf   |   8 +++
+ share/man/man5/rc.conf.5         |   1 +
+ share/man/man7/Makefile          |   1 +
+ share/man/man7/growfs.7          |   1 +
+ share/man/man7/growfs_postboot.7 |  69 +++++++++++++++++++++++
+ 9 files changed, 201 insertions(+)
+
+[commit 34208cb350760c8bf52f84635ca9d8a15756c4df]
+Date: 2026-07-31
+Score: 5
+Status: added(include=yes,score=75)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: Dirk-Willem van Gulik from Web Weaving (E610 hardware) | BBOX.io
+Section: Network.general
+Subject: ixgbe: Enable SR-IOV on E610 PFs
+Review: The ixgbe driver now enables SR-IOV on E610 physical functions, supporting up to 63 virtual functions with per-pool malicious-driver detection and recovery. The man:ix[4] page documents the expanded protection and link-state coverage.
+Body:
+
+E610 inherits the X550-family virtualization registers, anti-spoofing
+controls, and malicious-driver operations, but the frontend does not
+advertise SR-IOV and cannot negotiate the mailbox revision needed by
+E610 VFs.
+
+Initialize the X550-family PF/VF mailbox registers for E610 and use
+PFVFLREC for its VF reset events, following DPDK shared ixgbe code.
+Advertise the E610 SR-IOV capability, accept API 1.6 only on E610, carry
+the existing xcast and queue operations forward to that revision, and
+return the cached physical link speed and state with the three-dword
+E610 operation.  Unsupported RSS and optional feature requests continue
+to receive explicit failures.
+
+SR-IOV activation also enables the existing X550-derived per-pool MDD
+recovery path on E610.  Document the expanded protection and link-state
+coverage.
+
+Hardware validation created 63 VFs and rejected a 64th without flapping
+the running PF.  Invalid TX and RX descriptor DMA independently asserted
+the offender's WQBR bit, gated only that VF, preserved sibling traffic,
+and recovered after the VF reset.  FreeBSD ixv, FreeBSD DPDK, Linux
+ixgbevf, and Linux DPDK exercised the PF mailbox and data paths.
+
+Relnotes:	yes
+Sponsored by:	Dirk-Willem van Gulik from Web Weaving (E610 hardware)
+Sponsored by:	BBOX.io
+
+(cherry picked from commit df02513fd44bcede0aa8833ae5c2af826f63ce10)
+
+
+ share/man/man4/ix.4         |  5 +++-
+ sys/dev/ixgbe/if_ix.c       |  1 +
+ sys/dev/ixgbe/if_sriov.c    | 61 ++++++++++++++++++++++++++++++++++++++++++---
+ sys/dev/ixgbe/ixgbe_mbx.c   |  3 +++
+ sys/dev/ixgbe/ixgbe_sriov.h |  1 +
+ 5 files changed, 67 insertions(+), 4 deletions(-)
+
+[commit 1853976b752229b0a93b21a6bcc7691d177bceb3]
+Date: 2026-08-28
+Score: 5
+Status: added(include=yes,score=70)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Storage.general
+Subject: nullfs: Allow VSOCK to be mounted on top of another VSOCK
+Review: man:nullfs[4] now permits mounting a VSOCK file directly on top of another socket, allowing containerized processes to share man:unix[4] sockets without exposing an entire directory. The change improves secure socket sharing for container workflows.
+Body:
+
+In the world of containers, mounting a unix(4) socket is a common
+practice to allow communication between processes within containers.
+For example, both Podman and Docker can expose a unix(4) socket,
+and that same unix(4) socket can be mounted as a file accessible
+to a process inside a container, allowing that application to control
+Podman or Docker. Another example is PHP-FPM with NGINX, where,
+instead of using TCP/IP for communication between containers, a
+unix(4) socket is sufficient.
+
+However, nullfs(4) and all related components do not allow mounting
+a VSOCK on top of another. The current workaround involves creating
+the socket in a directory and mounting that directory. This is an
+option, though it does not provide a good user experience compared
+to directly mounting a VSOCK on top of another, since the application
+that creates the socket may create other sockets in that directory,
+and the user may not wish to share them, or, worse yet, applications
+that create unix(4) sockets may not provide any authentication at
+all, as they may assume that security at the file system level is
+sufficient.
+
+Reviewed by:		dfr@
+Approved by:		dfr@
+Relnotes:		yes
+Differential Revision:  https://reviews.freebsd.org/D59158
+
+(cherry picked from commit 2c68ad49f13ddfa33735bd9bb6a3ca170a472ac0)
+
+
+ lib/libutil/mntopts.c            | 2 +-
+ sbin/mount_nullfs/mount_nullfs.8 | 6 ++++--
+ sbin/mount_nullfs/mount_nullfs.c | 6 +++---
+ sys/fs/nullfs/null_vfsops.c      | 2 +-
+ sys/kern/vfs_cache.c             | 6 +++---
+ sys/kern/vfs_mount.c             | 6 +++---
+ 6 files changed, 15 insertions(+), 13 deletions(-)
+
+[commit 7316de43009550eff8348c763f842efb742c5e6e]
+Date: 2026-08-10
+Score: 5
+Status: added(include=yes,score=60)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Drivers.device
+Subject: ixgbe: Add 10GBase-BX BiDi SFP+ module support
+Review: The man:ixgbe[4] driver now recognizes 10GBase-BX BiDi SFP+ optical modules and correctly reports their link speed and reach. This enables single-strand single-mode 10 Gb/s Ethernet links on supported Intel adapters, while preserving permissive 1G-BX identification when 10G details are absent.
+Body:
+
+10G-BX optics use paired wavelengths to carry 10 Gb/s Ethernet over a
+single strand of single-mode fiber.  Their 10G compliance byte is
+empty, so identify them from the SFF-8472 nominal signaling rate and
+single-mode reach fields.
+
+When an EEPROM also advertises 1G BASE-BX10, give the complete 10G
+bitrate and reach signature precedence.  Otherwise retain FreeBSD's
+permissive 1G-BX identification rather than requiring a nominal
+1.3 GBd rate.
+
+Relnotes:	yes
+
+(cherry picked from commit f9ce33b0d8ef233063bd6c27bdba2580f97d9094)
+
+
+ sys/dev/ixgbe/if_ix.c       | 10 ++++++++
+ sys/dev/ixgbe/ixgbe_82599.c |  7 ++++++
+ sys/dev/ixgbe/ixgbe_phy.c   | 61 +++++++++++++++++++++++++++++++++++++++++----
+ sys/dev/ixgbe/ixgbe_phy.h   |  3 +++
+ sys/dev/ixgbe/ixgbe_type.h  |  3 +++
+ sys/dev/ixgbe/ixgbe_x550.c  |  2 ++
+ 6 files changed, 81 insertions(+), 5 deletions(-)
+
+[commit 3be664785727b3ffda30a6f96e3784c96f8fc616]
+Date: 2026-08-09
+Score: 5
+Status: added(include=yes,score=65)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Network.general
+Subject: ixl: Enforce VF VLAN policy
+Review: The man:ixl[4] driver now enforces SR-IOV virtual function VLAN policies, with access VFs restricted to a hardware PVID and trunk VFs limited to 16 VLANs (VLAN 0 implicitly admitted). Hardware VLAN anti-spoofing and untrusted-VF limits of 18 MAC addresses and 16 VLANs are applied, and the effective policy is reported through the VF status interface and documented in ixl(4).
+Body:
+
+Add access and trunk VLAN policy to the SR-IOV schema.  Access VFs
+use a hardware PVID and cannot alter their VLAN membership.  Trunk VFs
+may register up to 16 VLANs, while VLAN 0 remains implicitly admitted
+for untagged and priority-tagged traffic.
+
+Enable hardware VLAN anti-spoofing and maintain the MAC-by-VLAN filter
+cross-product used by DPDK.  Apply Linux's untrusted-VF limits of 18 MAC
+addresses and 16 VLANs so one guest cannot consume the shared PF filter
+table without bound.
+
+Report the effective policy through the VF status interface and document
+the iovctl schema.
+
+Relnotes:	yes
+
+(cherry picked from commit e2daa5c06c2febacf141f9fd3a6a18cf86df8fe1)
+
+
+ share/man/man4/ixl.4     |  12 ++-
+ sys/dev/ixl/ixl_pf.h     |   6 ++
+ sys/dev/ixl/ixl_pf_iov.c | 274 ++++++++++++++++++++++++++++++++++++++++++++---
+ sys/dev/ixl/ixl_pf_iov.h |   1 +
+ 4 files changed, 277 insertions(+), 16 deletions(-)
+
+[commit ad9149c3aabe36d3de29c261a20298cec1abddfc]
+Date: 2026-07-31
+Score: 5
+Status: added(include=yes,score=65)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Network.general
+Subject: ixgbe: recover from X550 malicious-driver events
+Review: The man:ixgbe[4] driver now detects and recovers from malicious or malformed VF activity on X550-family adapters by enabling malicious-driver detection and per-pool recovery. VF traffic remains disabled until the reset handshake completes; this also applies to X552 and X553.
+Body:
+
+The shared X550 code provides malicious-driver detection, event
+decoding, and per-pool recovery operations, but the PF never enables or
+services them. A malformed VF descriptor can therefore go undetected
+and avoid the per-pool recovery path supplied by the MAC.
+
+Configure IOV state while VF DMA remains disabled, then enable MDD and
+activate the VFs only after PF queue initialization is complete. On an
+MDD event, withdraw mailbox CTS and gate the VF pool through PFVFTE and
+PFVFRE. Retain the per-queue WQBR blocks until the VF enters a new reset
+epoch; PFVFTE can still permit descriptor fetches into the internal
+queue, so releasing WQBR early would allow a hostile VF to retrigger
+MDD before it resets.
+
+Send the non-CTS reset notification after servicing the VF mailbox.
+Let a posted VF request win mailbox arbitration, defer notification if
+the pass produced a response, and retry failed notifications from the
+periodic admin pass. Poll WQBR so recovery does not depend on another
+mailbox interrupt edge, while suppressing already-fenced pools. Latch a
+PF reset request until the next hardware initialization.
+
+The X550 datasheet defines every bit of WQBR_RX and WQBR_TX as a queue
+bit, so an all-ones value is valid. Reject it only when IXGBE_STATUS,
+which has reserved-zero bits, also reads as all ones and confirms dead
+MMIO.
+
+Temporarily disable MDD around live multiqueue SRRCTL drop-mode updates,
+which hardware otherwise reports as queue-context changes. Serialize
+that window with the iflib context lock and resample pending work after
+MDD is restored.
+
+Apply the per-pool recovery model used by igb(4) in a2ed165f0049 to the
+existing DPDK-derived X550 hooks. The same register interface is
+documented for X552 and X553, so cover the entire X550 family. Document
+that VF traffic remains disabled until the reset handshake completes.
+
+Relnotes:	yes
+
+(cherry picked from commit dda6a00a5202154b4f83925b8e08bdb03228d4ce)
+
+
+ share/man/man4/ix.4         |   9 ++-
+ sys/dev/ixgbe/if_ix.c       |  50 ++++++++++--
+ sys/dev/ixgbe/if_sriov.c    | 190 ++++++++++++++++++++++++++++++++++++++++----
+ sys/dev/ixgbe/ixgbe.h       |   3 +
+ sys/dev/ixgbe/ixgbe_mbx.c   |  21 ++++-
+ sys/dev/ixgbe/ixgbe_sriov.h |  22 +++--
+ sys/dev/ixgbe/ixgbe_x550.c  |  22 +++--
+ 7 files changed, 279 insertions(+), 38 deletions(-)
+
+[commit f310b83defebddcb0fab9fbb4d9629ea8d0a2f04]
+Date: 2026-08-03
+Score: 5
+Status: added(include=yes,score=65)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Network.general
+Subject: igc: Add VLAN hardware filtering
+Review: The man:igc[4] driver now supports VLAN hardware filtering, allowing the network interface to offload VLAN tag filtering to the hardware. This can improve performance and reduce CPU usage for VLAN-tagged traffic on supported Intel I225/I226 controllers.
+Body:
+
+Borrow the e1000 VLAN filter table
+
+Ambiguous presence of the feature by Intel was settled by DPDK and
+emperical testing.
+
+Relnotes:	yes
+
+(cherry picked from commit 8f779f159e2198c85b4fcb8685989879a9330104)
+
+
+ share/man/man4/igc.4 |   6 +--
+ sys/dev/igc/if_igc.c | 116 +++++++++++++++++++++++++++++++++++++++++++++++----
+ sys/dev/igc/if_igc.h |   3 ++
+ 3 files changed, 113 insertions(+), 12 deletions(-)
+
+[commit 626a367c2b7201ad11c9577d07909ed14ea2a317]
+Date: 2026-07-31
+Score: 5
+Status: added(include=yes,score=60)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Network.general
+Subject: ixgbe: implement VF secondary MAC filters
+Review: The man:ixgbe[4] driver now supports secondary unicast MAC filters on SR-IOV virtual functions, allowing guests to install up to three additional addresses. Secondary filters are rejected while MAC anti-spoofing is configured, and filters are cleared on VF or PF reset and SR-IOV teardown.
+Body:
+
+The PF advertises the legacy SET_MACVLAN mailbox request but always
+rejects it. The request installs secondary unicast addresses.
+
+Allocate an owned RAR pool for VF secondary addresses, reserve low
+entries for PF filters, and place VF-primary addresses at the top of
+the usable RAR range. Reject address collisions and cap each VF at
+three secondary filters so one guest cannot exhaust the shared table.
+
+Clear secondary filters on VF or PF reset and on SR-IOV teardown. This
+hardware can anti-spoof only the VF primary source address. Reject
+secondary filters while MAC anti-spoofing is configured, so installing
+them requires an explicit administrative policy choice. Report optional
+filter-table allocation failure without disabling SR-IOV.
+
+Adapt the owned-RAR allocation and reset-cleanup model from igb(4) in
+a2ed165f0049 to DPDK's ixgbe SET_MACVLAN mailbox semantics.
+
+Relnotes:	yes
+
+(cherry picked from commit 6404ef10d62999d6ac16b0fb25bbdcb463b866a2)
+
+
+ share/man/man4/ix.4         |  10 +++
+ sys/dev/ixgbe/if_sriov.c    | 154 ++++++++++++++++++++++++++++++++++++++++++--
+ sys/dev/ixgbe/ixgbe.h       |  10 +++
+ sys/dev/ixgbe/ixgbe_sriov.h |   2 +
+ 4 files changed, 171 insertions(+), 5 deletions(-)
+
+[commit 1ff14169af4b69c75446c417448a8347bdb64bec]
+Date: 2026-07-31
+Score: 5
+Status: added(include=yes,score=45)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Network.general
+Subject: ixgbe: enforce VF promiscuity and multicast policy
+Review: The man:ixgbe[4] driver now enforces the VF allow-promisc IOV property for multicast and promiscuous modes using mailbox APIs 1.2 and 1.3. VFs with more than 30 multicast addresses report only the first 30 as active unless allow-promisc is configured.
+Body:
+
+The allow-promisc IOV property is advertised but ignored, and the PF
+rejects the xcast request used by modern VFs. Negotiate mailbox APIs
+1.2 and 1.3, implement pool-scoped xcast modes, and require
+allow-promisc for requested all-multicast or unicast-promiscuous modes.
+
+The VF mailbox can carry only 30 multicast hashes. When ixv has a
+larger list, request the API 1.2 all-multicast xcast mode instead of
+extending the legacy SET_MULTICAST message. The PF grants that fallback
+only to VFs configured with allow-promisc; otherwise ixv reports that
+only the first 30 addresses are active.
+
+Reset xcast state with the VF and have ixv replay the mode implied by
+its interface flags after multicast updates.
+
+Follow DPDK's ixgbe API 1.2/1.3 xcast contract, with allow-promisc
+policy adapted from igb(4) in a2ed165f0049.
+
+Relnotes:	yes
+
+(cherry picked from commit 660ea2c4dafe9c2206c95fe57ecd8972d6395952)
+
+
+ sys/dev/ixgbe/if_ixv.c      |  49 ++++++++++++++++++-
+ sys/dev/ixgbe/if_sriov.c    | 116 ++++++++++++++++++++++++++++++++++----------
+ sys/dev/ixgbe/ixgbe.h       |   2 +
+ sys/dev/ixgbe/ixgbe_sriov.h |   3 ++
+ sys/dev/ixgbe/ixgbe_vf.c    |   2 +-
+ 5 files changed, 144 insertions(+), 28 deletions(-)
+
+[commit 06a514be60c814d558629cf7fbfca4936c8137b6]
+Date: 2026-07-31
+Score: 5
+Status: added(include=yes,score=55)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Network.general
+Subject: ixgbe: preserve VLAN ownership with SR-IOV
+Review: The ixgbe(4) driver preserves VLAN ownership and per-VF isolation when SR-IOV is active. PF-assigned port VLAN traffic is now delivered to VFs as untagged, matching Linux receive semantics, and VLAN memberships no longer exhaust the 64-entry VLVF table.
+Body:
+
+The VF VLAN capability is checked but never granted, and no SR-IOV
+configuration property exposes the existing default-VLAN support. PF
+VLAN updates also replace VFTA registers from a PF-only shadow, erasing
+live VF filters.
+
+Expose access VLAN and trunk policy through the IOV schema. Track each
+VF VLAN as desired state, restore the administrative VLAN after reset,
+and use the native VLVF helper for incremental PF and VF ownership
+changes.
+
+Keep VLAN filtering enabled while SR-IOV is active. When PF hardware
+filtering is disabled, admit every VLAN to the PF without bypassing
+per-pool VF isolation. Reconstruct VLVF and the shared VFTA from PF and
+VF desired state after reset or a filtering-mode transition, and
+restore PF-only state on teardown.
+
+When the last VF leaves a VLAN still owned by the PF, free its VLVF
+slot while retaining the shared VFTA bit. This prevents a trunk VF from
+exhausting the 64-entry VLVF table by cycling VLAN memberships.
+
+Adapt the VLAN ownership model introduced for igb(4) in a2ed165f0049 to
+ixgbe's native VLVF machinery.
+
+Match Linux receive semantics by exposing a stripped VLAN tag only
+when that VID was registered by the VF.  A PF-assigned port VLAN is an
+administrative tag and must be delivered to the VF as untagged traffic;
+otherwise the stack dispatches it to a nonexistent VLAN interface and
+access-VLAN receive traffic is blackholed.
+
+Relnotes:	yes
+
+(cherry picked from commit a81f97aecbfda71fe0b423678732e863571793e2)
+
+
+ share/man/man4/ix.4      |  24 ++++-
+ sys/dev/ixgbe/if_ix.c    | 216 ++++++++++++++++++++++++++++++---------------
+ sys/dev/ixgbe/if_sriov.c | 222 ++++++++++++++++++++++++++++++++++++++++++-----
+ sys/dev/ixgbe/ix_txrx.c  |  18 +++-
+ sys/dev/ixgbe/ixgbe.h    |   6 +-
+ 5 files changed, 392 insertions(+), 94 deletions(-)
+
+[commit 59bd5fc94c54f4f02e515627f556bd97dfa38bcf]
+Date: 2026-07-31
+Score: 5
+Status: added(include=yes,score=70)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Drivers.device
+Subject: ixgbe: enforce configured VF anti-spoofing
+Review: ixgbe(4) now enforces the configured SR-IOV VF MAC and VLAN anti-spoofing policy, protecting LLDP and flow-control Ethertypes and enabling per-VF spoof-event accounting on X550-family devices.
+Body:
+
+The SR-IOV schema advertises MAC anti-spoofing and enables it by
+default, but the VF configuration was never consumed and the hardware
+policy remained disabled.
+
+Record the configured policy and apply MAC and VLAN anti-spoofing
+throughout VF initialization and reset. On X550-family devices, also
+protect the LLDP and flow-control Ethertypes and enable per-VF
+spoof-event accounting. Remove the driver-owned state during SR-IOV
+teardown.
+
+Adapt the anti-spoof configuration lifecycle used by igb(4) in
+a2ed165f0049 to the ixgbe hardware controls.
+
+Relnotes:	yes
+
+(cherry picked from commit 7d3d6309398ebeb4d60e35535160c722cd25f9bb)
+
+
+ sys/dev/ixgbe/if_sriov.c    | 50 +++++++++++++++++++++++++++++++++++++++++++++
+ sys/dev/ixgbe/ixgbe_sriov.h |  1 +
+ 2 files changed, 51 insertions(+)
+
+[commit da9d26a215a644e9e8a31f3c47309f6cce350380]
+Date: 2026-06-22
+Score: 5
+Status: added(include=yes,score=60)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Kernel.general
+Subject: kern: add a security knob to disable unprivileged access to kenv
+Review: A new security knob allows unprivileged access to the kernel environment (kenv) to be disabled. When enabled, only privileged processes, including jailed root, can read kernel environment variables, limiting exposure of sensitive information.
+Body:
+
+We sometimes store sensitive things in the kenv that get zapped, but we
+really shouldn't rely on that zapping to actually happen.  Most
+unprivileged processes don't really need to read from the kernel
+environment in the first place, so add a knob that allows it to be
+disabled.
+
+Note that we consider jailed root to be unprivileged from this
+perspective; they have their own meta/env concepts and we should
+encourage users to take advantage of those for passing information to
+jails.
+
+Relnotes:	yes (The capability to disable unpriv access exists)
+"Hey we should do something about that":	dch
+Reviewed by:	imp, ziaee, zlei (all slightly previous version)
+
+(cherry picked from commit 4fd518fcb2bbee4c8c41215d6993b923ef57a0e5)
+
+
+ bin/kenv/kenv.1             | 10 +++++++++-
+ lib/libsys/kenv.2           |  7 ++++++-
+ share/man/man7/security.7   |  4 +++-
+ sys/kern/kern_environment.c | 46 +++++++++++++++++++++++++++++++++++++++------
+ sys/sys/priv.h              |  1 +
+ 5 files changed, 59 insertions(+), 9 deletions(-)
+
+[commit 08dbff58cd2136a8686067e188bc657f995b99b6]
+Date: 2025-11-14
+Score: 5
+Status: added(include=yes,score=40)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: The FreeBSD Foundation
+Section: Docs.manpages
+Subject: aq(4): Add man page
+Review: A manual page has been added for the aq(4) driver, documenting the Aquantia AQtion Ethernet driver and its supported hardware and tunables.
+Body:
+
+Reviewed by:	ziaee
+Relnotes:	Yes
+Sponsored by:	The FreeBSD Foundation
+Differential Revision: https://reviews.freebsd.org/D53840
+
+(cherry picked from commit fb1994e03c88cf087e61f7aa608dd82531e3a4e8)
+
+
+ share/man/man4/Makefile |  1 +
+ share/man/man4/aq.4     | 56 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 57 insertions(+)
+
+[commit c8e8fa04dc05a1f23be4d618b52d68b6d2820aac]
+Date: 2026-07-12
+Score: 5
+Status: added(include=yes,score=40)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: tcp_bblog.4: Add a manual page for TCP Blackbox Logging
+Review: A new manual page, man:tcp_bblog[4], documents the TCP Blackbox Logging facility. It provides reference documentation for per-connection TCP event tracing used for debugging and performance analysis.
+Body:
+
+The tcp_bblog facility provides structured logging of TCP stack activity
+for debugging and performance analysis. It is implemented in the kernel
+and allows per-connection tracing of TCP events with low overhead.
+
+Reviewed by:	tuexen, ziaee
+Relnotes:	yes
+Differential Revision:	https://reviews.freebsd.org/D56252
+
+(cherry picked from commit 62e22d7cfc1ca1c25bede6aaeca370c163a9a1ef)
+
+
+ share/man/man4/Makefile    |   1 +
+ share/man/man4/tcp_bblog.4 | 147 +++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 148 insertions(+)
+
+[commit b04fa0f8b8c562c7f8af9ad762ffcd31e6d63745]
+Date: 2026-04-26
+Score: 5
+Status: added(include=yes,score=35)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: https://www.patreon.com/bsdivy
+Section: Userland.programs
+Subject: apm: Only install rc script on i386
+Review: The man:apm[8] rc script is now installed and packaged only on i386, so a useless FreeBSD-apm package is no longer created on other platforms. On i386, the acpi package is also built.
+Body:
+
+The apm(8) rc script only works on i386, but it's installed on all
+platforms.  Only install it on i386, which avoids creating a useless
+FreeBSD-apm package on other platforms.
+
+While here, build the acpi package on i386.
+
+Relnotes:	yes
+MFC after:	2 weeks
+Reviewed by:	imp
+Sponsored by:	https://www.patreon.com/bsdivy
+Differential Revision:	https://reviews.freebsd.org/D56629
+
+(cherry picked from commit b7daab8be1d4555f23a297e60e4128c01caabf82)
+
+
+ libexec/rc/rc.d/Makefile                 |  6 +++---
+ packages/Makefile.arm                    |  1 -
+ packages/Makefile.arm64                  |  1 -
+ packages/Makefile.i386                   | 18 ++++++++++++++++++
+ packages/Makefile.powerpc                |  1 -
+ packages/Makefile.riscv64                |  1 -
+ packages/apm/Makefile                    |  6 ------
+ tools/build/mk/OptionalObsoleteFiles.inc |  3 +++
+ 8 files changed, 24 insertions(+), 13 deletions(-)
+
+[commit 55f219b3f7667b2a7d4f69753d64e331590458b3]
+Date: 2026-07-06
+Score: 5
+Status: added(include=yes,score=55)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Network.general
+Subject: libc/resolv: Reimplement the sortlist parser
+Review: The resolver sortlist parser in libc is reimplemented, restoring the ability to configure address sorting via the sortlist directive. IPv4 and IPv6 addresses with optional masks or prefix lengths are accepted, and man:resolver[5] is updated accordingly.
+Body:
+
+When we switched from the BIND4 resolver to the BIND9 resolver, the
+sortlist parser was inadvertently disabled due to a missing #define, and
+nobody seemed to notice.  The sorting code remained enabled in the
+resolver, but there was no way to set a sort order.
+
+Reimplement the sortlist parser, but correctly, and update the manual
+accordingly.  The new parser accepts IPv4 and IPv6 addresses with or
+without a mask or prefix length, just like the old one, except IPv6
+support was a bit wonky in the original code.
+
+Fixes:		5342d17f09a8 ("Update the resolver in libc to BIND9's one.")
+Relnotes:	yes
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D57925
+
+(cherry picked from commit fbe0257b5613f457af42f82efb2e3bc9395d0557)
+
+
+ lib/libc/resolv/Makefile.inc |   1 +
+ lib/libc/resolv/res_init.c   | 246 ++++++++++++++++++++++++-------------------
+ share/man/man5/resolver.5    |  36 ++++---
+ 3 files changed, 160 insertions(+), 123 deletions(-)
+
+[commit 491337c8a21abf120661db6bc5727474c247e184]
+Date: 2026-07-06
+Score: 5
+Status: added(include=yes,score=55)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Userland.libraries
+Subject: libc/resolv: Refactor the option parser
+Review: The resolver option parser in libc now rejects trailing garbage in option names and values instead of silently truncating them. Numerical arguments that fail to parse, including negative or overflowing values, no longer alter the current setting.
+Body:
+
+Start the loop by finding the end of the option name, the name-value
+separator (if any), and the end of the option.  Use those pointers to
+simplify matching the option name and parsing the option value, and
+validate option names and values more strictly.  This means that:
+
+* We no longer accept trailing garbage in an option name or value.  For
+  instance, we would previously interpret “edns0123” as “edns0” and
+  “timeout:3xyz” as “timeout:3”.  This was actually quite lucky because
+  we also failed to recognize the newline at the end of the option line
+  as a whitespace character.
+
+* For options that take a numerical argument, we would previously accept
+  negative values and treat non-numerical arguments as 0, while large
+  numerical arguments would be capped to the option's maximum permitted
+  value.  Now, any failure to parse the argument, including overflow,
+  results in the option being left unchanged.
+
+MFC after:	1 week
+Relnotes:	yes
+Reviewed by:	markj
+Differential Revision:	https://reviews.freebsd.org/D57923
+
+(cherry picked from commit 9bfdfecd27359130aa4ef63fc0aa32f98f9e7b50)
+
+
+ lib/libc/resolv/res_init.c | 194 ++++++++++++++++++++++++---------------------
+ 1 file changed, 105 insertions(+), 89 deletions(-)
+
+[commit 3aec74070b0db7cb4d7f3277037531918074175d]
+Date: 2026-06-26
+Score: 5
+Status: added(include=yes,score=55)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Network.general
+Subject: rc.firewall: Support on-disk lists
+Review: rc.firewall now supports on-disk lists for `firewall_allowservices` and `firewall_trusted`: when a list element is an absolute path, the file is read and each non-comment, non-blank line's first word is treated as an address or subnet to add to the list.
+Body:
+
+For firewall_allowservices and firewall_trusted, if an element of the
+list looks like an absolute path, read the file, skipping comments and
+blank lines, and treat the first word on each line as an address or
+subnet to be added to the list.
+
+We should probably be using tables instead, but this is still an
+improvement over the status quo ante.
+
+MFC after:	1 week
+Relnotes:	yes
+Reviewed by:	allanjude
+Differential Revision:	https://reviews.freebsd.org/D57679
+
+(cherry picked from commit a71abf38e2b46c02965f3224c62bb6ef1971996e)
+
+
+ libexec/rc/rc.conf     | 11 +++++++----
+ libexec/rc/rc.firewall | 43 ++++++++++++++++++++++++++++++++-----------
+ 2 files changed, 39 insertions(+), 15 deletions(-)
+
+[commit 8cbd56ec1c543dfe41680bc9fd5f3c4d6183e3f1]
+Date: 2025-08-14
+Score: 5
+Status: added(include=yes,score=70)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: Google LLC (GSoC 2025) | The FreeBSD Foundation (review, commit)
+Section: Kernel.general
+Subject: MAC/do: Executable paths feature (GSoC 2025's final state)
+Review: The man:mac_do[4] security module now supports configurable executable paths, allowing up to eight paths to be authorized for credential change requests. This enables thin jail scenarios where man:mdo[1] is not at its canonical path and permits other userland programs to use man:setcred[2]. Configuration is available via the `security.mac.do.exec_paths` sysctl and the `mac.do.exec_paths` jail parameter.
+Body:
+
+By design, mac_do(4) only authorizes credentials change requests if they
+are issued by a process spawned from '/usr/bin/mdo'.  The executable
+paths feature introduces some flexibility by allowing to change that
+path, thus allowing another executable to make requests, and to use
+multiple such paths (up to 8 in the current implementation).  Its
+purpose is to enable thin jails scenarios where mdo(1) may not be at its
+canonical path ('/usr/bin/mdo') and to allow experimenting with other
+userland programs leveraging setcred(2).
+
+Configuration of executable paths is per-jail and intentionally works
+completely similarly with rules.  It is accessible from within a jail
+through the 'security.mac.do.exec_paths' sysctl knob and from outside
+a jail through the 'mac.do.exec_paths' jail parameter.
+
+This commit groups the verbatim changes of the following commits that
+Kushagra Srivastava, our GSoC 2025 student, created in his GitHub
+repository (https://github.com/thesynthax/freebsd-src), branch
+'task/exec-paths-refactor':
+
+mac_do(4): Complete refactor of allowed executable paths feature
+mac_do(4): Fixed changing security.mac.do.* knobs in inheritance mode
+mac_do(4): Debugging rules and exec_paths leak on destroy
+mac_do(4): Deep copy rules
+mac_do(4): Fixed leak
+mac_do(4): fixed various bugs, structs inlined, leaks remain
+mac_do(4): MAC/do working in jail, leaks decreased
+mac_do(4): MAC/do fixed, works in host and jails, leaks removed
+mac_do(4): style
+
+Frozen log for these commits:
+https://github.com/OlCe2/freebsd-src/compare/main...14fdc49fb29265fac5d0daf95a13d0dce325c951.
+The corresponding pull request is at:
+https://github.com/OlCe2/freebsd-src/pull/2.
+
+The GSoC's final state of this code still has a number of problems that
+are fixed in subsequent commits.  It is however committed separately to
+clearly delineate Kushagra's work.
+
+Reviewed by:    olce (amendments to come, see above)
+MFC after:      1 month
+Relnotes:       yes
+Sponsored by:   Google LLC (GSoC 2025)
+Sponsored by:   The FreeBSD Foundation (review, commit)
+Pull Request:   https://ron-dev.freebsd.org/FreeBSD/src/pulls/38
+
+(cherry picked from commit 9818224174c41a434028446fb6fa5516a6291755)
+
+
+ sys/security/mac_do/mac_do.c | 581 +++++++++++++++++++++++++++++++------------
+ 1 file changed, 422 insertions(+), 159 deletions(-)
+
+[commit 8f3585150016c78cdf0c04e269b257f1bbc3b78b]
+Date: 2026-06-01
+Score: 5
+Status: added(include=yes,score=70)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Storage.general
+Subject: fs/msdosfs: add support for file namws with surrogate pairs
+Review: The msdosfs file system now handles file names containing surrogate pair characters, allowing access to files and directories with emoji or other supplementary-plane Unicode characters. Media written on other operating systems with such names are fully readable.
+Body:
+
+Long file names are using UTF-16 symbols to represent international or
+special characters. The implementation in FreeBSD did not support the
+"Supplementary Private Use Area-B" (PUA-B), which requires a surrogate
+pair to be represented in UTF-16 (Unicode code points beyond U+FFFF).
+
+The PUA-B is used to represent emoji characters, which are supported
+in file names on other common operating systems. The motivation for
+this change was that removable media written on another system were
+only partially readable on FreeBSD, since they contained emojis in
+file names.
+
+A test script that verifies correct operations on files names with
+emojis has been added to the tools/test/stress2/misc directory under
+the name msdos24.sh.
+
+Reported by:	Fabian Keil <fk@fabiankeil.de>
+Reviewed by:	ib
+Approved by:	mkcusick
+MFC after:	1 week
+Relnotes:	yes
+Differential Revision:	https://reviews.freebsd.org/D57313
+
+(cherry picked from commit f983cb362de77773efba8975eb0f4b247ce5e6f9)
+
+
+ sys/fs/msdosfs/direntry.h       |   9 ++-
+ sys/fs/msdosfs/msdosfs_conv.c   | 164 +++++++++++++++++++++++++++++++---------
+ sys/fs/msdosfs/msdosfs_lookup.c |   7 +-
+ 3 files changed, 139 insertions(+), 41 deletions(-)
+
+[commit a9e71a2e1ade6f0ce4a59f3a1a2153e1c0eb29b0]
+Date: 2026-05-16
+Score: 5
+Status: added(include=yes,score=55)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: Amazon
+Section: Cloud.general
+Subject: EC2: Don't enable firstboot_pkgs in small flavour
+Review: EC2 "small" images no longer enable firstboot_pkgs by default. Users who require package installation at instance launch time must set firstboot_pkgs_enable="YES" in /etc/rc.conf.
+Body:
+
+The EC2 "base" flavour installs the devel/py-awscli package at boot
+time by default; we don't do this in the "small" flavour, so the
+default behaviour was to update the FreeBSD-ports repository and
+then do nothing with it.
+
+Turn off firstboot_pkgs by default; if someone is using the "small"
+flavour of AMIs and wants to install packages at instance launch
+time, they simply need to add 'firstboot_pkgs_enable="YES"' to
+/etc/rc.conf (which they must already be editing via user-data, in
+order to provide the list of packages they want installed).
+
+Sponsored by:	Amazon
+MFC after:	3 days
+MFC to:		stable/15
+Relnotes:	EC2 "small" images now have firstboot_pkgs_enable="NO".
+
+(cherry picked from commit 61df4be487cfbfd27b0959e1eb66ef0d8f84562f)
+
+
+ release/tools/ec2-small.conf | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+[commit ff426ceef657d7c478471e631349c5d1a8b96453]
+Date: 2026-05-06
+Score: 5
+Status: added(include=yes,score=60)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Userland.contrib
+Subject: MFV: zstd 1.5.7.
+Review: zstd has been updated to 1.5.7, bringing performance improvements and bug fixes to the compression library and utilities used by the base system.
+Body:
+
+MFC after:	2 weeks
+Relnotes:	yes
+
+(cherry picked from commit c0d9a07101a1e72769ee0619a583f63a078fb391)
+(cherry picked from commit 7c9418613a31571e4eceda55a417f7183d26acb5)
+(cherry picked from commit 111a42d7d78a88ba6ff7b5d61b0867faccc00276)
+
+
+ lib/libzstd/Makefile                               |    4 +
+ sys/conf/files                                     |    1 +
+ sys/contrib/zstd/.buckconfig                       |    9 -
+ sys/contrib/zstd/.buckversion                      |    1 -
+ sys/contrib/zstd/CHANGELOG                         |  148 +-
+ sys/contrib/zstd/CONTRIBUTING.md                   |  489 ---
+ sys/contrib/zstd/FREEBSD-Xlist                     |   11 +-
+ sys/contrib/zstd/LICENSE                           |    8 +-
+ sys/contrib/zstd/Makefile                          |  439 ---
+ sys/contrib/zstd/README.md                         |   96 +-
+ sys/contrib/zstd/SECURITY.md                       |   15 +
+ sys/contrib/zstd/TESTING.md                        |   43 -
+ sys/contrib/zstd/appveyor.yml                      |  205 --
+ sys/contrib/zstd/doc/README.md                     |   25 -
+ sys/contrib/zstd/doc/educational_decoder/Makefile  |   62 -
+ sys/contrib/zstd/doc/educational_decoder/README.md |   36 -
+ sys/contrib/zstd/doc/educational_decoder/harness.c |  119 -
+ .../zstd/doc/educational_decoder/zstd_decompress.c | 2320 -------------
+ .../zstd/doc/educational_decoder/zstd_decompress.h |   61 -
+ sys/contrib/zstd/doc/images/CSpeed2.png            |  Bin 73335 -> 0 bytes
+ sys/contrib/zstd/doc/images/DCspeed5.png           |  Bin 69278 -> 0 bytes
+ sys/contrib/zstd/doc/images/DSpeed3.png            |  Bin 27123 -> 0 bytes
+ sys/contrib/zstd/doc/images/cdict_v136.png         |  Bin 33330 -> 0 bytes
+ sys/contrib/zstd/doc/images/dict-cr.png            |  Bin 90412 -> 0 bytes
+ sys/contrib/zstd/doc/images/dict-cs.png            |  Bin 91518 -> 0 bytes
+ sys/contrib/zstd/doc/images/dict-ds.png            |  Bin 98316 -> 0 bytes
+ sys/contrib/zstd/doc/images/zstd_cdict_v1_3_5.png  |  Bin 93969 -> 0 bytes
+ sys/contrib/zstd/doc/images/zstd_logo86.png        |  Bin 5963 -> 0 bytes
+ sys/contrib/zstd/doc/zstd_compression_format.md    | 1692 ----------
+ sys/contrib/zstd/doc/zstd_manual.html              | 1908 -----------
+ sys/contrib/zstd/examples/Makefile                 |   93 -
+ sys/contrib/zstd/examples/README.md                |   46 -
+ sys/contrib/zstd/examples/common.h                 |  234 --
+ sys/contrib/zstd/examples/dictionary_compression.c |   97 -
+ .../zstd/examples/dictionary_decompression.c       |   99 -
+ .../zstd/examples/multiple_simple_compression.c    |  116 -
+ .../zstd/examples/multiple_streaming_compression.c |  133 -
+ sys/contrib/zstd/examples/simple_compression.c     |   68 -
+ sys/contrib/zstd/examples/simple_decompression.c   |   65 -
+ sys/contrib/zstd/examples/streaming_compression.c  |  140 -
+ .../examples/streaming_compression_thread_pool.c   |  180 --
+ .../zstd/examples/streaming_decompression.c        |  100 -
+ sys/contrib/zstd/examples/streaming_memory_usage.c |  137 -
+ sys/contrib/zstd/lib/BUCK                          |  232 --
+ sys/contrib/zstd/lib/Makefile                      |  357 --
+ sys/contrib/zstd/lib/README.md                     |   35 +-
+ sys/contrib/zstd/lib/common/allocations.h          |   55 +
+ sys/contrib/zstd/lib/common/bits.h                 |  205 ++
+ sys/contrib/zstd/lib/common/bitstream.h            |  192 +-
+ sys/contrib/zstd/lib/common/compiler.h             |  211 +-
+ sys/contrib/zstd/lib/common/cpu.h                  |   38 +-
+ sys/contrib/zstd/lib/common/debug.c                |    8 +-
+ sys/contrib/zstd/lib/common/debug.h                |   42 +-
+ sys/contrib/zstd/lib/common/entropy_common.c       |   52 +-
+ sys/contrib/zstd/lib/common/error_private.c        |   12 +-
+ sys/contrib/zstd/lib/common/error_private.h        |   93 +-
+ sys/contrib/zstd/lib/common/fse.h                  |  108 +-
+ sys/contrib/zstd/lib/common/fse_decompress.c       |  144 +-
+ sys/contrib/zstd/lib/common/huf.h                  |  245 +-
+ sys/contrib/zstd/lib/common/mem.h                  |  112 +-
+ sys/contrib/zstd/lib/common/pool.c                 |   38 +-
+ sys/contrib/zstd/lib/common/pool.h                 |   19 +-
+ sys/contrib/zstd/lib/common/portability_macros.h   |   56 +-
+ sys/contrib/zstd/lib/common/threading.c            |   88 +-
+ sys/contrib/zstd/lib/common/threading.h            |   23 +-
+ sys/contrib/zstd/lib/common/xxhash.c               |   16 +-
+ sys/contrib/zstd/lib/common/xxhash.h               | 3417 ++++++++++++++------
+ sys/contrib/zstd/lib/common/zstd_common.c          |   37 +-
+ sys/contrib/zstd/lib/common/zstd_deps.h            |   14 +-
+ sys/contrib/zstd/lib/common/zstd_internal.h        |  195 +-
+ sys/contrib/zstd/lib/common/zstd_trace.h           |   19 +-
+ sys/contrib/zstd/lib/compress/clevels.h            |    2 +-
+ sys/contrib/zstd/lib/compress/fse_compress.c       |  146 +-
+ sys/contrib/zstd/lib/compress/hist.c               |   12 +-
+ sys/contrib/zstd/lib/compress/hist.h               |    9 +-
+ sys/contrib/zstd/lib/compress/huf_compress.c       |  472 +--
+ sys/contrib/zstd/lib/compress/zstd_compress.c      | 3322 +++++++++++++------
+ .../zstd/lib/compress/zstd_compress_internal.h     |  671 ++--
+ .../zstd/lib/compress/zstd_compress_literals.c     |  156 +-
+ .../zstd/lib/compress/zstd_compress_literals.h     |   24 +-
+ .../zstd/lib/compress/zstd_compress_sequences.c    |   20 +-
+ .../zstd/lib/compress/zstd_compress_sequences.h    |   15 +-
+ .../zstd/lib/compress/zstd_compress_superblock.c   |  393 ++-
+ .../zstd/lib/compress/zstd_compress_superblock.h   |    2 +-
+ sys/contrib/zstd/lib/compress/zstd_cwksp.h         |  279 +-
+ sys/contrib/zstd/lib/compress/zstd_double_fast.c   |  244 +-
+ sys/contrib/zstd/lib/compress/zstd_double_fast.h   |   32 +-
+ sys/contrib/zstd/lib/compress/zstd_fast.c          |  704 ++--
+ sys/contrib/zstd/lib/compress/zstd_fast.h          |   21 +-
+ sys/contrib/zstd/lib/compress/zstd_lazy.c          | 1063 +++---
+ sys/contrib/zstd/lib/compress/zstd_lazy.h          |  198 +-
+ sys/contrib/zstd/lib/compress/zstd_ldm.c           |  101 +-
+ sys/contrib/zstd/lib/compress/zstd_ldm.h           |   22 +-
+ sys/contrib/zstd/lib/compress/zstd_ldm_geartab.h   |    2 +-
+ sys/contrib/zstd/lib/compress/zstd_opt.c           |  570 ++--
+ sys/contrib/zstd/lib/compress/zstd_opt.h           |   58 +-
+ sys/contrib/zstd/lib/compress/zstd_preSplit.c      |  238 ++
+ sys/contrib/zstd/lib/compress/zstd_preSplit.h      |   33 +
+ sys/contrib/zstd/lib/compress/zstdmt_compress.c    |  414 ++-
+ sys/contrib/zstd/lib/compress/zstdmt_compress.h    |   21 +-
+ sys/contrib/zstd/lib/decompress/huf_decompress.c   | 1031 +++---
+ .../zstd/lib/decompress/huf_decompress_amd64.S     |  139 +-
+ sys/contrib/zstd/lib/decompress/zstd_ddict.c       |    8 +-
+ sys/contrib/zstd/lib/decompress/zstd_ddict.h       |    2 +-
+ sys/contrib/zstd/lib/decompress/zstd_decompress.c  |  410 ++-
+ .../zstd/lib/decompress/zstd_decompress_block.c    |  723 +++--
+ .../zstd/lib/decompress/zstd_decompress_block.h    |    9 +-
+ .../zstd/lib/decompress/zstd_decompress_internal.h |   18 +-
+ sys/contrib/zstd/lib/deprecated/zbuff.h            |    2 +-
+ sys/contrib/zstd/lib/deprecated/zbuff_common.c     |    2 +-
+ sys/contrib/zstd/lib/deprecated/zbuff_compress.c   |    2 +-
+ sys/contrib/zstd/lib/deprecated/zbuff_decompress.c |    4 +-
+ sys/contrib/zstd/lib/dictBuilder/cover.c           |  141 +-
+ sys/contrib/zstd/lib/dictBuilder/cover.h           |   12 +-
+ sys/contrib/zstd/lib/dictBuilder/divsufsort.h      |   10 -
+ sys/contrib/zstd/lib/dictBuilder/fastcover.c       |    8 +-
+ sys/contrib/zstd/lib/dictBuilder/zdict.c           |  125 +-
+ sys/contrib/zstd/lib/freebsd/zstd_kfreebsd.h       |    6 +
+ sys/contrib/zstd/lib/legacy/zstd_legacy.h          |   39 +-
+ sys/contrib/zstd/lib/legacy/zstd_v01.c             |   69 +-
+ sys/contrib/zstd/lib/legacy/zstd_v01.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v02.c             |  107 +-
+ sys/contrib/zstd/lib/legacy/zstd_v02.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v03.c             |  111 +-
+ sys/contrib/zstd/lib/legacy/zstd_v03.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v04.c             |   99 +-
+ sys/contrib/zstd/lib/legacy/zstd_v04.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v05.c             |  107 +-
+ sys/contrib/zstd/lib/legacy/zstd_v05.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v06.c             |  132 +-
+ sys/contrib/zstd/lib/legacy/zstd_v06.h             |    2 +-
+ sys/contrib/zstd/lib/legacy/zstd_v07.c             |  117 +-
+ sys/contrib/zstd/lib/legacy/zstd_v07.h             |    2 +-
+ sys/contrib/zstd/lib/libzstd.mk                    |   98 +-
+ sys/contrib/zstd/lib/libzstd.pc.in                 |   10 +-
+ sys/contrib/zstd/lib/module.modulemap              |   16 +-
+ sys/contrib/zstd/lib/zdict.h                       |  101 +-
+ sys/contrib/zstd/lib/zstd.h                        | 1157 +++++--
+ sys/contrib/zstd/lib/zstd_errors.h                 |   44 +-
+ sys/contrib/zstd/programs/BUCK                     |   44 -
+ sys/contrib/zstd/programs/Makefile                 |  435 ---
+ sys/contrib/zstd/programs/README.md                |  191 +-
+ sys/contrib/zstd/programs/benchfn.c                |   12 +-
+ sys/contrib/zstd/programs/benchfn.h                |   14 +-
+ sys/contrib/zstd/programs/benchzstd.c              | 1287 +++++---
+ sys/contrib/zstd/programs/benchzstd.h              |   80 +-
+ sys/contrib/zstd/programs/datagen.c                |    2 +-
+ sys/contrib/zstd/programs/datagen.h                |   10 +-
+ sys/contrib/zstd/programs/dibio.c                  |   33 +-
+ sys/contrib/zstd/programs/dibio.h                  |    2 +-
+ sys/contrib/zstd/programs/fileio.c                 | 1887 ++++++-----
+ sys/contrib/zstd/programs/fileio.h                 |   35 +-
+ sys/contrib/zstd/programs/fileio_asyncio.c         |  663 ++++
+ sys/contrib/zstd/programs/fileio_asyncio.h         |  195 ++
+ sys/contrib/zstd/programs/fileio_common.h          |  121 +
+ sys/contrib/zstd/programs/fileio_types.h           |   86 +
+ sys/contrib/zstd/programs/lorem.c                  |  285 ++
+ sys/contrib/zstd/programs/lorem.h                  |   32 +
+ sys/contrib/zstd/programs/platform.h               |   46 +-
+ sys/contrib/zstd/programs/timefn.c                 |  139 +-
+ sys/contrib/zstd/programs/timefn.h                 |   70 +-
+ sys/contrib/zstd/programs/util.c                   |  408 ++-
+ sys/contrib/zstd/programs/util.h                   |   66 +-
+ sys/contrib/zstd/programs/zstd.1                   |  489 ++-
+ sys/contrib/zstd/programs/zstd.1.md                |  598 ++--
+ sys/contrib/zstd/programs/zstdcli.c                |  648 ++--
+ sys/contrib/zstd/programs/zstdcli_trace.c          |    2 +-
+ sys/contrib/zstd/programs/zstdcli_trace.h          |    2 +-
+ sys/contrib/zstd/programs/zstdgrep.1               |   10 +-
+ sys/contrib/zstd/programs/zstdgrep.1.md            |   10 +-
+ sys/contrib/zstd/programs/zstdless                 |    8 +-
+ sys/contrib/zstd/programs/zstdless.1               |    6 +-
+ sys/contrib/zstd/programs/zstdless.1.md            |    6 +-
+ sys/contrib/zstd/zlibWrapper/BUCK                  |   22 -
+ sys/contrib/zstd/zlibWrapper/Makefile              |  119 -
+ sys/contrib/zstd/zlibWrapper/README.md             |    4 +-
+ sys/contrib/zstd/zlibWrapper/examples/example.c    |  629 ----
+ .../zstd/zlibWrapper/examples/example_original.c   |  618 ----
+ sys/contrib/zstd/zlibWrapper/examples/fitblk.c     |  254 --
+ .../zstd/zlibWrapper/examples/fitblk_original.c    |  233 --
+ sys/contrib/zstd/zlibWrapper/examples/minigzip.c   |  640 ----
+ sys/contrib/zstd/zlibWrapper/examples/zwrapbench.c | 1016 ------
+ sys/contrib/zstd/zlibWrapper/gzclose.c             |    6 +-
+ sys/contrib/zstd/zlibWrapper/gzcompatibility.h     |   16 +-
+ sys/contrib/zstd/zlibWrapper/gzguts.h              |   20 +-
+ sys/contrib/zstd/zlibWrapper/gzlib.c               |   99 +-
+ sys/contrib/zstd/zlibWrapper/gzread.c              |   95 +-
+ sys/contrib/zstd/zlibWrapper/gzwrite.c             |   89 +-
+ sys/contrib/zstd/zlibWrapper/zstd_zlibwrapper.c    |   90 +-
+ sys/contrib/zstd/zlibWrapper/zstd_zlibwrapper.h    |   15 +-
+ usr.bin/zstd/Makefile                              |    2 +
+ 191 files changed, 17754 insertions(+), 23515 deletions(-)
+
+[commit 423b0bc492d5264ee518c6569d3c90ee0efb338c]
+Date: 2026-05-06
+Score: 5
+Status: proposed(include=yes,score=60)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Userland.contrib
+Subject: MFV less v691
+Review: less has been updated to version 692.
+Body:
+
+Relnotes:	yes
+
+(cherry picked from commit dafba19e42e78cd3d7c9264ece49ddd3d7d70da5)
+
+MFV: less v692.
+
+(cherry picked from commit e2abec625bf07c054f7ac2df2402d6c454113df8)
+
+
+ contrib/less/LICENSE         |    2 +-
+ contrib/less/NEWS            |   83 +++
+ contrib/less/README          |   60 +-
+ contrib/less/brac.c          |    2 +-
+ contrib/less/ch.c            |   14 +-
+ contrib/less/charset.c       |   31 +-
+ contrib/less/charset.h       |    2 +-
+ contrib/less/cmd.h           |   26 +-
+ contrib/less/cmdbuf.c        |  138 ++--
+ contrib/less/command.c       |   87 +--
+ contrib/less/compose.uni     |   14 +-
+ contrib/less/cvt.c           |    2 +-
+ contrib/less/decode.c        |  107 ++-
+ contrib/less/edit.c          |   16 +-
+ contrib/less/evar.c          |    2 +-
+ contrib/less/filename.c      |   20 +-
+ contrib/less/fmt.uni         |    2 +-
+ contrib/less/forwback.c      |   37 +-
+ contrib/less/funcs.h         |   75 ++-
+ contrib/less/help.c          |    9 +-
+ contrib/less/ifile.c         |   12 +-
+ contrib/less/input.c         |    3 +-
+ contrib/less/jump.c          |   18 +-
+ contrib/less/lang.h          |    5 +-
+ contrib/less/less.h          |   19 +-
+ contrib/less/less.hlp        |    7 +-
+ contrib/less/less.nro        | 1495 ++++++++++++++++++++++++++++--------------
+ contrib/less/lessecho.c      |    2 +-
+ contrib/less/lessecho.nro    |   37 +-
+ contrib/less/lesskey.c       |    2 +-
+ contrib/less/lesskey.h       |    2 +-
+ contrib/less/lesskey.nro     |  389 +++++++----
+ contrib/less/lesskey_parse.c |   37 +-
+ contrib/less/lglob.h         |    2 +-
+ contrib/less/line.c          |   39 +-
+ contrib/less/linenum.c       |    2 +-
+ contrib/less/lsystem.c       |   22 +-
+ contrib/less/main.c          |   55 +-
+ contrib/less/mark.c          |  154 +++--
+ contrib/less/omit.uni        |    2 +-
+ contrib/less/optfunc.c       |  132 ++--
+ contrib/less/option.c        |  134 ++--
+ contrib/less/option.h        |    3 +-
+ contrib/less/opttbl.c        |   11 +-
+ contrib/less/os.c            |   65 +-
+ contrib/less/output.c        |   38 +-
+ contrib/less/pattern.c       |    2 +-
+ contrib/less/pattern.h       |    2 +-
+ contrib/less/pckeys.h        |   45 +-
+ contrib/less/position.c      |   16 +-
+ contrib/less/position.h      |    2 +-
+ contrib/less/prompt.c        |   38 +-
+ contrib/less/screen.c        |  527 ++++++++++-----
+ contrib/less/scrsize.c       |    2 +-
+ contrib/less/search.c        |   23 +-
+ contrib/less/signal.c        |   30 +-
+ contrib/less/tags.c          |    9 +-
+ contrib/less/ttyin.c         |    6 +-
+ contrib/less/ubin.uni        |    2 +-
+ contrib/less/version.c       |   21 +-
+ contrib/less/wide.uni        |   23 +-
+ contrib/less/xbuf.c          |   12 +-
+ contrib/less/xbuf.h          |   11 +-
+ usr.bin/less/defines.h       |  116 ++--
+ 64 files changed, 2852 insertions(+), 1451 deletions(-)
+
+[commit aa519edfe50a65db516e62752914cb6922b3227f]
+Date: 2026-05-03
+Score: 5
+Status: added(include=yes,score=25)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: ports.7/FILES: Expand and refactor into 3 tables
+Review: The man:ports[7] reference manual page is expanded and reorganized so that key files and directories are documented in three tables, making the layout of the Ports Collection easier to understand.
+Body:
+
+Add make.conf, CHANGES, CONTRIBUTING.Md, UPDATING, and Tools/scripts.
+Refactor the FILES section of the ports reference manual into a bigger
+table with three sections separated by root directory. Remove preceeding
+article from all but "the big Kahuna", and root dirs where reasonable.
+
+MFC after:              3 days
+Relnotes:		yes
+Reported by:            adamw, arrowd, linimon
+Differential Revision:	https://reviews.freebsd.org/D55441
+
+(cherry picked from commit 28deec9b7e2b08b00160eb39de84ade6f27eb125)
+
+
+ share/man/man7/ports.7 | 47 +++++++++++++++++++++++++++++------------------
+ 1 file changed, 29 insertions(+), 18 deletions(-)
+
+[commit 2c4190609c78c532e0a667eba1ffb4b5c98ea532]
+Date: 2026-04-28
+Score: 5
+Status: added(include=yes,score=40)
+CollectedAt: 2026-10-11T18:05:56 UTC
+Sponsor: 
+Section: Docs.manpages
+Subject: groups.7: New manual page of standard group names
+Review: A new man page, man:groups[7], documents the standard group names used in FreeBSD, sorted by GID, with the exception of 'uucp'. Existing manual pages now cross-reference this new page.
+Body:
+
+Import groups(7) from NetBSD, with tweaks for our system. The group
+list is sorted by GID. All the group names from /usr/src/etc/group
+are described, except "uucp". The FILES section was added on top of
+the original manual page.
+
+PR:			264966
+Relnotes:		yes
+MFC after:		3 days
+Obtained from:		NetBSD
+Reviewed by:		des, ziaee
+Differential Revision:	https://reviews.freebsd.org/D54114
+
+(cherry picked from commit e09104dfb76a36b65a64bd315bd1520941c4beed)
+
+
+ share/man/man5/group.5     |   3 +-
+ share/man/man5/passwd.5    |   3 +-
+ share/man/man7/Makefile    |   2 +
+ share/man/man7/groups.7    | 345 +++++++++++++++++++++++++++++++++++++++++++++
+ usr.bin/id/groups.1        |   5 +-
+ usr.bin/id/id.1            |   5 +-
+ usr.bin/newgrp/newgrp.1    |   5 +-
+ usr.sbin/adduser/adduser.8 |   3 +-
+ usr.sbin/chkgrp/chkgrp.8   |   5 +-
+ usr.sbin/chown/chgrp.1     |   3 +-
+ usr.sbin/chown/chown.8     |   3 +-
+ usr.sbin/pw/pw.8           |   3 +-
+ 12 files changed, 371 insertions(+), 14 deletions(-)
+
+[commit 5245187af22b934ad10b82151f7f5a970140f283]
+Date: 2026-09-01
+Score: 5
+Status: added(include=yes,score=55)
+CollectedAt: 2026-10-24T06:49:31 UTC
+Sponsor: 
+Section: Userland.config
+Subject: rc: add a backlight service to save/restore backlight levels
+Review: A new man:rc.conf[5] option, `backlight_enable`, enables saving and restoring the backlight level across reboots via the man:backlight[8] rc.d service. The service is disabled by default to avoid interfering with desktop environments.
+Body:
+
+The default on my laptop is annoyingly bright, and this is a useful
+feature to mitigate that.  The backlight script is largely a copy of the
+mixer service which provides the same value for mixers, but this one is
+specifically dependant on kld to allow DRM drivers a chance to attach.
+
+Note that it's off by default to avoid interference with DEs, and
+document the capability in backlight(8).  Set backlight_enable=YES in
+rc.conf(5) to enable save/restore.
+
+Relnotes:	maybe
+Reviewed by:	bapt, ivy, manu, ziaee
+
+(cherry picked from commit c45bdb39fe985b43afc63b7cbd989fe7a61673b7)
+
+
+ etc/mtree/BSD.var.dist        |  2 +
+ libexec/rc/rc.conf            |  1 +
+ libexec/rc/rc.d/Makefile      |  1 +
+ libexec/rc/rc.d/backlight     | 88 +++++++++++++++++++++++++++++++++++++++++++
+ share/man/man5/rc.conf.5      |  7 +++-
+ usr.bin/backlight/backlight.8 | 11 +++++-
+ 6 files changed, 108 insertions(+), 2 deletions(-)
+
+[commit 3a0d13751d211d13e225d6277b65f49ac1b1ce82]
+Date: 2026-10-31
+Score: 5
+Status: rejected(include=yes,score=88)
+CollectedAt: 2026-11-03T21:07:29 UTC
+Sponsor: BBOX.io
+Section: Drivers.device
+Subject: igb/igbv: MFC SR-IOV PF support and the VF driver split
+Review: Intel 82576 and I350 controllers now support SR-IOV physical functions, with virtual functions exposed as igbvN interfaces and a new if_igbv.ko module. Virtual function interfaces are renamed from igbN to igbvN, and the configuration and device-tunable migration is documented in UPDATING and man:em[4].
+Body:
+
+Add SR-IOV PF support for Intel 82576 and I350 controllers and register
+virtual functions as igbv.  Bring over the shared mailbox and hardware
+queue mapping changes, separate VF policy, filtering and statistics,
+mailbox recovery, retained-queue sanitization, DMA fencing, and Hyper-V
+support and recovery.  Include the native VF-status provider for the
+netlink framework already on stable/15.
+
+Consolidate the series with the later e1000 and iflib fixes already
+merged to stable/15.  Complete the igb-specific pieces of the existing
+IOV restart support, including configuration while the PF is down.
+The resulting e1000 sources match main before the separate RSS hash-field
+policy change in 86bdf7a4aec5.  The reverted ioctl VF-status interface is
+not imported.
+
+Accept the VF interface rename from igbN to igbvN and document the
+configuration and device-tunable migration in UPDATING.  Preserve the
+if_em.ko implementation and if_igb.ko alias, add if_igbv.ko and manual
+aliases, and document the PF queue constraints and Hyper-V limitations.
+
+Relnotes:       yes
+Sponsored by:   BBOX.io
+
+(cherry picked from commit ac9a6d00a0146b3cda6d03b4d2c8895c2813d89a)
+(cherry picked from commit fd594981c55b3a4e316e72265065566a54d40d38)
+(cherry picked from commit e6b9ce25ec062b45038a37c88d193fa438f5ef58)
+(cherry picked from commit a2ed165f0049595f2e52ec545095240e362f27c7)
+(cherry picked from commit 316f6f2f7fa613d13316ea966a34ee5285b987ec)
+(cherry picked from commit a6bb3850e7c6ab6ce1356d52bc41368fe64e76fa)
+(cherry picked from commit 9332fd555588ef4f7913664f8bdb57febc828e76)
+(cherry picked from commit 350211ab1782a68190754dcbdbcc7c9169ce22cb)
+(cherry picked from commit 5ce6c94f98599e5ae0595ff5178a224145b6225f)
+(cherry picked from commit e8f3b96ba794521af9904a451da33cf119381da8)
+(cherry picked from commit fdce3830d9a66aa30cb40ad4ea984f376ee00095)
+(cherry picked from commit 5f02c8439786728392f250ff6fa772ce1787b74c)
+(cherry picked from commit 7cd6d2365b3121743dfd6012e259a3b05b0e7adb)
+(cherry picked from commit 8c8724705613c856836c3928e7240baae03e690c)
+(cherry picked from commit a77257d6005839f2dd540e98f1e9ecd70879a38d)
+(cherry picked from commit ac2be06e0c697f0c15c9a4fcb9503b2ddb14e135)
+(cherry picked from commit 176259efcb907bd73079e4da83344077271916a5)
+(cherry picked from commit 1c91c3ae1ec6c65e458f130a95d3119d83ca088e)
+(cherry picked from commit 75538a0f3275887d75f3585038d3de23baad9005)
+(cherry picked from commit 612f87c949a2aa3363258890bca2abaea99d3fd6)
+(cherry picked from commit 505e6bb93f80fa3a7799cd88b0d0cafcaa468491)
+(cherry picked from commit 037d45a0526f452d96f44059e88f735298a9063d)
+(cherry picked from commit 8d14fc8ba7f55c873e866f392c17113d514acce9)
+(cherry picked from commit f51ad3a266ec1ea71c24329dbffdb66a3708b214)
+(cherry picked from commit 89ce1aa07241abbcea1703b5f2b85b88460d584f)
+(cherry picked from commit f308d6d4846a51c2d0839840d6eabbbe70309515)
+(cherry picked from commit 100f7b8d39b273d0083b3f5a884fc00cc73169fd)
+(cherry picked from commit 2cf580c694f6f392531a63f01c3fb89c0244f89a)
+
+
+ UPDATING                    |   13 +
+ share/man/man4/Makefile     |    2 +
+ share/man/man4/em.4         |  212 +++-
+ sys/conf/files              |    4 +
+ sys/dev/e1000/e1000_82575.h |    3 +-
+ sys/dev/e1000/e1000_hw.h    |    3 +-
+ sys/dev/e1000/e1000_mbx.c   |  107 +-
+ sys/dev/e1000/e1000_mbx.h   |    5 +-
+ sys/dev/e1000/e1000_osdep.h |  114 ++-
+ sys/dev/e1000/e1000_regs.h  |    1 +
+ sys/dev/e1000/e1000_vf.c    |  109 ++-
+ sys/dev/e1000/e1000_vf.h    |    6 +-
+ sys/dev/e1000/em_txrx.c     |    5 +
+ sys/dev/e1000/if_em.c       | 1585 +++++++++++++++++++++++-------
+ sys/dev/e1000/if_em.h       |  106 +-
+ sys/dev/e1000/if_igb_iov.c  | 2268 +++++++++++++++++++++++++++++++++++++++++++
+ sys/dev/e1000/if_igb_iov.h  |   61 ++
+ sys/dev/e1000/if_igbv.c     |  973 +++++++++++++++++++
+ sys/dev/e1000/igb_txrx.c    |   55 +-
+ sys/modules/em/Makefile     |    7 +-
+ 20 files changed, 5192 insertions(+), 447 deletions(-)
+
+[commit d36050dc99ea68894f5c300a550a7841e8803e7e]
+Date: 2026-08-10
+Score: 5
+Status: accepted(include=yes,score=72)
+CollectedAt: 2026-11-03T21:07:29 UTC
+Sponsor: Intel Corporation (initial version) | BBOX.io
+Section: Network.general
+Subject: ifconfig: Add SR-IOV VF status output
+Review: man:ifconfig[8] -v output now reports SR-IOV virtual function status for supported NICs. The display groups optional identity, initialization, resource, VLAN, administrator policy, protocol, traffic-permission, and fault-containment fields, while omitted values remain distinct from zero or false. Device-neutral PCI attachment and passthrough state remain available through man:iovctl[8] -L.
+Body:
+
+Add NIC-specific VF status to the existing ifconfig -v output.  Fetch
+the data through libifconfig using a separate native route Netlink
+query.
+
+Group optional identity, initialization, resources, VLAN policy,
+administrator policy, protocol, traffic-permission, and
+fault containment fields.  Omitted fields remain distinct from false or
+zero.
+
+Refer users to iovctl -L for device-neutral PCI attachment and
+passthrough state.
+
+This is a Netlink-native evolution of the original interface by Eric
+Joyner.
+
+Relnotes:	yes
+Adapt the documentation to the iovctl features available on stable/15.
+
+Sponsored by:	Intel Corporation (initial version)
+Sponsored by:	BBOX.io
+Differential Revision:	https://reviews.freebsd.org/D58778
+
+Co-authored-by: Eric Joyner <erj@FreeBSD.org>
+(cherry picked from commit 41418a7cd00c4a20eb72bc8c315c0e364d4e4ad2)
+
+
+ sbin/ifconfig/Makefile           |   1 +
+ sbin/ifconfig/ifconfig.8         |  68 ++++++++-
+ sbin/ifconfig/ifconfig.h         |   3 +
+ sbin/ifconfig/ifconfig_netlink.c |   8 +-
+ sbin/ifconfig/ifvfstatus.c       | 300 +++++++++++++++++++++++++++++++++++++++
+ usr.sbin/iovctl/iovctl.8         |  10 +-
+ usr.sbin/iovctl/iovctl.conf.5    |  10 ++
+ 7 files changed, 395 insertions(+), 5 deletions(-)
+
+[commit f7ea2d561288be5bd0eade18fe2565f30b091f96]
+Date: 2026-08-08
+Score: 5
+Status: accepted(include=yes,score=75)
+CollectedAt: 2026-11-03T21:07:29 UTC
+Sponsor: 
+Section: Network.general
+Subject: iflib: Add sysctl stat for TX watchdog reset events
+Review: The man:iflib[4] framework exports a per-device tx_watchdog_events counter at dev.<driver>.<unit>.iflib.tx_watchdog_events. The man:em[4], man:igb[4], and man:igc[4] drivers no longer count transmit watchdog resets as output errors, preventing those error counters from overstating packet loss.
+Body:
+
+iflib counts resets initiated by its transmit watchdog in 69c3e0de01c1.
+
+Export the counter in the per-device iflib sysctl tree so every
+driver provides the diagnostic without a driver callback or duplicate
+storage.
+
+A watchdog reset does not establish how many packets failed.  It can
+recover a hardware stall involving several queued packets or a missed
+completion involving no packet loss.  Stop adding one output error per
+watchdog event in em(4), igb(4), and igc(4).
+
+Remove the redundant driver counters and move the diagnostic to
+dev.<driver>.<unit>.iflib.tx_watchdog_events.
+
+Relnotes:	yes
+
+(cherry picked from commit d6f97c6bbca689f00d5edcfd9c8f31b0910edbaf)
+
+
+ share/man/man4/iflib.4   |  5 +++++
+ share/man/man9/iflibdi.9 |  4 ++--
+ sys/dev/e1000/if_em.c    | 22 +---------------------
+ sys/dev/e1000/if_em.h    |  1 -
+ sys/dev/igc/if_igc.c     | 19 +------------------
+ sys/dev/igc/if_igc.h     |  1 -
+ sys/dev/ixgbe/if_ix.c    |  2 --
+ sys/dev/ixgbe/if_ixv.c   |  2 --
+ sys/dev/ixgbe/ixgbe.h    |  1 -
+ sys/net/iflib.c          |  7 +++++--
+ 10 files changed, 14 insertions(+), 50 deletions(-)
+

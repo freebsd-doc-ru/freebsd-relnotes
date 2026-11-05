@@ -1,0 +1,266 @@
+
+relnotes.adoc
+
+relnotes.adoc SA
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:19.file.asc[FreeBSD-SA-26:19.file]
+| 20 May 2026
+| Kernel use-after-free via file descriptor syscalls
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:20.fusefs.asc[FreeBSD-SA-26:20.fusefs]
+| 20 May 2026
+| Heap overflow in FUSE_LISTXATTR
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:21.ptrace.asc[FreeBSD-SA-26:21.ptrace]
+| 20 May 2026
+| Missing validation in ptrace(PT_SC_REMOTE)
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:22.libcasper.asc[FreeBSD-SA-26:22.libcasper]
+| 20 May 2026
+| man:select[2] file descriptor set overflow causes stack overflow
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:23.bsdinstall.asc[FreeBSD-SA-26:23.bsdinstall]
+| 20 May 2026
+| Remote code execution via installer Wi-Fi access point scans
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:24.cap_net.asc[FreeBSD-SA-26:24.cap_net]
+| 20 May 2026
+| Incorrect libcap_net limitation list manipulation
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:25.thr.asc[FreeBSD-SA-26:25.thr]
+| 9 June 2026
+| Missing permission check in thr_kill2(2)
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:26.ktls.asc[FreeBSD-SA-26:26.ktls]
+| 9 June 2026
+| Arbitrary file overwrite via the KTLS receive path
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:27.sound.asc[FreeBSD-SA-26:27.sound]
+| 9 June 2026
+| Multiple vulnerabilities in the man:sound[4] mmap path
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:28.capsicum.asc[FreeBSD-SA-26:28.capsicum]
+| 9 June 2026
+| man:sigqueue[2] missing capability mode restriction
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:29.ip6_multicast.asc[FreeBSD-SA-26:29.ip6_multicast]
+| 9 June 2026
+| Use-after-free bug in the IPV6_MSFILTER socket option handler
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:30.linux.asc[FreeBSD-SA-26:30.linux]
+| 9 June 2026
+| Flaw in Linuxulator execution of setugid binaries
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:31.arm64.asc[FreeBSD-SA-26:31.arm64]
+| 9 June 2026
+| Arm CPU errata may bypass page table permission changes
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:32.elf.asc[FreeBSD-SA-26:32.elf]
+| 9 June 2026
+| ASLR bypass for setuid executables via man:procctl[2]
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:33.unbound.asc[FreeBSD-SA-26:33.unbound]
+| 9 June 2026
+| Multiple vulnerabilities in unbound
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:34.vt.asc[FreeBSD-SA-26:34.vt]
+| 9 June 2026
+| Integer overflow in man:vt[4] CONS_HISTORY ioctl
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:35.openssl.asc[FreeBSD-SA-26:35.openssl]
+| 9 June 2026
+| Multiple vulnerabilities in OpenSSL
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:36.ldns.asc[FreeBSD-SA-26:36.ldns]
+| 9 June 2026
+| Insufficient response validation in the ldns stub resolver
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:37.vm.asc[FreeBSD-SA-26:37.vm]
+| 30 June 2026
+| Use-after-free in device pager page list
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:38.jail.asc[FreeBSD-SA-26:38.jail]
+| 30 June 2026
+| Jail reference count underflow
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:39.execve.asc[FreeBSD-SA-26:39.execve]
+| 30 June 2026
+| Local privilege escalation via man:execve[2] TOCTOU race
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:40.zfs.asc[FreeBSD-SA-26:40.zfs]
+| 30 June 2026
+| Multiple vulnerabilities in OpenZFS
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:41.libalias.asc[FreeBSD-SA-26:41.libalias]
+| 30 June 2026
+| Buffer overflow in libalias RTSP handler
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:42.unlinkat.asc[FreeBSD-SA-26:42.unlinkat]
+| 30 June 2026
+| man:unlinkat[2] ignores AT_RESOLVE_BENEATH flag
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:43.tcp.asc[FreeBSD-SA-26:43.tcp]
+| 30 June 2026
+| Use-after-free in TCP RACK stack option handler
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:44.posixshm.asc[FreeBSD-SA-26:44.posixshm]
+| 30 June 2026
+| Multiple vulnerabilities in POSIX largepage objects
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:45.audit.asc[FreeBSD-SA-26:45.audit]
+| 30 June 2026
+| Incorrect audit records for man:ptrace[2] syscall requests
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:46.ktls.asc[FreeBSD-SA-26:46.ktls]
+| 30 June 2026
+| Remote DOS via uninitialized memory access in KTLS receive
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:49.iconv.asc[FreeBSD-SA-26:49.iconv]
+| 30 June 2026
+| Multiple vulnerabilities in man:iconv[3]
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:50.kqueue.asc[FreeBSD-SA-26:50.kqueue]
+| 29 July 2026
+| Use-after-free in kqueue copy-on-fork
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:51.ktimer.asc[FreeBSD-SA-26:51.ktimer]
+| 29 July 2026
+| Kernel stack disclosure via man:timer_settime[2]
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:52.if_wg.asc[FreeBSD-SA-26:52.if_wg]
+| 29 July 2026
+| Missing MAC validation in man:wg[4] packet decryption
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:53.ktrace.asc[FreeBSD-SA-26:53.ktrace]
+| 29 July 2026
+| man:ktrace[2] privilege incorrectly validated in jails
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:54.sysvsem.asc[FreeBSD-SA-26:54.sysvsem]
+| 29 July 2026
+| Heap out-of-bounds access in man:semctl[2]
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:55.elf.asc[FreeBSD-SA-26:55.elf]
+| 29 July 2026
+| Race condition in ELF core dump segment counting
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:56.hwpmc.asc[FreeBSD-SA-26:56.hwpmc]
+| 25 August 2026
+| hwpmc fails to detach PMCs during exec credential transitions
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:57.unix.asc[FreeBSD-SA-26:57.unix]
+| 25 August 2026
+| Use-after-free in unix SOCK_STREAM message handling
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:58.sound.asc[FreeBSD-SA-26:58.sound]
+| 25 August 2026
+| Kernel use-after-free via the SNDCTL_DSP_SYNCSTART ioctl
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:59.mac_do.asc[FreeBSD-SA-26:59.mac_do]
+| 25 August 2026
+| Unauthorized credential switching
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:60.ppp.asc[FreeBSD-SA-26:60.ppp]
+| 25 August 2026
+| Multiple vulnerabilities in man:ppp[8]
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:61.openssl.asc[FreeBSD-SA-26:61.openssl]
+| 25 August 2026
+| Multiple vulnerabilities in OpenSSL
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:62.tty.asc[FreeBSD-SA-26:62.tty]
+| 25 August 2026
+| Kernel use-after-free via tty ioctls
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:63.posixshm.asc[FreeBSD-SA-26:63.posixshm]
+| 25 August 2026
+| TOCTOU race in POSIX shared memory large page configuration
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:64.sysvsem.asc[FreeBSD-SA-26:64.sysvsem]
+| 29 September 2026
+| Heap out-of-bounds access in man:semop[2]
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:65.kqueue.asc[FreeBSD-SA-26:65.kqueue]
+| 29 September 2026
+| Memory safety bugs in kqueue copy-on-fork implementation
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:66.jail.asc[FreeBSD-SA-26:66.jail]
+| 29 September 2026
+| Multiple jail filesystem root escapes
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:67.ktls.asc[FreeBSD-SA-26:67.ktls]
+| 29 September 2026
+| Remote DoS via receive-side kernel TLS
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:68.openssl.asc[FreeBSD-SA-26:68.openssl]
+| 29 September 2026
+| Out-of-bounds read in OpenSSL DTLS retransmission
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:69.udp.asc[FreeBSD-SA-26:69.udp]
+| 29 September 2026
+| IPv6 UDP man:sendto[2] bypasses jail loopback restriction
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:70.tcp.asc[FreeBSD-SA-26:70.tcp]
+| 14 October 2026
+| Remotely triggerable buffer overflow in tcp_rack
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:71.sound.asc[FreeBSD-SA-26:71.sound]
+| 14 October 2026
+| TOCTOU race between man:sound[4] buffer resizing and mmap
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:72.bhyve.asc[FreeBSD-SA-26:72.bhyve]
+| 14 October 2026
+| Multiple vulnerabilities in bhyve device models
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-SA-26:73.caroot.asc[FreeBSD-SA-26:73.caroot]
+| 21 October 2026
+| TLS certificate store update due to eMudhra compromise
+
+relnotes.adoc EN
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:13.freebsd-update.asc[FreeBSD-EN-26:13.freebsd-update]
+| 20 May 2026
+| freebsd-update attempts to merge a generated file
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:14.syslogd.asc[FreeBSD-EN-26:14.syslogd]
+| 9 June 2026
+| man:syslogd[8] memory leak in casper_ttymsg()
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:16.arm64.asc[FreeBSD-EN-26:16.arm64]
+| 30 June 2026
+| 32-bit man:setcontext[2] and man:swapcontext[2] fail on arm64
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:17.rpcsec_tls.asc[FreeBSD-EN-26:17.rpcsec_tls]
+| 30 June 2026
+| Socket refcount underflow in the NFS server
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:18.tzdata.asc[FreeBSD-EN-26:18.tzdata]
+| 29 July 2026
+| Timezone database information update
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:19.zfs.asc[FreeBSD-EN-26:19.zfs]
+| 29 July 2026
+| Race conditions in zvol device management
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:20.microcode.asc[FreeBSD-EN-26:20.microcode]
+| 25 August 2026
+| Early loading of Intel CPU microcode fails for some CPUs
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:23.syslogd.asc[FreeBSD-EN-26:23.syslogd]
+| 29 September 2026
+| man:syslogd[8] leaks child processes when logging to a pipe
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:24.tzdata.asc[FreeBSD-EN-26:24.tzdata]
+| 29 September 2026
+| Timezone database information update
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:25.tzdata.asc[FreeBSD-EN-26:25.tzdata]
+| 14 October 2026
+| Timezone database information update
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:26.hastd.asc[FreeBSD-EN-26:26.hastd]
+| 14 October 2026
+| Multiple issues in man:hastd[8]
+
+| link:https://www.FreeBSD.org/security/advisories/FreeBSD-EN-26:27.tcp.asc[FreeBSD-EN-26:27.tcp]
+| 14 October 2026
+| TCP timers may overflow and fire late or not at all
