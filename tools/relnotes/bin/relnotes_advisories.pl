@@ -109,6 +109,7 @@ else
 
 print "from $prev_tag to $target_branch with RELEASE tag $release_tag (stable $stable_branch)\n";
 # verify branches exist
+# comment i tout, if releng/X.Y branch has not been created yet.
 run_git_die("rev-parse $target_branch");
 
 if ($prev_tag) {

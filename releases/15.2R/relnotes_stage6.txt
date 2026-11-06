@@ -21488,7 +21488,7 @@ Differential Revision:	https://reviews.freebsd.org/D60467
 [commit 80c954a926c6ac4a7dda462423fd732f4ce06f40]
 Date: 2026-11-01
 Score: 5
-Status: accepted(include=yes,score=68)
+Status: added(include=yes,score=68)
 CollectedAt: 2026-11-03T21:08:15 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -21749,7 +21749,7 @@ Requested by:	Benjamin Jacobs <freebsd@dev.thsi.be>
 [commit d6cf497d2a1c82267c1a1686dc7c9bd76a80db11]
 Date: 2026-08-31
 Score: 5
-Status: accepted(include=yes,score=15)
+Status: added(include=yes,score=15)
 CollectedAt: 2026-11-03T21:08:15 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -21813,7 +21813,7 @@ Merge commit '8fd09407c8e64fd26d095c9b00990c545577db5a'
 [commit 040ab05d3617ff7c5afcf9159bb8d4c41f1814db]
 Date: 2026-09-22
 Score: 5
-Status: accepted(include=yes,score=60)
+Status: added(include=yes,score=60)
 CollectedAt: 2026-11-03T21:08:15 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -22074,7 +22074,7 @@ Sponsored by:   BBOX.io
 [commit 406279104888ed56dc8f6a27e4880056bbe730c7]
 Date: 2026-10-28
 Score: 5
-Status: accepted(include=yes,score=85)
+Status: added(include=yes,score=85)
 CollectedAt: 2026-11-03T21:08:15 UTC
 Sponsor: 
 Section: Userland.contrib
@@ -22700,7 +22700,7 @@ Co-authored-by:	Wei Hu <weh@microsoft.com>
 [commit 4ff8c71df5decc6eecd22f8f97c14f2ac4e1f749]
 Date: 2026-10-07
 Score: 5
-Status: accepted(include=yes,score=45)
+Status: added(include=yes,score=45)
 CollectedAt: 2026-11-03T21:08:15 UTC
 Sponsor: Rubicon Communications, LLC ("Netgate")
 Section: Userland.programs

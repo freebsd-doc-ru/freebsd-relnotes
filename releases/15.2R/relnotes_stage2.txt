@@ -1448,7 +1448,7 @@ Sponsored by:   BBOX.io
 [commit d36050dc99ea68894f5c300a550a7841e8803e7e]
 Date: 2026-08-10
 Score: 5
-Status: accepted(include=yes,score=72)
+Status: added(include=yes,score=72)
 CollectedAt: 2026-11-03T21:07:29 UTC
 Sponsor: Intel Corporation (initial version) | BBOX.io
 Section: Network.general
@@ -1494,7 +1494,7 @@ Co-authored-by: Eric Joyner <erj@FreeBSD.org>
 [commit f7ea2d561288be5bd0eade18fe2565f30b091f96]
 Date: 2026-08-08
 Score: 5
-Status: accepted(include=yes,score=75)
+Status: added(include=yes,score=75)
 CollectedAt: 2026-11-03T21:07:29 UTC
 Sponsor: 
 Section: Network.general

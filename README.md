@@ -193,8 +193,8 @@ Resulting file:
 
 ```
 perl tools/relnotes/bin/relnotes_collect.pl \
---src ~/freebsd-src --from releng/15.0 --to releng/15.1  \
-  --release-dir releases/15.1R
+--src ~/freebsd-src --from releng/15.1 --to stable/15  \
+  --release-dir releases/15.2R
 ```
 ```
 perl tools/relnotes/bin/relnotes_collect.pl \
@@ -226,6 +226,12 @@ Typical manual actions:
 * write `Review` text - it goes directly to relnotes, if `Status: accepted`
 * optionally tune `Score` - it is order in the relnotes inside of the Section.
 
+
+```
+perl  tools/relnotes/bin/relnotes_stage1_to_stage2.pl \
+  --release-dir releases/15.2R
+```
+
 ```
 perl  tools/relnotes/bin/relnotes_stage1_to_stage2.pl \
   --release-dir releases/14.5R
@@ -250,8 +256,8 @@ Resulting file:
 
 ```
 perl tools/relnotes/bin/relnotes_collect_stage3.pl \
---src ~/freebsd-src --from releng/15.0 --to releng/15.1  \
-  --release-dir releases/15.1R
+--src ~/freebsd-src --from releng/15.1 --to stable/15  \
+  --release-dir releases/15.2R
 ```
 ```
 perl tools/relnotes/bin/relnotes_collect_stage3.pl \
@@ -285,10 +291,15 @@ Typical manual actions:
 
 ```
 perl  tools/relnotes/bin/relnotes_stage3_to_stage4.pl \
+  --release-dir releases/15.2R
+```
+
+```
+perl  tools/relnotes/bin/relnotes_stage3_to_stage4.pl \
   --release-dir releases/14.5R
 ```
 
-### Stage 5: Collect commits from Git with vendir commits
+### Stage 5: Collect commits from Git with vendor commits
 
 Collect commits and generate the initial stage5 file:
 
@@ -307,8 +318,8 @@ Resulting file:
 
 ```
 perl tools/relnotes/bin/relnotes_collect_stage5.pl \
---src ~/freebsd-src --from releng/15.0 --to releng/15.1  \
-  --release-dir releases/15.1R
+--src ~/freebsd-src --from releng/15.1 --to stable/15  \
+  --release-dir releases/15.2R
 ```
 ```
 perl tools/relnotes/bin/relnotes_collect_stage5.pl \
@@ -342,6 +353,12 @@ Typical manual actions:
 
 ```
 perl  tools/relnotes/bin/relnotes_stage5_to_stage6.pl \
+  --release-dir releases/15.2R
+```
+
+
+```
+perl  tools/relnotes/bin/relnotes_stage5_to_stage6.pl \
   --release-dir releases/14.5R
 ```
 
@@ -351,13 +368,21 @@ perl  tools/relnotes/bin/relnotes_stage5_to_stage6.pl \
 #### Copy commit entry to prevent double processing in all stage
 
 ```
+egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.2R/relnotes_stage1.txt >>releases/15.2R/relnotes_stage_all.txt
+egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.2R/relnotes_stage3.txt >>releases/15.2R/relnotes_stage_all.txt
+egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.2R/relnotes_stage5.txt >>releases/15.2R/relnotes_stage_all.txt
+egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.2R/relnotes_stage1.txt >>releases/15.2R/relnotes_stage_review.txt
+egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.2R/relnotes_stage3.txt >>releases/15.2R/relnotes_stage_review.txt
+egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/15.2R/relnotes_stage5.txt >>releases/15.2R/relnotes_stage_review.txt
+```
+
+```
 egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/14.5R/relnotes_stage1.txt >>releases/14.5R/relnotes_stage_all.txt
 egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/14.5R/relnotes_stage3.txt >>releases/14.5R/relnotes_stage_all.txt
 egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/14.5R/relnotes_stage5.txt >>releases/14.5R/relnotes_stage_all.txt
 egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/14.5R/relnotes_stage1.txt >>releases/14.5R/relnotes_stage_review.txt
 egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/14.5R/relnotes_stage3.txt >>releases/14.5R/relnotes_stage_review.txt
 egrep -E '^\[commit [A-Fa-f0-9]+\]' releases/14.5R/relnotes_stage5.txt >>releases/14.5R/relnotes_stage_review.txt
-
 ```
 
 #### Stage 7 similar to stage1m stage 3, stage5
@@ -379,8 +404,8 @@ Resulting file:
 
 ```
 perl tools/relnotes/bin/relnotes_collect_stage_all.pl \
---src ~/freebsd-src --from releng/15.0 --to releng/15.1  \
-  --release-dir releases/15.1R
+--src ~/freebsd-src --from releng/15.1 --to stable/15  \
+  --release-dir releases/15.2R
 ```
 ```
 perl tools/relnotes/bin/relnotes_collect_stage_all.pl \
@@ -414,6 +439,12 @@ Typical manual actions:
 
 ```
 perl  tools/relnotes/bin/relnotes_stage_all_to_stage_review.pl \
+  --release-dir releases/15.2R
+```
+
+
+```
+perl  tools/relnotes/bin/relnotes_stage_all_to_stage_review.pl \
   --release-dir releases/14.5R
 ```
 
@@ -438,7 +469,7 @@ In this mode:
 
 ```
 perl tools/relnotes/bin/relnotes_stage2_to_adoc.pl \
-  --release-dir releases/15.1R \
+  --release-dir releases/15.2R \
   --dry-run
 ```
 ```
@@ -466,7 +497,7 @@ Behavior:
 
 ```
 perl tools/relnotes/bin/relnotes_stage2_to_adoc.pl \
-  --release-dir releases/15.1R \
+  --release-dir releases/15.2R \
   --write
 ```
 
@@ -497,9 +528,9 @@ perl relnotes_stage2_to_adoc.pl --release-dir /path/to/release --write
 ### Select, order and output into new file, append or show on screen
 
 ```
-perl tools/relnotes/bin/relnotes_stage_copy.pl --select "Commit, StatusScore, Subject"  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
+perl tools/relnotes/bin/relnotes_stage_copy.pl --select "Commit, StatusScore, Subject"  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.2R
 
-perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
+perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.2R
 
 perl tools/relnotes/bin/relnotes_stage_copy.pl --into relnotes_stage8.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/14.5R
 
@@ -507,27 +538,30 @@ perl tools/relnotes/bin/relnotes_stage_copy.pl --into relnotes_stage8.txt  --fro
 ```
 
 ```
-perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage2.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
+perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage2.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.2R
 
-perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage4.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
+perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage4.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.2R
 
-perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage6.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
+perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage6.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.2R
 
 
-perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.1R
+perl tools/relnotes/bin/relnotes_stage_copy.pl --insert-into relnotes_stage8.txt  --from relnotes_stage_review.txt --where 'Section eq "Docs.manpages"' --orderby "StatusScore desc" --release-dir releases/15.2R
 
 ```
 
 ### generate the list of the Security Advisories and Errata Notices
 
+До создания ветки releng/X.Y
 ```
-perl tools/relnotes/bin/relnotes_advisories.pl --repo ~/freebsd-src --branch releng/15.1 --advisories-dir advisories  --release-dir releases/15.1R --format-relnotes
+perl tools/relnotes/bin/relnotes_advisories_stable.pl --repo ~/freebsd-src --branch releng/15.2 --advisories-dir  ~/freebsd-doc/website/static/security/advisories  --release-dir releases/15.2R --format-relnotes
+```
+После создания ветки releng/X.Y
 
 ```
-
+perl tools/relnotes/bin/relnotes_advisories.pl --repo ~/freebsd-src --branch releng/15.2 --advisories-dir advisories  --release-dir releases/15.2R --format-relnotes
 ```
-perl tools/relnotes/bin/relnotes_advisories.pl --repo ~/freebsd-src --branch releng/15.1 --advisories-dir  ~/freebsd-doc/website/static/security/advisories  --release-dir releases/15.1R --format-relnotes
-
+```
+perl tools/relnotes/bin/relnotes_advisories.pl --repo ~/freebsd-src --branch releng/15.2 --advisories-dir  ~/freebsd-doc/website/static/security/advisories  --release-dir releases/15.2R --format-relnotes
 ```
 
 ```
